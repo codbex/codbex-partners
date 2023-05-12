@@ -1,1 +1,11 @@
-{"guid":"codbex-partners"}
+{
+  "guid":"codbex-partners",
+  "dependencies": [
+        {
+            "guid": "codbex-countries",
+            "type": "git",
+            "url": "https://github.com/codbex/codbex-countries.git",
+            "branch": "main"
+        }
+    ]
+}
