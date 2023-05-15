@@ -1,5 +1,10 @@
 {
   "guid":"codbex-partners",
+  "repository": {
+        "type": "git",
+        "branch": "main",
+        "url": "https://github.com/codbex/codbex-partners.git"
+  },
   "dependencies": [
         {
             "guid": "codbex-countries",
