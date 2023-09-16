@@ -54,8 +54,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("Partner-details", {
 				action: "select",
 				entity: entity,
-				optionsPartnerTypeId: $scope.optionsPartnerTypeId,
-				optionsCountryId: $scope.optionsCountryId,
+				optionsPartnerType: $scope.optionsPartnerType,
+				optionsCountry: $scope.optionsCountry,
 			});
 		};
 
@@ -64,8 +64,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("Partner-details", {
 				action: "create",
 				entity: {},
-				optionsPartnerTypeId: $scope.optionsPartnerTypeId,
-				optionsCountryId: $scope.optionsCountryId,
+				optionsPartnerType: $scope.optionsPartnerType,
+				optionsCountry: $scope.optionsCountry,
 			}, null, false);
 		};
 
@@ -73,8 +73,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("Partner-details", {
 				action: "update",
 				entity: entity,
-				optionsPartnerTypeId: $scope.optionsPartnerTypeId,
-				optionsCountryId: $scope.optionsCountryId,
+				optionsPartnerType: $scope.optionsPartnerType,
+				optionsCountry: $scope.optionsCountry,
 			}, null, false);
 		};
 
@@ -108,11 +108,11 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		};
 
 		//----------------Dropdowns-----------------//
-		$scope.optionsPartnerTypeId = [];
-		$scope.optionsCountryId = [];
+		$scope.optionsPartnerType = [];
+		$scope.optionsCountry = [];
 
 		$http.get("/services/js/codbex-partners/gen/api/settings/PartnerType.js").then(function (response) {
-			$scope.optionsPartnerTypeId = response.data.map(e => {
+			$scope.optionsPartnerType = response.data.map(e => {
 				return {
 					value: e.Id,
 					text: e.Name
@@ -120,26 +120,26 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$http.get("/services/js/codbex-partners/gen/api/Entities/Country.js").then(function (response) {
-			$scope.optionsCountryId = response.data.map(e => {
+		$http.get("/services/js/codbex-partners/gen/api/entities/Country.js").then(function (response) {
+			$scope.optionsCountry = response.data.map(e => {
 				return {
 					value: e.Id,
 					text: e.Name
 				}
 			});
 		});
-		$scope.optionsPartnerTypeIdValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsPartnerTypeId.length; i++) {
-				if ($scope.optionsPartnerTypeId[i].value === optionKey) {
-					return $scope.optionsPartnerTypeId[i].text;
+		$scope.optionsPartnerTypeValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsPartnerType.length; i++) {
+				if ($scope.optionsPartnerType[i].value === optionKey) {
+					return $scope.optionsPartnerType[i].text;
 				}
 			}
 			return null;
 		};
-		$scope.optionsCountryIdValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsCountryId.length; i++) {
-				if ($scope.optionsCountryId[i].value === optionKey) {
-					return $scope.optionsCountryId[i].text;
+		$scope.optionsCountryValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsCountry.length; i++) {
+				if ($scope.optionsCountry[i].value === optionKey) {
+					return $scope.optionsCountry[i].text;
 				}
 			}
 			return null;

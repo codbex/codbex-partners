@@ -27,14 +27,14 @@
 				<thead fd-table-header sticky="true">
 					<tr fd-table-row>
 						<th fd-table-header-cell>Name</th>
-						<th fd-table-header-cell>PartnerTypeId</th>
+						<th fd-table-header-cell>PartnerType</th>
 						<th fd-table-header-cell>Address</th>
 						<th fd-table-header-cell>City</th>
 						<th fd-table-header-cell>PostalCode</th>
 						<th fd-table-header-cell>Email</th>
 						<th fd-table-header-cell>Phone</th>
 						<th fd-table-header-cell>Fax</th>
-						<th fd-table-header-cell>CountryId</th>
+						<th fd-table-header-cell>Country</th>
 						<th fd-table-header-cell></th>
 					</tr>
 				</thead>
@@ -46,7 +46,7 @@
 						dg-selected="next.Id === selectedEntity.Id" ng-click="selectEntity(next)">
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Name}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							{{optionsPartnerTypeIdValue(next.PartnerTypeId)}}
+							{{optionsPartnerTypeValue(next.PartnerType)}}
 						</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Address}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.City}}</td>
@@ -55,7 +55,7 @@
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Phone}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Fax}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							{{optionsCountryIdValue(next.CountryId)}}
+							{{optionsCountryValue(next.Country)}}
 						</td>
 						<td fd-table-cell fit-content="true">
 							<fd-popover>

@@ -3,59 +3,34 @@ const producer = require("messaging/producer");
 const daoApi = require("db/dao");
 
 let dao = daoApi.create({
-	table: "CODBEX_PARTNER",
+	table: "CODBEX_COUNTRY",
 	properties: [
 		{
 			name: "Id",
-			column: "PARTNER_ID",
+			column: "COUNTRY_ID",
 			type: "INTEGER",
 			id: true,
 			autoIncrement: true,
 		},
  {
 			name: "Name",
-			column: "PARTNER_NAME",
+			column: "COUNTRY_NAME",
 			type: "VARCHAR",
 		},
  {
-			name: "PartnerType",
-			column: "PARTNER_PARTNERTYPEID",
-			type: "INTEGER",
+			name: "Code2",
+			column: "COUNTRY_CODE2",
+			type: "CHAR",
 		},
  {
-			name: "Address",
-			column: "PARTNER_ADDRESS",
-			type: "VARCHAR",
+			name: "Code3",
+			column: "COUNTRY_CODE3",
+			type: "CHAR",
 		},
  {
-			name: "City",
-			column: "PARTNER_CITY",
-			type: "VARCHAR",
-		},
- {
-			name: "PostalCode",
-			column: "PARTNER_POSTALCODE",
-			type: "VARCHAR",
-		},
- {
-			name: "Email",
-			column: "PARTNER_EMAIL",
-			type: "VARCHAR",
-		},
- {
-			name: "Phone",
-			column: "PARTNER_PHONE",
-			type: "VARCHAR",
-		},
- {
-			name: "Fax",
-			column: "PARTNER_FAX",
-			type: "VARCHAR",
-		},
- {
-			name: "Country",
-			column: "PARTNER_COUNTRYID",
-			type: "INTEGER",
+			name: "Numeric",
+			column: "COUNTRY_NUMERIC",
+			type: "CHAR",
 		}
 ]
 });
@@ -71,10 +46,10 @@ exports.get = function(id) {
 exports.create = function(entity) {
 	let id = dao.insert(entity);
 	triggerEvent("Create", {
-		table: "CODBEX_PARTNER",
+		table: "CODBEX_COUNTRY",
 		key: {
 			name: "Id",
-			column: "PARTNER_ID",
+			column: "COUNTRY_ID",
 			value: id
 		}
 	});
@@ -84,10 +59,10 @@ exports.create = function(entity) {
 exports.update = function(entity) {
 	dao.update(entity);
 	triggerEvent("Update", {
-		table: "CODBEX_PARTNER",
+		table: "CODBEX_COUNTRY",
 		key: {
 			name: "Id",
-			column: "PARTNER_ID",
+			column: "COUNTRY_ID",
 			value: entity.Id
 		}
 	});
@@ -96,10 +71,10 @@ exports.update = function(entity) {
 exports.delete = function(id) {
 	dao.remove(id);
 	triggerEvent("Delete", {
-		table: "CODBEX_PARTNER",
+		table: "CODBEX_COUNTRY",
 		key: {
 			name: "Id",
-			column: "PARTNER_ID",
+			column: "COUNTRY_ID",
 			value: id
 		}
 	});
@@ -110,7 +85,7 @@ exports.count = function() {
 };
 
 exports.customDataCount = function() {
-	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_PARTNER"');
+	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_COUNTRY"');
 	if (resultSet !== null && resultSet[0] !== null) {
 		if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
 			return resultSet[0].COUNT;
@@ -122,5 +97,5 @@ exports.customDataCount = function() {
 };
 
 function triggerEvent(operation, data) {
-	producer.queue("codbex-partners/partners/Partner/" + operation).send(JSON.stringify(data));
+	producer.queue("codbex-partners/entities/Country/" + operation).send(JSON.stringify(data));
 }

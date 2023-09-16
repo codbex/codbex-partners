@@ -100,7 +100,7 @@
                         "dataType": "INTEGER",
                         "dataUnique": "false",
                         "isCalculatedProperty": "false",
-                        "name": "PartnerTypeId",
+                        "name": "PartnerType",
                         "widgetDropDownKey": "Id",
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
@@ -212,7 +212,7 @@
                         "dataType": "INTEGER",
                         "dataUnique": "false",
                         "isCalculatedProperty": "false",
-                        "name": "CountryId",
+                        "name": "Country",
                         "widgetDropDownKey": "Id",
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
@@ -220,7 +220,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Partner_Country",
                         "relationshipEntityName": "Country",
-                        "relationshipEntityPerspectiveName": "Entities"
+                        "relationshipEntityPerspectiveName": "entities"
                     }
                 ],
                 "caption": "Manage entity Partner",
@@ -331,7 +331,7 @@
                 "name": "Country",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-                "perspectiveName": "Entities",
+                "perspectiveName": "entities",
                 "perspectiveOrder": "100",
                 "projectionReferencedEntity": "Country",
                 "projectionReferencedModel": "/workspace/codbex-countries/codbex-countries.model",

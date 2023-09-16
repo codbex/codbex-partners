@@ -7,6 +7,7 @@
   "projectName": "codbex-partners",
   "workspaceName": "workspace",
   "filePath": "codbex-partners.model",
+  "templateId": "template-application-angular/template/template.js",
   "perspectives": {
     "settings": {
       "views": [
@@ -26,12 +27,12 @@
       "order": "400",
       "icon": "/services/web/resources/unicons/user-arrows.svg"
     },
-    "Entities": {
+    "entities": {
       "views": [
         "Country"
       ],
-      "name": "Entities",
-      "label": "Entities",
+      "name": "entities",
+      "label": "entities",
       "order": "100",
       "icon": "/services/web/resources/unicons/copy.svg"
     }
@@ -156,7 +157,7 @@
           "dataType": "INTEGER",
           "dataUnique": false,
           "isCalculatedProperty": false,
-          "name": "PartnerTypeId",
+          "name": "PartnerType",
           "widgetDropDownKey": "Id",
           "widgetDropDownValue": "Name",
           "widgetIsMajor": true,
@@ -166,7 +167,7 @@
           "relationshipEntityName": "PartnerType",
           "relationshipEntityPerspectiveName": "settings",
           "dataNotNull": false,
-          "widgetLabel": "PartnerTypeId",
+          "widgetLabel": "PartnerType",
           "inputRule": ""
         },
         {
@@ -301,7 +302,7 @@
           "dataType": "INTEGER",
           "dataUnique": false,
           "isCalculatedProperty": false,
-          "name": "CountryId",
+          "name": "Country",
           "widgetDropDownKey": "Id",
           "widgetDropDownValue": "Name",
           "widgetIsMajor": true,
@@ -309,9 +310,9 @@
           "widgetType": "DROPDOWN",
           "relationshipName": "Partner_Country",
           "relationshipEntityName": "Country",
-          "relationshipEntityPerspectiveName": "Entities",
+          "relationshipEntityPerspectiveName": "entities",
           "dataNotNull": false,
-          "widgetLabel": "CountryId",
+          "widgetLabel": "Country",
           "inputRule": ""
         }
       ],
@@ -451,7 +452,7 @@
       "name": "Country",
       "navigationPath": "/Home",
       "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-      "perspectiveName": "Entities",
+      "perspectiveName": "entities",
       "perspectiveOrder": "100",
       "projectionReferencedEntity": "Country",
       "projectionReferencedModel": "/workspace/codbex-countries/codbex-countries.model",
