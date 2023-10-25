@@ -464,12 +464,6 @@
                 "label": "Partners",
                 "icon": "/services/web/resources/unicons/user-arrows.svg",
                 "order": "400"
-            },
-            {
-                "name": "settings",
-                "label": "Settings",
-                "icon": "/services/web/resources/unicons/wrench.svg",
-                "order": "999"
             }
         ],
         "navigations": []
