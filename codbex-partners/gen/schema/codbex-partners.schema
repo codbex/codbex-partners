@@ -2,7 +2,7 @@
     "schema": {
         "structures": [
             {
-                "name": "CODBEX_PARTNERTYPE",
+                "name": "CODBEX_CUSTOMER",
                 "type": "TABLE",
                 "columns": [
                     {
@@ -10,8 +10,10 @@
                         "length": 0,
                         "primaryKey": true,
                         "identity": true,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
-                        "name": "PARTNERTYPE_ID"
+                        "name": "CUSTOMER_ID"
                     },
                     {
                         "type": "VARCHAR",
@@ -19,73 +21,55 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "PARTNERTYPE_NAME"
-                    }
-                ]
-            },
-            {
-                "name": "CODBEX_PARTNER",
-                "type": "TABLE",
-                "columns": [
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "primaryKey": true,
-                        "identity": true,
-                        "nullable": true,
-                        "name": "PARTNER_ID"
+                        "name": "CUSTOMER_NAME"
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 100,
+                        "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "PARTNER_NAME"
+                        "name": "CUSTOMER_ADDRESS"
                     },
                     {
-                        "type": "INTEGER",
-                        "length": 0,
+                        "type": "VARCHAR",
+                        "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "PARTNER_PARTNERTYPEID"
+                        "name": "CUSTOMER_CITY"
                     },
                     {
                         "type": "VARCHAR",
                         "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
-                        "name": "PARTNER_ADDRESS"
+                        "name": "CUSTOMER_POSTALCODE"
                     },
                     {
                         "type": "VARCHAR",
                         "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
-                        "name": "PARTNER_CITY"
+                        "name": "CUSTOMER_EMAIL"
                     },
                     {
                         "type": "VARCHAR",
                         "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
-                        "name": "PARTNER_POSTALCODE"
+                        "name": "CUSTOMER_PHONE"
                     },
                     {
                         "type": "VARCHAR",
                         "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
-                        "name": "PARTNER_EMAIL"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 20,
-                        "nullable": true,
-                        "name": "PARTNER_PHONE"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 20,
-                        "nullable": true,
-                        "name": "PARTNER_FAX"
+                        "name": "CUSTOMER_FAX"
                     },
                     {
                         "type": "INTEGER",
@@ -93,7 +77,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "PARTNER_COUNTRYID"
+                        "name": "CUSTOMER_COUNTRYID"
                     }
                 ]
             },
@@ -136,20 +120,100 @@
                 ]
             },
             {
-                "name": "Partner_PartnerType",
-                "type": "foreignKey",
-                "table": "CODBEX_PARTNER",
-                "constraintName": "Partner_PartnerType",
-                "columns": "PARTNER_PARTNERTYPEID",
-                "referencedTable": "CODBEX_PARTNERTYPE",
-                "referencedColumns": "PARTNERTYPE_ID"
+                "name": "CODBEX_SUPPLIER",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SUPPLIER_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 100,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SUPPLIER_NAME"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SUPPLIER_ADDRESS"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SUPPLIER_CITY"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SUPPLIER_POSTALCODE"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SUPPLIER_EMAIL"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SUPPLIER_PHONE"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SUPPLIER_FAX"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SUPPLIER_COUNTRY"
+                    }
+                ]
             },
             {
-                "name": "Partner_Country",
+                "name": "Customer_Country",
                 "type": "foreignKey",
-                "table": "CODBEX_PARTNER",
-                "constraintName": "Partner_Country",
-                "columns": "PARTNER_COUNTRYID",
+                "table": "CODBEX_CUSTOMER",
+                "constraintName": "Customer_Country",
+                "columns": "CUSTOMER_COUNTRYID",
+                "referencedTable": "CODBEX_COUNTRY",
+                "referencedColumns": "COUNTRY_ID"
+            },
+            {
+                "name": "Supplier_Country",
+                "type": "foreignKey",
+                "table": "CODBEX_SUPPLIER",
+                "constraintName": "Supplier_Country",
+                "columns": "SUPPLIER_COUNTRY",
                 "referencedTable": "CODBEX_COUNTRY",
                 "referencedColumns": "COUNTRY_ID"
             }
