@@ -9,14 +9,14 @@
   "filePath": "codbex-partners.model",
   "templateId": "template-application-angular/template/template.js",
   "perspectives": {
-    "partners": {
+    "Partners": {
       "views": [
         "Customer",
         "Supplier"
       ],
-      "name": "partners",
-      "label": "partners",
-      "order": "400",
+      "name": "Partners",
+      "label": "Partners",
+      "order": "940",
       "icon": "/services/web/resources/unicons/user-arrows.svg"
     },
     "entities": {
@@ -244,8 +244,8 @@
       "name": "Customer",
       "navigationPath": "/Home",
       "perspectiveIcon": "/services/web/resources/unicons/user-arrows.svg",
-      "perspectiveName": "partners",
-      "perspectiveOrder": "400",
+      "perspectiveName": "Partners",
+      "perspectiveOrder": "940",
       "title": "Customer",
       "tooltip": "Customer",
       "type": "PRIMARY",
@@ -594,8 +594,8 @@
       "name": "Supplier",
       "navigationPath": "/Home",
       "perspectiveIcon": "/services/web/resources/unicons/user-arrows.svg",
-      "perspectiveName": "partners",
-      "perspectiveOrder": "400",
+      "perspectiveName": "Partners",
+      "perspectiveOrder": "940",
       "title": "Supplier",
       "tooltip": "Supplier",
       "type": "PRIMARY",

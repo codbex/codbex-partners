@@ -174,8 +174,8 @@
                 "name": "Customer",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/user-arrows.svg",
-                "perspectiveName": "partners",
-                "perspectiveOrder": "400",
+                "perspectiveName": "Partners",
+                "perspectiveOrder": "940",
                 "title": "Customer",
                 "tooltip": "Customer",
                 "type": "PRIMARY"
@@ -451,8 +451,8 @@
                 "name": "Supplier",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/user-arrows.svg",
-                "perspectiveName": "partners",
-                "perspectiveOrder": "400",
+                "perspectiveName": "Partners",
+                "perspectiveOrder": "940",
                 "title": "Supplier",
                 "tooltip": "Supplier",
                 "type": "PRIMARY"
@@ -460,10 +460,10 @@
         ],
         "perspectives": [
             {
-                "name": "partners",
+                "name": "Partners",
                 "label": "Partners",
                 "icon": "/services/web/resources/unicons/user-arrows.svg",
-                "order": "400"
+                "order": "940"
             }
         ],
         "navigations": []
