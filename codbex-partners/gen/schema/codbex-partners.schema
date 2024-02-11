@@ -78,6 +78,20 @@
                         "scale": "NaN",
                         "nullable": true,
                         "name": "CUSTOMER_COUNTRYID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "CUSTOMER_TIN"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 36,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "CUSTOMER_IBAN"
                     }
                 ]
             },
@@ -196,6 +210,20 @@
                         "scale": "NaN",
                         "nullable": true,
                         "name": "SUPPLIER_COUNTRY"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "SUPPLIER_TIN"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 36,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SUPPLIER_IBAN"
                     }
                 ]
             },

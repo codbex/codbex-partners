@@ -13,6 +13,8 @@ export interface SupplierEntity {
     Fax?: string;
     City?: number;
     Country?: number;
+    TIN?: string;
+    IBAN?: string;
 }
 
 export interface SupplierCreateEntity {
@@ -24,6 +26,8 @@ export interface SupplierCreateEntity {
     readonly Fax?: string;
     readonly City?: number;
     readonly Country?: number;
+    readonly TIN?: string;
+    readonly IBAN?: string;
 }
 
 export interface SupplierUpdateEntity extends SupplierCreateEntity {
@@ -42,6 +46,8 @@ export interface SupplierEntityOptions {
             Fax?: string | string[];
             City?: number | number[];
             Country?: number | number[];
+            TIN?: string | string[];
+            IBAN?: string | string[];
         };
         notEquals?: {
             Id?: number | number[];
@@ -53,6 +59,8 @@ export interface SupplierEntityOptions {
             Fax?: string | string[];
             City?: number | number[];
             Country?: number | number[];
+            TIN?: string | string[];
+            IBAN?: string | string[];
         };
         contains?: {
             Id?: number;
@@ -64,6 +72,8 @@ export interface SupplierEntityOptions {
             Fax?: string;
             City?: number;
             Country?: number;
+            TIN?: string;
+            IBAN?: string;
         };
         greaterThan?: {
             Id?: number;
@@ -75,6 +85,8 @@ export interface SupplierEntityOptions {
             Fax?: string;
             City?: number;
             Country?: number;
+            TIN?: string;
+            IBAN?: string;
         };
         greaterThanOrEqual?: {
             Id?: number;
@@ -86,6 +98,8 @@ export interface SupplierEntityOptions {
             Fax?: string;
             City?: number;
             Country?: number;
+            TIN?: string;
+            IBAN?: string;
         };
         lessThan?: {
             Id?: number;
@@ -97,6 +111,8 @@ export interface SupplierEntityOptions {
             Fax?: string;
             City?: number;
             Country?: number;
+            TIN?: string;
+            IBAN?: string;
         };
         lessThanOrEqual?: {
             Id?: number;
@@ -108,6 +124,8 @@ export interface SupplierEntityOptions {
             Fax?: string;
             City?: number;
             Country?: number;
+            TIN?: string;
+            IBAN?: string;
         };
     },
     $select?: (keyof SupplierEntity)[],
@@ -179,6 +197,16 @@ export class SupplierRepository {
                 name: "Country",
                 column: "SUPPLIER_COUNTRY",
                 type: "INTEGER",
+            },
+            {
+                name: "TIN",
+                column: "SUPPLIER_TIN",
+                type: "VARCHAR",
+            },
+            {
+                name: "IBAN",
+                column: "SUPPLIER_IBAN",
+                type: "VARCHAR",
             }
         ]
     };
