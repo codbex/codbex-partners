@@ -12,7 +12,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" href="data:;base64,iVBORw0KGgo=" dg-brand-icon />
         <title dg-brand-title></title>
-        <script type="text/javascript" src="ui/launchpad/perspective.js"></script>
+        <script type="text/javascript" src="perspective.js"></script>
         <theme></theme>
         <script type="text/javascript"
             src="/services/js/resources-core/services/loader.js?id=application-perspective-js">
@@ -23,14 +23,11 @@
 
     <body>
         <ide-header menu-ext-id="codbex-partners-menu"></ide-header>
-
         <ide-container>
-            <view id="codbex-partners-home-launchpad"></view>
+            <ide-layout views-layout-model="layoutModel"></ide-layout>
         </ide-container>
-
         <ide-dialogs></ide-dialogs>
         <ide-status-bar></ide-status-bar>
-
         <script type="text/javascript">
             angular.module('app', ['ngResource', 'ideLayout', 'ideUI'])
                 .constant('branding', {
@@ -49,14 +46,14 @@
                     views: "codbex-partners-view",
                     dialogWindows: "codbex-partners-dialog-window"
                 })
-                .config(["messageHubProvider", function (messageHubProvider) {
-                    messageHubProvider.eventIdPrefix = 'codbex-partners.launchpad.Home';
-                }])
                 .controller('ApplicationController', ["$scope", "messageHub", function ($scope, messageHub) {
+                    const httpRequest = new XMLHttpRequest();
+                    httpRequest.open("GET", "/services/js/resources-core/services/views.js?extensionPoint=codbex-partners-view", false);
+                    httpRequest.send();
 
-                    messageHub.onDidReceiveMessage("openView", function (msg) {
-                        window.location = msg.data.location;
-                    });
+                    $scope.layoutModel = {
+                        views: JSON.parse(httpRequest.responseText).filter(e => !e.isLaunchpad && e.perspectiveName === "Suppliers").map(e => e.id)
+                    };
 
                 }]);
         </script>

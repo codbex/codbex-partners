@@ -1,0 +1,5 @@
+{
+    "module": "codbex-partners/gen/ui/Customers/Customer/CustomerNote/view.js",
+    "extensionPoint": "codbex-partners-view",
+    "description": "codbex-partners - Application View - Details"
+}

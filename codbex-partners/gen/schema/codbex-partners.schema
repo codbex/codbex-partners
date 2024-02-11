@@ -37,14 +37,6 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "CUSTOMER_CITY"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
                         "name": "CUSTOMER_POSTALCODE"
                     },
                     {
@@ -70,6 +62,14 @@
                         "scale": "NaN",
                         "nullable": true,
                         "name": "CUSTOMER_FAX"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "CUSTOMER_CITY"
                     },
                     {
                         "type": "INTEGER",
@@ -155,14 +155,6 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "SUPPLIER_CITY"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
                         "name": "SUPPLIER_POSTALCODE"
                     },
                     {
@@ -195,9 +187,178 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
+                        "name": "SUPPLIER_CITY"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
                         "name": "SUPPLIER_COUNTRY"
                     }
                 ]
+            },
+            {
+                "name": "CODBEX_CITY",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "CITY_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 100,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "CITY_NAME"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "CITY_COUNTRY"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_ENTITY5",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "ENTITY5_ENTITY5ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 100,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "ENTITY5_NAME"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "ENTITY5_CITY"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "ENTITY5_COUNTRY"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_CUSTOMERNOTE",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "CUSTOMERNOTE_ID"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "nullable": true,
+                        "name": "CUSTOMERNOTE_CUSTOMER"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 5000,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "CUSTOMERNOTE_NOTE"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_SUPPLIERNOTE",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "SUPPLIERNOTE_ID"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "nullable": true,
+                        "name": "SUPPLIERNOTE_SUPPLIER"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 5000,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SUPPLIERNOTE_NOTE"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_MANUFACTURERNOTE",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "MANUFACTURERNOTE_ID"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "nullable": true,
+                        "name": "MANUFACTURERNOTE_MANUFACTURER"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 5000,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "MANUFACTURERNOTE_NOTE"
+                    }
+                ]
+            },
+            {
+                "name": "Customer_City",
+                "type": "foreignKey",
+                "table": "CODBEX_CUSTOMER",
+                "constraintName": "Customer_City",
+                "columns": "CUSTOMER_CITY",
+                "referencedTable": "CODBEX_CITY",
+                "referencedColumns": "CITY_ID"
             },
             {
                 "name": "Customer_Country",
@@ -209,6 +370,15 @@
                 "referencedColumns": "COUNTRY_ID"
             },
             {
+                "name": "Supplier_City",
+                "type": "foreignKey",
+                "table": "CODBEX_SUPPLIER",
+                "constraintName": "Supplier_City",
+                "columns": "SUPPLIER_CITY",
+                "referencedTable": "CODBEX_CITY",
+                "referencedColumns": "CITY_ID"
+            },
+            {
                 "name": "Supplier_Country",
                 "type": "foreignKey",
                 "table": "CODBEX_SUPPLIER",
@@ -216,7 +386,53 @@
                 "columns": "SUPPLIER_COUNTRY",
                 "referencedTable": "CODBEX_COUNTRY",
                 "referencedColumns": "COUNTRY_ID"
+            },
+            {
+                "name": "Manufacturer_City",
+                "type": "foreignKey",
+                "table": "CODBEX_ENTITY5",
+                "constraintName": "Manufacturer_City",
+                "columns": "ENTITY5_CITY",
+                "referencedTable": "CODBEX_CITY",
+                "referencedColumns": "CITY_ID"
+            },
+            {
+                "name": "Manufacturer_Country",
+                "type": "foreignKey",
+                "table": "CODBEX_ENTITY5",
+                "constraintName": "Manufacturer_Country",
+                "columns": "ENTITY5_COUNTRY",
+                "referencedTable": "CODBEX_COUNTRY",
+                "referencedColumns": "COUNTRY_ID"
+            },
+            {
+                "name": "CustomerNote_Customer",
+                "type": "foreignKey",
+                "table": "CODBEX_CUSTOMERNOTE",
+                "constraintName": "CustomerNote_Customer",
+                "columns": "CUSTOMERNOTE_CUSTOMER",
+                "referencedTable": "CODBEX_CUSTOMER",
+                "referencedColumns": "CUSTOMER_ID"
+            },
+            {
+                "name": "SupplierNote_Supplier",
+                "type": "foreignKey",
+                "table": "CODBEX_SUPPLIERNOTE",
+                "constraintName": "SupplierNote_Supplier",
+                "columns": "SUPPLIERNOTE_SUPPLIER",
+                "referencedTable": "CODBEX_SUPPLIER",
+                "referencedColumns": "SUPPLIER_ID"
+            },
+            {
+                "name": "ManufacturerNote_Manufacturer",
+                "type": "foreignKey",
+                "table": "CODBEX_MANUFACTURERNOTE",
+                "constraintName": "ManufacturerNote_Manufacturer",
+                "columns": "MANUFACTURERNOTE_MANUFACTURER",
+                "referencedTable": "CODBEX_ENTITY5",
+                "referencedColumns": "ENTITY5_ENTITY5ID"
             }
         ]
-    }
+    },
+    "datasource": "DefaultDB"
 }
