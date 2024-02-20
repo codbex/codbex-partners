@@ -10,7 +10,14 @@ class CustomerNoteService {
     @Get("/")
     public getAll(_: any, ctx: any) {
         try {
+            let Customer = parseInt(ctx.queryParameters.Customer);
+            Customer = isNaN(Customer) ? ctx.queryParameters.Customer : Customer;
             const options: CustomerNoteEntityOptions = {
+                $filter: {
+                    equals: {
+                        Customer: Customer
+                    }
+                },
                 $limit: ctx.queryParameters["$limit"] ? parseInt(ctx.queryParameters["$limit"]) : undefined,
                 $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined
             };
@@ -33,12 +40,28 @@ class CustomerNoteService {
         }
     }
 
-    @Get("/count/:Customer")
-    public count(_: any, ctx: any) {
+    @Get("/count")
+    public count() {
         try {
-            let Customer = parseInt(ctx.pathParameters.Customer);
-            Customer = isNaN(Customer) ? ctx.pathParameters.Customer : Customer;
-            return this.repository.count(Customer);
+            return this.repository.count();
+        } catch (error: any) {
+            this.handleError(error);
+        }
+    }
+
+    @Post("/count")
+    public countWithFilter(filter: any) {
+        try {
+            return this.repository.count(filter);
+        } catch (error: any) {
+            this.handleError(error);
+        }
+    }
+
+    @Post("/search")
+    public search(filter: any) {
+        try {
+            return this.repository.findAll(filter);
         } catch (error: any) {
             this.handleError(error);
         }

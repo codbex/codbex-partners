@@ -149,7 +149,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.optionsCity = [];
 		$scope.optionsCountry = [];
 
-		$http.get("/services/ts/codbex-partners/gen/api/Cities/CityService.ts").then(function (response) {
+
+		$http.get("/services/ts/codbex-cities/gen/api/Cities/CityService.ts").then(function (response) {
 			$scope.optionsCity = response.data.map(e => {
 				return {
 					value: e.Id,
@@ -158,7 +159,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$http.get("/services/ts/codbex-partners/gen/api/entities/CountryService.ts").then(function (response) {
+		$http.get("/services/ts/codbex-countries/gen/api/entities/CountryService.ts").then(function (response) {
 			$scope.optionsCountry = response.data.map(e => {
 				return {
 					value: e.Id,
@@ -166,6 +167,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		});
+
 		$scope.optionsCityValue = function (optionKey) {
 			for (let i = 0; i < $scope.optionsCity.length; i++) {
 				if ($scope.optionsCity[i].value === optionKey) {

@@ -86,7 +86,7 @@ interface ManufacturerEntityEvent {
 export class ManufacturerRepository {
 
     private static readonly DEFINITION = {
-        table: "CODBEX_ENTITY5",
+        table: "CODBEX_MANIFACTURER",
         properties: [
             {
                 name: "Id",
@@ -132,7 +132,7 @@ export class ManufacturerRepository {
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
-            table: "CODBEX_ENTITY5",
+            table: "CODBEX_MANIFACTURER",
             entity: entity,
             key: {
                 name: "Id",
@@ -147,7 +147,7 @@ export class ManufacturerRepository {
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
-            table: "CODBEX_ENTITY5",
+            table: "CODBEX_MANIFACTURER",
             entity: entity,
             key: {
                 name: "Id",
@@ -177,7 +177,7 @@ export class ManufacturerRepository {
         this.dao.remove(id);
         this.triggerEvent({
             operation: "delete",
-            table: "CODBEX_ENTITY5",
+            table: "CODBEX_MANIFACTURER",
             entity: entity,
             key: {
                 name: "Id",
@@ -187,12 +187,12 @@ export class ManufacturerRepository {
         });
     }
 
-    public count(): number {
-        return this.dao.count();
+    public count(options?: ManufacturerEntityOptions): number {
+        return this.dao.count(options);
     }
 
-    public customDataCount(): number {
-        const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_ENTITY5"');
+    public customDataCount(options?: ManufacturerEntityOptions): number {
+        const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX__MANIFACTURER"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
                 return resultSet[0].COUNT;

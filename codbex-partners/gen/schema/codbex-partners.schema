@@ -258,7 +258,7 @@
                 ]
             },
             {
-                "name": "CODBEX_ENTITY5",
+                "name": "CODBEX_MANIFACTURER",
                 "type": "TABLE",
                 "columns": [
                     {
@@ -418,7 +418,7 @@
             {
                 "name": "Manufacturer_City",
                 "type": "foreignKey",
-                "table": "CODBEX_ENTITY5",
+                "table": "CODBEX_MANIFACTURER",
                 "constraintName": "Manufacturer_City",
                 "columns": "ENTITY5_CITY",
                 "referencedTable": "CODBEX_CITY",
@@ -427,7 +427,7 @@
             {
                 "name": "Manufacturer_Country",
                 "type": "foreignKey",
-                "table": "CODBEX_ENTITY5",
+                "table": "CODBEX_MANIFACTURER",
                 "constraintName": "Manufacturer_Country",
                 "columns": "ENTITY5_COUNTRY",
                 "referencedTable": "CODBEX_COUNTRY",
@@ -457,7 +457,7 @@
                 "table": "CODBEX_MANUFACTURERNOTE",
                 "constraintName": "ManufacturerNote_Manufacturer",
                 "columns": "MANUFACTURERNOTE_MANUFACTURER",
-                "referencedTable": "CODBEX_ENTITY5",
+                "referencedTable": "CODBEX_MANIFACTURER",
                 "referencedColumns": "ENTITY5_ENTITY5ID"
             }
         ]
