@@ -47,7 +47,7 @@
                         "calculatedPropertyExpressionCreate": "",
                         "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
-                        "dataLength": "20",
+                        "dataLength": "200",
                         "dataName": "CUSTOMER_ADDRESS",
                         "dataNullable": "true",
                         "dataPrecision": "NaN",
@@ -59,9 +59,9 @@
                         "isRequiredProperty": "false",
                         "name": "Address",
                         "widgetIsMajor": "true",
-                        "widgetLength": "20",
+                        "widgetLength": "200",
                         "widgetSize": "",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "TEXTAREA"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -87,7 +87,7 @@
                         "calculatedPropertyExpressionCreate": "",
                         "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
-                        "dataLength": "20",
+                        "dataLength": "100",
                         "dataName": "CUSTOMER_EMAIL",
                         "dataNullable": "true",
                         "dataPrecision": "NaN",
@@ -99,7 +99,7 @@
                         "isRequiredProperty": "false",
                         "name": "Email",
                         "widgetIsMajor": "true",
-                        "widgetLength": "20",
+                        "widgetLength": "100",
                         "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
@@ -411,7 +411,7 @@
                         "calculatedPropertyExpressionCreate": "",
                         "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
-                        "dataLength": "20",
+                        "dataLength": "200",
                         "dataName": "SUPPLIER_ADDRESS",
                         "dataNullable": "true",
                         "dataPrecision": "NaN",
@@ -423,9 +423,9 @@
                         "isRequiredProperty": "false",
                         "name": "Address",
                         "widgetIsMajor": "true",
-                        "widgetLength": "20",
+                        "widgetLength": "200",
                         "widgetSize": "",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "TEXTAREA"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -451,7 +451,7 @@
                         "calculatedPropertyExpressionCreate": "",
                         "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
-                        "dataLength": "20",
+                        "dataLength": "100",
                         "dataName": "SUPPLIER_EMAIL",
                         "dataNullable": "true",
                         "dataPrecision": "NaN",
@@ -463,7 +463,7 @@
                         "isRequiredProperty": "false",
                         "name": "Email",
                         "widgetIsMajor": "true",
-                        "widgetLength": "20",
+                        "widgetLength": "100",
                         "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },

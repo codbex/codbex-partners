@@ -25,7 +25,7 @@
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": 200,
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
@@ -41,7 +41,7 @@
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": 100,
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
@@ -157,7 +157,7 @@
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": 200,
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
@@ -173,7 +173,7 @@
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": 100,
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
