@@ -198,6 +198,6 @@ export class ManufacturerNoteRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-partners/Manufacturers/ManufacturerNote").send(JSON.stringify(data));
+        producer.topic("codbex-partners/Manufacturers/ManufacturerNote").send(JSON.stringify(data));
     }
 }

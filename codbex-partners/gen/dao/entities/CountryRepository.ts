@@ -226,6 +226,6 @@ export class CountryRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-partners/entities/Country").send(JSON.stringify(data));
+        producer.topic("codbex-partners/entities/Country").send(JSON.stringify(data));
     }
 }

@@ -82,6 +82,8 @@
                     {
                         "type": "VARCHAR",
                         "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "CUSTOMER_TIN"
                     },
@@ -214,6 +216,8 @@
                     {
                         "type": "VARCHAR",
                         "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "SUPPLIER_TIN"
                     },

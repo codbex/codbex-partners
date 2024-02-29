@@ -198,6 +198,6 @@ export class SupplierNoteRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-partners/Suppliers/SupplierNote").send(JSON.stringify(data));
+        producer.topic("codbex-partners/Suppliers/SupplierNote").send(JSON.stringify(data));
     }
 }

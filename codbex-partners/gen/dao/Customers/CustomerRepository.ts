@@ -310,6 +310,6 @@ export class CustomerRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-partners/Customers/Customer").send(JSON.stringify(data));
+        producer.topic("codbex-partners/Customers/Customer").send(JSON.stringify(data));
     }
 }

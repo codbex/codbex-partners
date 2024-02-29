@@ -212,6 +212,6 @@ export class ManufacturerRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-partners/Manufacturers/Manufacturer").send(JSON.stringify(data));
+        producer.topic("codbex-partners/Manufacturers/Manufacturer").send(JSON.stringify(data));
     }
 }

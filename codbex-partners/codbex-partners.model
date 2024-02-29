@@ -80,7 +80,7 @@
                         "name": "PostalCode",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
-                        "widgetSize": "",
+                        "widgetSize": "fd-col-md--2 fd-col--3",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -100,7 +100,7 @@
                         "name": "Email",
                         "widgetIsMajor": "true",
                         "widgetLength": "100",
-                        "widgetSize": "",
+                        "widgetSize": "fd-col-md--6 fd-col--9",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -120,7 +120,7 @@
                         "name": "Phone",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
-                        "widgetSize": "",
+                        "widgetSize": "fd-col-md--2 fd-col--3",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -140,7 +140,7 @@
                         "name": "Fax",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
-                        "widgetSize": "",
+                        "widgetSize": "fd-col-md--2 fd-col--3",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -162,7 +162,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
-                        "widgetSize": "",
+                        "widgetSize": "fd-col-md--6 fd-col--9",
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Customer_City",
                         "relationshipEntityName": "City",
@@ -187,7 +187,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
-                        "widgetSize": "",
+                        "widgetSize": "fd-col-md--4 fd-col--6",
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Customer_Country",
                         "relationshipEntityName": "Country",
@@ -200,7 +200,9 @@
                         "dataLength": "20",
                         "dataName": "CUSTOMER_TIN",
                         "dataNullable": "true",
+                        "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
                         "dataType": "VARCHAR",
                         "dataUnique": "false",
                         "isCalculatedProperty": "false",
@@ -208,7 +210,7 @@
                         "name": "TIN",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
-                        "widgetSize": "",
+                        "widgetSize": "fd-col-md--4 fd-col--6",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -228,7 +230,7 @@
                         "name": "IBAN",
                         "widgetIsMajor": "true",
                         "widgetLength": "36",
-                        "widgetSize": "",
+                        "widgetSize": "fd-col-md--4 fd-col--6",
                         "widgetType": "TEXTBOX"
                     }
                 ],
@@ -444,7 +446,7 @@
                         "name": "PostalCode",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
-                        "widgetSize": "",
+                        "widgetSize": "fd-col-md--2 fd-col--3",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -464,7 +466,7 @@
                         "name": "Email",
                         "widgetIsMajor": "true",
                         "widgetLength": "100",
-                        "widgetSize": "",
+                        "widgetSize": "fd-col-md--4 fd-col--6",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -484,7 +486,7 @@
                         "name": "Phone",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
-                        "widgetSize": "",
+                        "widgetSize": "fd-col-md--2 fd-col--3",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -504,7 +506,7 @@
                         "name": "Fax",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
-                        "widgetSize": "",
+                        "widgetSize": "fd-col-md--2 fd-col--3",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -526,7 +528,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
-                        "widgetSize": "",
+                        "widgetSize": "fd-col-md--6 fd-col--9",
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Supplier_City",
                         "relationshipEntityName": "City",
@@ -551,7 +553,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
-                        "widgetSize": "",
+                        "widgetSize": "fd-col-md--4 fd-col--6",
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Supplier_Country",
                         "relationshipEntityName": "Country",
@@ -564,7 +566,9 @@
                         "dataLength": "20",
                         "dataName": "SUPPLIER_TIN",
                         "dataNullable": "true",
+                        "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
                         "dataType": "VARCHAR",
                         "dataUnique": "false",
                         "isCalculatedProperty": "false",
@@ -572,7 +576,7 @@
                         "name": "TIN",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
-                        "widgetSize": "",
+                        "widgetSize": "fd-col-md--4 fd-col--6",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -592,7 +596,7 @@
                         "name": "IBAN",
                         "widgetIsMajor": "true",
                         "widgetLength": "36",
-                        "widgetSize": "",
+                        "widgetSize": "fd-col-md--4 fd-col--6",
                         "widgetType": "TEXTBOX"
                     }
                 ],
@@ -760,7 +764,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
-                        "widgetSize": "",
+                        "widgetSize": "fd-col-md--6 fd-col--9",
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Manufacturer_City",
                         "relationshipEntityName": "City",
@@ -785,7 +789,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
-                        "widgetSize": "",
+                        "widgetSize": "fd-col-md--4 fd-col--6",
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Manufacturer_Country",
                         "relationshipEntityName": "Country",

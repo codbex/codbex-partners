@@ -198,6 +198,6 @@ export class CustomerNoteRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-partners/Customers/CustomerNote").send(JSON.stringify(data));
+        producer.topic("codbex-partners/Customers/CustomerNote").send(JSON.stringify(data));
     }
 }
