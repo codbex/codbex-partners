@@ -37,10 +37,8 @@
 								state="{{ forms.details['Note'].$valid ? '' : 'error' }}"
 								ng-required="false"
 								ng-model="entity.Note"
-	                            ng-readonly="action === 'select'"
 								ng-minlength="0.0 || 0"
 								ng-maxlength="5000.0 || -1"
-								dg-input-rules="{ patterns: [''] }"
 								placeholder="Enter Note">
 							</fd-textarea>
 							<fd-form-message dg-type="error" ng-show="!forms.details['Note'].$valid">Incorrect Input</fd-form-message>

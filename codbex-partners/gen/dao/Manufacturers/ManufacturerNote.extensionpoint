@@ -1,1 +1,4 @@
-{"location":"codbex-partners/gen/dao/Manufacturers/ManufacturerNote.extensionpoint","name":"codbex-partners/Manufacturers/ManufacturerNote","description":"Extension Point for codbex-partners Manufacturers ManufacturerNote"}
+{
+    "name": "codbex-partners-Manufacturers-ManufacturerNote",
+    "description": "Extension Point for the codbex-partners-Manufacturers-ManufacturerNote entity"
+}

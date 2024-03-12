@@ -5,15 +5,15 @@ import { dao as daoApi } from "sdk/db";
 
 export interface ManufacturerEntity {
     readonly Id: number;
-    Name?: string;
-    City?: number;
-    Country?: number;
+    Name: string;
+    City: number;
+    Country: number;
 }
 
 export interface ManufacturerCreateEntity {
-    readonly Name?: string;
-    readonly City?: number;
-    readonly Country?: number;
+    readonly Name: string;
+    readonly City: number;
+    readonly Country: number;
 }
 
 export interface ManufacturerUpdateEntity extends ManufacturerCreateEntity {
@@ -99,16 +99,19 @@ export class ManufacturerRepository {
                 name: "Name",
                 column: "ENTITY5_NAME",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "City",
-                column: "ENTITY5_CITY",
+                column: "MANIFACTURER_CITY",
                 type: "INTEGER",
+                required: true
             },
             {
                 name: "Country",
-                column: "ENTITY5_COUNTRY",
+                column: "MANIFACTURER_COUNTRY",
                 type: "INTEGER",
+                required: true
             }
         ]
     };
@@ -191,7 +194,7 @@ export class ManufacturerRepository {
         return this.dao.count(options);
     }
 
-    public customDataCount(options?: ManufacturerEntityOptions): number {
+    public customDataCount(): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX__MANIFACTURER"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -204,7 +207,7 @@ export class ManufacturerRepository {
     }
 
     private async triggerEvent(data: ManufacturerEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-partners/Manufacturers/Manufacturer", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-partners-Manufacturers-Manufacturer", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);
@@ -212,6 +215,6 @@ export class ManufacturerRepository {
                 console.error(error);
             }            
         });
-        producer.topic("codbex-partners/Manufacturers/Manufacturer").send(JSON.stringify(data));
+        producer.topic("codbex-partners-Manufacturers-Manufacturer").send(JSON.stringify(data));
     }
 }

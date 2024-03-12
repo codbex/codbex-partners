@@ -1,1 +1,4 @@
-{"location":"codbex-partners/gen/dao/Customers/CustomerNote.extensionpoint","name":"codbex-partners/Customers/CustomerNote","description":"Extension Point for codbex-partners Customers CustomerNote"}
+{
+    "name": "codbex-partners-Customers-CustomerNote",
+    "description": "Extension Point for the codbex-partners-Customers-CustomerNote entity"
+}

@@ -5,27 +5,27 @@ import { dao as daoApi } from "sdk/db";
 
 export interface SupplierEntity {
     readonly Id: number;
-    Name?: string;
-    Address?: string;
+    Name: string;
+    Address: string;
     PostalCode?: string;
-    Email?: string;
+    Email: string;
     Phone?: string;
     Fax?: string;
-    City?: number;
-    Country?: number;
+    City: number;
+    Country: number;
     TIN?: string;
     IBAN?: string;
 }
 
 export interface SupplierCreateEntity {
-    readonly Name?: string;
-    readonly Address?: string;
+    readonly Name: string;
+    readonly Address: string;
     readonly PostalCode?: string;
-    readonly Email?: string;
+    readonly Email: string;
     readonly Phone?: string;
     readonly Fax?: string;
-    readonly City?: number;
-    readonly Country?: number;
+    readonly City: number;
+    readonly Country: number;
     readonly TIN?: string;
     readonly IBAN?: string;
 }
@@ -162,11 +162,13 @@ export class SupplierRepository {
                 name: "Name",
                 column: "SUPPLIER_NAME",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "Address",
                 column: "SUPPLIER_ADDRESS",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "PostalCode",
@@ -177,6 +179,7 @@ export class SupplierRepository {
                 name: "Email",
                 column: "SUPPLIER_EMAIL",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "Phone",
@@ -192,11 +195,13 @@ export class SupplierRepository {
                 name: "City",
                 column: "SUPPLIER_CITY",
                 type: "INTEGER",
+                required: true
             },
             {
                 name: "Country",
                 column: "SUPPLIER_COUNTRY",
                 type: "INTEGER",
+                required: true
             },
             {
                 name: "TIN",
@@ -289,7 +294,7 @@ export class SupplierRepository {
         return this.dao.count(options);
     }
 
-    public customDataCount(options?: SupplierEntityOptions): number {
+    public customDataCount(): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX__SUPPLIER"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -302,7 +307,7 @@ export class SupplierRepository {
     }
 
     private async triggerEvent(data: SupplierEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-partners/Suppliers/Supplier", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-partners-Suppliers-Supplier", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);
@@ -310,6 +315,6 @@ export class SupplierRepository {
                 console.error(error);
             }            
         });
-        producer.topic("codbex-partners/Suppliers/Supplier").send(JSON.stringify(data));
+        producer.topic("codbex-partners-Suppliers-Supplier").send(JSON.stringify(data));
     }
 }

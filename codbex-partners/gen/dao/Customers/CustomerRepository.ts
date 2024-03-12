@@ -5,27 +5,27 @@ import { dao as daoApi } from "sdk/db";
 
 export interface CustomerEntity {
     readonly Id: number;
-    Name?: string;
-    Address?: string;
+    Name: string;
+    Address: string;
     PostalCode?: string;
-    Email?: string;
+    Email: string;
     Phone?: string;
     Fax?: string;
-    City?: number;
-    Country?: number;
+    City: number;
+    Country: number;
     TIN?: string;
     IBAN?: string;
 }
 
 export interface CustomerCreateEntity {
-    readonly Name?: string;
-    readonly Address?: string;
+    readonly Name: string;
+    readonly Address: string;
     readonly PostalCode?: string;
-    readonly Email?: string;
+    readonly Email: string;
     readonly Phone?: string;
     readonly Fax?: string;
-    readonly City?: number;
-    readonly Country?: number;
+    readonly City: number;
+    readonly Country: number;
     readonly TIN?: string;
     readonly IBAN?: string;
 }
@@ -162,11 +162,13 @@ export class CustomerRepository {
                 name: "Name",
                 column: "CUSTOMER_NAME",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "Address",
                 column: "CUSTOMER_ADDRESS",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "PostalCode",
@@ -177,6 +179,7 @@ export class CustomerRepository {
                 name: "Email",
                 column: "CUSTOMER_EMAIL",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "Phone",
@@ -192,11 +195,13 @@ export class CustomerRepository {
                 name: "City",
                 column: "CUSTOMER_CITY",
                 type: "INTEGER",
+                required: true
             },
             {
                 name: "Country",
-                column: "CUSTOMER_COUNTRYID",
+                column: "CUSTOMER_COUNTRY",
                 type: "INTEGER",
+                required: true
             },
             {
                 name: "TIN",
@@ -289,7 +294,7 @@ export class CustomerRepository {
         return this.dao.count(options);
     }
 
-    public customDataCount(options?: CustomerEntityOptions): number {
+    public customDataCount(): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX__CUSTOMER"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -302,7 +307,7 @@ export class CustomerRepository {
     }
 
     private async triggerEvent(data: CustomerEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-partners/Customers/Customer", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-partners-Customers-Customer", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);
@@ -310,6 +315,6 @@ export class CustomerRepository {
                 console.error(error);
             }            
         });
-        producer.topic("codbex-partners/Customers/Customer").send(JSON.stringify(data));
+        producer.topic("codbex-partners-Customers-Customer").send(JSON.stringify(data));
     }
 }

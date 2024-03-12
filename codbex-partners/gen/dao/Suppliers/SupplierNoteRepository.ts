@@ -177,7 +177,7 @@ export class SupplierNoteRepository {
         return this.dao.count(options);
     }
 
-    public customDataCount(options?: SupplierNoteEntityOptions): number {
+    public customDataCount(): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_SUPPLIERNOTE"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -190,7 +190,7 @@ export class SupplierNoteRepository {
     }
 
     private async triggerEvent(data: SupplierNoteEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-partners/Suppliers/SupplierNote", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-partners-Suppliers-SupplierNote", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);
@@ -198,6 +198,6 @@ export class SupplierNoteRepository {
                 console.error(error);
             }            
         });
-        producer.topic("codbex-partners/Suppliers/SupplierNote").send(JSON.stringify(data));
+        producer.topic("codbex-partners-Suppliers-SupplierNote").send(JSON.stringify(data));
     }
 }

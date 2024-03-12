@@ -188,7 +188,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$http.get("/services/ts/codbex-countries/gen/api/entities/CountryService.ts").then(function (response) {
+		$http.get("/services/ts/codbex-countries/gen/api/Countries/CountryService.ts").then(function (response) {
 			$scope.optionsCountry = response.data.map(e => {
 				return {
 					value: e.Id,

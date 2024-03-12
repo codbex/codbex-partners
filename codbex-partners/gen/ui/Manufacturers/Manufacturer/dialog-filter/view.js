@@ -7,7 +7,7 @@ const viewData = {
     id: "Manufacturer-filter",
     label: "Manufacturer Filter",
     link: "/services/web/codbex-partners/gen/ui/Manufacturers/Manufacturer/dialog-filter/index.html",
-    perspectiveName: "Manufacturers"
+    perspectiveName: "Manufacturers",
 };
 
 if (typeof exports !== 'undefined') {

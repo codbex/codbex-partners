@@ -9,7 +9,7 @@ const viewData = {
     factory: "frame",
     region: "bottom",
     link: "/services/web/codbex-partners/gen/ui/Suppliers/Supplier/SupplierNote/index.html",
-    perspectiveName: "Suppliers"
+    perspectiveName: "Suppliers",
 };
 
 if (typeof exports !== 'undefined') {
