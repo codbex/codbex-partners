@@ -118,7 +118,7 @@ export class ManufacturerRepository {
 
     private readonly dao;
 
-    constructor(dataSource?: string) {
+    constructor(dataSource = "DefaultDB") {
         this.dao = daoApi.create(ManufacturerRepository.DEFINITION, null, dataSource);
     }
 

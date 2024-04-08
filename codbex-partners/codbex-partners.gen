@@ -8,6 +8,7 @@
   "workspaceName": "workspace",
   "filePath": "codbex-partners.model",
   "templateId": "template-application-angular/template/template.js",
+  "dataSource": "DefaultDB",
   "perspectives": {
     "Customers": {
       "views": [
@@ -455,6 +456,7 @@
       "title": "Customer",
       "tooltip": "Customer",
       "type": "PRIMARY",
+      "dataSource": "DefaultDB",
       "referencedProjections": [
         {
           "name": "City",
@@ -1095,6 +1097,7 @@
       "title": "Supplier",
       "tooltip": "Supplier",
       "type": "PRIMARY",
+      "dataSource": "DefaultDB",
       "referencedProjections": [
         {
           "name": "City",
@@ -1537,6 +1540,7 @@
       "title": "Manufacturer",
       "tooltip": "Manufacturer",
       "type": "PRIMARY",
+      "dataSource": "DefaultDB",
       "referencedProjections": [
         {
           "name": "City",
@@ -1750,6 +1754,7 @@
       "title": "CustomerNote",
       "tooltip": "CustomerNote",
       "type": "DEPENDENT",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -1861,6 +1866,7 @@
       "title": "SupplierNote",
       "tooltip": "SupplierNote",
       "type": "DEPENDENT",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -1972,6 +1978,7 @@
       "title": "ManufacturerNote",
       "tooltip": "ManufacturerNote",
       "type": "DEPENDENT",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -2086,6 +2093,7 @@
       "title": "City",
       "tooltip": "City",
       "type": "PROJECTION",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -2253,6 +2261,7 @@
       "title": "Country",
       "tooltip": "Country",
       "type": "PROJECTION",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"

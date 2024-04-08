@@ -4,11 +4,11 @@
  * Do not modify the content as it may be re-generated again.
  */
 const perspectiveData = {
-	id: "Suppliers",
-	name: "Suppliers",
-	link: "/services/web/codbex-partners/gen/ui/Suppliers/index.html",
-	order: "200",
-	icon: "/services/web/resources/unicons/user-minus.svg",
+	id: 'Suppliers',
+	name: 'Suppliers',
+	link: '/services/web/codbex-partners/gen/ui/Suppliers/index.html',
+	order: 200,
+	icon: '/services/web/resources/unicons/user-minus.svg',
 };
 
 if (typeof exports !== 'undefined') {
