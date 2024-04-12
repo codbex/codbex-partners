@@ -184,43 +184,6 @@
                 ]
             },
             {
-                "name": "CODBEX_MANIFACTURER",
-                "type": "TABLE",
-                "columns": [
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "primaryKey": true,
-                        "identity": true,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "MANIFACTURER_ID"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 100,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "name": "MANIFACTURER_NAME"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "name": "MANIFACTURER_CITY"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "name": "MANIFACTURER_COUNTRY"
-                    }
-                ]
-            },
-            {
                 "name": "CODBEX_CUSTOMERNOTE",
                 "type": "TABLE",
                 "columns": [
@@ -293,8 +256,7 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
-                        "name": "MANUFACTURERNOTE_MANUFACTURER"
+                        "name": "MANUFACTURERNOTE_MANIFACTURER"
                     },
                     {
                         "type": "VARCHAR",
@@ -303,6 +265,41 @@
                         "scale": "NaN",
                         "nullable": true,
                         "name": "MANUFACTURERNOTE_NOTE"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_MANIFACTURER",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "MANIFACTURER_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "MANIFACTURER_NAME"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "MANIFACTURER_CITY"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "MANIFACTURER_COUNTRY"
                     }
                 ]
             },
@@ -343,24 +340,6 @@
                 "referencedColumns": "COUNTRY_ID"
             },
             {
-                "name": "Manifacturer_City",
-                "type": "foreignKey",
-                "table": "CODBEX_MANIFACTURER",
-                "constraintName": "Manifacturer_City",
-                "columns": "MANIFACTURER_CITY",
-                "referencedTable": "CODBEX_CITY",
-                "referencedColumns": "CITY_ID"
-            },
-            {
-                "name": "Manifacturer_Country",
-                "type": "foreignKey",
-                "table": "CODBEX_MANIFACTURER",
-                "constraintName": "Manifacturer_Country",
-                "columns": "MANIFACTURER_COUNTRY",
-                "referencedTable": "CODBEX_COUNTRY",
-                "referencedColumns": "COUNTRY_ID"
-            },
-            {
                 "name": "CustomerNote_Customer",
                 "type": "foreignKey",
                 "table": "CODBEX_CUSTOMERNOTE",
@@ -383,9 +362,27 @@
                 "type": "foreignKey",
                 "table": "CODBEX_MANUFACTURERNOTE",
                 "constraintName": "ManufacturerNote_Manifacturer",
-                "columns": "MANUFACTURERNOTE_MANUFACTURER",
+                "columns": "MANUFACTURERNOTE_MANIFACTURER",
                 "referencedTable": "CODBEX_MANIFACTURER",
                 "referencedColumns": "MANIFACTURER_ID"
+            },
+            {
+                "name": "Manifacturer_City",
+                "type": "foreignKey",
+                "table": "CODBEX_MANIFACTURER",
+                "constraintName": "Manifacturer_City",
+                "columns": "MANIFACTURER_CITY",
+                "referencedTable": "CODBEX_CITY",
+                "referencedColumns": "CITY_ID"
+            },
+            {
+                "name": "Manifacturer_Country",
+                "type": "foreignKey",
+                "table": "CODBEX_MANIFACTURER",
+                "constraintName": "Manifacturer_Country",
+                "columns": "MANIFACTURER_COUNTRY",
+                "referencedTable": "CODBEX_COUNTRY",
+                "referencedColumns": "COUNTRY_ID"
             }
         ]
     },

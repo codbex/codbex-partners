@@ -5,12 +5,12 @@ import { dao as daoApi } from "sdk/db";
 
 export interface ManufacturerNoteEntity {
     readonly Id: number;
-    Manufacturer?: number;
+    Manifacturer: number;
     Note?: string;
 }
 
 export interface ManufacturerNoteCreateEntity {
-    readonly Manufacturer?: number;
+    readonly Manifacturer: number;
     readonly Note?: string;
 }
 
@@ -22,37 +22,37 @@ export interface ManufacturerNoteEntityOptions {
     $filter?: {
         equals?: {
             Id?: number | number[];
-            Manufacturer?: number | number[];
+            Manifacturer?: number | number[];
             Note?: string | string[];
         };
         notEquals?: {
             Id?: number | number[];
-            Manufacturer?: number | number[];
+            Manifacturer?: number | number[];
             Note?: string | string[];
         };
         contains?: {
             Id?: number;
-            Manufacturer?: number;
+            Manifacturer?: number;
             Note?: string;
         };
         greaterThan?: {
             Id?: number;
-            Manufacturer?: number;
+            Manifacturer?: number;
             Note?: string;
         };
         greaterThanOrEqual?: {
             Id?: number;
-            Manufacturer?: number;
+            Manifacturer?: number;
             Note?: string;
         };
         lessThan?: {
             Id?: number;
-            Manufacturer?: number;
+            Manifacturer?: number;
             Note?: string;
         };
         lessThanOrEqual?: {
             Id?: number;
-            Manufacturer?: number;
+            Manifacturer?: number;
             Note?: string;
         };
     },
@@ -87,9 +87,10 @@ export class ManufacturerNoteRepository {
                 autoIncrement: true,
             },
             {
-                name: "Manufacturer",
-                column: "MANUFACTURERNOTE_MANUFACTURER",
+                name: "Manifacturer",
+                column: "MANUFACTURERNOTE_MANIFACTURER",
                 type: "INTEGER",
+                required: true
             },
             {
                 name: "Note",

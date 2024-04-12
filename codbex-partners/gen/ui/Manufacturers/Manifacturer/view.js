@@ -7,7 +7,7 @@ const viewData = {
     id: "Manifacturer",
     label: "Manifacturer",
     factory: "frame",
-    region: "left",
+    region: "center",
     link: "/services/web/codbex-partners/gen/ui/Manufacturers/Manifacturer/index.html",
     perspectiveName: "Manufacturers",
 };

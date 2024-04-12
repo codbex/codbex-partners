@@ -195,7 +195,7 @@ export class ManifacturerRepository {
     }
 
     public customDataCount(): number {
-        const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX__MANIFACTURER"');
+        const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_MANIFACTURER"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
                 return resultSet[0].COUNT;

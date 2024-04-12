@@ -6,14 +6,12 @@
 const viewData = {
     id: "Manifacturer-details",
     label: "Manifacturer",
-    factory: "frame",
-    region: "center",
-    link: "/services/web/codbex-partners/gen/ui/Manufacturers/Manifacturer/main-details/index.html",
+    link: "/services/web/codbex-partners/gen/ui/Manufacturers/Manifacturer/dialog-window/index.html",
     perspectiveName: "Manufacturers",
 };
 
 if (typeof exports !== 'undefined') {
-    exports.getView = function () {
+    exports.getDialogWindow = function () {
         return viewData;
     }
 }
