@@ -1,9 +1,9 @@
 angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-partners.Manufacturers.Manufacturer';
+		messageHubProvider.eventIdPrefix = 'codbex-partners.Manufacturers.Manifacturer';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/ts/codbex-partners/gen/api/Manufacturers/ManufacturerService.ts";
+		entityApiProvider.baseUrl = "/services/ts/codbex-partners/gen/api/Manufacturers/ManifacturerService.ts";
 	}])
 	.controller('PageController', ['$scope', 'Extensions', 'messageHub', 'entityApi', function ($scope, Extensions, messageHub, entityApi) {
 
@@ -12,15 +12,15 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			details: {},
 		};
 		$scope.formHeaders = {
-			select: "Manufacturer Details",
-			create: "Create Manufacturer",
-			update: "Update Manufacturer"
+			select: "Manifacturer Details",
+			create: "Create Manifacturer",
+			update: "Update Manifacturer"
 		};
 		$scope.action = 'select';
 
 		//-----------------Custom Actions-------------------//
 		Extensions.get('dialogWindow', 'codbex-partners-custom-action').then(function (response) {
-			$scope.entityActions = response.filter(e => e.perspective === "Manufacturers" && e.view === "Manufacturer" && e.type === "entity");
+			$scope.entityActions = response.filter(e => e.perspective === "Manufacturers" && e.view === "Manifacturer" && e.type === "entity");
 		});
 
 		$scope.triggerEntityAction = function (action) {
@@ -77,24 +77,24 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.create = function () {
 			entityApi.create($scope.entity).then(function (response) {
 				if (response.status != 201) {
-					messageHub.showAlertError("Manufacturer", `Unable to create Manufacturer: '${response.message}'`);
+					messageHub.showAlertError("Manifacturer", `Unable to create Manifacturer: '${response.message}'`);
 					return;
 				}
 				messageHub.postMessage("entityCreated", response.data);
 				messageHub.postMessage("clearDetails", response.data);
-				messageHub.showAlertSuccess("Manufacturer", "Manufacturer successfully created");
+				messageHub.showAlertSuccess("Manifacturer", "Manifacturer successfully created");
 			});
 		};
 
 		$scope.update = function () {
 			entityApi.update($scope.entity.Id, $scope.entity).then(function (response) {
 				if (response.status != 200) {
-					messageHub.showAlertError("Manufacturer", `Unable to update Manufacturer: '${response.message}'`);
+					messageHub.showAlertError("Manifacturer", `Unable to update Manifacturer: '${response.message}'`);
 					return;
 				}
 				messageHub.postMessage("entityUpdated", response.data);
 				messageHub.postMessage("clearDetails", response.data);
-				messageHub.showAlertSuccess("Manufacturer", "Manufacturer successfully updated");
+				messageHub.showAlertSuccess("Manifacturer", "Manifacturer successfully updated");
 			});
 		};
 

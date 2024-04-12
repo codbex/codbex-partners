@@ -192,15 +192,17 @@
                         "length": 0,
                         "primaryKey": true,
                         "identity": true,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
-                        "name": "ENTITY5_ENTITY5ID"
+                        "name": "MANIFACTURER_ID"
                     },
                     {
                         "type": "VARCHAR",
                         "length": 100,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "name": "ENTITY5_NAME"
+                        "name": "MANIFACTURER_NAME"
                     },
                     {
                         "type": "INTEGER",
@@ -289,6 +291,8 @@
                     {
                         "type": "INTEGER",
                         "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "MANUFACTURERNOTE_MANUFACTURER"
                     },
@@ -339,19 +343,19 @@
                 "referencedColumns": "COUNTRY_ID"
             },
             {
-                "name": "Manufacturer_City",
+                "name": "Manifacturer_City",
                 "type": "foreignKey",
                 "table": "CODBEX_MANIFACTURER",
-                "constraintName": "Manufacturer_City",
+                "constraintName": "Manifacturer_City",
                 "columns": "MANIFACTURER_CITY",
                 "referencedTable": "CODBEX_CITY",
                 "referencedColumns": "CITY_ID"
             },
             {
-                "name": "Manufacturer_Country",
+                "name": "Manifacturer_Country",
                 "type": "foreignKey",
                 "table": "CODBEX_MANIFACTURER",
-                "constraintName": "Manufacturer_Country",
+                "constraintName": "Manifacturer_Country",
                 "columns": "MANIFACTURER_COUNTRY",
                 "referencedTable": "CODBEX_COUNTRY",
                 "referencedColumns": "COUNTRY_ID"
@@ -375,13 +379,13 @@
                 "referencedColumns": "SUPPLIER_ID"
             },
             {
-                "name": "ManufacturerNote_Manufacturer",
+                "name": "ManufacturerNote_Manifacturer",
                 "type": "foreignKey",
                 "table": "CODBEX_MANUFACTURERNOTE",
-                "constraintName": "ManufacturerNote_Manufacturer",
+                "constraintName": "ManufacturerNote_Manifacturer",
                 "columns": "MANUFACTURERNOTE_MANUFACTURER",
                 "referencedTable": "CODBEX_MANIFACTURER",
-                "referencedColumns": "ENTITY5_ENTITY5ID"
+                "referencedColumns": "MANIFACTURER_ID"
             }
         ]
     },

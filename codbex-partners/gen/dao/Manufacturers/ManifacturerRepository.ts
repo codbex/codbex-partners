@@ -3,24 +3,24 @@ import { producer } from "sdk/messaging";
 import { extensions } from "sdk/extensions";
 import { dao as daoApi } from "sdk/db";
 
-export interface ManufacturerEntity {
+export interface ManifacturerEntity {
     readonly Id: number;
     Name: string;
     City: number;
     Country: number;
 }
 
-export interface ManufacturerCreateEntity {
+export interface ManifacturerCreateEntity {
     readonly Name: string;
     readonly City: number;
     readonly Country: number;
 }
 
-export interface ManufacturerUpdateEntity extends ManufacturerCreateEntity {
+export interface ManifacturerUpdateEntity extends ManifacturerCreateEntity {
     readonly Id: number;
 }
 
-export interface ManufacturerEntityOptions {
+export interface ManifacturerEntityOptions {
     $filter?: {
         equals?: {
             Id?: number | number[];
@@ -65,17 +65,17 @@ export interface ManufacturerEntityOptions {
             Country?: number;
         };
     },
-    $select?: (keyof ManufacturerEntity)[],
-    $sort?: string | (keyof ManufacturerEntity)[],
+    $select?: (keyof ManifacturerEntity)[],
+    $sort?: string | (keyof ManifacturerEntity)[],
     $order?: 'asc' | 'desc',
     $offset?: number,
     $limit?: number,
 }
 
-interface ManufacturerEntityEvent {
+interface ManifacturerEntityEvent {
     readonly operation: 'create' | 'update' | 'delete';
     readonly table: string;
-    readonly entity: Partial<ManufacturerEntity>;
+    readonly entity: Partial<ManifacturerEntity>;
     readonly key: {
         name: string;
         column: string;
@@ -83,21 +83,21 @@ interface ManufacturerEntityEvent {
     }
 }
 
-export class ManufacturerRepository {
+export class ManifacturerRepository {
 
     private static readonly DEFINITION = {
         table: "CODBEX_MANIFACTURER",
         properties: [
             {
                 name: "Id",
-                column: "ENTITY5_ENTITY5ID",
+                column: "MANIFACTURER_ID",
                 type: "INTEGER",
                 id: true,
                 autoIncrement: true,
             },
             {
                 name: "Name",
-                column: "ENTITY5_NAME",
+                column: "MANIFACTURER_NAME",
                 type: "VARCHAR",
                 required: true
             },
@@ -119,19 +119,19 @@ export class ManufacturerRepository {
     private readonly dao;
 
     constructor(dataSource = "DefaultDB") {
-        this.dao = daoApi.create(ManufacturerRepository.DEFINITION, null, dataSource);
+        this.dao = daoApi.create(ManifacturerRepository.DEFINITION, null, dataSource);
     }
 
-    public findAll(options?: ManufacturerEntityOptions): ManufacturerEntity[] {
+    public findAll(options?: ManifacturerEntityOptions): ManifacturerEntity[] {
         return this.dao.list(options);
     }
 
-    public findById(id: number): ManufacturerEntity | undefined {
+    public findById(id: number): ManifacturerEntity | undefined {
         const entity = this.dao.find(id);
         return entity ?? undefined;
     }
 
-    public create(entity: ManufacturerCreateEntity): number {
+    public create(entity: ManifacturerCreateEntity): number {
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
@@ -139,14 +139,14 @@ export class ManufacturerRepository {
             entity: entity,
             key: {
                 name: "Id",
-                column: "ENTITY5_ENTITY5ID",
+                column: "MANIFACTURER_ID",
                 value: id
             }
         });
         return id;
     }
 
-    public update(entity: ManufacturerUpdateEntity): void {
+    public update(entity: ManifacturerUpdateEntity): void {
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
@@ -154,21 +154,21 @@ export class ManufacturerRepository {
             entity: entity,
             key: {
                 name: "Id",
-                column: "ENTITY5_ENTITY5ID",
+                column: "MANIFACTURER_ID",
                 value: entity.Id
             }
         });
     }
 
-    public upsert(entity: ManufacturerCreateEntity | ManufacturerUpdateEntity): number {
-        const id = (entity as ManufacturerUpdateEntity).Id;
+    public upsert(entity: ManifacturerCreateEntity | ManifacturerUpdateEntity): number {
+        const id = (entity as ManifacturerUpdateEntity).Id;
         if (!id) {
             return this.create(entity);
         }
 
         const existingEntity = this.findById(id);
         if (existingEntity) {
-            this.update(entity as ManufacturerUpdateEntity);
+            this.update(entity as ManifacturerUpdateEntity);
             return id;
         } else {
             return this.create(entity);
@@ -184,13 +184,13 @@ export class ManufacturerRepository {
             entity: entity,
             key: {
                 name: "Id",
-                column: "ENTITY5_ENTITY5ID",
+                column: "MANIFACTURER_ID",
                 value: id
             }
         });
     }
 
-    public count(options?: ManufacturerEntityOptions): number {
+    public count(options?: ManifacturerEntityOptions): number {
         return this.dao.count(options);
     }
 
@@ -206,8 +206,8 @@ export class ManufacturerRepository {
         return 0;
     }
 
-    private async triggerEvent(data: ManufacturerEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-partners-Manufacturers-Manufacturer", ["trigger"]);
+    private async triggerEvent(data: ManifacturerEntityEvent) {
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-partners-Manufacturers-Manifacturer", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);
@@ -215,6 +215,6 @@ export class ManufacturerRepository {
                 console.error(error);
             }            
         });
-        producer.topic("codbex-partners-Manufacturers-Manufacturer").send(JSON.stringify(data));
+        producer.topic("codbex-partners-Manufacturers-Manifacturer").send(JSON.stringify(data));
     }
 }

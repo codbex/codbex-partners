@@ -6,7 +6,7 @@
 exports.getTile = function () {
     return {
         group: "Manufacturers",
-        name: "Manufacturer",
+        name: "Manifacturer",
         caption: "Manage entity Manufacturer",
         tooltip: "Manufacturer",
         // icon: "file-o",

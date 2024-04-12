@@ -1,20 +1,20 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
 import { Extensions } from "sdk/extensions"
-import { ManufacturerRepository, ManufacturerEntityOptions } from "../../dao/Manufacturers/ManufacturerRepository";
+import { ManifacturerRepository, ManifacturerEntityOptions } from "../../dao/Manufacturers/ManifacturerRepository";
 import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
 
-const validationModules = await Extensions.loadExtensionModules("codbex-partners-Manufacturers-Manufacturer", ["validate"]);
+const validationModules = await Extensions.loadExtensionModules("codbex-partners-Manufacturers-Manifacturer", ["validate"]);
 
 @Controller
-class ManufacturerService {
+class ManifacturerService {
 
-    private readonly repository = new ManufacturerRepository();
+    private readonly repository = new ManifacturerRepository();
 
     @Get("/")
     public getAll(_: any, ctx: any) {
         try {
-            const options: ManufacturerEntityOptions = {
+            const options: ManifacturerEntityOptions = {
                 $limit: ctx.queryParameters["$limit"] ? parseInt(ctx.queryParameters["$limit"]) : undefined,
                 $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined
             };
@@ -30,7 +30,7 @@ class ManufacturerService {
         try {
             this.validateEntity(entity);
             entity.Id = this.repository.create(entity);
-            response.setHeader("Content-Location", "/services/ts/codbex-partners/gen/api/Manufacturers/ManufacturerService.ts/" + entity.Id);
+            response.setHeader("Content-Location", "/services/ts/codbex-partners/gen/api/Manufacturers/ManifacturerService.ts/" + entity.Id);
             response.setStatus(response.CREATED);
             return entity;
         } catch (error: any) {
@@ -73,7 +73,7 @@ class ManufacturerService {
             if (entity) {
                 return entity;
             } else {
-                HttpUtils.sendResponseNotFound("Manufacturer not found");
+                HttpUtils.sendResponseNotFound("Manifacturer not found");
             }
         } catch (error: any) {
             this.handleError(error);
@@ -101,7 +101,7 @@ class ManufacturerService {
                 this.repository.deleteById(id);
                 HttpUtils.sendResponseNoContent();
             } else {
-                HttpUtils.sendResponseNotFound("Manufacturer not found");
+                HttpUtils.sendResponseNotFound("Manifacturer not found");
             }
         } catch (error: any) {
             this.handleError(error);
