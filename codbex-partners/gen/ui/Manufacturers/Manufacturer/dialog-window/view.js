@@ -4,9 +4,9 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "Manifacturer-filter",
-    label: "Manifacturer Filter",
-    link: "/services/web/codbex-partners/gen/ui/Manufacturers/Manifacturer/dialog-filter/index.html",
+    id: "Manufacturer-details",
+    label: "Manufacturer",
+    link: "/services/web/codbex-partners/gen/ui/Manufacturers/Manufacturer/dialog-window/index.html",
     perspectiveName: "Manufacturers",
 };
 

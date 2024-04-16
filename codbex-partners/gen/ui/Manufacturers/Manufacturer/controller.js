@@ -1,9 +1,9 @@
 angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-partners.Manufacturers.Manifacturer';
+		messageHubProvider.eventIdPrefix = 'codbex-partners.Manufacturers.Manufacturer';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/ts/codbex-partners/gen/api/Manufacturers/ManifacturerService.ts";
+		entityApiProvider.baseUrl = "/services/ts/codbex-partners/gen/api/Manufacturers/ManufacturerService.ts";
 	}])
 	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', 'Extensions', function ($scope, $http, messageHub, entityApi, Extensions) {
 
@@ -13,8 +13,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 		//-----------------Custom Actions-------------------//
 		Extensions.get('dialogWindow', 'codbex-partners-custom-action').then(function (response) {
-			$scope.pageActions = response.filter(e => e.perspective === "Manufacturers" && e.view === "Manifacturer" && (e.type === "page" || e.type === undefined));
-			$scope.entityActions = response.filter(e => e.perspective === "Manufacturers" && e.view === "Manifacturer" && e.type === "entity");
+			$scope.pageActions = response.filter(e => e.perspective === "Manufacturers" && e.view === "Manufacturer" && (e.type === "page" || e.type === undefined));
+			$scope.entityActions = response.filter(e => e.perspective === "Manufacturers" && e.view === "Manufacturer" && e.type === "entity");
 		});
 
 		$scope.triggerPageAction = function (action) {
@@ -71,7 +71,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			$scope.dataPage = pageNumber;
 			entityApi.count(filter).then(function (response) {
 				if (response.status != 200) {
-					messageHub.showAlertError("Manifacturer", `Unable to count Manifacturer: '${response.message}'`);
+					messageHub.showAlertError("Manufacturer", `Unable to count Manufacturer: '${response.message}'`);
 					return;
 				}
 				if (response.data) {
@@ -89,7 +89,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 				request.then(function (response) {
 					if (response.status != 200) {
-						messageHub.showAlertError("Manifacturer", `Unable to list/filter Manifacturer: '${response.message}'`);
+						messageHub.showAlertError("Manufacturer", `Unable to list/filter Manufacturer: '${response.message}'`);
 						return;
 					}
 					$scope.data = response.data;
@@ -104,7 +104,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 		$scope.openDetails = function (entity) {
 			$scope.selectedEntity = entity;
-			messageHub.showDialogWindow("Manifacturer-details", {
+			messageHub.showDialogWindow("Manufacturer-details", {
 				action: "select",
 				entity: entity,
 				optionsCity: $scope.optionsCity,
@@ -113,7 +113,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		};
 
 		$scope.openFilter = function (entity) {
-			messageHub.showDialogWindow("Manifacturer-filter", {
+			messageHub.showDialogWindow("Manufacturer-filter", {
 				entity: $scope.filterEntity,
 				optionsCity: $scope.optionsCity,
 				optionsCountry: $scope.optionsCountry,
@@ -122,7 +122,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 		$scope.createEntity = function () {
 			$scope.selectedEntity = null;
-			messageHub.showDialogWindow("Manifacturer-details", {
+			messageHub.showDialogWindow("Manufacturer-details", {
 				action: "create",
 				entity: {},
 				optionsCity: $scope.optionsCity,
@@ -131,7 +131,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		};
 
 		$scope.updateEntity = function (entity) {
-			messageHub.showDialogWindow("Manifacturer-details", {
+			messageHub.showDialogWindow("Manufacturer-details", {
 				action: "update",
 				entity: entity,
 				optionsCity: $scope.optionsCity,
@@ -142,8 +142,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.deleteEntity = function (entity) {
 			let id = entity.Id;
 			messageHub.showDialogAsync(
-				'Delete Manifacturer?',
-				`Are you sure you want to delete Manifacturer? This action cannot be undone.`,
+				'Delete Manufacturer?',
+				`Are you sure you want to delete Manufacturer? This action cannot be undone.`,
 				[{
 					id: "delete-btn-yes",
 					type: "emphasized",
@@ -158,7 +158,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				if (msg.data === "delete-btn-yes") {
 					entityApi.delete(id).then(function (response) {
 						if (response.status != 204) {
-							messageHub.showAlertError("Manifacturer", `Unable to delete Manifacturer: '${response.message}'`);
+							messageHub.showAlertError("Manufacturer", `Unable to delete Manufacturer: '${response.message}'`);
 							return;
 						}
 						$scope.loadPage($scope.dataPage, $scope.filter);

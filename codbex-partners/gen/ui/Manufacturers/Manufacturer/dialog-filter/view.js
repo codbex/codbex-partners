@@ -4,16 +4,14 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "Manifacturer",
-    label: "Manifacturer",
-    factory: "frame",
-    region: "center",
-    link: "/services/web/codbex-partners/gen/ui/Manufacturers/Manifacturer/index.html",
+    id: "Manufacturer-filter",
+    label: "Manufacturer Filter",
+    link: "/services/web/codbex-partners/gen/ui/Manufacturers/Manufacturer/dialog-filter/index.html",
     perspectiveName: "Manufacturers",
 };
 
 if (typeof exports !== 'undefined') {
-    exports.getView = function () {
+    exports.getDialogWindow = function () {
         return viewData;
     }
 }

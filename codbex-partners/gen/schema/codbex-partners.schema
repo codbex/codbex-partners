@@ -269,7 +269,7 @@
                 ]
             },
             {
-                "name": "CODBEX_MANIFACTURER",
+                "name": "CODBEX_MANUFACTURER",
                 "type": "TABLE",
                 "columns": [
                     {
@@ -277,29 +277,31 @@
                         "length": 0,
                         "primaryKey": true,
                         "identity": true,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
-                        "name": "MANIFACTURER_ID"
+                        "name": "MANUFACTURER_ID"
                     },
                     {
                         "type": "VARCHAR",
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "name": "MANIFACTURER_NAME"
+                        "name": "MANUFACTURER_NAME"
                     },
                     {
                         "type": "INTEGER",
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "name": "MANIFACTURER_CITY"
+                        "name": "MANUFACTURER_CITY"
                     },
                     {
                         "type": "INTEGER",
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "name": "MANIFACTURER_COUNTRY"
+                        "name": "MANUFACTURER_COUNTRY"
                     }
                 ]
             },
@@ -358,29 +360,29 @@
                 "referencedColumns": "SUPPLIER_ID"
             },
             {
-                "name": "ManufacturerNote_Manifacturer",
+                "name": "ManufacturerNote_Manufacturer",
                 "type": "foreignKey",
                 "table": "CODBEX_MANUFACTURERNOTE",
-                "constraintName": "ManufacturerNote_Manifacturer",
+                "constraintName": "ManufacturerNote_Manufacturer",
                 "columns": "MANUFACTURERNOTE_MANIFACTURER",
-                "referencedTable": "CODBEX_MANIFACTURER",
-                "referencedColumns": "MANIFACTURER_ID"
+                "referencedTable": "CODBEX_MANUFACTURER",
+                "referencedColumns": "MANUFACTURER_ID"
             },
             {
-                "name": "Manifacturer_City",
+                "name": "Manufacturer_City",
                 "type": "foreignKey",
-                "table": "CODBEX_MANIFACTURER",
-                "constraintName": "Manifacturer_City",
-                "columns": "MANIFACTURER_CITY",
+                "table": "CODBEX_MANUFACTURER",
+                "constraintName": "Manufacturer_City",
+                "columns": "MANUFACTURER_CITY",
                 "referencedTable": "CODBEX_CITY",
                 "referencedColumns": "CITY_ID"
             },
             {
-                "name": "Manifacturer_Country",
+                "name": "Manufacturer_Country",
                 "type": "foreignKey",
-                "table": "CODBEX_MANIFACTURER",
-                "constraintName": "Manifacturer_Country",
-                "columns": "MANIFACTURER_COUNTRY",
+                "table": "CODBEX_MANUFACTURER",
+                "constraintName": "Manufacturer_Country",
+                "columns": "MANUFACTURER_COUNTRY",
                 "referencedTable": "CODBEX_COUNTRY",
                 "referencedColumns": "COUNTRY_ID"
             }

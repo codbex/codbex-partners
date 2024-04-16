@@ -1,6 +1,6 @@
 angular.module('page', ["ideUI", "ideView"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-partners.Manufacturers.Manifacturer';
+		messageHubProvider.eventIdPrefix = 'codbex-partners.Manufacturers.Manufacturer';
 	}])
 	.controller('PageController', ['$scope', 'messageHub', 'ViewParameters', function ($scope, messageHub, ViewParameters) {
 
@@ -63,7 +63,7 @@ angular.module('page', ["ideUI", "ideView"])
 		};
 
 		$scope.cancel = function () {
-			messageHub.closeDialogWindow("Manifacturer-filter");
+			messageHub.closeDialogWindow("Manufacturer-filter");
 		};
 
 		$scope.clearErrorMessage = function () {
