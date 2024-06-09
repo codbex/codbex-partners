@@ -5,11 +5,13 @@
  */
 exports.getTile = function () {
     return {
-        group: "Suppliers",
+        group: "codbex-partners",
         name: "Supplier",
         caption: "Manage entity Supplier",
         tooltip: "Supplier",
-        // icon: "file-o",
+        type: "PRIMARY",
+        report: "${generateReport}",
+        icon: "/services/web/resources/unicons/file.svg",
         location: "/services/web/codbex-partners/gen/ui/Suppliers/index.html",
         order: "100",
         groupOrder: "200",

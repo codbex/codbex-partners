@@ -166,7 +166,8 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Customer_City",
                         "relationshipEntityName": "City",
-                        "relationshipEntityPerspectiveName": "Cities"
+                        "relationshipEntityPerspectiveName": "Cities",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -191,7 +192,8 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Customer_Country",
                         "relationshipEntityName": "Country",
-                        "relationshipEntityPerspectiveName": "Countries"
+                        "relationshipEntityPerspectiveName": "Countries",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -238,7 +240,7 @@
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_CUSTOMER\"",
                 "dataName": "CUSTOMER",
                 "dataQuery": "",
-                "disableGeneration": "false",
+                "generateReport": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE_MASTER",
                 "menuIndex": "100",
@@ -247,6 +249,7 @@
                 "name": "Customer",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/user-plus.svg",
+                "perspectiveLabel": "Customers",
                 "perspectiveName": "Customers",
                 "perspectiveOrder": "100",
                 "perspectiveRole": "",
@@ -419,7 +422,8 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Supplier_City",
                         "relationshipEntityName": "City",
-                        "relationshipEntityPerspectiveName": "Cities"
+                        "relationshipEntityPerspectiveName": "Cities",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -444,7 +448,8 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Supplier_Country",
                         "relationshipEntityName": "Country",
-                        "relationshipEntityPerspectiveName": "Countries"
+                        "relationshipEntityPerspectiveName": "Countries",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -491,7 +496,7 @@
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_SUPPLIER\"",
                 "dataName": "SUPPLIER",
                 "dataQuery": "",
-                "disableGeneration": "false",
+                "generateReport": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE_MASTER",
                 "menuIndex": "100",
@@ -500,6 +505,7 @@
                 "name": "Supplier",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/user-minus.svg",
+                "perspectiveLabel": "Suppliers",
                 "perspectiveName": "Suppliers",
                 "perspectiveOrder": "200",
                 "perspectiveRole": "",
@@ -548,7 +554,8 @@
                         "widgetSize": "",
                         "widgetType": "TEXTBOX",
                         "relationshipEntityName": "Customer",
-                        "relationshipEntityPerspectiveName": "Customers"
+                        "relationshipEntityPerspectiveName": "Customers",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -575,7 +582,7 @@
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}CUSTOMERNOTE\"",
                 "dataName": "CUSTOMERNOTE",
                 "dataQuery": "",
-                "disableGeneration": "false",
+                "generateReport": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE_DETAILS",
                 "menuIndex": "100",
@@ -584,6 +591,7 @@
                 "name": "CustomerNote",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/user-plus.svg",
+                "perspectiveLabel": "Customers",
                 "perspectiveName": "Customers",
                 "perspectiveOrder": "100",
                 "perspectiveRole": "",
@@ -632,7 +640,8 @@
                         "widgetSize": "",
                         "widgetType": "TEXTBOX",
                         "relationshipEntityName": "Supplier",
-                        "relationshipEntityPerspectiveName": "Suppliers"
+                        "relationshipEntityPerspectiveName": "Suppliers",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -659,7 +668,7 @@
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}SUPPLIERNOTE\"",
                 "dataName": "SUPPLIERNOTE",
                 "dataQuery": "",
-                "disableGeneration": "false",
+                "generateReport": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE_DETAILS",
                 "menuIndex": "100",
@@ -668,6 +677,7 @@
                 "name": "SupplierNote",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/user-minus.svg",
+                "perspectiveLabel": "Suppliers",
                 "perspectiveName": "Suppliers",
                 "perspectiveOrder": "200",
                 "perspectiveRole": "",
@@ -716,7 +726,8 @@
                         "widgetSize": "",
                         "widgetType": "TEXTBOX",
                         "relationshipEntityName": "Manufacturer",
-                        "relationshipEntityPerspectiveName": "Manufacturers"
+                        "relationshipEntityPerspectiveName": "Manufacturers",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -743,7 +754,7 @@
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}MANUFACTURERNOTE\"",
                 "dataName": "MANUFACTURERNOTE",
                 "dataQuery": "",
-                "disableGeneration": "false",
+                "generateReport": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE",
                 "menuIndex": "100",
@@ -752,6 +763,7 @@
                 "name": "ManufacturerNote",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/user-check.svg",
+                "perspectiveLabel": "Manufacturers",
                 "perspectiveName": "Manufacturers",
                 "perspectiveOrder": "300",
                 "perspectiveRole": "",
@@ -828,7 +840,7 @@
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}CITY\"",
                 "dataName": "CITY",
                 "dataQuery": "",
-                "disableGeneration": "true",
+                "generateReport": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE",
                 "menuIndex": "100",
@@ -837,6 +849,7 @@
                 "name": "City",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/building.svg",
+                "perspectiveLabel": "Entities",
                 "perspectiveName": "Cities",
                 "perspectiveOrder": "100",
                 "perspectiveRole": "",
@@ -951,7 +964,7 @@
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}COUNTRY\"",
                 "dataName": "COUNTRY",
                 "dataQuery": "",
-                "disableGeneration": "true",
+                "generateReport": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE",
                 "menuIndex": "100",
@@ -960,6 +973,7 @@
                 "name": "Country",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/globe.svg",
+                "perspectiveLabel": "Entities",
                 "perspectiveName": "Countries",
                 "perspectiveOrder": "100",
                 "perspectiveRole": "",
@@ -1034,7 +1048,8 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Manufacturer_City",
                         "relationshipEntityName": "City",
-                        "relationshipEntityPerspectiveName": "Cities"
+                        "relationshipEntityPerspectiveName": "Cities",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -1059,14 +1074,15 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Manufacturer_Country",
                         "relationshipEntityName": "Country",
-                        "relationshipEntityPerspectiveName": "Countries"
+                        "relationshipEntityPerspectiveName": "Countries",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     }
                 ],
                 "caption": "Manage entity Manufacturer",
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}MANUFACTURER\"",
                 "dataName": "MANUFACTURER",
                 "dataQuery": "",
-                "disableGeneration": "false",
+                "generateReport": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE",
                 "menuIndex": "100",
@@ -1075,6 +1091,7 @@
                 "name": "Manufacturer",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/user-check.svg",
+                "perspectiveLabel": "Manufacturers",
                 "perspectiveName": "Manufacturers",
                 "perspectiveOrder": "300",
                 "perspectiveRole": "",

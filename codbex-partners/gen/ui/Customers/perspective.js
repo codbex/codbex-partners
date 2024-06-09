@@ -5,7 +5,7 @@
  */
 const perspectiveData = {
 	id: 'Customers',
-	name: 'Customers',
+	name: '${perspectiveLabel}',
 	link: '/services/web/codbex-partners/gen/ui/Customers/index.html',
 	order: 100,
 	icon: '/services/web/resources/unicons/user-plus.svg',

@@ -14,17 +14,21 @@ class CustomerNoteService {
     @Get("/")
     public getAll(_: any, ctx: any) {
         try {
-            let Customer = parseInt(ctx.queryParameters.Customer);
-            Customer = isNaN(Customer) ? ctx.queryParameters.Customer : Customer;
             const options: CustomerNoteEntityOptions = {
-                $filter: {
-                    equals: {
-                        Customer: Customer
-                    }
-                },
                 $limit: ctx.queryParameters["$limit"] ? parseInt(ctx.queryParameters["$limit"]) : undefined,
                 $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined
             };
+
+            let Customer = parseInt(ctx.queryParameters.Customer);
+            Customer = isNaN(Customer) ? ctx.queryParameters.Customer : Customer;
+
+            if (Customer !== undefined) {
+                options.$filter = {
+                    equals: {
+                        Customer: Customer
+                    }
+                };
+            }
 
             return this.repository.findAll(options);
         } catch (error: any) {

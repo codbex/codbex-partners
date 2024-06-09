@@ -74,6 +74,10 @@ interface CustomerNoteEntityEvent {
     }
 }
 
+interface CustomerNoteUpdateEntityEvent extends CustomerNoteEntityEvent {
+    readonly previousEntity: CustomerNoteEntity;
+}
+
 export class CustomerNoteRepository {
 
     private static readonly DEFINITION = {
@@ -130,11 +134,13 @@ export class CustomerNoteRepository {
     }
 
     public update(entity: CustomerNoteUpdateEntity): void {
+        const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
             table: "CODBEX_CUSTOMERNOTE",
             entity: entity,
+            previousEntity: previousEntity,
             key: {
                 name: "Id",
                 column: "CUSTOMERNOTE_ID",
@@ -189,7 +195,7 @@ export class CustomerNoteRepository {
         return 0;
     }
 
-    private async triggerEvent(data: CustomerNoteEntityEvent) {
+    private async triggerEvent(data: CustomerNoteEntityEvent | CustomerNoteUpdateEntityEvent) {
         const triggerExtensions = await extensions.loadExtensionModules("codbex-partners-Customers-CustomerNote", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {

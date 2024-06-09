@@ -74,6 +74,10 @@ interface SupplierNoteEntityEvent {
     }
 }
 
+interface SupplierNoteUpdateEntityEvent extends SupplierNoteEntityEvent {
+    readonly previousEntity: SupplierNoteEntity;
+}
+
 export class SupplierNoteRepository {
 
     private static readonly DEFINITION = {
@@ -130,11 +134,13 @@ export class SupplierNoteRepository {
     }
 
     public update(entity: SupplierNoteUpdateEntity): void {
+        const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
             table: "CODBEX_SUPPLIERNOTE",
             entity: entity,
+            previousEntity: previousEntity,
             key: {
                 name: "Id",
                 column: "SUPPLIERNOTE_ID",
@@ -189,7 +195,7 @@ export class SupplierNoteRepository {
         return 0;
     }
 
-    private async triggerEvent(data: SupplierNoteEntityEvent) {
+    private async triggerEvent(data: SupplierNoteEntityEvent | SupplierNoteUpdateEntityEvent) {
         const triggerExtensions = await extensions.loadExtensionModules("codbex-partners-Suppliers-SupplierNote", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {

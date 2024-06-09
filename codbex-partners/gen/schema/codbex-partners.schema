@@ -254,9 +254,8 @@
                     {
                         "type": "INTEGER",
                         "length": 0,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "name": "MANUFACTURERNOTE_MANIFACTURER"
+                        "nullable": true,
+                        "name": "MANUFACTURERNOTE_MANUFACTURER"
                     },
                     {
                         "type": "VARCHAR",
@@ -364,7 +363,7 @@
                 "type": "foreignKey",
                 "table": "CODBEX_MANUFACTURERNOTE",
                 "constraintName": "ManufacturerNote_Manufacturer",
-                "columns": "MANUFACTURERNOTE_MANIFACTURER",
+                "columns": "MANUFACTURERNOTE_MANUFACTURER",
                 "referencedTable": "CODBEX_MANUFACTURER",
                 "referencedColumns": "MANUFACTURER_ID"
             },

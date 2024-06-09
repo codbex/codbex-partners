@@ -14,17 +14,21 @@ class SupplierNoteService {
     @Get("/")
     public getAll(_: any, ctx: any) {
         try {
-            let Supplier = parseInt(ctx.queryParameters.Supplier);
-            Supplier = isNaN(Supplier) ? ctx.queryParameters.Supplier : Supplier;
             const options: SupplierNoteEntityOptions = {
-                $filter: {
-                    equals: {
-                        Supplier: Supplier
-                    }
-                },
                 $limit: ctx.queryParameters["$limit"] ? parseInt(ctx.queryParameters["$limit"]) : undefined,
                 $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined
             };
+
+            let Supplier = parseInt(ctx.queryParameters.Supplier);
+            Supplier = isNaN(Supplier) ? ctx.queryParameters.Supplier : Supplier;
+
+            if (Supplier !== undefined) {
+                options.$filter = {
+                    equals: {
+                        Supplier: Supplier
+                    }
+                };
+            }
 
             return this.repository.findAll(options);
         } catch (error: any) {

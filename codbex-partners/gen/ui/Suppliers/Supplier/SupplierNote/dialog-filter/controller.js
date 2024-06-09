@@ -36,10 +36,10 @@ angular.module('page', ["ideUI", "ideView"])
 					}
 				},
 			};
-			if (entity.Id) {
+			if (entity.Id !== undefined) {
 				filter.$filter.equals.Id = entity.Id;
 			}
-			if (entity.Supplier) {
+			if (entity.Supplier !== undefined) {
 				filter.$filter.equals.Supplier = entity.Supplier;
 			}
 			if (entity.Note) {

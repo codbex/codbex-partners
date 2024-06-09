@@ -5,12 +5,12 @@ import { dao as daoApi } from "sdk/db";
 
 export interface ManufacturerNoteEntity {
     readonly Id: number;
-    Manifacturer: number;
+    Manufacturer?: number;
     Note?: string;
 }
 
 export interface ManufacturerNoteCreateEntity {
-    readonly Manifacturer: number;
+    readonly Manufacturer?: number;
     readonly Note?: string;
 }
 
@@ -22,37 +22,37 @@ export interface ManufacturerNoteEntityOptions {
     $filter?: {
         equals?: {
             Id?: number | number[];
-            Manifacturer?: number | number[];
+            Manufacturer?: number | number[];
             Note?: string | string[];
         };
         notEquals?: {
             Id?: number | number[];
-            Manifacturer?: number | number[];
+            Manufacturer?: number | number[];
             Note?: string | string[];
         };
         contains?: {
             Id?: number;
-            Manifacturer?: number;
+            Manufacturer?: number;
             Note?: string;
         };
         greaterThan?: {
             Id?: number;
-            Manifacturer?: number;
+            Manufacturer?: number;
             Note?: string;
         };
         greaterThanOrEqual?: {
             Id?: number;
-            Manifacturer?: number;
+            Manufacturer?: number;
             Note?: string;
         };
         lessThan?: {
             Id?: number;
-            Manifacturer?: number;
+            Manufacturer?: number;
             Note?: string;
         };
         lessThanOrEqual?: {
             Id?: number;
-            Manifacturer?: number;
+            Manufacturer?: number;
             Note?: string;
         };
     },
@@ -74,6 +74,10 @@ interface ManufacturerNoteEntityEvent {
     }
 }
 
+interface ManufacturerNoteUpdateEntityEvent extends ManufacturerNoteEntityEvent {
+    readonly previousEntity: ManufacturerNoteEntity;
+}
+
 export class ManufacturerNoteRepository {
 
     private static readonly DEFINITION = {
@@ -87,10 +91,9 @@ export class ManufacturerNoteRepository {
                 autoIncrement: true,
             },
             {
-                name: "Manifacturer",
-                column: "MANUFACTURERNOTE_MANIFACTURER",
+                name: "Manufacturer",
+                column: "MANUFACTURERNOTE_MANUFACTURER",
                 type: "INTEGER",
-                required: true
             },
             {
                 name: "Note",
@@ -131,11 +134,13 @@ export class ManufacturerNoteRepository {
     }
 
     public update(entity: ManufacturerNoteUpdateEntity): void {
+        const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
             table: "CODBEX_MANUFACTURERNOTE",
             entity: entity,
+            previousEntity: previousEntity,
             key: {
                 name: "Id",
                 column: "MANUFACTURERNOTE_ID",
@@ -190,7 +195,7 @@ export class ManufacturerNoteRepository {
         return 0;
     }
 
-    private async triggerEvent(data: ManufacturerNoteEntityEvent) {
+    private async triggerEvent(data: ManufacturerNoteEntityEvent | ManufacturerNoteUpdateEntityEvent) {
         const triggerExtensions = await extensions.loadExtensionModules("codbex-partners-Manufacturers-ManufacturerNote", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {

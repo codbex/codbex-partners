@@ -119,9 +119,6 @@ class ManufacturerNoteService {
     }
 
     private validateEntity(entity: any): void {
-        if (entity.Manifacturer === null || entity.Manifacturer === undefined) {
-            throw new ValidationError(`The 'Manifacturer' property is required, provide a valid value`);
-        }
         if (entity.Note?.length > 5000) {
             throw new ValidationError(`The 'Note' exceeds the maximum length of [5000] characters`);
         }
