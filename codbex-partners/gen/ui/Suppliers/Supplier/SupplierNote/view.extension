@@ -1,5 +1,0 @@
-{
-    "module": "codbex-partners/gen/ui/Suppliers/Supplier/SupplierNote/view.js",
-    "extensionPoint": "codbex-partners-view",
-    "description": "codbex-partners - Application View - Details"
-}

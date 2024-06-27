@@ -1,5 +1,0 @@
-{
-    "module": "codbex-partners/gen/ui/launchpad/Home/view.js",
-    "extensionPoint": "codbex-partners-view",
-    "description": "codbex-partners - Application View"
-}
