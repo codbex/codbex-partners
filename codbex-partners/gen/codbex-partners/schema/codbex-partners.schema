@@ -1,0 +1,333 @@
+{
+    "schema": {
+        "structures": [
+            {
+                "name": "CODBEX_CUSTOMER",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "CUSTOMER_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 100,
+                        "name": "CUSTOMER_NAME"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 200,
+                        "name": "CUSTOMER_ADDRESS"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "CUSTOMER_POSTALCODE"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 100,
+                        "name": "CUSTOMER_EMAIL"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "CUSTOMER_PHONE"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "CUSTOMER_FAX"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "name": "CUSTOMER_CITY"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "name": "CUSTOMER_COUNTRY"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "CUSTOMER_TIN"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 36,
+                        "nullable": true,
+                        "name": "CUSTOMER_IBAN"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_SUPPLIER",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "SUPPLIER_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 100,
+                        "name": "SUPPLIER_NAME"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 200,
+                        "name": "SUPPLIER_ADDRESS"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "SUPPLIER_POSTALCODE"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 100,
+                        "name": "SUPPLIER_EMAIL"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "SUPPLIER_PHONE"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "SUPPLIER_FAX"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "name": "SUPPLIER_CITY"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "name": "SUPPLIER_COUNTRY"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "SUPPLIER_TIN"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 36,
+                        "nullable": true,
+                        "name": "SUPPLIER_IBAN"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_CUSTOMERNOTE",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "CUSTOMERNOTE_ID"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "nullable": true,
+                        "name": "CUSTOMERNOTE_CUSTOMER"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 5000,
+                        "nullable": true,
+                        "name": "CUSTOMERNOTE_NOTE"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_SUPPLIERNOTE",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "SUPPLIERNOTE_ID"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "nullable": true,
+                        "name": "SUPPLIERNOTE_SUPPLIER"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 5000,
+                        "nullable": true,
+                        "name": "SUPPLIERNOTE_NOTE"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_MANUFACTURERNOTE",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "MANUFACTURERNOTE_ID"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "nullable": true,
+                        "name": "MANUFACTURERNOTE_MANUFACTURER"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 5000,
+                        "nullable": true,
+                        "name": "MANUFACTURERNOTE_NOTE"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_MANUFACTURER",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "MANUFACTURER_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "name": "MANUFACTURER_NAME"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "name": "MANUFACTURER_CITY"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "name": "MANUFACTURER_COUNTRY"
+                    }
+                ]
+            },
+            {
+                "name": "Customer_City",
+                "type": "foreignKey",
+                "table": "CODBEX_CUSTOMER",
+                "constraintName": "Customer_City",
+                "columns": "CUSTOMER_CITY",
+                "referencedTable": "CODBEX_CITY",
+                "referencedColumns": "CITY_ID"
+            },
+            {
+                "name": "Customer_Country",
+                "type": "foreignKey",
+                "table": "CODBEX_CUSTOMER",
+                "constraintName": "Customer_Country",
+                "columns": "CUSTOMER_COUNTRY",
+                "referencedTable": "CODBEX_COUNTRY",
+                "referencedColumns": "COUNTRY_ID"
+            },
+            {
+                "name": "Supplier_City",
+                "type": "foreignKey",
+                "table": "CODBEX_SUPPLIER",
+                "constraintName": "Supplier_City",
+                "columns": "SUPPLIER_CITY",
+                "referencedTable": "CODBEX_CITY",
+                "referencedColumns": "CITY_ID"
+            },
+            {
+                "name": "Supplier_Country",
+                "type": "foreignKey",
+                "table": "CODBEX_SUPPLIER",
+                "constraintName": "Supplier_Country",
+                "columns": "SUPPLIER_COUNTRY",
+                "referencedTable": "CODBEX_COUNTRY",
+                "referencedColumns": "COUNTRY_ID"
+            },
+            {
+                "name": "CustomerNote_Customer",
+                "type": "foreignKey",
+                "table": "CODBEX_CUSTOMERNOTE",
+                "constraintName": "CustomerNote_Customer",
+                "columns": "CUSTOMERNOTE_CUSTOMER",
+                "referencedTable": "CODBEX_CUSTOMER",
+                "referencedColumns": "CUSTOMER_ID"
+            },
+            {
+                "name": "SupplierNote_Supplier",
+                "type": "foreignKey",
+                "table": "CODBEX_SUPPLIERNOTE",
+                "constraintName": "SupplierNote_Supplier",
+                "columns": "SUPPLIERNOTE_SUPPLIER",
+                "referencedTable": "CODBEX_SUPPLIER",
+                "referencedColumns": "SUPPLIER_ID"
+            },
+            {
+                "name": "ManufacturerNote_Manufacturer",
+                "type": "foreignKey",
+                "table": "CODBEX_MANUFACTURERNOTE",
+                "constraintName": "ManufacturerNote_Manufacturer",
+                "columns": "MANUFACTURERNOTE_MANUFACTURER",
+                "referencedTable": "CODBEX_MANUFACTURER",
+                "referencedColumns": "MANUFACTURER_ID"
+            },
+            {
+                "name": "Manufacturer_City",
+                "type": "foreignKey",
+                "table": "CODBEX_MANUFACTURER",
+                "constraintName": "Manufacturer_City",
+                "columns": "MANUFACTURER_CITY",
+                "referencedTable": "CODBEX_CITY",
+                "referencedColumns": "CITY_ID"
+            },
+            {
+                "name": "Manufacturer_Country",
+                "type": "foreignKey",
+                "table": "CODBEX_MANUFACTURER",
+                "constraintName": "Manufacturer_Country",
+                "columns": "MANUFACTURER_COUNTRY",
+                "referencedTable": "CODBEX_COUNTRY",
+                "referencedColumns": "COUNTRY_ID"
+            }
+        ]
+    },
+    "datasource": "DefaultDB"
+}
