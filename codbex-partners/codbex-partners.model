@@ -103,7 +103,7 @@
                     },
                     {
                         "dataName": "CUSTOMER_COUNTRY",
-                        "dataNullable": "false",
+                        "dataNullable": "true",
                         "dataType": "INTEGER",
                         "name": "Country",
                         "widgetDropDownKey": "Id",
@@ -263,9 +263,8 @@
                     },
                     {
                         "dataName": "SUPPLIER_COUNTRY",
-                        "dataNullable": "false",
+                        "dataNullable": "true",
                         "dataType": "INTEGER",
-                        "isRequiredProperty": "true",
                         "name": "Country",
                         "widgetDropDownKey": "Id",
                         "widgetDropDownValue": "Name",
@@ -715,9 +714,8 @@
                     },
                     {
                         "dataName": "MANUFACTURER_COUNTRY",
-                        "dataNullable": "false",
+                        "dataNullable": "true",
                         "dataType": "INTEGER",
-                        "isRequiredProperty": "true",
                         "name": "Country",
                         "widgetDropDownKey": "Id",
                         "widgetDropDownValue": "Name",

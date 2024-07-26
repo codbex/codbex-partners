@@ -1,5 +1,5 @@
 {
     "extensionPoint": "codbex-partners-Customers-Customer",
-    "module": "codbex-partners/events/SetCountryToCustomerHandler.ts",
+    "module": "codbex-partners/events/Customers/SetCountryToCustomerHandler.ts",
     "description": "Extension for setting country"
 }

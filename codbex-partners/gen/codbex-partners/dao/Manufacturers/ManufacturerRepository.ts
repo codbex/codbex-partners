@@ -7,13 +7,13 @@ export interface ManufacturerEntity {
     readonly Id: number;
     Name: string;
     City: number;
-    Country: number;
+    Country?: number;
 }
 
 export interface ManufacturerCreateEntity {
     readonly Name: string;
     readonly City: number;
-    readonly Country: number;
+    readonly Country?: number;
 }
 
 export interface ManufacturerUpdateEntity extends ManufacturerCreateEntity {
@@ -115,7 +115,6 @@ export class ManufacturerRepository {
                 name: "Country",
                 column: "MANUFACTURER_COUNTRY",
                 type: "INTEGER",
-                required: true
             }
         ]
     };

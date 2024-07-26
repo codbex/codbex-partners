@@ -128,9 +128,6 @@ class ManufacturerService {
         if (entity.City === null || entity.City === undefined) {
             throw new ValidationError(`The 'City' property is required, provide a valid value`);
         }
-        if (entity.Country === null || entity.Country === undefined) {
-            throw new ValidationError(`The 'Country' property is required, provide a valid value`);
-        }
         for (const next of validationModules) {
             next.validate(entity);
         }

@@ -51,6 +51,7 @@
                     },
                     {
                         "type": "INTEGER",
+                        "nullable": true,
                         "name": "CUSTOMER_COUNTRY"
                     },
                     {
@@ -117,6 +118,7 @@
                     },
                     {
                         "type": "INTEGER",
+                        "nullable": true,
                         "name": "SUPPLIER_COUNTRY"
                     },
                     {
@@ -227,6 +229,7 @@
                     },
                     {
                         "type": "INTEGER",
+                        "nullable": true,
                         "name": "MANUFACTURER_COUNTRY"
                     }
                 ]

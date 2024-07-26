@@ -2998,7 +2998,6 @@ components:
         - Address
         - Email
         - City
-        - Country
       properties:
         Id:
           type: integer
@@ -3991,7 +3990,6 @@ components:
       required:
         - Name
         - City
-        - Country
       properties:
         Id:
           type: integer

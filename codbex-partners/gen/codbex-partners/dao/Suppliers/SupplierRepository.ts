@@ -12,7 +12,7 @@ export interface SupplierEntity {
     Phone?: string;
     Fax?: string;
     City: number;
-    Country: number;
+    Country?: number;
     TIN?: string;
     IBAN?: string;
 }
@@ -25,7 +25,7 @@ export interface SupplierCreateEntity {
     readonly Phone?: string;
     readonly Fax?: string;
     readonly City: number;
-    readonly Country: number;
+    readonly Country?: number;
     readonly TIN?: string;
     readonly IBAN?: string;
 }
@@ -205,7 +205,6 @@ export class SupplierRepository {
                 name: "Country",
                 column: "SUPPLIER_COUNTRY",
                 type: "INTEGER",
-                required: true
             },
             {
                 name: "TIN",
