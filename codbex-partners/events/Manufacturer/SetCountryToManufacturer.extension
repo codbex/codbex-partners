@@ -1,5 +1,5 @@
 {
     "extensionPoint": "codbex-partners-Manufacturers-Manufacturer",
-    "module": "codbex-partners/events/Manufacturers/SetCountryToManufacturerHandler.ts",
+    "module": "codbex-partners/events/Manufacturer/SetCountryToManufacturerHandler.ts",
     "description": "Extension for setting country"
 }
