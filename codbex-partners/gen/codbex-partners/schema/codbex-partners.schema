@@ -7,7 +7,6 @@
                 "columns": [
                     {
                         "type": "INTEGER",
-                        "length": 0,
                         "primaryKey": true,
                         "identity": true,
                         "nullable": true,
@@ -48,12 +47,10 @@
                     },
                     {
                         "type": "INTEGER",
-                        "length": 0,
                         "name": "CUSTOMER_CITY"
                     },
                     {
                         "type": "INTEGER",
-                        "length": 0,
                         "name": "CUSTOMER_COUNTRY"
                     },
                     {
@@ -76,7 +73,6 @@
                 "columns": [
                     {
                         "type": "INTEGER",
-                        "length": 0,
                         "primaryKey": true,
                         "identity": true,
                         "nullable": true,
@@ -117,12 +113,10 @@
                     },
                     {
                         "type": "INTEGER",
-                        "length": 0,
                         "name": "SUPPLIER_CITY"
                     },
                     {
                         "type": "INTEGER",
-                        "length": 0,
                         "name": "SUPPLIER_COUNTRY"
                     },
                     {
@@ -145,7 +139,6 @@
                 "columns": [
                     {
                         "type": "INTEGER",
-                        "length": 0,
                         "primaryKey": true,
                         "identity": true,
                         "nullable": true,
@@ -153,7 +146,6 @@
                     },
                     {
                         "type": "INTEGER",
-                        "length": 0,
                         "nullable": true,
                         "name": "CUSTOMERNOTE_CUSTOMER"
                     },
@@ -171,7 +163,6 @@
                 "columns": [
                     {
                         "type": "INTEGER",
-                        "length": 0,
                         "primaryKey": true,
                         "identity": true,
                         "nullable": true,
@@ -179,7 +170,6 @@
                     },
                     {
                         "type": "INTEGER",
-                        "length": 0,
                         "nullable": true,
                         "name": "SUPPLIERNOTE_SUPPLIER"
                     },
@@ -197,7 +187,6 @@
                 "columns": [
                     {
                         "type": "INTEGER",
-                        "length": 0,
                         "primaryKey": true,
                         "identity": true,
                         "nullable": true,
@@ -205,7 +194,6 @@
                     },
                     {
                         "type": "INTEGER",
-                        "length": 0,
                         "nullable": true,
                         "name": "MANUFACTURERNOTE_MANUFACTURER"
                     },
@@ -223,7 +211,6 @@
                 "columns": [
                     {
                         "type": "INTEGER",
-                        "length": 0,
                         "primaryKey": true,
                         "identity": true,
                         "nullable": true,
@@ -236,12 +223,10 @@
                     },
                     {
                         "type": "INTEGER",
-                        "length": 0,
                         "name": "MANUFACTURER_CITY"
                     },
                     {
                         "type": "INTEGER",
-                        "length": 0,
                         "name": "MANUFACTURER_COUNTRY"
                     }
                 ]

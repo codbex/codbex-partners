@@ -105,7 +105,6 @@
                         "dataName": "CUSTOMER_COUNTRY",
                         "dataNullable": "false",
                         "dataType": "INTEGER",
-                        "isRequiredProperty": "true",
                         "name": "Country",
                         "widgetDropDownKey": "Id",
                         "widgetDropDownValue": "Name",

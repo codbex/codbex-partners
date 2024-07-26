@@ -2481,7 +2481,6 @@ components:
         - Address
         - Email
         - City
-        - Country
       properties:
         Id:
           type: integer
