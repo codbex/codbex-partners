@@ -85,23 +85,6 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "dataName": "CUSTOMER_CITY",
-                        "dataNullable": "false",
-                        "dataType": "INTEGER",
-                        "isRequiredProperty": "true",
-                        "name": "City",
-                        "widgetDropDownKey": "Id",
-                        "widgetDropDownValue": "Name",
-                        "widgetIsMajor": "true",
-                        "widgetLength": "20",
-                        "widgetSize": "",
-                        "widgetType": "DROPDOWN",
-                        "relationshipName": "Customer_City",
-                        "relationshipEntityName": "City",
-                        "relationshipEntityPerspectiveName": "Cities",
-                        "relationshipEntityPerspectiveLabel": "Entities"
-                    },
-                    {
                         "dataName": "CUSTOMER_COUNTRY",
                         "dataNullable": "false",
                         "dataType": "INTEGER",
@@ -116,6 +99,24 @@
                         "relationshipName": "Customer_Country",
                         "relationshipEntityName": "Country",
                         "relationshipEntityPerspectiveName": "Countries",
+                        "relationshipEntityPerspectiveLabel": "Entities"
+                    },
+                    {
+                        "dataName": "CUSTOMER_CITY",
+                        "dataNullable": "false",
+                        "dataType": "INTEGER",
+                        "isRequiredProperty": "true",
+                        "name": "City",
+                        "widgetDropDownDependsOn": "Country",
+                        "widgetDropDownKey": "Id",
+                        "widgetDropDownValue": "Name",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "DROPDOWN",
+                        "relationshipName": "Customer_City",
+                        "relationshipEntityName": "City",
+                        "relationshipEntityPerspectiveName": "Cities",
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
@@ -246,23 +247,6 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "dataName": "SUPPLIER_CITY",
-                        "dataNullable": "false",
-                        "dataType": "INTEGER",
-                        "isRequiredProperty": "true",
-                        "name": "City",
-                        "widgetDropDownKey": "Id",
-                        "widgetDropDownValue": "Name",
-                        "widgetIsMajor": "true",
-                        "widgetLength": "20",
-                        "widgetSize": "",
-                        "widgetType": "DROPDOWN",
-                        "relationshipName": "Supplier_City",
-                        "relationshipEntityName": "City",
-                        "relationshipEntityPerspectiveName": "Cities",
-                        "relationshipEntityPerspectiveLabel": "Entities"
-                    },
-                    {
                         "dataName": "SUPPLIER_COUNTRY",
                         "dataNullable": "false",
                         "dataType": "INTEGER",
@@ -277,6 +261,24 @@
                         "relationshipName": "Supplier_Country",
                         "relationshipEntityName": "Country",
                         "relationshipEntityPerspectiveName": "Countries",
+                        "relationshipEntityPerspectiveLabel": "Entities"
+                    },
+                    {
+                        "dataName": "SUPPLIER_CITY",
+                        "dataNullable": "false",
+                        "dataType": "INTEGER",
+                        "isRequiredProperty": "true",
+                        "name": "City",
+                        "widgetDropDownDependsOn": "Country",
+                        "widgetDropDownKey": "Id",
+                        "widgetDropDownValue": "Name",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "DROPDOWN",
+                        "relationshipName": "Supplier_City",
+                        "relationshipEntityName": "City",
+                        "relationshipEntityPerspectiveName": "Cities",
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
@@ -698,23 +700,6 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "dataName": "MANUFACTURER_CITY",
-                        "dataNullable": "false",
-                        "dataType": "INTEGER",
-                        "isRequiredProperty": "true",
-                        "name": "City",
-                        "widgetDropDownKey": "Id",
-                        "widgetDropDownValue": "Name",
-                        "widgetIsMajor": "true",
-                        "widgetLength": "20",
-                        "widgetSize": "",
-                        "widgetType": "DROPDOWN",
-                        "relationshipName": "Manufacturer_City",
-                        "relationshipEntityName": "City",
-                        "relationshipEntityPerspectiveName": "Cities",
-                        "relationshipEntityPerspectiveLabel": "Entities"
-                    },
-                    {
                         "dataName": "MANUFACTURER_COUNTRY",
                         "dataNullable": "false",
                         "dataType": "INTEGER",
@@ -729,6 +714,24 @@
                         "relationshipName": "Manufacturer_Country",
                         "relationshipEntityName": "Country",
                         "relationshipEntityPerspectiveName": "Countries",
+                        "relationshipEntityPerspectiveLabel": "Entities"
+                    },
+                    {
+                        "dataName": "MANUFACTURER_CITY",
+                        "dataNullable": "false",
+                        "dataType": "INTEGER",
+                        "isRequiredProperty": "true",
+                        "name": "City",
+                        "widgetDropDownDependsOn": "Country",
+                        "widgetDropDownKey": "Id",
+                        "widgetDropDownValue": "Name",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "DROPDOWN",
+                        "relationshipName": "Manufacturer_City",
+                        "relationshipEntityName": "City",
+                        "relationshipEntityPerspectiveName": "Cities",
                         "relationshipEntityPerspectiveLabel": "Entities"
                     }
                 ],

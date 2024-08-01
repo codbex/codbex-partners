@@ -2480,8 +2480,8 @@ components:
         - Name
         - Address
         - Email
-        - City
         - Country
+        - City
       properties:
         Id:
           type: integer
@@ -2510,10 +2510,10 @@ components:
           type: string
           minLength: 0
           maxLength: 20
-        City:
+        Country:
           type: integer
           format: int32
-        Country:
+        City:
           type: integer
           format: int32
         TIN:
@@ -2607,7 +2607,7 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 20
-                City:
+                Country:
                   oneOf:
                     - type: integer
                       format: int32
@@ -2615,7 +2615,7 @@ components:
                       items:
                         type: integer
                         format: int32
-                Country:
+                City:
                   oneOf:
                     - type: integer
                       format: int32
@@ -2722,7 +2722,7 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 20
-                City:
+                Country:
                   oneOf:
                     - type: integer
                       format: int32
@@ -2730,7 +2730,7 @@ components:
                       items:
                         type: integer
                         format: int32
-                Country:
+                City:
                   oneOf:
                     - type: integer
                       format: int32
@@ -2788,8 +2788,8 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
-                City:
                 Country:
+                City:
                 TIN:
                   type: string
                   minLength: 0
@@ -2828,10 +2828,10 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
-                City:
+                Country:
                   type: integer
                   format: int32
-                Country:
+                City:
                   type: integer
                   format: int32
                 TIN:
@@ -2872,10 +2872,10 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
-                City:
+                Country:
                   type: integer
                   format: int32
-                Country:
+                City:
                   type: integer
                   format: int32
                 TIN:
@@ -2916,10 +2916,10 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
-                City:
+                Country:
                   type: integer
                   format: int32
-                Country:
+                City:
                   type: integer
                   format: int32
                 TIN:
@@ -2960,10 +2960,10 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
-                City:
+                Country:
                   type: integer
                   format: int32
-                Country:
+                City:
                   type: integer
                   format: int32
                 TIN:
@@ -2976,12 +2976,12 @@ components:
                   maxLength: 36
         $select:
           type: array
-          example: ["Id", "Name", "Address", "PostalCode", "Email", "Phone", "Fax", "City", "Country", "TIN", "IBAN"]
+          example: ["Id", "Name", "Address", "PostalCode", "Email", "Phone", "Fax", "Country", "City", "TIN", "IBAN"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Name,Address,PostalCode,Email,Phone,Fax,City,Country,TIN,IBAN"
+            example: "Id,Name,Address,PostalCode,Email,Phone,Fax,Country,City,TIN,IBAN"
         $order:
           type: string
           enum: ["asc", "desc"]
@@ -2998,8 +2998,8 @@ components:
         - Name
         - Address
         - Email
-        - City
         - Country
+        - City
       properties:
         Id:
           type: integer
@@ -3028,10 +3028,10 @@ components:
           type: string
           minLength: 0
           maxLength: 20
-        City:
+        Country:
           type: integer
           format: int32
-        Country:
+        City:
           type: integer
           format: int32
         TIN:
@@ -3125,7 +3125,7 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 20
-                City:
+                Country:
                   oneOf:
                     - type: integer
                       format: int32
@@ -3133,7 +3133,7 @@ components:
                       items:
                         type: integer
                         format: int32
-                Country:
+                City:
                   oneOf:
                     - type: integer
                       format: int32
@@ -3240,7 +3240,7 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 20
-                City:
+                Country:
                   oneOf:
                     - type: integer
                       format: int32
@@ -3248,7 +3248,7 @@ components:
                       items:
                         type: integer
                         format: int32
-                Country:
+                City:
                   oneOf:
                     - type: integer
                       format: int32
@@ -3306,8 +3306,8 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
-                City:
                 Country:
+                City:
                 TIN:
                   type: string
                   minLength: 0
@@ -3346,10 +3346,10 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
-                City:
+                Country:
                   type: integer
                   format: int32
-                Country:
+                City:
                   type: integer
                   format: int32
                 TIN:
@@ -3390,10 +3390,10 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
-                City:
+                Country:
                   type: integer
                   format: int32
-                Country:
+                City:
                   type: integer
                   format: int32
                 TIN:
@@ -3434,10 +3434,10 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
-                City:
+                Country:
                   type: integer
                   format: int32
-                Country:
+                City:
                   type: integer
                   format: int32
                 TIN:
@@ -3478,10 +3478,10 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
-                City:
+                Country:
                   type: integer
                   format: int32
-                Country:
+                City:
                   type: integer
                   format: int32
                 TIN:
@@ -3494,12 +3494,12 @@ components:
                   maxLength: 36
         $select:
           type: array
-          example: ["Id", "Name", "Address", "PostalCode", "Email", "Phone", "Fax", "City", "Country", "TIN", "IBAN"]
+          example: ["Id", "Name", "Address", "PostalCode", "Email", "Phone", "Fax", "Country", "City", "TIN", "IBAN"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Name,Address,PostalCode,Email,Phone,Fax,City,Country,TIN,IBAN"
+            example: "Id,Name,Address,PostalCode,Email,Phone,Fax,Country,City,TIN,IBAN"
         $order:
           type: string
           enum: ["asc", "desc"]

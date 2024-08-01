@@ -11,8 +11,8 @@ export interface CustomerEntity {
     Email: string;
     Phone?: string;
     Fax?: string;
-    City: number;
     Country: number;
+    City: number;
     TIN?: string;
     IBAN?: string;
 }
@@ -24,8 +24,8 @@ export interface CustomerCreateEntity {
     readonly Email: string;
     readonly Phone?: string;
     readonly Fax?: string;
-    readonly City: number;
     readonly Country: number;
+    readonly City: number;
     readonly TIN?: string;
     readonly IBAN?: string;
 }
@@ -44,8 +44,8 @@ export interface CustomerEntityOptions {
             Email?: string | string[];
             Phone?: string | string[];
             Fax?: string | string[];
-            City?: number | number[];
             Country?: number | number[];
+            City?: number | number[];
             TIN?: string | string[];
             IBAN?: string | string[];
         };
@@ -57,8 +57,8 @@ export interface CustomerEntityOptions {
             Email?: string | string[];
             Phone?: string | string[];
             Fax?: string | string[];
-            City?: number | number[];
             Country?: number | number[];
+            City?: number | number[];
             TIN?: string | string[];
             IBAN?: string | string[];
         };
@@ -70,8 +70,8 @@ export interface CustomerEntityOptions {
             Email?: string;
             Phone?: string;
             Fax?: string;
-            City?: number;
             Country?: number;
+            City?: number;
             TIN?: string;
             IBAN?: string;
         };
@@ -83,8 +83,8 @@ export interface CustomerEntityOptions {
             Email?: string;
             Phone?: string;
             Fax?: string;
-            City?: number;
             Country?: number;
+            City?: number;
             TIN?: string;
             IBAN?: string;
         };
@@ -96,8 +96,8 @@ export interface CustomerEntityOptions {
             Email?: string;
             Phone?: string;
             Fax?: string;
-            City?: number;
             Country?: number;
+            City?: number;
             TIN?: string;
             IBAN?: string;
         };
@@ -109,8 +109,8 @@ export interface CustomerEntityOptions {
             Email?: string;
             Phone?: string;
             Fax?: string;
-            City?: number;
             Country?: number;
+            City?: number;
             TIN?: string;
             IBAN?: string;
         };
@@ -122,8 +122,8 @@ export interface CustomerEntityOptions {
             Email?: string;
             Phone?: string;
             Fax?: string;
-            City?: number;
             Country?: number;
+            City?: number;
             TIN?: string;
             IBAN?: string;
         };
@@ -196,14 +196,14 @@ export class CustomerRepository {
                 type: "VARCHAR",
             },
             {
-                name: "City",
-                column: "CUSTOMER_CITY",
+                name: "Country",
+                column: "CUSTOMER_COUNTRY",
                 type: "INTEGER",
                 required: true
             },
             {
-                name: "Country",
-                column: "CUSTOMER_COUNTRY",
+                name: "City",
+                column: "CUSTOMER_CITY",
                 type: "INTEGER",
                 required: true
             },
