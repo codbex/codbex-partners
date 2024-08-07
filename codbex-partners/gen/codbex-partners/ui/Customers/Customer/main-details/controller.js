@@ -40,8 +40,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		messageHub.onDidReceiveMessage("clearDetails", function (msg) {
 			$scope.$apply(function () {
 				$scope.entity = {};
-				$scope.optionsCity = [];
 				$scope.optionsCountry = [];
+				$scope.optionsCity = [];
 				$scope.action = 'select';
 			});
 		});
@@ -49,8 +49,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		messageHub.onDidReceiveMessage("entitySelected", function (msg) {
 			$scope.$apply(function () {
 				$scope.entity = msg.data.entity;
-				$scope.optionsCity = msg.data.optionsCity;
 				$scope.optionsCountry = msg.data.optionsCountry;
+				$scope.optionsCity = msg.data.optionsCity;
 				$scope.action = 'select';
 			});
 		});
@@ -58,8 +58,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		messageHub.onDidReceiveMessage("createEntity", function (msg) {
 			$scope.$apply(function () {
 				$scope.entity = {};
-				$scope.optionsCity = msg.data.optionsCity;
 				$scope.optionsCountry = msg.data.optionsCountry;
+				$scope.optionsCity = msg.data.optionsCity;
 				$scope.action = 'create';
 			});
 		});
@@ -67,10 +67,32 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		messageHub.onDidReceiveMessage("updateEntity", function (msg) {
 			$scope.$apply(function () {
 				$scope.entity = msg.data.entity;
-				$scope.optionsCity = msg.data.optionsCity;
 				$scope.optionsCountry = msg.data.optionsCountry;
+				$scope.optionsCity = msg.data.optionsCity;
 				$scope.action = 'update';
 			});
+		});
+
+		$scope.$watch('entity.Country', function (newValue, oldValue) {
+			if (newValue !== undefined && newValue !== null) {
+				entityApi.$http.post("/services/ts/codbex-cities/gen/codbex-cities/api/Cities/CityService.ts/search", {
+					$filter: {
+						equals: {
+							Country: newValue
+						}
+					}
+				}).then(function (response) {
+					$scope.optionsCity = response.data.map(e => {
+						return {
+							value: e.Id,
+							text: e.Name
+						}
+					});
+					if ($scope.action !== 'select' && newValue !== oldValue) {
+						$scope.entity.City = undefined;
+					}
+				});
+			}
 		});
 		//-----------------Events-------------------//
 
