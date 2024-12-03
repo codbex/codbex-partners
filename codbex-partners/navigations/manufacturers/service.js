@@ -1,11 +1,10 @@
 const navigationData = {
-    id: 'custmores-navigation',
-    label: "Customers",
-    view: "customers",
+    id: 'manufacturers-navigation',
+    label: "Manufacturers",
+    view: "manufacturers",
     group: "partners",
-    orderNumber: 1000,
-    lazyLoad: true,
-    link: "/services/web/codbex-partners/gen/codbex-partners/ui/Customers/index.html?embedded"
+    orderNumber: 100,
+    link: "/services/web/codbex-partners/gen/codbex-partners/ui/Manufacturers/index.html?embedded"
 };
 
 function getNavigation() {
