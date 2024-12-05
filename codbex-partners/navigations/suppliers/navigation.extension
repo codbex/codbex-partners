@@ -1,5 +1,5 @@
 {
     "extensionPoint": "dashboard-navigations",
-    "module": "codbex-partners/navigations/services/suppliers.js",
+    "module": "codbex-partners/navigations/suppliers/service.js",
     "description": "Suppliers Navigation"
 }
