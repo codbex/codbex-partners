@@ -48,20 +48,6 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idCity" dg-colon="true">City</fd-form-label>
-                        </div>
-                        <div class="fd-col fd-col-md--8">
-	                        <fd-combobox-input id="idCity"
-	                            name="City"
-	                            state="{{ forms.details['City'].$valid ? '' : 'error' }}"
-	                            ng-model="entity.City"
-	                            dropdown-items="optionsCity"
-	                            dg-placeholder="Search City ...">
-	                        </fd-combobox-input>
-	                    </div>
-                    </fd-form-item>
-                    <fd-form-item class="fd-row">
-                    	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idCountry" dg-colon="true">Country</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
@@ -71,6 +57,20 @@
 	                            ng-model="entity.Country"
 	                            dropdown-items="optionsCountry"
 	                            dg-placeholder="Search Country ...">
+	                        </fd-combobox-input>
+	                    </div>
+                    </fd-form-item>
+                    <fd-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<fd-form-label for="idCity" dg-colon="true">City</fd-form-label>
+                        </div>
+                        <div class="fd-col fd-col-md--8">
+	                        <fd-combobox-input id="idCity"
+	                            name="City"
+	                            state="{{ forms.details['City'].$valid ? '' : 'error' }}"
+	                            ng-model="entity.City"
+	                            dropdown-items="optionsCity"
+	                            dg-placeholder="Search City ...">
 	                        </fd-combobox-input>
 	                    </div>
                     </fd-form-item>
@@ -84,10 +84,10 @@
 					<fd-button dg-label="Filter" dg-type="emphasized" ng-click="filter()"></fd-button>
 				</fd-bar-element>
 				<fd-bar-element>
-					<fd-button dg-label="Reset" dg-type="transparent" ng-click="resetFilter()"></fd-button>
+					<fd-button dg-label="Reset" ng-click="resetFilter()"></fd-button>
 				</fd-bar-element>
 				<fd-bar-element>
-					<fd-button dg-label="Cancel" dg-type="transparent" ng-click="cancel()"></fd-button>
+					<fd-button dg-label="Cancel" ng-click="cancel()"></fd-button>
 				</fd-bar-element>
 			</fd-bar-right>
 		</fd-bar>

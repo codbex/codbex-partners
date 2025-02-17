@@ -6,14 +6,14 @@ import { dao as daoApi } from "sdk/db";
 export interface ManufacturerEntity {
     readonly Id: number;
     Name: string;
-    City: number;
     Country: number;
+    City: number;
 }
 
 export interface ManufacturerCreateEntity {
     readonly Name: string;
-    readonly City: number;
     readonly Country: number;
+    readonly City: number;
 }
 
 export interface ManufacturerUpdateEntity extends ManufacturerCreateEntity {
@@ -25,44 +25,44 @@ export interface ManufacturerEntityOptions {
         equals?: {
             Id?: number | number[];
             Name?: string | string[];
-            City?: number | number[];
             Country?: number | number[];
+            City?: number | number[];
         };
         notEquals?: {
             Id?: number | number[];
             Name?: string | string[];
-            City?: number | number[];
             Country?: number | number[];
+            City?: number | number[];
         };
         contains?: {
             Id?: number;
             Name?: string;
-            City?: number;
             Country?: number;
+            City?: number;
         };
         greaterThan?: {
             Id?: number;
             Name?: string;
-            City?: number;
             Country?: number;
+            City?: number;
         };
         greaterThanOrEqual?: {
             Id?: number;
             Name?: string;
-            City?: number;
             Country?: number;
+            City?: number;
         };
         lessThan?: {
             Id?: number;
             Name?: string;
-            City?: number;
             Country?: number;
+            City?: number;
         };
         lessThanOrEqual?: {
             Id?: number;
             Name?: string;
-            City?: number;
             Country?: number;
+            City?: number;
         };
     },
     $select?: (keyof ManufacturerEntity)[],
@@ -106,14 +106,14 @@ export class ManufacturerRepository {
                 required: true
             },
             {
-                name: "City",
-                column: "MANUFACTURER_CITY",
+                name: "Country",
+                column: "MANUFACTURER_COUNTRY",
                 type: "INTEGER",
                 required: true
             },
             {
-                name: "Country",
-                column: "MANUFACTURER_COUNTRY",
+                name: "City",
+                column: "MANUFACTURER_CITY",
                 type: "INTEGER",
                 required: true
             }

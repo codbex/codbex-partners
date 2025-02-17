@@ -223,11 +223,11 @@
                     },
                     {
                         "type": "INTEGER",
-                        "name": "MANUFACTURER_CITY"
+                        "name": "MANUFACTURER_COUNTRY"
                     },
                     {
                         "type": "INTEGER",
-                        "name": "MANUFACTURER_COUNTRY"
+                        "name": "MANUFACTURER_CITY"
                     }
                 ]
             },
@@ -295,15 +295,6 @@
                 "referencedColumns": "MANUFACTURER_ID"
             },
             {
-                "name": "Manufacturer_City",
-                "type": "foreignKey",
-                "table": "CODBEX_MANUFACTURER",
-                "constraintName": "Manufacturer_City",
-                "columns": "MANUFACTURER_CITY",
-                "referencedTable": "CODBEX_CITY",
-                "referencedColumns": "CITY_ID"
-            },
-            {
                 "name": "Manufacturer_Country",
                 "type": "foreignKey",
                 "table": "CODBEX_MANUFACTURER",
@@ -311,6 +302,15 @@
                 "columns": "MANUFACTURER_COUNTRY",
                 "referencedTable": "CODBEX_COUNTRY",
                 "referencedColumns": "COUNTRY_ID"
+            },
+            {
+                "name": "Manufacturer_City",
+                "type": "foreignKey",
+                "table": "CODBEX_MANUFACTURER",
+                "constraintName": "Manufacturer_City",
+                "columns": "MANUFACTURER_CITY",
+                "referencedTable": "CODBEX_CITY",
+                "referencedColumns": "CITY_ID"
             }
         ]
     },
