@@ -1,9 +1,9 @@
 angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-partners.Customers.Customer';
+		messageHubProvider.eventIdPrefix = 'codbex-partners.Manufacturers.Manufacturer';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/ts/codbex-partners/gen/codbex-partners/api/Customers/CustomerService.ts";
+		entityApiProvider.baseUrl = "/services/ts/codbex-partners/gen/codbex-partners/api/Manufacturers/ManufacturerService.ts";
 	}])
 	.controller('PageController', ['$scope',  '$http', 'Extensions', 'messageHub', 'entityApi', function ($scope,  $http, Extensions, messageHub, entityApi) {
 
@@ -12,15 +12,15 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			details: {},
 		};
 		$scope.formHeaders = {
-			select: "Customer Details",
-			create: "Create Customer",
-			update: "Update Customer"
+			select: "Manufacturer Details",
+			create: "Create Manufacturer",
+			update: "Update Manufacturer"
 		};
 		$scope.action = 'select';
 
 		//-----------------Custom Actions-------------------//
 		Extensions.get('dialogWindow', 'codbex-partners-custom-action').then(function (response) {
-			$scope.entityActions = response.filter(e => e.perspective === "Customers" && e.view === "Customer" && e.type === "entity");
+			$scope.entityActions = response.filter(e => e.perspective === "Manufacturers" && e.view === "Manufacturer" && e.type === "entity");
 		});
 
 		$scope.triggerEntityAction = function (action) {
@@ -81,24 +81,24 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.create = function () {
 			entityApi.create($scope.entity).then(function (response) {
 				if (response.status != 201) {
-					messageHub.showAlertError("Customer", `Unable to create Customer: '${response.message}'`);
+					messageHub.showAlertError("Manufacturer", `Unable to create Manufacturer: '${response.message}'`);
 					return;
 				}
 				messageHub.postMessage("entityCreated", response.data);
 				messageHub.postMessage("clearDetails", response.data);
-				messageHub.showAlertSuccess("Customer", "Customer successfully created");
+				messageHub.showAlertSuccess("Manufacturer", "Manufacturer successfully created");
 			});
 		};
 
 		$scope.update = function () {
 			entityApi.update($scope.entity.Id, $scope.entity).then(function (response) {
 				if (response.status != 200) {
-					messageHub.showAlertError("Customer", `Unable to update Customer: '${response.message}'`);
+					messageHub.showAlertError("Manufacturer", `Unable to update Manufacturer: '${response.message}'`);
 					return;
 				}
 				messageHub.postMessage("entityUpdated", response.data);
 				messageHub.postMessage("clearDetails", response.data);
-				messageHub.showAlertSuccess("Customer", "Customer successfully updated");
+				messageHub.showAlertSuccess("Manufacturer", "Manufacturer successfully updated");
 			});
 		};
 

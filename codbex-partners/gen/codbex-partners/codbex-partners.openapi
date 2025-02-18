@@ -3991,8 +3991,8 @@ components:
       type: object
       required:
         - Name
-        - City
         - Country
+        - City
       properties:
         Id:
           type: integer
@@ -4001,10 +4001,10 @@ components:
           type: string
           minLength: 0
           maxLength: 20
-        City:
+        Country:
           type: integer
           format: int32
-        Country:
+        City:
           type: integer
           format: int32
     ManufacturerFilterOptions:
@@ -4035,7 +4035,7 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 20
-                City:
+                Country:
                   oneOf:
                     - type: integer
                       format: int32
@@ -4043,7 +4043,7 @@ components:
                       items:
                         type: integer
                         format: int32
-                Country:
+                City:
                   oneOf:
                     - type: integer
                       format: int32
@@ -4073,7 +4073,7 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 20
-                City:
+                Country:
                   oneOf:
                     - type: integer
                       format: int32
@@ -4081,7 +4081,7 @@ components:
                       items:
                         type: integer
                         format: int32
-                Country:
+                City:
                   oneOf:
                     - type: integer
                       format: int32
@@ -4097,8 +4097,8 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
-                City:
                 Country:
+                City:
             greaterThan:
               type: object
               properties:
@@ -4109,10 +4109,10 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
-                City:
+                Country:
                   type: integer
                   format: int32
-                Country:
+                City:
                   type: integer
                   format: int32
             greaterThanOrEqual:
@@ -4125,10 +4125,10 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
-                City:
+                Country:
                   type: integer
                   format: int32
-                Country:
+                City:
                   type: integer
                   format: int32
             lessThan:
@@ -4141,10 +4141,10 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
-                City:
+                Country:
                   type: integer
                   format: int32
-                Country:
+                City:
                   type: integer
                   format: int32
             lessThanOrEqual:
@@ -4157,20 +4157,20 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
-                City:
+                Country:
                   type: integer
                   format: int32
-                Country:
+                City:
                   type: integer
                   format: int32
         $select:
           type: array
-          example: ["Id", "Name", "City", "Country"]
+          example: ["Id", "Name", "Country", "City"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Name,City,Country"
+            example: "Id,Name,Country,City"
         $order:
           type: string
           enum: ["asc", "desc"]

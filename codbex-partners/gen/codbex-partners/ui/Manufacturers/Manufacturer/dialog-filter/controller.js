@@ -14,8 +14,8 @@ angular.module('page', ["ideUI", "ideView"])
 			$scope.entity = params.entity ?? {};
 			$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 			$scope.selectedMainEntityId = params.selectedMainEntityId;
-			$scope.optionsCity = params.optionsCity;
 			$scope.optionsCountry = params.optionsCountry;
+			$scope.optionsCity = params.optionsCity;
 		}
 
 		$scope.filter = function () {
@@ -44,16 +44,17 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.Name) {
 				filter.$filter.contains.Name = entity.Name;
 			}
-			if (entity.City !== undefined) {
-				filter.$filter.equals.City = entity.City;
-			}
 			if (entity.Country !== undefined) {
 				filter.$filter.equals.Country = entity.Country;
+			}
+			if (entity.City !== undefined) {
+				filter.$filter.equals.City = entity.City;
 			}
 			messageHub.postMessage("entitySearch", {
 				entity: entity,
 				filter: filter
 			});
+			messageHub.postMessage("clearDetails");
 			$scope.cancel();
 		};
 

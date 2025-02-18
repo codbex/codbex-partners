@@ -1,9 +1,9 @@
 angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-partners.Manufacturers.Manufacturer';
+		messageHubProvider.eventIdPrefix = 'codbex-partners.Suppliers.Supplier';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/ts/codbex-partners/gen/codbex-partners/api/Manufacturers/ManufacturerService.ts";
+		entityApiProvider.baseUrl = "/services/ts/codbex-partners/gen/codbex-partners/api/Suppliers/SupplierService.ts";
 	}])
 	.controller('PageController', ['$scope',  '$http', 'messageHub', 'ViewParameters', 'entityApi', function ($scope,  $http, messageHub, ViewParameters, entityApi) {
 
@@ -12,9 +12,9 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			details: {},
 		};
 		$scope.formHeaders = {
-			select: "Manufacturer Details",
-			create: "Create Manufacturer",
-			update: "Update Manufacturer"
+			select: "Supplier Details",
+			create: "Create Supplier",
+			update: "Update Supplier"
 		};
 		$scope.action = 'select';
 
@@ -33,12 +33,12 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			entity[$scope.selectedMainEntityKey] = $scope.selectedMainEntityId;
 			entityApi.create(entity).then(function (response) {
 				if (response.status != 201) {
-					$scope.errorMessage = `Unable to create Manufacturer: '${response.message}'`;
+					$scope.errorMessage = `Unable to create Supplier: '${response.message}'`;
 					return;
 				}
 				messageHub.postMessage("entityCreated", response.data);
 				$scope.cancel();
-				messageHub.showAlertSuccess("Manufacturer", "Manufacturer successfully created");
+				messageHub.showAlertSuccess("Supplier", "Supplier successfully created");
 			});
 		};
 
@@ -48,12 +48,12 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			entity[$scope.selectedMainEntityKey] = $scope.selectedMainEntityId;
 			entityApi.update(id, entity).then(function (response) {
 				if (response.status != 200) {
-					$scope.errorMessage = `Unable to update Manufacturer: '${response.message}'`;
+					$scope.errorMessage = `Unable to update Supplier: '${response.message}'`;
 					return;
 				}
 				messageHub.postMessage("entityUpdated", response.data);
 				$scope.cancel();
-				messageHub.showAlertSuccess("Manufacturer", "Manufacturer successfully updated");
+				messageHub.showAlertSuccess("Supplier", "Supplier successfully updated");
 			});
 		};
 
@@ -85,7 +85,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.cancel = function () {
 			$scope.entity = {};
 			$scope.action = 'select';
-			messageHub.closeDialogWindow("Manufacturer-details");
+			messageHub.closeDialogWindow("Supplier-details");
 		};
 
 		$scope.clearErrorMessage = function () {

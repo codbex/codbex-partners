@@ -5,7 +5,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["entityApiProvider", function (entityApiProvider) {
 		entityApiProvider.baseUrl = "/services/ts/codbex-partners/gen/codbex-partners/api/Suppliers/SupplierService.ts";
 	}])
-	.controller('PageController', ['$scope', 'Extensions', 'messageHub', 'entityApi', function ($scope, Extensions, messageHub, entityApi) {
+	.controller('PageController', ['$scope',  '$http', 'Extensions', 'messageHub', 'entityApi', function ($scope,  $http, Extensions, messageHub, entityApi) {
 
 		$scope.entity = {};
 		$scope.forms = {
@@ -73,27 +73,9 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$scope.$watch('entity.Country', function (newValue, oldValue) {
-			if (newValue !== undefined && newValue !== null) {
-				entityApi.$http.post("/services/ts/codbex-cities/gen/codbex-cities/api/Cities/CityService.ts/search", {
-					$filter: {
-						equals: {
-							Country: newValue
-						}
-					}
-				}).then(function (response) {
-					$scope.optionsCity = response.data.map(e => {
-						return {
-							value: e.Id,
-							text: e.Name
-						}
-					});
-					if ($scope.action !== 'select' && newValue !== oldValue) {
-						$scope.entity.City = undefined;
-					}
-				});
-			}
-		});
+		$scope.serviceCountry = "/services/ts/codbex-countries/gen/codbex-countries/api/Countries/CountryService.ts";
+		$scope.serviceCity = "/services/ts/codbex-cities/gen/codbex-cities/api/Cities/CityService.ts";
+
 		//-----------------Events-------------------//
 
 		$scope.create = function () {
@@ -123,5 +105,52 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.cancel = function () {
 			messageHub.postMessage("clearDetails");
 		};
+		
+		//-----------------Dialogs-------------------//
+		
+		$scope.createCountry = function () {
+			messageHub.showDialogWindow("Country-details", {
+				action: "create",
+				entity: {},
+			}, null, false);
+		};
+		$scope.createCity = function () {
+			messageHub.showDialogWindow("City-details", {
+				action: "create",
+				entity: {},
+			}, null, false);
+		};
+
+		//-----------------Dialogs-------------------//
+
+
+
+		//----------------Dropdowns-----------------//
+
+		$scope.refreshCountry = function () {
+			$scope.optionsCountry = [];
+			$http.get("/services/ts/codbex-countries/gen/codbex-countries/api/Countries/CountryService.ts").then(function (response) {
+				$scope.optionsCountry = response.data.map(e => {
+					return {
+						value: e.Id,
+						text: e.Name
+					}
+				});
+			});
+		};
+		$scope.refreshCity = function () {
+			$scope.optionsCity = [];
+			$http.get("/services/ts/codbex-cities/gen/codbex-cities/api/Cities/CityService.ts").then(function (response) {
+				$scope.optionsCity = response.data.map(e => {
+					return {
+						value: e.Id,
+						text: e.Name
+					}
+				});
+			});
+		};
+
+		//----------------Dropdowns-----------------//	
+		
 
 	}]);
