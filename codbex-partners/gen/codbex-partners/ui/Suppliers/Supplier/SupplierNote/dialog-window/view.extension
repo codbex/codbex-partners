@@ -1,5 +1,5 @@
 {
     "module": "codbex-partners/gen/codbex-partners/ui/Suppliers/Supplier/SupplierNote/dialog-window/view.js",
-    "extensionPoint": "codbex-partners-dialog-window",
+    "extensionPoint": "dialog-window",
     "description": "codbex-partners - Application Dialog Window"
 }
