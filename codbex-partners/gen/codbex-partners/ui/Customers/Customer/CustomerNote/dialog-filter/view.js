@@ -7,7 +7,7 @@ const viewData = {
     id: "CustomerNote-filter",
     label: "CustomerNote Filter",
     link: "/services/web/codbex-partners/gen/codbex-partners/ui/Customers/Customer/CustomerNote/dialog-filter/index.html",
-    perspectiveName: "Customers",
+    perspectiveName: "Customers"
 };
 
 if (typeof exports !== 'undefined') {

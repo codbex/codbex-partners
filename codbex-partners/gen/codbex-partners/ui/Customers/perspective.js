@@ -7,8 +7,8 @@ const perspectiveData = {
 	id: 'Customers',
 	name: 'Customers',
 	link: '/services/web/codbex-partners/gen/codbex-partners/ui/Customers/index.html',
-	order: 100,
-	icon: '/services/web/resources/unicons/user-plus.svg',
+	order: '100',
+	icon: '/services/web/resources/unicons/user-plus.svg'
 };
 
 if (typeof exports !== 'undefined') {

@@ -232,6 +232,48 @@
                 ]
             },
             {
+                "name": "CODBEX_CUSTOMERCONTACT",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "CUSTOMERCONTACT_ID"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "CUSTOMERCONTACT_CUSTOMER"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 255,
+                        "nullable": true,
+                        "name": "CUSTOMERCONTACT_NAME"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 255,
+                        "nullable": true,
+                        "name": "CUSTOMERCONTACT_DESIGNATION"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 255,
+                        "nullable": true,
+                        "name": "CUSTOMERCONTACT_EMAIL"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 255,
+                        "nullable": true,
+                        "name": "CUSTOMERCONTACT_PHONE"
+                    }
+                ]
+            },
+            {
                 "name": "Customer_Country",
                 "type": "foreignKey",
                 "table": "CODBEX_CUSTOMER",
@@ -311,6 +353,15 @@
                 "columns": "MANUFACTURER_CITY",
                 "referencedTable": "CODBEX_CITY",
                 "referencedColumns": "CITY_ID"
+            },
+            {
+                "name": "CustomerContact_Customer",
+                "type": "foreignKey",
+                "table": "CODBEX_CUSTOMERCONTACT",
+                "constraintName": "CustomerContact_Customer",
+                "columns": "CUSTOMERCONTACT_CUSTOMER",
+                "referencedTable": "CODBEX_CUSTOMER",
+                "referencedColumns": "CUSTOMER_ID"
             }
         ]
     },

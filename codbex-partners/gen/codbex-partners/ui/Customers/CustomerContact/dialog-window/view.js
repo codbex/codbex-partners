@@ -4,10 +4,10 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "Manufacturer-filter",
-    label: "Manufacturer Filter",
-    link: "/services/web/codbex-partners/gen/codbex-partners/ui/Manufacturers/Manufacturer/dialog-filter/index.html",
-    perspectiveName: "Manufacturers"
+    id: "CustomerContact-details",
+    label: "CustomerContact",
+    link: "/services/web/codbex-partners/gen/codbex-partners/ui/Customers/${masterEntity}/CustomerContact/dialog-window/index.html",
+    perspectiveName: "Customers"
 };
 
 if (typeof exports !== 'undefined') {
