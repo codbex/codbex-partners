@@ -877,7 +877,7 @@
                         "dataType": "INTEGER",
                         "description": "",
                         "name": "Customer",
-                        "relationshipCardinality": "n_1",
+                        "relationshipCardinality": "1_n",
                         "relationshipName": "CustomerContact_Customer",
                         "relationshipType": "COMPOSITION",
                         "tooltip": "",
@@ -886,7 +886,7 @@
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
                         "widgetSize": "",
-                        "widgetType": "DROPDOWN",
+                        "widgetType": "TEXTBOX",
                         "relationshipEntityName": "Customer",
                         "relationshipEntityPerspectiveName": "Customers",
                         "relationshipEntityPerspectiveLabel": "Entities"
@@ -928,7 +928,7 @@
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
                         "widgetSize": "",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "EMAIL"
                     },
                     {
                         "dataLength": "255",
@@ -941,7 +941,7 @@
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
                         "widgetSize": "",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "TEL"
                     }
                 ],
                 "caption": "Manage entity CustomerContact",

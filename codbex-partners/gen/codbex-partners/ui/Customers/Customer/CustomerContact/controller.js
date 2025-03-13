@@ -5,7 +5,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["entityApiProvider", function (entityApiProvider) {
 		entityApiProvider.baseUrl = "/services/ts/codbex-partners/gen/codbex-partners/api/Customers/CustomerContactService.ts";
 	}])
-	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', 'Extensions', function ($scope, $http, messageHub, entityApi, Extensions) {
+	.controller('PageController', ['$scope', 'messageHub', 'entityApi', 'Extensions', function ($scope, messageHub, entityApi, Extensions) {
 		//-----------------Custom Actions-------------------//
 		Extensions.get('dialogWindow', 'codbex-partners-custom-action').then(function (response) {
 			$scope.pageActions = response.filter(e => e.perspective === "Customers" && e.view === "CustomerContact" && (e.type === "page" || e.type === undefined));
@@ -43,13 +43,13 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		resetPagination();
 
 		//-----------------Events-------------------//
-		messageHub.onDidReceiveMessage("codbex-partners.Customers.${masterEntity}.entitySelected", function (msg) {
+		messageHub.onDidReceiveMessage("codbex-partners.Customers.Customer.entitySelected", function (msg) {
 			resetPagination();
 			$scope.selectedMainEntityId = msg.data.selectedMainEntityId;
 			$scope.loadPage($scope.dataPage);
 		}, true);
 
-		messageHub.onDidReceiveMessage("codbex-partners.Customers.${masterEntity}.clearDetails", function (msg) {
+		messageHub.onDidReceiveMessage("codbex-partners.Customers.Customer.clearDetails", function (msg) {
 			$scope.$apply(function () {
 				resetPagination();
 				$scope.selectedMainEntityId = null;
@@ -81,7 +81,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		//-----------------Events-------------------//
 
 		$scope.loadPage = function (pageNumber, filter) {
-			let ${masterEntityId} = $scope.selectedMainEntityId;
+			let Customer = $scope.selectedMainEntityId;
 			$scope.dataPage = pageNumber;
 			if (!filter && $scope.filter) {
 				filter = $scope.filter;
@@ -95,7 +95,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			if (!filter.$filter.equals) {
 				filter.$filter.equals = {};
 			}
-			filter.$filter.equals.${masterEntityId} = ${masterEntityId};
+			filter.$filter.equals.Customer = Customer;
 			entityApi.count(filter).then(function (response) {
 				if (response.status != 200) {
 					messageHub.showAlertError("CustomerContact", `Unable to count CustomerContact: '${response.message}'`);
@@ -125,14 +125,12 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("CustomerContact-details", {
 				action: "select",
 				entity: entity,
-				optionsCustomer: $scope.optionsCustomer,
 			});
 		};
 
 		$scope.openFilter = function (entity) {
 			messageHub.showDialogWindow("CustomerContact-filter", {
 				entity: $scope.filterEntity,
-				optionsCustomer: $scope.optionsCustomer,
 			});
 		};
 
@@ -141,9 +139,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("CustomerContact-details", {
 				action: "create",
 				entity: {},
-				selectedMainEntityKey: "${masterEntityId}",
+				selectedMainEntityKey: "Customer",
 				selectedMainEntityId: $scope.selectedMainEntityId,
-				optionsCustomer: $scope.optionsCustomer,
 			}, null, false);
 		};
 
@@ -151,9 +148,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("CustomerContact-details", {
 				action: "update",
 				entity: entity,
-				selectedMainEntityKey: "${masterEntityId}",
+				selectedMainEntityKey: "Customer",
 				selectedMainEntityId: $scope.selectedMainEntityId,
-				optionsCustomer: $scope.optionsCustomer,
 			}, null, false);
 		};
 
@@ -185,28 +181,5 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		};
-
-		//----------------Dropdowns-----------------//
-		$scope.optionsCustomer = [];
-
-
-		$http.get("/services/ts/codbex-partners/gen/codbex-partners/api/Customers/CustomerService.ts").then(function (response) {
-			$scope.optionsCustomer = response.data.map(e => {
-				return {
-					value: e.Id,
-					text: e.Name
-				}
-			});
-		});
-
-		$scope.optionsCustomerValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsCustomer.length; i++) {
-				if ($scope.optionsCustomer[i].value === optionKey) {
-					return $scope.optionsCustomer[i].text;
-				}
-			}
-			return null;
-		};
-		//----------------Dropdowns-----------------//
 
 	}]);

@@ -1,5 +1,5 @@
 {
-    "module": "codbex-partners/gen/codbex-partners/ui/Customers/${masterEntity}/CustomerContact/view.js",
+    "module": "codbex-partners/gen/codbex-partners/ui/Customers/Customer/CustomerContact/view.js",
     "extensionPoint": "codbex-partners-view",
     "description": "codbex-partners - Application View - Details"
 }

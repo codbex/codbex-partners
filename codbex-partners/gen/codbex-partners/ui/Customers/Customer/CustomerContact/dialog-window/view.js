@@ -4,9 +4,9 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "CustomerContact-filter",
-    label: "CustomerContact Filter",
-    link: "/services/web/codbex-partners/gen/codbex-partners/ui/Customers/${masterEntity}/CustomerContact/dialog-filter/index.html",
+    id: "CustomerContact-details",
+    label: "CustomerContact",
+    link: "/services/web/codbex-partners/gen/codbex-partners/ui/Customers/Customer/CustomerContact/dialog-window/index.html",
     perspectiveName: "Customers"
 };
 

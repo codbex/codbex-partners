@@ -2232,16 +2232,16 @@
           "dataType": "INTEGER",
           "description": "",
           "name": "Customer",
-          "relationshipCardinality": "n_1",
+          "relationshipCardinality": "1_n",
           "relationshipName": "CustomerContact_Customer",
           "relationshipType": "COMPOSITION",
           "tooltip": "",
           "widgetDropDownKey": "Id",
           "widgetDropDownValue": "Name",
-          "widgetIsMajor": true,
+          "widgetIsMajor": false,
           "widgetLength": "20",
           "widgetSize": "",
-          "widgetType": "DROPDOWN",
+          "widgetType": "TEXTBOX",
           "relationshipEntityName": "Customer",
           "relationshipEntityPerspectiveName": "Customers",
           "relationshipEntityPerspectiveLabel": "Entities",
@@ -2252,7 +2252,7 @@
           "isRequiredProperty": false,
           "isCalculatedProperty": false,
           "widgetLabel": "Customer",
-          "widgetDropdownUrl": "/services/ts/codbex-partners/gen/codbex-partners/api/Customers/CustomerService.ts",
+          "widgetDropdownUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -2320,7 +2320,7 @@
           "widgetIsMajor": true,
           "widgetLength": "20",
           "widgetSize": "",
-          "widgetType": "TEXTBOX",
+          "widgetType": "EMAIL",
           "dataNotNull": false,
           "dataAutoIncrement": false,
           "dataPrimaryKey": false,
@@ -2346,7 +2346,7 @@
           "widgetIsMajor": true,
           "widgetLength": "20",
           "widgetSize": "",
-          "widgetType": "TEXTBOX",
+          "widgetType": "TEL",
           "dataNotNull": false,
           "dataAutoIncrement": false,
           "dataPrimaryKey": false,
@@ -2392,7 +2392,8 @@
         "Id"
       ],
       "primaryKeysString": "Id",
-      "hasDropdowns": true
+      "masterEntity": "Customer",
+      "masterEntityId": "Customer"
     }
   ]
 }

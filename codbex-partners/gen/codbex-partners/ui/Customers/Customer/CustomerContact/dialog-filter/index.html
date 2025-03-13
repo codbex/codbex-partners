@@ -29,20 +29,6 @@
                 <fd-form-group dg-header="CustomerContact Filter" name="entityForm" class="fd-container fd-form-layout-grid-container">
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idCustomer" dg-colon="true">Customer</fd-form-label>
-                        </div>
-                        <div class="fd-col fd-col-md--8">
-	                        <fd-combobox-input id="idCustomer"
-	                            name="Customer"
-	                            state="{{ forms.details['Customer'].$valid ? '' : 'error' }}"
-	                            ng-model="entity.Customer"
-	                            dropdown-items="optionsCustomer"
-	                            dg-placeholder="Search Customer ...">
-	                        </fd-combobox-input>
-	                    </div>
-                    </fd-form-item>
-                    <fd-form-item class="fd-row">
-                    	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idName" dg-colon="true">Name</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
@@ -83,7 +69,7 @@
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idEmail" dg-colon="true">Email</fd-form-label>
                         </div>
-                        <div class="fd-col fd-col-md--8">
+                        <div class="fd-col fd-col-md--4">
 	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Email'].$valid }}">
 	                            <fd-input id="idEmail"
 	                                name="Email"
@@ -91,7 +77,7 @@
 	                                ng-model="entity.Email"
 	                                ng-minlength="0.0 || 0"
 	                                ng-maxlength="20.0 || -1"
-	                                type="text"
+	                                type="email"
 	                                placeholder="Enter Email">
 	                            </fd-input>
 	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
@@ -102,7 +88,7 @@
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idPhone" dg-colon="true">Phone</fd-form-label>
                         </div>
-                        <div class="fd-col fd-col-md--8">
+                        <div class="fd-col fd-col-md--4">
 	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Phone'].$valid }}">
 	                            <fd-input id="idPhone"
 	                                name="Phone"
@@ -110,7 +96,7 @@
 	                                ng-model="entity.Phone"
 	                                ng-minlength="0.0 || 0"
 	                                ng-maxlength="20.0 || -1"
-	                                type="text"
+	                                type="tel"
 	                                placeholder="Enter Phone">
 	                            </fd-input>
 	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>

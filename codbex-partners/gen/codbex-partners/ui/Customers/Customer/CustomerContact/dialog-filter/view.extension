@@ -1,0 +1,5 @@
+{
+    "module": "codbex-partners/gen/codbex-partners/ui/Customers/Customer/CustomerContact/dialog-filter/view.js",
+    "extensionPoint": "dialog-window",
+    "description": "codbex-partners - Application Dialog Window"
+}
