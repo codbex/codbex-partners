@@ -125,9 +125,6 @@ class CustomerService {
         if (entity.Name?.length > 100) {
             throw new ValidationError(`The 'Name' exceeds the maximum length of [100] characters`);
         }
-        if (entity.Address === null || entity.Address === undefined) {
-            throw new ValidationError(`The 'Address' property is required, provide a valid value`);
-        }
         if (entity.Address?.length > 200) {
             throw new ValidationError(`The 'Address' exceeds the maximum length of [200] characters`);
         }

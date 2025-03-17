@@ -2891,7 +2891,6 @@ components:
       type: object
       required:
         - Name
-        - Address
         - Email
         - Country
         - City
