@@ -7,7 +7,7 @@ const viewData = {
     id: "SupplierNote-filter",
     label: "SupplierNote Filter",
     link: "/services/web/codbex-partners/gen/codbex-partners/ui/Suppliers/Supplier/SupplierNote/dialog-filter/index.html",
-    perspectiveName: "Suppliers",
+    perspectiveName: "Suppliers"
 };
 
 if (typeof exports !== 'undefined') {

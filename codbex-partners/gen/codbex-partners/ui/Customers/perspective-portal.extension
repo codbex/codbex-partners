@@ -1,1 +1,5 @@
-{"module":"codbex-partners/gen/codbex-partners/ui/Customers/perspective.js","extensionPoint":"portal","description":"codbex-partners - Perspective - Customers"}
+{
+    "module": "codbex-partners/gen/codbex-partners/ui/Customers/perspective.js",
+    "extensionPoint": "portal",
+    "description": "codbex-partners - Perspective - Customers"
+}

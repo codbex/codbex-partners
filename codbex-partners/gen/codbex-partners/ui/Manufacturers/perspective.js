@@ -7,8 +7,8 @@ const perspectiveData = {
 	id: 'Manufacturers',
 	name: 'Manufacturers',
 	link: '/services/web/codbex-partners/gen/codbex-partners/ui/Manufacturers/index.html',
-	order: 300,
-	icon: '/services/web/resources/unicons/user-check.svg',
+	order: '300',
+	icon: '/services/web/resources/unicons/user-check.svg'
 };
 
 if (typeof exports !== 'undefined') {
