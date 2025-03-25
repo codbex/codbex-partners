@@ -1,5 +1,6 @@
 {
     "module": "codbex-partners/gen/codbex-partners/ui/Customers/Customer/main-details/view.js",
     "extensionPoint": "codbex-partners-view",
-    "description": "codbex-partners - Application View - Main Details"
+    "description": "codbex-partners - Application View - Main Details",
+    "role": "codbex-partners.Customers.CustomerReadOnly,codbex-partners.Customers.CustomerFullAccess"
 }
