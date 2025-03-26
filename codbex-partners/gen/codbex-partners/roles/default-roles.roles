@@ -1,2 +1,58 @@
 [
+    {
+        "name": "codbex-partners.Customers.CustomerReadOnly",
+        "description": "A role that grants read only permission for Customer."
+    },
+    {
+        "name": "codbex-partners.Customers.CustomerFullAccess",
+        "description": "A role that grants full access for Customer."
+    },
+    {
+        "name": "codbex-partners.Suppliers.SupplierReadOnly",
+        "description": "A role that grants read only permission for Supplier."
+    },
+    {
+        "name": "codbex-partners.Suppliers.SupplierFullAccess",
+        "description": "A role that grants full access for Supplier."
+    },
+    {
+        "name": "codbex-partners.Customers.CustomerNoteReadOnly",
+        "description": "A role that grants read only permission for CustomerNote."
+    },
+    {
+        "name": "codbex-partners.Customers.CustomerNoteFullAccess",
+        "description": "A role that grants full access for CustomerNote."
+    },
+    {
+        "name": "codbex-partners.Suppliers.SupplierNoteReadOnly",
+        "description": "A role that grants read only permission for SupplierNote."
+    },
+    {
+        "name": "codbex-partners.Suppliers.SupplierNoteFullAccess",
+        "description": "A role that grants full access for SupplierNote."
+    },
+    {
+        "name": "codbex-partners.Manufacturers.ManufacturerNoteReadOnly",
+        "description": "A role that grants read only permission for ManufacturerNote."
+    },
+    {
+        "name": "codbex-partners.Manufacturers.ManufacturerNoteFullAccess",
+        "description": "A role that grants full access for ManufacturerNote."
+    },
+    {
+        "name": "codbex-partners.Manufacturers.ManufacturerReadOnly",
+        "description": "A role that grants read only permission for Manufacturer."
+    },
+    {
+        "name": "codbex-partners.Manufacturers.ManufacturerFullAccess",
+        "description": "A role that grants full access for Manufacturer."
+    },
+    {
+        "name": "codbex-partners.Customers.CustomerContactReadOnly",
+        "description": "A role that grants read only permission for CustomerContact."
+    },
+    {
+        "name": "codbex-partners.Customers.CustomerContactFullAccess",
+        "description": "A role that grants full access for CustomerContact."
+    }
 ]

@@ -1,5 +1,6 @@
 {
     "module": "codbex-partners/gen/codbex-partners/ui/Manufacturers/Manufacturer/view.js",
     "extensionPoint": "codbex-partners-view",
-    "description": "codbex-partners - Application View"
+    "description": "codbex-partners - Application View",
+    "role": "codbex-partners.Manufacturers.ManufacturerReadOnly,codbex-partners.Manufacturers.ManufacturerFullAccess"
 }

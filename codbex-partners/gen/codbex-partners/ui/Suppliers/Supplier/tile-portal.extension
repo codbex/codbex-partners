@@ -1,5 +1,6 @@
 {
     "module": "codbex-partners/gen/codbex-partners/ui/Suppliers/Supplier/tile.js",
     "extensionPoint": "portal-tile",
-    "description": "codbex-partners - Application Tile"
+    "description": "codbex-partners - Application Tile",
+    "role": "codbex-partners.Suppliers.SupplierReadOnly,codbex-partners.Suppliers.SupplierFullAccess"
 }

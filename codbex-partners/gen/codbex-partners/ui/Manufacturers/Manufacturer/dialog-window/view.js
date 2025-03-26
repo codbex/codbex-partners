@@ -8,6 +8,9 @@ const viewData = {
     label: "Manufacturer",
     link: "/services/web/codbex-partners/gen/codbex-partners/ui/Manufacturers/Manufacturer/dialog-window/index.html",
     perspectiveName: "Manufacturers",
+    roles: [
+        "codbex-partners.Manufacturers.ManufacturerReadOnly",
+    ]
 };
 
 if (typeof exports !== 'undefined') {
