@@ -4,14 +4,11 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "SupplierNote-filter",
-    label: "SupplierNote Filter",
-    link: "/services/web/codbex-partners/gen/codbex-partners/ui/Suppliers/Supplier/SupplierNote/dialog-filter/index.html",
-    perspectiveName: "Suppliers"
+    id: 'SupplierNote-filter',
+    label: 'SupplierNote Filter',
+    path: '/services/web/codbex-partners/gen/codbex-partners/ui/Suppliers/Supplier/SupplierNote/dialog-filter/index.html',
+    perspectiveName: 'Suppliers'
 };
-
 if (typeof exports !== 'undefined') {
-    exports.getDialogWindow = function () {
-        return viewData;
-    }
+    exports.getView = () => viewData;
 }

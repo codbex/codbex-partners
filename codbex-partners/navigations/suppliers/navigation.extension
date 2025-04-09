@@ -1,6 +1,0 @@
-{
-    "extensionPoint": "dashboard-navigations",
-    "module": "codbex-partners/navigations/suppliers/service.js",
-    "description": "Suppliers Navigation",
-    "role": "codbex-partners.Suppliers.SupplierReadOnly,codbex-partners.Suppliers.SupplierFullAccess"
-}

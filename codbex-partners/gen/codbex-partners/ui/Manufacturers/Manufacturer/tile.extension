@@ -1,6 +1,0 @@
-{
-    "module": "codbex-partners/gen/codbex-partners/ui/Manufacturers/Manufacturer/tile.js",
-    "extensionPoint": "codbex-partners-tile",
-    "description": "codbex-partners - Application Tile",
-    "role": "codbex-partners.Manufacturers.ManufacturerReadOnly,codbex-partners.Manufacturers.ManufacturerFullAccess"
-}

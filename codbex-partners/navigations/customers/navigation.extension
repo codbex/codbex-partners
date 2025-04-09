@@ -1,6 +1,0 @@
-{
-    "extensionPoint": "dashboard-navigations",
-    "module": "codbex-partners/navigations/customers/service.js",
-    "description": "Customers Navigation",
-    "role": "codbex-partners.Customers.CustomerReadOnly,codbex-partners.Customers.CustomerFullAccess"
-}

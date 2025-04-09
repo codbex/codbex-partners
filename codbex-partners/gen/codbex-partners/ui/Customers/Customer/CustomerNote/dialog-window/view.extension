@@ -1,6 +1,6 @@
 {
     "module": "codbex-partners/gen/codbex-partners/ui/Customers/Customer/CustomerNote/dialog-window/view.js",
-    "extensionPoint": "dialog-window",
+    "extensionPoint": "application-windows",
     "description": "codbex-partners - Application Dialog Window",
     "role": "codbex-partners.Customers.CustomerNoteReadOnly,codbex-partners.Customers.CustomerNoteFullAccess"
 }
