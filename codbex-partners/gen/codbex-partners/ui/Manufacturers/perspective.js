@@ -5,14 +5,12 @@
  */
 const perspectiveData = {
 	id: 'Manufacturers',
-	name: 'Manufacturers',
-	link: '/services/web/codbex-partners/gen/codbex-partners/ui/Manufacturers/index.html',
-	order: '300',
+	label: 'Manufacturers',
+	path: '/services/web/codbex-partners/gen/codbex-partners/ui/Manufacturers/index.html',
+	groupId: 'partners-navigation-group',
+	order: 100,
 	icon: '/services/web/resources/unicons/user-check.svg'
 };
-
 if (typeof exports !== 'undefined') {
-	exports.getPerspective = function () {
-		return perspectiveData;
-	}
+	exports.getPerspective = () => perspectiveData;
 }

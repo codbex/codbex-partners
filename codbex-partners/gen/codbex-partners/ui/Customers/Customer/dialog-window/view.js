@@ -6,15 +6,12 @@
 const viewData = {
     id: "Customer-details",
     label: "Customer",
-    link: "/services/web/codbex-partners/gen/codbex-partners/ui/Customers/Customer/dialog-window/index.html",
+    path: "/services/web/codbex-partners/gen/codbex-partners/ui/Customers/Customer/dialog-window/index.html",
     perspectiveName: "Customers",
     roles: [
         "codbex-partners.Customers.CustomerReadOnly",
     ]
 };
-
 if (typeof exports !== 'undefined') {
-    exports.getDialogWindow = function () {
-        return viewData;
-    }
+    exports.getView = () => viewData;
 }

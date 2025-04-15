@@ -4,14 +4,11 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "CustomerNote-filter",
-    label: "CustomerNote Filter",
-    link: "/services/web/codbex-partners/gen/codbex-partners/ui/Customers/Customer/CustomerNote/dialog-filter/index.html",
-    perspectiveName: "Customers"
+    id: 'CustomerNote-filter',
+    label: 'CustomerNote Filter',
+    path: '/services/web/codbex-partners/gen/codbex-partners/ui/Customers/Customer/CustomerNote/dialog-filter/index.html',
+    perspectiveName: 'Customers'
 };
-
 if (typeof exports !== 'undefined') {
-    exports.getDialogWindow = function () {
-        return viewData;
-    }
+    exports.getView = () => viewData;
 }

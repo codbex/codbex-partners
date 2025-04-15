@@ -1,6 +1,6 @@
 {
     "module": "codbex-partners/gen/codbex-partners/ui/Customers/Customer/CustomerContact/view.js",
-    "extensionPoint": "codbex-partners-view",
+    "extensionPoint": "application-views",
     "description": "codbex-partners - Application View - Details",
     "role": "codbex-partners.Customers.CustomerContactReadOnly,codbex-partners.Customers.CustomerContactFullAccess"
 }

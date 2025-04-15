@@ -6,15 +6,12 @@
 const viewData = {
     id: "Supplier-details",
     label: "Supplier",
-    link: "/services/web/codbex-partners/gen/codbex-partners/ui/Suppliers/Supplier/dialog-window/index.html",
+    path: "/services/web/codbex-partners/gen/codbex-partners/ui/Suppliers/Supplier/dialog-window/index.html",
     perspectiveName: "Suppliers",
     roles: [
         "codbex-partners.Suppliers.SupplierReadOnly",
     ]
 };
-
 if (typeof exports !== 'undefined') {
-    exports.getDialogWindow = function () {
-        return viewData;
-    }
+    exports.getView = () => viewData;
 }

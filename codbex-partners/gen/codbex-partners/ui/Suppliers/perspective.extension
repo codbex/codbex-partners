@@ -1,5 +1,5 @@
 {
     "module": "codbex-partners/gen/codbex-partners/ui/Suppliers/perspective.js",
-    "extensionPoint": "codbex-partners",
+    "extensionPoint": "application-perspectives",
     "description": "codbex-partners - Perspective - Suppliers"
 }
