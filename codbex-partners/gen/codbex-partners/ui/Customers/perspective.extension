@@ -1,5 +1,6 @@
 {
     "module": "codbex-partners/gen/codbex-partners/ui/Customers/perspective.js",
     "extensionPoint": "application-perspectives",
-    "description": "codbex-partners - Perspective - Customers"
+    "description": "codbex-partners - Perspective - Customers",
+    "role": "codbex-partners.Customers.CustomerReadOnly,codbex-partners.Customers.CustomerFullAccess"
 }

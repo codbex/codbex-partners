@@ -130,7 +130,7 @@ export interface SupplierEntityOptions {
     },
     $select?: (keyof SupplierEntity)[],
     $sort?: string | (keyof SupplierEntity)[],
-    $order?: 'asc' | 'desc',
+    $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
 }
@@ -223,10 +223,10 @@ export class SupplierRepository {
     private readonly dao;
 
     constructor(dataSource = "DefaultDB") {
-        this.dao = daoApi.create(SupplierRepository.DEFINITION, null, dataSource);
+        this.dao = daoApi.create(SupplierRepository.DEFINITION, undefined, dataSource);
     }
 
-    public findAll(options?: SupplierEntityOptions): SupplierEntity[] {
+    public findAll(options: SupplierEntityOptions = {}): SupplierEntity[] {
         return this.dao.list(options);
     }
 

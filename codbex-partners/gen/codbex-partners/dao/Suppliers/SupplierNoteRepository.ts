@@ -58,7 +58,7 @@ export interface SupplierNoteEntityOptions {
     },
     $select?: (keyof SupplierNoteEntity)[],
     $sort?: string | (keyof SupplierNoteEntity)[],
-    $order?: 'asc' | 'desc',
+    $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
 }
@@ -106,10 +106,10 @@ export class SupplierNoteRepository {
     private readonly dao;
 
     constructor(dataSource = "DefaultDB") {
-        this.dao = daoApi.create(SupplierNoteRepository.DEFINITION, null, dataSource);
+        this.dao = daoApi.create(SupplierNoteRepository.DEFINITION, undefined, dataSource);
     }
 
-    public findAll(options?: SupplierNoteEntityOptions): SupplierNoteEntity[] {
+    public findAll(options: SupplierNoteEntityOptions = {}): SupplierNoteEntity[] {
         return this.dao.list(options);
     }
 

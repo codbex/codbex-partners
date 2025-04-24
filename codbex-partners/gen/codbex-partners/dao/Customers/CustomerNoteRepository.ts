@@ -58,7 +58,7 @@ export interface CustomerNoteEntityOptions {
     },
     $select?: (keyof CustomerNoteEntity)[],
     $sort?: string | (keyof CustomerNoteEntity)[],
-    $order?: 'asc' | 'desc',
+    $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
 }
@@ -106,10 +106,10 @@ export class CustomerNoteRepository {
     private readonly dao;
 
     constructor(dataSource = "DefaultDB") {
-        this.dao = daoApi.create(CustomerNoteRepository.DEFINITION, null, dataSource);
+        this.dao = daoApi.create(CustomerNoteRepository.DEFINITION, undefined, dataSource);
     }
 
-    public findAll(options?: CustomerNoteEntityOptions): CustomerNoteEntity[] {
+    public findAll(options: CustomerNoteEntityOptions = {}): CustomerNoteEntity[] {
         return this.dao.list(options);
     }
 
