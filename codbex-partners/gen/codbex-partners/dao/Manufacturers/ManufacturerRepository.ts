@@ -67,7 +67,7 @@ export interface ManufacturerEntityOptions {
     },
     $select?: (keyof ManufacturerEntity)[],
     $sort?: string | (keyof ManufacturerEntity)[],
-    $order?: 'asc' | 'desc',
+    $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
 }
@@ -123,10 +123,10 @@ export class ManufacturerRepository {
     private readonly dao;
 
     constructor(dataSource = "DefaultDB") {
-        this.dao = daoApi.create(ManufacturerRepository.DEFINITION, null, dataSource);
+        this.dao = daoApi.create(ManufacturerRepository.DEFINITION, undefined, dataSource);
     }
 
-    public findAll(options?: ManufacturerEntityOptions): ManufacturerEntity[] {
+    public findAll(options: ManufacturerEntityOptions = {}): ManufacturerEntity[] {
         return this.dao.list(options);
     }
 

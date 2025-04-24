@@ -85,7 +85,7 @@ export interface CustomerContactEntityOptions {
     },
     $select?: (keyof CustomerContactEntity)[],
     $sort?: string | (keyof CustomerContactEntity)[],
-    $order?: 'asc' | 'desc',
+    $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
 }
@@ -148,10 +148,10 @@ export class CustomerContactRepository {
     private readonly dao;
 
     constructor(dataSource = "DefaultDB") {
-        this.dao = daoApi.create(CustomerContactRepository.DEFINITION, null, dataSource);
+        this.dao = daoApi.create(CustomerContactRepository.DEFINITION, undefined, dataSource);
     }
 
-    public findAll(options?: CustomerContactEntityOptions): CustomerContactEntity[] {
+    public findAll(options: CustomerContactEntityOptions = {}): CustomerContactEntity[] {
         return this.dao.list(options);
     }
 

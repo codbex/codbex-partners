@@ -1,5 +1,6 @@
 {
     "module": "codbex-partners/gen/codbex-partners/ui/Manufacturers/perspective.js",
     "extensionPoint": "application-perspectives",
-    "description": "codbex-partners - Perspective - Manufacturers"
+    "description": "codbex-partners - Perspective - Manufacturers",
+    "role": "codbex-partners.Manufacturers.ManufacturerReadOnly,codbex-partners.Manufacturers.ManufacturerFullAccess"
 }
