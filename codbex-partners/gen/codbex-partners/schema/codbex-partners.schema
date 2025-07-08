@@ -218,7 +218,7 @@
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": 200,
                         "name": "MANUFACTURER_NAME"
                     },
                     {

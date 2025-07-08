@@ -2044,7 +2044,7 @@
           "inputRule": ""
         },
         {
-          "dataLength": "20",
+          "dataLength": "200",
           "dataName": "MANUFACTURER_NAME",
           "dataNullable": false,
           "dataType": "VARCHAR",
@@ -2053,7 +2053,7 @@
           "name": "Name",
           "tooltip": "",
           "widgetIsMajor": true,
-          "widgetLength": "20",
+          "widgetLength": "200",
           "widgetSize": "",
           "widgetType": "TEXTBOX",
           "dataNotNull": true,
@@ -2066,7 +2066,7 @@
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
-          "maxLength": 20,
+          "maxLength": 200,
           "inputRule": ""
         },
         {
@@ -2176,7 +2176,7 @@
       "primaryKeysString": "Id",
       "masterProperties": {
         "title": {
-          "dataLength": "20",
+          "dataLength": "200",
           "dataName": "MANUFACTURER_NAME",
           "dataNullable": false,
           "dataType": "VARCHAR",
@@ -2185,7 +2185,7 @@
           "name": "Name",
           "tooltip": "",
           "widgetIsMajor": true,
-          "widgetLength": "20",
+          "widgetLength": "200",
           "widgetSize": "",
           "widgetType": "TEXTBOX",
           "dataNotNull": true,
@@ -2198,7 +2198,7 @@
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
-          "maxLength": 20,
+          "maxLength": 200,
           "inputRule": ""
         },
         "properties": [

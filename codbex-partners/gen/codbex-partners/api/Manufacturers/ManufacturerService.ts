@@ -141,8 +141,8 @@ class ManufacturerService {
         if (entity.Name === null || entity.Name === undefined) {
             throw new ValidationError(`The 'Name' property is required, provide a valid value`);
         }
-        if (entity.Name?.length > 20) {
-            throw new ValidationError(`The 'Name' exceeds the maximum length of [20] characters`);
+        if (entity.Name?.length > 200) {
+            throw new ValidationError(`The 'Name' exceeds the maximum length of [200] characters`);
         }
         if (entity.Country === null || entity.Country === undefined) {
             throw new ValidationError(`The 'Country' property is required, provide a valid value`);
