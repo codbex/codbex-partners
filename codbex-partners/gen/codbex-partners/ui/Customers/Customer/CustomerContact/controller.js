@@ -15,6 +15,12 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 				hasHeader: true,
         		title: action.label,
 				path: action.path,
+				params: {
+					selectedMainEntityKey: 'Customer',
+					selectedMainEntityId: $scope.selectedMainEntityId,
+				},
+				maxWidth: action.maxWidth,
+				maxHeight: action.maxHeight,
 				closeButton: true
 			});
 		};
@@ -25,7 +31,9 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
         		title: action.label,
 				path: action.path,
 				params: {
-					id: $scope.entity.Id
+					id: $scope.entity.Id,
+					selectedMainEntityKey: 'Customer',
+					selectedMainEntityId: $scope.selectedMainEntityId,
 				},
 				closeButton: true
 			});
@@ -146,7 +154,9 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 				id: 'CustomerContact-details',
 				params: {
 					action: 'create',
-					entity: {},
+					entity: {
+						'Customer': $scope.selectedMainEntityId
+					},
 					selectedMainEntityKey: 'Customer',
 					selectedMainEntityId: $scope.selectedMainEntityId,
 				},

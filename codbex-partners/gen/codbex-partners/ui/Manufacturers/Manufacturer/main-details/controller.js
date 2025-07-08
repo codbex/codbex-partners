@@ -4,6 +4,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 	}])
 	.controller('PageController', ($scope, $http, Extensions, EntityService) => {
 		const Dialogs = new DialogHub();
+		const Notifications = new NotificationHub();
 		$scope.entity = {};
 		$scope.forms = {
 			details: {},
@@ -107,10 +108,10 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			EntityService.create($scope.entity).then((response) => {
 				Dialogs.postMessage({ topic: 'codbex-partners.Manufacturers.Manufacturer.entityCreated', data: response.data });
 				Dialogs.postMessage({ topic: 'codbex-partners.Manufacturers.Manufacturer.clearDetails' , data: response.data });
-				Dialogs.showAlert({
+				Notifications.show({
 					title: 'Manufacturer',
-					message: 'Manufacturer successfully created',
-					type: AlertTypes.Success
+					description: 'Manufacturer successfully created',
+					type: 'positive'
 				});
 			}, (error) => {
 				const message = error.data ? error.data.message : '';
@@ -127,10 +128,10 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			EntityService.update($scope.entity.Id, $scope.entity).then((response) => {
 				Dialogs.postMessage({ topic: 'codbex-partners.Manufacturers.Manufacturer.entityUpdated', data: response.data });
 				Dialogs.postMessage({ topic: 'codbex-partners.Manufacturers.Manufacturer.clearDetails', data: response.data });
-				Dialogs.showAlert({
+				Notifications.show({
 					title: 'Manufacturer',
-					message: 'Manufacturer successfully updated',
-					type: AlertTypes.Success
+					description: 'Manufacturer successfully updated',
+					type: 'positive'
 				});
 			}, (error) => {
 				const message = error.data ? error.data.message : '';

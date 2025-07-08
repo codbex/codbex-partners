@@ -4,6 +4,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 	}])
 	.controller('PageController', ($scope, $http, ViewParameters, EntityService) => {
 		const Dialogs = new DialogHub();
+		const Notifications = new NotificationHub();
 		$scope.entity = {};
 		$scope.forms = {
 			details: {},
@@ -28,10 +29,10 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			entity[$scope.selectedMainEntityKey] = $scope.selectedMainEntityId;
 			EntityService.create(entity).then((response) => {
 				Dialogs.postMessage({ topic: 'codbex-partners.Suppliers.SupplierNote.entityCreated', data: response.data });
-				Dialogs.showAlert({
+				Notifications.show({
 					title: 'SupplierNote',
-					message: 'SupplierNote successfully created',
-					type: AlertTypes.Success
+					description: 'SupplierNote successfully created',
+					type: 'positive'
 				});
 				$scope.cancel();
 			}, (error) => {
@@ -51,10 +52,10 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			entity[$scope.selectedMainEntityKey] = $scope.selectedMainEntityId;
 			EntityService.update(id, entity).then((response) => {
 				Dialogs.postMessage({ topic: 'codbex-partners.Suppliers.SupplierNote.entityUpdated', data: response.data });
-				Dialogs.showAlert({
+				Notifications.show({
 					title: 'SupplierNote',
-					message: 'SupplierNote successfully updated',
-					type: AlertTypes.Success
+					description: 'SupplierNote successfully updated',
+					type: 'positive'
 				});
 				$scope.cancel();
 			}, (error) => {
