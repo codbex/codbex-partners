@@ -1,10 +1,13 @@
-angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
+angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntityService'])
 	.config(["EntityServiceProvider", (EntityServiceProvider) => {
 		EntityServiceProvider.baseUrl = '/services/ts/codbex-partners/gen/codbex-partners/api/Suppliers/SupplierService.ts';
 	}])
-	.controller('PageController', ($scope, $http, Extensions, EntityService) => {
+	.controller('PageController', ($scope, $http, Extensions, LocaleService, EntityService) => {
 		const Dialogs = new DialogHub();
 		const Notifications = new NotificationHub();
+		let description = 'Description';
+		let propertySuccessfullyCreated = 'Supplier successfully created';
+		let propertySuccessfullyUpdated = 'Supplier successfully updated';
 		$scope.entity = {};
 		$scope.forms = {
 			details: {},
@@ -16,6 +19,15 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 		};
 		$scope.action = 'select';
 
+		LocaleService.onInit(() => {
+			description = LocaleService.t('codbex-partners:defaults.description');
+			$scope.formHeaders.select = LocaleService.t('codbex-partners:defaults.formHeadSelect', { name: '$t(codbex-partners:t.SUPPLIER)' });
+			$scope.formHeaders.create = LocaleService.t('codbex-partners:defaults.formHeadCreate', { name: '$t(codbex-partners:t.SUPPLIER)' });
+			$scope.formHeaders.update = LocaleService.t('codbex-partners:defaults.formHeadUpdate', { name: '$t(codbex-partners:t.SUPPLIER)' });
+			propertySuccessfullyCreated = LocaleService.t('codbex-partners:messages.propertySuccessfullyCreated', { name: '$t(codbex-partners:t.SUPPLIER)' });
+			propertySuccessfullyUpdated = LocaleService.t('codbex-partners:messages.propertySuccessfullyUpdated', { name: '$t(codbex-partners:t.SUPPLIER)' });
+		});
+
 		//-----------------Custom Actions-------------------//
 		Extensions.getWindows(['codbex-partners-custom-action']).then((response) => {
 			$scope.entityActions = response.data.filter(e => e.perspective === 'Suppliers' && e.view === 'Supplier' && e.type === 'entity');
@@ -24,7 +36,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 		$scope.triggerEntityAction = (action) => {
 			Dialogs.showWindow({
 				hasHeader: true,
-        		title: action.label,
+        		title: LocaleService.t(action.translation.key, action.translation.options, action.label),
 				path: action.path,
 				params: {
 					id: $scope.entity.Id
@@ -109,15 +121,15 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 				Dialogs.postMessage({ topic: 'codbex-partners.Suppliers.Supplier.entityCreated', data: response.data });
 				Dialogs.postMessage({ topic: 'codbex-partners.Suppliers.Supplier.clearDetails' , data: response.data });
 				Notifications.show({
-					title: 'Supplier',
-					description: 'Supplier successfully created',
+					title: LocaleService.t('codbex-partners:t.SUPPLIER'),
+					description: propertySuccessfullyCreated,
 					type: 'positive'
 				});
 			}, (error) => {
 				const message = error.data ? error.data.message : '';
 				Dialogs.showAlert({
-					title: 'Supplier',
-					message: `Unable to create Supplier: '${message}'`,
+					title: LocaleService.t('codbex-partners:t.SUPPLIER'),
+					message: LocaleService.t('codbex-partners:messages.error.unableToCreate', { name: '$t(codbex-partners:t.SUPPLIER)', message: message }),
 					type: AlertTypes.Error
 				});
 				console.error('EntityService:', error);
@@ -129,15 +141,15 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 				Dialogs.postMessage({ topic: 'codbex-partners.Suppliers.Supplier.entityUpdated', data: response.data });
 				Dialogs.postMessage({ topic: 'codbex-partners.Suppliers.Supplier.clearDetails', data: response.data });
 				Notifications.show({
-					title: 'Supplier',
-					description: 'Supplier successfully updated',
+					title: LocaleService.t('codbex-partners:t.SUPPLIER'),
+					description: propertySuccessfullyUpdated,
 					type: 'positive'
 				});
 			}, (error) => {
 				const message = error.data ? error.data.message : '';
 				Dialogs.showAlert({
-					title: 'Supplier',
-					message: `Unable to create Supplier: '${message}'`,
+					title: LocaleService.t('codbex-partners:t.SUPPLIER'),
+					message: LocaleService.t('codbex-partners:messages.error.unableToCreate', { name: '$t(codbex-partners:t.SUPPLIER)', message: message }),
 					type: AlertTypes.Error
 				});
 				console.error('EntityService:', error);
@@ -151,7 +163,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 		//-----------------Dialogs-------------------//
 		$scope.alert = (message) => {
 			if (message) Dialogs.showAlert({
-				title: 'Description',
+				title: description,
 				message: message,
 				type: AlertTypes.Information,
 				preformatted: true,
@@ -197,7 +209,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 				const message = error.data ? error.data.message : '';
 				Dialogs.showAlert({
 					title: 'Country',
-					message: `Unable to load data: '${message}'`,
+					message: LocaleService.t('codbex-partners:messages.error.unableToLoad', { message: message }),
 					type: AlertTypes.Error
 				});
 			});
@@ -214,7 +226,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 				const message = error.data ? error.data.message : '';
 				Dialogs.showAlert({
 					title: 'City',
-					message: `Unable to load data: '${message}'`,
+					message: LocaleService.t('codbex-partners:messages.error.unableToLoad', { message: message }),
 					type: AlertTypes.Error
 				});
 			});

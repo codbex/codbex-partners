@@ -17,27 +17,27 @@
 			<bk-message-strip class="fd-margin--md" ng-show="errorMessage" glyph="sap-icon--message-error" state="error" on-dismiss="clearErrorMessage()">{{ errorMessage }}</bk-message-strip>
 
             <bk-fieldset class="fd-padding-begin-end--sm" ng-form="forms.details">
-                <bk-form-group label="Manufacturer Filter" name="entityForm" transclude-classes="fd-container fd-form-layout-grid-container">
+                <bk-form-group label="{{ 'codbex-partners:defaults.formGrpFilter' | t:{'name':'$t(codbex-partners:t.MANUFACTURER)'} }}" name="entityForm" transclude-classes="fd-container fd-form-layout-grid-container">
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idName" colon="true">Name</bk-form-label>
+                        	<bk-form-label for="idName" colon="true">{{ 'codbex-partners:t.MANUFACTURER_NAME' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
-							<bk-form-input-message state="{{ forms.details['Name'].$valid ? '' : 'error' }}" message="'Incorrect Input'">
+							<bk-form-input-message state="{{ forms.details['Name'].$valid ? '' : 'error' }}" text="{{'codbex-partners:messages.error.incorrectInput' | t}}">
 								<bk-input id="idName"
 	                                name="Name"
 	                                state="{{ forms.details['Name'].$valid ? '' : 'error' }}"
 	                                ng-model="entity.Name"
 									ng-maxlength="200.0"
 	                                type="text"
-	                                placeholder="Enter Name">
+	                                placeholder="{{ 'codbex-partners:messages.inputEnter' | t:{'name':'$t(codbex-partners:t.MANUFACTURER_NAME)'} }}">
 	                            </bk-input>
 							</bk-form-input-message>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idCountry" colon="true">Country</bk-form-label>
+                        	<bk-form-label for="idCountry" colon="true">{{ 'codbex-partners:t.MANUFACTURER_COUNTRY' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
 	                        <bk-combobox-input input-id="idCountry"
@@ -45,14 +45,14 @@
 	                            state="{{ forms.details['Country'].$valid ? '' : 'error' }}"
 	                            ng-model="entity.Country"
 	                            dropdown-items="optionsCountry"
-	                            placeholder="Search Country ..."
-								btn-aria-label="show/hide Country options" list-aria-label="Country options">
+	                            placeholder="{{ 'codbex-partners:messages.inputSearch' | t:{'name':'$t(codbex-partners:t.MANUFACTURER_COUNTRY)'} }}"
+								btn-aria-label="{{ 'codbex-partners:aria.showHide' | t:{'name':'Country'} }}" list-aria-label="{{ 'codbex-partners:aria.options' | t:{'name':'Country'} }}">
 	                        </bk-combobox-input>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idCity" colon="true">City</bk-form-label>
+                        	<bk-form-label for="idCity" colon="true">{{ 'codbex-partners:t.MANUFACTURER_CITY' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
 	                        <bk-combobox-input input-id="idCity"
@@ -60,8 +60,8 @@
 	                            state="{{ forms.details['City'].$valid ? '' : 'error' }}"
 	                            ng-model="entity.City"
 	                            dropdown-items="optionsCity"
-	                            placeholder="Search City ..."
-								btn-aria-label="show/hide City options" list-aria-label="City options">
+	                            placeholder="{{ 'codbex-partners:messages.inputSearch' | t:{'name':'$t(codbex-partners:t.MANUFACTURER_CITY)'} }}"
+								btn-aria-label="{{ 'codbex-partners:aria.showHide' | t:{'name':'City'} }}" list-aria-label="{{ 'codbex-partners:aria.options' | t:{'name':'City'} }}">
 	                        </bk-combobox-input>
 	                    </div>
                     </bk-form-item>
@@ -72,13 +72,13 @@
         <bk-bar bar-design="footer" compact="true" ng-show="action !== 'select'">
 			<bk-bar-right>
 				<bk-bar-element>
-					<bk-button label="Filter" state="emphasized" ng-click="filter()"></bk-button>
+					<bk-button label="{{ 'codbex-partners:defaults.filter' | t }}" state="emphasized" ng-click="filter()"></bk-button>
 				</bk-bar-element>
 				<bk-bar-element>
-					<bk-button label="Reset" ng-click="resetFilter()"></bk-button>
+					<bk-button label="{{ 'codbex-partners:defaults.reset' | t }}" ng-click="resetFilter()"></bk-button>
 				</bk-bar-element>
 				<bk-bar-element>
-					<bk-button label="Cancel" ng-click="cancel()"></bk-button>
+					<bk-button label="{{ 'codbex-partners:defaults.cancel' | t }}" ng-click="cancel()"></bk-button>
 				</bk-bar-element>
 			</bk-bar-right>
 		</bk-bar>

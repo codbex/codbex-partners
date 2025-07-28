@@ -1,9 +1,22 @@
-angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
+angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntityService'])
 	.config(['EntityServiceProvider', (EntityServiceProvider) => {
 		EntityServiceProvider.baseUrl = '/services/ts/codbex-partners/gen/codbex-partners/api/Customers/CustomerService.ts';
 	}])
-	.controller('PageController', ($scope, $http, EntityService, Extensions, ButtonStates) => {
+	.controller('PageController', ($scope, EntityService, Extensions, LocaleService, ButtonStates) => {
 		const Dialogs = new DialogHub();
+		let translated = {
+			yes: 'Yes',
+			no: 'No',
+			deleteConfirm: 'Are you sure you want to delete Customer? This action cannot be undone.',
+			deleteTitle: 'Delete Customer?'
+		};
+
+		LocaleService.onInit(() => {
+			translated.yes = LocaleService.t('codbex-partners:defaults.yes');
+			translated.no = LocaleService.t('codbex-partners:defaults.no');
+			translated.deleteTitle = LocaleService.t('codbex-partners:defaults.deleteTitle', { name: '$t(codbex-partners:t.CUSTOMER)' });
+			translated.deleteConfirm = LocaleService.t('codbex-partners:messages.deleteConfirm', { name: '$t(codbex-partners:t.CUSTOMER)' });
+		});
 		$scope.dataPage = 1;
 		$scope.dataCount = 0;
 		$scope.dataOffset = 0;
@@ -18,7 +31,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 		$scope.triggerPageAction = (action) => {
 			Dialogs.showWindow({
 				hasHeader: true,
-        		title: action.label,
+        		title: LocaleService.t(action.translation.key, action.translation.options, action.label),
 				path: action.path,
 				maxWidth: action.maxWidth,
 				maxHeight: action.maxHeight,
@@ -92,8 +105,8 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 				}, (error) => {
 					const message = error.data ? error.data.message : '';
 					Dialogs.showAlert({
-						title: 'Customer',
-						message: `Unable to list/filter Customer: '${message}'`,
+						title: LocaleService.t('codbex-partners:t.CUSTOMER'),
+						message: LocaleService.t('codbex-partners:messages.error.unableToLF', { name: '$t(codbex-partners:t.CUSTOMER)', message: message }),
 						type: AlertTypes.Error
 					});
 					console.error('EntityService:', error);
@@ -101,8 +114,8 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			}, (error) => {
 				const message = error.data ? error.data.message : '';
 				Dialogs.showAlert({
-					title: 'Customer',
-					message: `Unable to count Customer: '${message}'`,
+					title: LocaleService.t('codbex-partners:t.CUSTOMER'),
+					message: LocaleService.t('codbex-partners:messages.error.unableToCount', { name: '$t(codbex-partners:t.CUSTOMER)', message: message }),
 					type: AlertTypes.Error
 				});
 				console.error('EntityService:', error);
@@ -115,8 +128,6 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			Dialogs.postMessage({ topic: 'codbex-partners.Customers.Customer.entitySelected', data: {
 				entity: entity,
 				selectedMainEntityId: entity.Id,
-				optionsCountry: $scope.optionsCountry,
-				optionsCity: $scope.optionsCity,
 			}});
 		};
 
@@ -124,34 +135,28 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			$scope.selectedEntity = null;
 			$scope.action = 'create';
 
-			Dialogs.postMessage({ topic: 'codbex-partners.Customers.Customer.createEntity', data: {
-				entity: {},
-				optionsCountry: $scope.optionsCountry,
-				optionsCity: $scope.optionsCity,
-			}});
+			Dialogs.triggerEvent('codbex-partners.Customers.Customer.createEntity');
 		};
 
 		$scope.updateEntity = () => {
 			$scope.action = 'update';
 			Dialogs.postMessage({ topic: 'codbex-partners.Customers.Customer.updateEntity', data: {
 				entity: $scope.selectedEntity,
-				optionsCountry: $scope.optionsCountry,
-				optionsCity: $scope.optionsCity,
 			}});
 		};
 
 		$scope.deleteEntity = () => {
 			let id = $scope.selectedEntity.Id;
 			Dialogs.showDialog({
-				title: 'Delete Customer?',
-				message: `Are you sure you want to delete Customer? This action cannot be undone.`,
+				title: translated.deleteTitle,
+				message: translated.deleteConfirm,
 				buttons: [{
 					id: 'delete-btn-yes',
 					state: ButtonStates.Emphasized,
-					label: 'Yes',
+					label: translated.yes,
 				}, {
 					id: 'delete-btn-no',
-					label: 'No',
+					label: translated.no,
 				}],
 				closeButton: false
 			}).then((buttonId) => {
@@ -163,8 +168,8 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 					}, (error) => {
 						const message = error.data ? error.data.message : '';
 						Dialogs.showAlert({
-							title: 'Customer',
-							message: `Unable to delete Customer: '${message}'`,
+							title: LocaleService.t('codbex-partners:t.CUSTOMER'),
+							message: LocaleService.t('codbex-partners:messages.error.unableToDelete', { name: '$t(codbex-partners:t.CUSTOMER)', message: message }),
 							type: AlertTypes.Error
 						});
 						console.error('EntityService:', error);
@@ -178,62 +183,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 				id: 'Customer-filter',
 				params: {
 					entity: $scope.filterEntity,
-					optionsCountry: $scope.optionsCountry,
-					optionsCity: $scope.optionsCity,
 				},
 			});
 		};
-
-		//----------------Dropdowns-----------------//
-		$scope.optionsCountry = [];
-		$scope.optionsCity = [];
-
-
-		$http.get('/services/ts/codbex-countries/gen/codbex-countries/api/Settings/CountryService.ts').then((response) => {
-			$scope.optionsCountry = response.data.map(e => ({
-				value: e.Id,
-				text: e.Name
-			}));
-		}, (error) => {
-			console.error(error);
-			const message = error.data ? error.data.message : '';
-			Dialogs.showAlert({
-				title: 'Country',
-				message: `Unable to load data: '${message}'`,
-				type: AlertTypes.Error
-			});
-		});
-
-		$http.get('/services/ts/codbex-cities/gen/codbex-cities/api/Settings/CityService.ts').then((response) => {
-			$scope.optionsCity = response.data.map(e => ({
-				value: e.Id,
-				text: e.Name
-			}));
-		}, (error) => {
-			console.error(error);
-			const message = error.data ? error.data.message : '';
-			Dialogs.showAlert({
-				title: 'City',
-				message: `Unable to load data: '${message}'`,
-				type: AlertTypes.Error
-			});
-		});
-
-		$scope.optionsCountryValue = (optionKey) => {
-			for (let i = 0; i < $scope.optionsCountry.length; i++) {
-				if ($scope.optionsCountry[i].value === optionKey) {
-					return $scope.optionsCountry[i].text;
-				}
-			}
-			return null;
-		};
-		$scope.optionsCityValue = (optionKey) => {
-			for (let i = 0; i < $scope.optionsCity.length; i++) {
-				if ($scope.optionsCity[i].value === optionKey) {
-					return $scope.optionsCity[i].text;
-				}
-			}
-			return null;
-		};
-		//----------------Dropdowns-----------------//
 	});

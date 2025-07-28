@@ -6,6 +6,9 @@
 const perspectiveData = {
 	id: 'Manufacturers',
 	label: 'Manufacturers',
+	translation: {
+        key: 'codbex-partners:t.MANUFACTURER',
+    },
 	path: '/services/web/codbex-partners/gen/codbex-partners/ui/Manufacturers/index.html',
 	groupId: 'partners-navigation-group',
 	order: 100,

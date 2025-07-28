@@ -16,6 +16,8 @@ tags:
   - name: Manufacturers
   - name: Manufacturers
   - name: Customers
+  - name: Customers
+  - name: entities
 paths:
   /codbex-partners/gen/codbex-partners/api/Customers/CustomerService.ts:
     get:
@@ -262,9 +264,9 @@ paths:
                     notEquals:
                       Id: 33
                     contains:
+                      FirstName: "abcd"
+                      LastName: "abcd"
                       Name: "abcd"
-                      Address: "abcd"
-                      PostalCode: "abcd"
                       Email: "abcd"
                       Phone: "abcd"
                       Fax: "abcd"
@@ -291,9 +293,9 @@ paths:
                 value:
                   $filter:
                     contains:
+                      FirstName: "abcd"
+                      LastName: "abcd"
                       Name: "abcd"
-                      Address: "abcd"
-                      PostalCode: "abcd"
                       Email: "abcd"
                       Phone: "abcd"
                       Fax: "abcd"
@@ -362,9 +364,9 @@ paths:
                     notEquals:
                       Id: 33
                     contains:
+                      FirstName: "abcd"
+                      LastName: "abcd"
                       Name: "abcd"
-                      Address: "abcd"
-                      PostalCode: "abcd"
                       Email: "abcd"
                       Phone: "abcd"
                       Fax: "abcd"
@@ -391,9 +393,9 @@ paths:
                 value:
                   $filter:
                     contains:
+                      FirstName: "abcd"
+                      LastName: "abcd"
                       Name: "abcd"
-                      Address: "abcd"
-                      PostalCode: "abcd"
                       Email: "abcd"
                       Phone: "abcd"
                       Fax: "abcd"
@@ -2885,31 +2887,839 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+  /codbex-partners/gen/codbex-partners/api/Customers/CustomerAddressService.ts:
+    get:
+      summary: List CustomerAddress
+      parameters:
+        - in: query
+          name: $limit
+          description: The number of records to be returned _(both `$limit` and `$offset` should be provided)_.
+          required: false
+          allowReserved: true
+          schema:
+            type: integer
+            allowEmptyValue: true
+        - in: query
+          name: $offset
+          description: The number of records to skip _(both `$limit` and `$offset` should be provided)_.
+          required: false
+          allowReserved: true
+          schema:
+            type: integer
+            allowEmptyValue: true
+      tags:
+        - Customers
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                    $ref: '#/components/schemas/CustomerAddress'
+        400:
+          description: Bad Request Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      summary: Create CustomerAddress
+      tags:
+        - Customers
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomerAddress'
+        required: true
+      responses:
+        201:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerAddress'
+        400:
+          description: Bad Request Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /codbex-partners/gen/codbex-partners/api/Customers/CustomerAddressService.ts/{id}:
+    get:
+      summary: Get CustomerAddress by Id
+      parameters:
+        - in: path
+          name: id
+          description: The Id of the entity.
+          required: true
+          schema:
+            type: string
+      tags:
+        - Customers
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                    $ref: '#/components/schemas/CustomerAddress'
+        404:
+          description: Entity Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    put:
+      summary: Update CustomerAddress by Id
+      parameters:
+        - in: path
+          name: id
+          description: The Id of the entity.
+          required: true
+          schema:
+            type: string
+      tags:
+        - Customers
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomerAddress'
+        required: true
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerAddress'
+        400:
+          description: Bad Request Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        404:
+          description: Entity Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    delete:
+      summary: Delete CustomerAddress by Id
+      parameters:
+        - in: path
+          name: id
+          description: The Id of the entity.
+          required: true
+          schema:
+            type: string
+      tags:
+        - Customers
+      responses:
+        204:
+          description: Successful Request
+        404:
+          description: Entity Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /codbex-partners/gen/codbex-partners/api/Customers/CustomerAddressService.ts/count:
+    get:
+      summary: Count the number of CustomerAddress
+      tags:
+        - Customers
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: integer
+                example: 100
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      summary: Count the number of CustomerAddress by CustomerAddressFilterOptions
+      tags:
+        - Customers
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomerAddressFilterOptions'
+            examples:
+              countWithMultipleCriteria:
+                summary: Count with multiple criteria
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 33
+                    contains:
+                      AdressLine1: "abcd"
+                      AddressLine2: "abcd"
+                      PostalCode: "abcd"
+                    greaterThan:
+                      Id: 0
+                    lessThanOrEqual:
+                      Id: 100
+              countWithEquals:
+                summary: Count with Equals
+                value:
+                  $filter:
+                    equals:
+                      Id: 0
+              countWithNotEquals:
+                summary: Count with Not Equals
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 0
+              countWithContains:
+                summary: Count with Contains
+                value:
+                  $filter:
+                    contains:
+                      AdressLine1: "abcd"
+                      AddressLine2: "abcd"
+                      PostalCode: "abcd"
+              countWithGreaterThan:
+                summary: Count with Greater Than
+                value:
+                  $filter:
+                    greaterThan:
+                      Id: 0
+              countWithGreaterThanOrEqual:
+                summary: Count with Greater Than Or Equal
+                value:
+                  $filter:
+                    greaterThanOrEqual:
+                      Id: 0
+              countWithLessThan:
+                summary: Count with Less Than
+                value:
+                  $filter:
+                    lessThan:
+                      Id: 0
+              countWithLessThanOrEqual:
+                summary: Count with Less Than Or Equal
+                value:
+                  $filter:
+                    lessThanOrEqual:
+                      Id: 0
+        required: true
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: integer
+                example: 100
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /codbex-partners/gen/codbex-partners/api/Customers/CustomerAddressService.ts/search:
+    post:
+      summary: Search CustomerAddress by CustomerAddressFilterOptions
+      tags:
+        - Customers
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomerAddressFilterOptions'
+            examples:
+              searchWithMultipleCriteria:
+                summary: Search with multiple criteria
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 33
+                    contains:
+                      AdressLine1: "abcd"
+                      AddressLine2: "abcd"
+                      PostalCode: "abcd"
+                    greaterThan:
+                      Id: 0
+                    lessThanOrEqual:
+                      Id: 100
+              searchWithEquals:
+                summary: Search with Equals
+                value:
+                  $filter:
+                    equals:
+                      Id: 0
+              searchWithNotEquals:
+                summary: Search with Not Equals
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 0
+              searchWithContains:
+                summary: Search with Contains
+                value:
+                  $filter:
+                    contains:
+                      AdressLine1: "abcd"
+                      AddressLine2: "abcd"
+                      PostalCode: "abcd"
+              searchWithGreaterThan:
+                summary: Search with Greater Than
+                value:
+                  $filter:
+                    greaterThan:
+                      Id: 0
+              searchWithGreaterThanOrEqual:
+                summary: Search with Greater Than Or Equal
+                value:
+                  $filter:
+                    greaterThanOrEqual:
+                      Id: 0
+              searchWithLessThan:
+                summary: Search with Less Than
+                value:
+                  $filter:
+                    lessThan:
+                      Id: 0
+              searchWithLessThanOrEqual:
+                summary: Search with Less Than Or Equal
+                value:
+                  $filter:
+                    lessThanOrEqual:
+                      Id: 0
+        required: true
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                    $ref: '#/components/schemas/CustomerAddress'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /codbex-partners/gen/codbex-partners/api/entities/CustomerAddressTypeService.ts:
+    get:
+      summary: List CustomerAddressType
+      parameters:
+        - in: query
+          name: $limit
+          description: The number of records to be returned _(both `$limit` and `$offset` should be provided)_.
+          required: false
+          allowReserved: true
+          schema:
+            type: integer
+            allowEmptyValue: true
+        - in: query
+          name: $offset
+          description: The number of records to skip _(both `$limit` and `$offset` should be provided)_.
+          required: false
+          allowReserved: true
+          schema:
+            type: integer
+            allowEmptyValue: true
+      tags:
+        - entities
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                    $ref: '#/components/schemas/CustomerAddressType'
+        400:
+          description: Bad Request Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      summary: Create CustomerAddressType
+      tags:
+        - entities
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomerAddressType'
+        required: true
+      responses:
+        201:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerAddressType'
+        400:
+          description: Bad Request Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /codbex-partners/gen/codbex-partners/api/entities/CustomerAddressTypeService.ts/{id}:
+    get:
+      summary: Get CustomerAddressType by Id
+      parameters:
+        - in: path
+          name: id
+          description: The Id of the entity.
+          required: true
+          schema:
+            type: string
+      tags:
+        - entities
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                    $ref: '#/components/schemas/CustomerAddressType'
+        404:
+          description: Entity Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    put:
+      summary: Update CustomerAddressType by Id
+      parameters:
+        - in: path
+          name: id
+          description: The Id of the entity.
+          required: true
+          schema:
+            type: string
+      tags:
+        - entities
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomerAddressType'
+        required: true
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerAddressType'
+        400:
+          description: Bad Request Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        404:
+          description: Entity Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    delete:
+      summary: Delete CustomerAddressType by Id
+      parameters:
+        - in: path
+          name: id
+          description: The Id of the entity.
+          required: true
+          schema:
+            type: string
+      tags:
+        - entities
+      responses:
+        204:
+          description: Successful Request
+        404:
+          description: Entity Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /codbex-partners/gen/codbex-partners/api/entities/CustomerAddressTypeService.ts/count:
+    get:
+      summary: Count the number of CustomerAddressType
+      tags:
+        - entities
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: integer
+                example: 100
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      summary: Count the number of CustomerAddressType by CustomerAddressTypeFilterOptions
+      tags:
+        - entities
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomerAddressTypeFilterOptions'
+            examples:
+              countWithMultipleCriteria:
+                summary: Count with multiple criteria
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 33
+                    contains:
+                      Name: "abcd"
+                    greaterThan:
+                      Id: 0
+                    lessThanOrEqual:
+                      Id: 100
+              countWithEquals:
+                summary: Count with Equals
+                value:
+                  $filter:
+                    equals:
+                      Id: 0
+              countWithNotEquals:
+                summary: Count with Not Equals
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 0
+              countWithContains:
+                summary: Count with Contains
+                value:
+                  $filter:
+                    contains:
+                      Name: "abcd"
+              countWithGreaterThan:
+                summary: Count with Greater Than
+                value:
+                  $filter:
+                    greaterThan:
+                      Id: 0
+              countWithGreaterThanOrEqual:
+                summary: Count with Greater Than Or Equal
+                value:
+                  $filter:
+                    greaterThanOrEqual:
+                      Id: 0
+              countWithLessThan:
+                summary: Count with Less Than
+                value:
+                  $filter:
+                    lessThan:
+                      Id: 0
+              countWithLessThanOrEqual:
+                summary: Count with Less Than Or Equal
+                value:
+                  $filter:
+                    lessThanOrEqual:
+                      Id: 0
+        required: true
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: integer
+                example: 100
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /codbex-partners/gen/codbex-partners/api/entities/CustomerAddressTypeService.ts/search:
+    post:
+      summary: Search CustomerAddressType by CustomerAddressTypeFilterOptions
+      tags:
+        - entities
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomerAddressTypeFilterOptions'
+            examples:
+              searchWithMultipleCriteria:
+                summary: Search with multiple criteria
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 33
+                    contains:
+                      Name: "abcd"
+                    greaterThan:
+                      Id: 0
+                    lessThanOrEqual:
+                      Id: 100
+              searchWithEquals:
+                summary: Search with Equals
+                value:
+                  $filter:
+                    equals:
+                      Id: 0
+              searchWithNotEquals:
+                summary: Search with Not Equals
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 0
+              searchWithContains:
+                summary: Search with Contains
+                value:
+                  $filter:
+                    contains:
+                      Name: "abcd"
+              searchWithGreaterThan:
+                summary: Search with Greater Than
+                value:
+                  $filter:
+                    greaterThan:
+                      Id: 0
+              searchWithGreaterThanOrEqual:
+                summary: Search with Greater Than Or Equal
+                value:
+                  $filter:
+                    greaterThanOrEqual:
+                      Id: 0
+              searchWithLessThan:
+                summary: Search with Less Than
+                value:
+                  $filter:
+                    lessThan:
+                      Id: 0
+              searchWithLessThanOrEqual:
+                summary: Search with Less Than Or Equal
+                value:
+                  $filter:
+                    lessThanOrEqual:
+                      Id: 0
+        required: true
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                    $ref: '#/components/schemas/CustomerAddressType'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
 components:
   schemas:
     Customer:
       type: object
       required:
-        - Name
+        - FirstName
+        - LastName
         - Email
-        - Country
-        - City
       properties:
         Id:
           type: integer
           format: int32
+        FirstName:
+          type: string
+          minLength: 0
+          maxLength: 50
+        LastName:
+          type: string
+          minLength: 0
+          maxLength: 50
         Name:
           type: string
           minLength: 0
           maxLength: 100
-        Address:
-          type: string
-          minLength: 0
-          maxLength: 200
-        PostalCode:
-          type: string
-          minLength: 0
-          maxLength: 20
+          readOnly: true
         Email:
           type: string
           minLength: 0
@@ -2922,12 +3732,6 @@ components:
           type: string
           minLength: 0
           maxLength: 20
-        Country:
-          type: integer
-          format: int32
-        City:
-          type: integer
-          format: int32
         TIN:
           type: string
           minLength: 0
@@ -2953,6 +3757,28 @@ components:
                       items:
                         type: integer
                         format: int32
+                FirstName:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 50
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 50
+                LastName:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 50
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 50
                 Name:
                   oneOf:
                     - type: string
@@ -2964,28 +3790,6 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 100
-                Address:
-                  oneOf:
-                    - type: string
-                      minLength: 0
-                      maxLength: 200
-                    - type: array
-                      items:
-                        type: string
-                        format: double
-                        minLength: 0
-                        maxLength: 200
-                PostalCode:
-                  oneOf:
-                    - type: string
-                      minLength: 0
-                      maxLength: 20
-                    - type: array
-                      items:
-                        type: string
-                        format: double
-                        minLength: 0
-                        maxLength: 20
                 Email:
                   oneOf:
                     - type: string
@@ -3019,22 +3823,6 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 20
-                Country:
-                  oneOf:
-                    - type: integer
-                      format: int32
-                    - type: array
-                      items:
-                        type: integer
-                        format: int32
-                City:
-                  oneOf:
-                    - type: integer
-                      format: int32
-                    - type: array
-                      items:
-                        type: integer
-                        format: int32
                 TIN:
                   oneOf:
                     - type: string
@@ -3068,6 +3856,28 @@ components:
                       items:
                         type: integer
                         format: int32
+                FirstName:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 50
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 50
+                LastName:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 50
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 50
                 Name:
                   oneOf:
                     - type: string
@@ -3079,28 +3889,6 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 100
-                Address:
-                  oneOf:
-                    - type: string
-                      minLength: 0
-                      maxLength: 200
-                    - type: array
-                      items:
-                        type: string
-                        format: double
-                        minLength: 0
-                        maxLength: 200
-                PostalCode:
-                  oneOf:
-                    - type: string
-                      minLength: 0
-                      maxLength: 20
-                    - type: array
-                      items:
-                        type: string
-                        format: double
-                        minLength: 0
-                        maxLength: 20
                 Email:
                   oneOf:
                     - type: string
@@ -3134,22 +3922,6 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 20
-                Country:
-                  oneOf:
-                    - type: integer
-                      format: int32
-                    - type: array
-                      items:
-                        type: integer
-                        format: int32
-                City:
-                  oneOf:
-                    - type: integer
-                      format: int32
-                    - type: array
-                      items:
-                        type: integer
-                        format: int32
                 TIN:
                   oneOf:
                     - type: string
@@ -3176,18 +3948,18 @@ components:
               type: object
               properties:
                 Id:
+                FirstName:
+                  type: string
+                  minLength: 0
+                  maxLength: 50
+                LastName:
+                  type: string
+                  minLength: 0
+                  maxLength: 50
                 Name:
                   type: string
                   minLength: 0
                   maxLength: 100
-                Address:
-                  type: string
-                  minLength: 0
-                  maxLength: 200
-                PostalCode:
-                  type: string
-                  minLength: 0
-                  maxLength: 20
                 Email:
                   type: string
                   minLength: 0
@@ -3200,8 +3972,6 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
-                Country:
-                City:
                 TIN:
                   type: string
                   minLength: 0
@@ -3216,18 +3986,18 @@ components:
                 Id:
                   type: integer
                   format: int32
+                FirstName:
+                  type: string
+                  minLength: 0
+                  maxLength: 50
+                LastName:
+                  type: string
+                  minLength: 0
+                  maxLength: 50
                 Name:
                   type: string
                   minLength: 0
                   maxLength: 100
-                Address:
-                  type: string
-                  minLength: 0
-                  maxLength: 200
-                PostalCode:
-                  type: string
-                  minLength: 0
-                  maxLength: 20
                 Email:
                   type: string
                   minLength: 0
@@ -3240,12 +4010,6 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
-                Country:
-                  type: integer
-                  format: int32
-                City:
-                  type: integer
-                  format: int32
                 TIN:
                   type: string
                   minLength: 0
@@ -3260,18 +4024,18 @@ components:
                 Id:
                   type: integer
                   format: int32
+                FirstName:
+                  type: string
+                  minLength: 0
+                  maxLength: 50
+                LastName:
+                  type: string
+                  minLength: 0
+                  maxLength: 50
                 Name:
                   type: string
                   minLength: 0
                   maxLength: 100
-                Address:
-                  type: string
-                  minLength: 0
-                  maxLength: 200
-                PostalCode:
-                  type: string
-                  minLength: 0
-                  maxLength: 20
                 Email:
                   type: string
                   minLength: 0
@@ -3284,12 +4048,6 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
-                Country:
-                  type: integer
-                  format: int32
-                City:
-                  type: integer
-                  format: int32
                 TIN:
                   type: string
                   minLength: 0
@@ -3304,18 +4062,18 @@ components:
                 Id:
                   type: integer
                   format: int32
+                FirstName:
+                  type: string
+                  minLength: 0
+                  maxLength: 50
+                LastName:
+                  type: string
+                  minLength: 0
+                  maxLength: 50
                 Name:
                   type: string
                   minLength: 0
                   maxLength: 100
-                Address:
-                  type: string
-                  minLength: 0
-                  maxLength: 200
-                PostalCode:
-                  type: string
-                  minLength: 0
-                  maxLength: 20
                 Email:
                   type: string
                   minLength: 0
@@ -3328,12 +4086,6 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
-                Country:
-                  type: integer
-                  format: int32
-                City:
-                  type: integer
-                  format: int32
                 TIN:
                   type: string
                   minLength: 0
@@ -3348,18 +4100,18 @@ components:
                 Id:
                   type: integer
                   format: int32
+                FirstName:
+                  type: string
+                  minLength: 0
+                  maxLength: 50
+                LastName:
+                  type: string
+                  minLength: 0
+                  maxLength: 50
                 Name:
                   type: string
                   minLength: 0
                   maxLength: 100
-                Address:
-                  type: string
-                  minLength: 0
-                  maxLength: 200
-                PostalCode:
-                  type: string
-                  minLength: 0
-                  maxLength: 20
                 Email:
                   type: string
                   minLength: 0
@@ -3372,12 +4124,6 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
-                Country:
-                  type: integer
-                  format: int32
-                City:
-                  type: integer
-                  format: int32
                 TIN:
                   type: string
                   minLength: 0
@@ -3388,12 +4134,12 @@ components:
                   maxLength: 36
         $select:
           type: array
-          example: ["Id", "Name", "Address", "PostalCode", "Email", "Phone", "Fax", "Country", "City", "TIN", "IBAN"]
+          example: ["Id", "FirstName", "LastName", "Name", "Email", "Phone", "Fax", "TIN", "IBAN"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Name,Address,PostalCode,Email,Phone,Fax,Country,City,TIN,IBAN"
+            example: "Id,FirstName,LastName,Name,Email,Phone,Fax,TIN,IBAN"
         $order:
           type: string
           enum: ["asc", "desc"]
@@ -4880,6 +5626,486 @@ components:
         $sort:
           - type: string
             example: "Id,Customer,Name,Designation,Email,Phone"
+        $order:
+          type: string
+          enum: ["asc", "desc"]
+          example: "asc"
+        $offset:
+          type: integer
+          example: 0
+        $limit:
+          type: integer
+          example: 10
+    CustomerAddress:
+      type: object
+      required:
+        - Country
+        - City
+        - AdressLine1
+        - PostalCode
+        - CustomerAddressType
+      properties:
+        Id:
+          type: integer
+          format: int32
+        Customer:
+          type: integer
+          format: int32
+        Country:
+          type: integer
+          format: int32
+        City:
+          type: integer
+          format: int32
+        AdressLine1:
+          type: string
+          minLength: 0
+          maxLength: 500
+        AddressLine2:
+          type: string
+          minLength: 0
+          maxLength: 500
+        PostalCode:
+          type: string
+          minLength: 0
+          maxLength: 10
+        CustomerAddressType:
+          type: integer
+          format: int32
+    CustomerAddressFilterOptions:
+      type: object
+      properties:
+        $filter:
+          type: object
+          properties:
+            equals:
+              type: object
+              properties:
+                Id:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                Customer:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                Country:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                City:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                AdressLine1:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 500
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 500
+                AddressLine2:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 500
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 500
+                PostalCode:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 10
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 10
+                CustomerAddressType:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+            notEquals:
+              type: object
+              properties:
+                Id:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                Customer:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                Country:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                City:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                AdressLine1:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 500
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 500
+                AddressLine2:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 500
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 500
+                PostalCode:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 10
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 10
+                CustomerAddressType:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+            contains:
+              type: object
+              properties:
+                Id:
+                Customer:
+                Country:
+                City:
+                AdressLine1:
+                  type: string
+                  minLength: 0
+                  maxLength: 500
+                AddressLine2:
+                  type: string
+                  minLength: 0
+                  maxLength: 500
+                PostalCode:
+                  type: string
+                  minLength: 0
+                  maxLength: 10
+                CustomerAddressType:
+            greaterThan:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                Customer:
+                  type: integer
+                  format: int32
+                Country:
+                  type: integer
+                  format: int32
+                City:
+                  type: integer
+                  format: int32
+                AdressLine1:
+                  type: string
+                  minLength: 0
+                  maxLength: 500
+                AddressLine2:
+                  type: string
+                  minLength: 0
+                  maxLength: 500
+                PostalCode:
+                  type: string
+                  minLength: 0
+                  maxLength: 10
+                CustomerAddressType:
+                  type: integer
+                  format: int32
+            greaterThanOrEqual:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                Customer:
+                  type: integer
+                  format: int32
+                Country:
+                  type: integer
+                  format: int32
+                City:
+                  type: integer
+                  format: int32
+                AdressLine1:
+                  type: string
+                  minLength: 0
+                  maxLength: 500
+                AddressLine2:
+                  type: string
+                  minLength: 0
+                  maxLength: 500
+                PostalCode:
+                  type: string
+                  minLength: 0
+                  maxLength: 10
+                CustomerAddressType:
+                  type: integer
+                  format: int32
+            lessThan:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                Customer:
+                  type: integer
+                  format: int32
+                Country:
+                  type: integer
+                  format: int32
+                City:
+                  type: integer
+                  format: int32
+                AdressLine1:
+                  type: string
+                  minLength: 0
+                  maxLength: 500
+                AddressLine2:
+                  type: string
+                  minLength: 0
+                  maxLength: 500
+                PostalCode:
+                  type: string
+                  minLength: 0
+                  maxLength: 10
+                CustomerAddressType:
+                  type: integer
+                  format: int32
+            lessThanOrEqual:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                Customer:
+                  type: integer
+                  format: int32
+                Country:
+                  type: integer
+                  format: int32
+                City:
+                  type: integer
+                  format: int32
+                AdressLine1:
+                  type: string
+                  minLength: 0
+                  maxLength: 500
+                AddressLine2:
+                  type: string
+                  minLength: 0
+                  maxLength: 500
+                PostalCode:
+                  type: string
+                  minLength: 0
+                  maxLength: 10
+                CustomerAddressType:
+                  type: integer
+                  format: int32
+        $select:
+          type: array
+          example: ["Id", "Customer", "Country", "City", "AdressLine1", "AddressLine2", "PostalCode", "CustomerAddressType"]
+          items:
+            type: string
+        $sort:
+          - type: string
+            example: "Id,Customer,Country,City,AdressLine1,AddressLine2,PostalCode,CustomerAddressType"
+        $order:
+          type: string
+          enum: ["asc", "desc"]
+          example: "asc"
+        $offset:
+          type: integer
+          example: 0
+        $limit:
+          type: integer
+          example: 10
+    CustomerAddressType:
+      type: object
+      required:
+        - Name
+      properties:
+        Id:
+          type: integer
+          format: int32
+        Name:
+          type: string
+          minLength: 0
+          maxLength: 20
+    CustomerAddressTypeFilterOptions:
+      type: object
+      properties:
+        $filter:
+          type: object
+          properties:
+            equals:
+              type: object
+              properties:
+                Id:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                Name:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 20
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 20
+            notEquals:
+              type: object
+              properties:
+                Id:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                Name:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 20
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 20
+            contains:
+              type: object
+              properties:
+                Id:
+                Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 20
+            greaterThan:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 20
+            greaterThanOrEqual:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 20
+            lessThan:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 20
+            lessThanOrEqual:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 20
+        $select:
+          type: array
+          example: ["Id", "Name"]
+          items:
+            type: string
+        $sort:
+          - type: string
+            example: "Id,Name"
         $order:
           type: string
           enum: ["asc", "desc"]

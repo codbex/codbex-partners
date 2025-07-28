@@ -1,4 +1,4 @@
-angular.module('page', ['blimpKit', 'platformView']).controller('PageController', ($scope, ViewParameters) => {
+angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controller('PageController', ($scope, ViewParameters) => {
 	const Dialogs = new DialogHub();
 	$scope.entity = {};
 	$scope.forms = {
@@ -10,8 +10,6 @@ angular.module('page', ['blimpKit', 'platformView']).controller('PageController'
 		$scope.entity = params.entity ?? {};
 		$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 		$scope.selectedMainEntityId = params.selectedMainEntityId;
-		$scope.optionsCountry = params.optionsCountry;
-		$scope.optionsCity = params.optionsCity;
 	}
 
 	$scope.filter = () => {
@@ -37,14 +35,14 @@ angular.module('page', ['blimpKit', 'platformView']).controller('PageController'
 		if (entity.Id !== undefined) {
 			filter.$filter.equals.Id = entity.Id;
 		}
+		if (entity.FirstName) {
+			filter.$filter.contains.FirstName = entity.FirstName;
+		}
+		if (entity.LastName) {
+			filter.$filter.contains.LastName = entity.LastName;
+		}
 		if (entity.Name) {
 			filter.$filter.contains.Name = entity.Name;
-		}
-		if (entity.Address) {
-			filter.$filter.contains.Address = entity.Address;
-		}
-		if (entity.PostalCode) {
-			filter.$filter.contains.PostalCode = entity.PostalCode;
 		}
 		if (entity.Email) {
 			filter.$filter.contains.Email = entity.Email;
@@ -54,12 +52,6 @@ angular.module('page', ['blimpKit', 'platformView']).controller('PageController'
 		}
 		if (entity.Fax) {
 			filter.$filter.contains.Fax = entity.Fax;
-		}
-		if (entity.Country !== undefined) {
-			filter.$filter.equals.Country = entity.Country;
-		}
-		if (entity.City !== undefined) {
-			filter.$filter.equals.City = entity.City;
 		}
 		if (entity.TIN) {
 			filter.$filter.contains.TIN = entity.TIN;

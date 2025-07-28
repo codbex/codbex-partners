@@ -5,27 +5,22 @@ import { dao as daoApi } from "sdk/db";
 
 export interface CustomerEntity {
     readonly Id: number;
-    Name: string;
-    Address: string;
-    PostalCode?: string;
+    FirstName?: string;
+    LastName?: string;
+    Name?: string;
     Email: string;
     Phone?: string;
     Fax?: string;
-    Country: number;
-    City: number;
     TIN?: string;
     IBAN?: string;
 }
 
 export interface CustomerCreateEntity {
-    readonly Name: string;
-    readonly Address: string;
-    readonly PostalCode?: string;
+    readonly FirstName?: string;
+    readonly LastName?: string;
     readonly Email: string;
     readonly Phone?: string;
     readonly Fax?: string;
-    readonly Country: number;
-    readonly City: number;
     readonly TIN?: string;
     readonly IBAN?: string;
 }
@@ -38,92 +33,78 @@ export interface CustomerEntityOptions {
     $filter?: {
         equals?: {
             Id?: number | number[];
+            FirstName?: string | string[];
+            LastName?: string | string[];
             Name?: string | string[];
-            Address?: string | string[];
-            PostalCode?: string | string[];
             Email?: string | string[];
             Phone?: string | string[];
             Fax?: string | string[];
-            Country?: number | number[];
-            City?: number | number[];
             TIN?: string | string[];
             IBAN?: string | string[];
         };
         notEquals?: {
             Id?: number | number[];
+            FirstName?: string | string[];
+            LastName?: string | string[];
             Name?: string | string[];
-            Address?: string | string[];
-            PostalCode?: string | string[];
             Email?: string | string[];
             Phone?: string | string[];
             Fax?: string | string[];
-            Country?: number | number[];
-            City?: number | number[];
             TIN?: string | string[];
             IBAN?: string | string[];
         };
         contains?: {
             Id?: number;
+            FirstName?: string;
+            LastName?: string;
             Name?: string;
-            Address?: string;
-            PostalCode?: string;
             Email?: string;
             Phone?: string;
             Fax?: string;
-            Country?: number;
-            City?: number;
             TIN?: string;
             IBAN?: string;
         };
         greaterThan?: {
             Id?: number;
+            FirstName?: string;
+            LastName?: string;
             Name?: string;
-            Address?: string;
-            PostalCode?: string;
             Email?: string;
             Phone?: string;
             Fax?: string;
-            Country?: number;
-            City?: number;
             TIN?: string;
             IBAN?: string;
         };
         greaterThanOrEqual?: {
             Id?: number;
+            FirstName?: string;
+            LastName?: string;
             Name?: string;
-            Address?: string;
-            PostalCode?: string;
             Email?: string;
             Phone?: string;
             Fax?: string;
-            Country?: number;
-            City?: number;
             TIN?: string;
             IBAN?: string;
         };
         lessThan?: {
             Id?: number;
+            FirstName?: string;
+            LastName?: string;
             Name?: string;
-            Address?: string;
-            PostalCode?: string;
             Email?: string;
             Phone?: string;
             Fax?: string;
-            Country?: number;
-            City?: number;
             TIN?: string;
             IBAN?: string;
         };
         lessThanOrEqual?: {
             Id?: number;
+            FirstName?: string;
+            LastName?: string;
             Name?: string;
-            Address?: string;
-            PostalCode?: string;
             Email?: string;
             Phone?: string;
             Fax?: string;
-            Country?: number;
-            City?: number;
             TIN?: string;
             IBAN?: string;
         };
@@ -163,20 +144,18 @@ export class CustomerRepository {
                 autoIncrement: true,
             },
             {
+                name: "FirstName",
+                column: "CUSTOMER_FIRSTNAME",
+                type: "VARCHAR",
+            },
+            {
+                name: "LastName",
+                column: "CUSTOMER_LASTNAME",
+                type: "VARCHAR",
+            },
+            {
                 name: "Name",
-                column: "CUSTOMER_NAME",
-                type: "VARCHAR",
-                required: true
-            },
-            {
-                name: "Address",
-                column: "CUSTOMER_ADDRESS",
-                type: "VARCHAR",
-                required: true
-            },
-            {
-                name: "PostalCode",
-                column: "CUSTOMER_POSTALCODE",
+                column: "CUSTOMER_PROPERTY11",
                 type: "VARCHAR",
             },
             {
@@ -194,18 +173,6 @@ export class CustomerRepository {
                 name: "Fax",
                 column: "CUSTOMER_FAX",
                 type: "VARCHAR",
-            },
-            {
-                name: "Country",
-                column: "CUSTOMER_COUNTRY",
-                type: "INTEGER",
-                required: true
-            },
-            {
-                name: "City",
-                column: "CUSTOMER_CITY",
-                type: "INTEGER",
-                required: true
             },
             {
                 name: "TIN",
@@ -236,6 +203,8 @@ export class CustomerRepository {
     }
 
     public create(entity: CustomerCreateEntity): number {
+        // @ts-ignore
+        (entity as CustomerEntity).Name = entity["FirstName"] + " " + entity["LastName"];
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
@@ -251,6 +220,8 @@ export class CustomerRepository {
     }
 
     public update(entity: CustomerUpdateEntity): void {
+        // @ts-ignore
+        (entity as CustomerEntity).Name = entity["FirstName"] + " " + entity["LastName"];
         const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({

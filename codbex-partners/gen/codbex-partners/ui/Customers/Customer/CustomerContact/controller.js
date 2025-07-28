@@ -1,9 +1,22 @@
-angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
+angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntityService'])
 	.config(['EntityServiceProvider', (EntityServiceProvider) => {
 		EntityServiceProvider.baseUrl = '/services/ts/codbex-partners/gen/codbex-partners/api/Customers/CustomerContactService.ts';
 	}])
-	.controller('PageController', ($scope, EntityService, Extensions, ButtonStates) => {
+	.controller('PageController', ($scope, EntityService, Extensions, LocaleService, ButtonStates) => {
 		const Dialogs = new DialogHub();
+		let translated = {
+			yes: 'Yes',
+			no: 'No',
+			deleteConfirm: 'Are you sure you want to delete CustomerContact? This action cannot be undone.',
+			deleteTitle: 'Delete CustomerContact?'
+		};
+
+		LocaleService.onInit(() => {
+			translated.yes = LocaleService.t('codbex-partners:defaults.yes');
+			translated.no = LocaleService.t('codbex-partners:defaults.no');
+			translated.deleteTitle = LocaleService.t('codbex-partners:defaults.deleteTitle', { name: '$t(codbex-partners:t.CUSTOMERCONTACT)' });
+			translated.deleteConfirm = LocaleService.t('codbex-partners:messages.deleteConfirm', { name: '$t(codbex-partners:t.CUSTOMERCONTACT)' });
+		});
 		//-----------------Custom Actions-------------------//
 		Extensions.getWindows(['codbex-partners-custom-action']).then((response) => {
 			$scope.pageActions = response.data.filter(e => e.perspective === 'Customers' && e.view === 'CustomerContact' && (e.type === 'page' || e.type === undefined));
@@ -13,7 +26,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 		$scope.triggerPageAction = (action) => {
 			Dialogs.showWindow({
 				hasHeader: true,
-        		title: action.label,
+        		title: LocaleService.t(action.translation.key, action.translation.options, action.label),
 				path: action.path,
 				params: {
 					selectedMainEntityKey: 'Customer',
@@ -28,7 +41,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 		$scope.triggerEntityAction = (action) => {
 			Dialogs.showWindow({
 				hasHeader: true,
-        		title: action.label,
+        		title: LocaleService.t(action.translation.key, action.translation.options, action.label),
 				path: action.path,
 				params: {
 					id: $scope.entity.Id,
@@ -107,8 +120,8 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 				}, (error) => {
 					const message = error.data ? error.data.message : '';
 					Dialogs.showAlert({
-						title: 'CustomerContact',
-						message: `Unable to list/filter CustomerContact: '${message}'`,
+						title: LocaleService.t('codbex-partners:t.CUSTOMERCONTACT'),
+						message: LocaleService.t('codbex-partners:messages.error.unableToLF', { name: '$t(codbex-partners:t.CUSTOMERCONTACT)', message: message }),
 						type: AlertTypes.Error
 					});
 					console.error('EntityService:', error);
@@ -116,8 +129,8 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			}, (error) => {
 				const message = error.data ? error.data.message : '';
 				Dialogs.showAlert({
-					title: 'CustomerContact',
-					message: `Unable to count CustomerContact: '${message}'`,
+					title: LocaleService.t('codbex-partners:t.CUSTOMERCONTACT'),
+					message: LocaleService.t('codbex-partners:messages.error.unableToCount', { name: '$t(codbex-partners:t.CUSTOMERCONTACT)', message: message }),
 					type: AlertTypes.Error
 				});
 				console.error('EntityService:', error);
@@ -180,15 +193,15 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 		$scope.deleteEntity = (entity) => {
 			let id = entity.Id;
 			Dialogs.showDialog({
-				title: 'Delete CustomerContact?',
-				message: `Are you sure you want to delete CustomerContact? This action cannot be undone.`,
+				title: translated.deleteTitle,
+				message: translated.deleteConfirm,
 				buttons: [{
 					id: 'delete-btn-yes',
 					state: ButtonStates.Emphasized,
-					label: 'Yes',
+					label: translated.yes,
 				}, {
 					id: 'delete-btn-no',
-					label: 'No',
+					label: translated.no,
 				}],
 				closeButton: false
 			}).then((buttonId) => {
@@ -199,8 +212,8 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 					}, (error) => {
 						const message = error.data ? error.data.message : '';
 						Dialogs.showAlert({
-							title: 'CustomerContact',
-							message: `Unable to delete CustomerContact: '${message}'`,
+							title: LocaleService.t('codbex-partners:t.CUSTOMERCONTACT'),
+							message: LocaleService.t('codbex-partners:messages.error.unableToDelete', { name: '$t(codbex-partners:t.CUSTOMERCONTACT)', message: message }),
 							type: AlertTypes.Error,
 						});
 						console.error('EntityService:', error);

@@ -6,6 +6,9 @@
 const viewData = {
     id: 'Supplier',
     label: 'Supplier',
+    translation: {
+        key: 'codbex-partners:t.SUPPLIER',
+    },
     region: 'left',
     lazyLoad: false,
 	autoFocusTab: false,

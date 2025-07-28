@@ -6,6 +6,12 @@
 const viewData = {
     id: 'SupplierNote-filter',
     label: 'SupplierNote Filter',
+    translation: {
+        key: 'codbex-partners:extName',
+        options: {
+            content: '$t(codbex-partners:t.SUPPLIERNOTE) $t(codbex-partners:defaults.filter)',
+        }
+    },
     path: '/services/web/codbex-partners/gen/codbex-partners/ui/Suppliers/Supplier/SupplierNote/dialog-filter/index.html',
     perspectiveName: 'Suppliers'
 };
