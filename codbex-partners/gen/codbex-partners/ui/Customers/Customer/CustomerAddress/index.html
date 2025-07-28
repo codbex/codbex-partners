@@ -34,7 +34,7 @@
 						<th bk-table-header-cell>{{ 'codbex-partners:t.CUSTOMERADDRESS_ADRESSLINE1' | t:'AdressLine1' }}</th>
 						<th bk-table-header-cell>{{ 'codbex-partners:t.CUSTOMERADDRESS_ADDRESSLINE2' | t:'AddressLine2' }}</th>
 						<th bk-table-header-cell>{{ 'codbex-partners:t.CUSTOMERADDRESS_POSTALCODE' | t:'PostalCode' }}</th>
-						<th bk-table-header-cell>{{ 'codbex-partners:t.CUSTOMERADDRESS_CUSTOMERADDRESSTYPE' | t:'CustomerAddressType' }}</th>
+						<th bk-table-header-cell>{{ 'codbex-partners:t.CUSTOMERADDRESS_CUSTOMERADDRESSTYPE' | t:'AddressType' }}</th>
 						<th bk-table-header-cell></th>
 					</tr>
 				</thead>
@@ -53,7 +53,7 @@
 						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.AddressLine2}}</td>
 						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.PostalCode}}</td>
 						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							{{optionsCustomerAddressTypeValue(next.CustomerAddressType)}}
+							{{optionsAddressTypeValue(next.AddressType)}}
 						</td>
 						<td bk-table-cell fit-content="true">
 							<bk-popover>

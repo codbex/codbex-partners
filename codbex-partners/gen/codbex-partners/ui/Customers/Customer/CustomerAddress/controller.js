@@ -150,7 +150,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 					entity: entity,
 					optionsCountry: $scope.optionsCountry,
 					optionsCity: $scope.optionsCity,
-					optionsCustomerAddressType: $scope.optionsCustomerAddressType,
+					optionsAddressType: $scope.optionsAddressType,
 				},
 			});
 		};
@@ -162,7 +162,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 					entity: $scope.filterEntity,
 					optionsCountry: $scope.optionsCountry,
 					optionsCity: $scope.optionsCity,
-					optionsCustomerAddressType: $scope.optionsCustomerAddressType,
+					optionsAddressType: $scope.optionsAddressType,
 				},
 			});
 		};
@@ -180,7 +180,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 					selectedMainEntityId: $scope.selectedMainEntityId,
 					optionsCountry: $scope.optionsCountry,
 					optionsCity: $scope.optionsCity,
-					optionsCustomerAddressType: $scope.optionsCustomerAddressType,
+					optionsAddressType: $scope.optionsAddressType,
 				},
 				closeButton: false
 			});
@@ -196,7 +196,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 					selectedMainEntityId: $scope.selectedMainEntityId,
 					optionsCountry: $scope.optionsCountry,
 					optionsCity: $scope.optionsCity,
-					optionsCustomerAddressType: $scope.optionsCustomerAddressType,
+					optionsAddressType: $scope.optionsAddressType,
 			},
 				closeButton: false
 			});
@@ -237,7 +237,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 		//----------------Dropdowns-----------------//
 		$scope.optionsCountry = [];
 		$scope.optionsCity = [];
-		$scope.optionsCustomerAddressType = [];
+		$scope.optionsAddressType = [];
 
 
 		$http.get('/services/ts/codbex-countries/gen/codbex-countries/api/Settings/CountryService.ts').then((response) => {
@@ -271,7 +271,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 		});
 
 		$http.get('/services/ts/codbex-partners/gen/codbex-partners/api/entities/CustomerAddressTypeService.ts').then((response) => {
-			$scope.optionsCustomerAddressType = response.data.map(e => ({
+			$scope.optionsAddressType = response.data.map(e => ({
 				value: e.Id,
 				text: e.Name
 			}));
@@ -279,7 +279,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			console.error(error);
 			const message = error.data ? error.data.message : '';
 			Dialogs.showAlert({
-				title: 'CustomerAddressType',
+				title: 'AddressType',
 				message: LocaleService.t('codbex-partners:messages.error.unableToLoad', { message: message }),
 				type: AlertTypes.Error
 			});
@@ -301,10 +301,10 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			}
 			return null;
 		};
-		$scope.optionsCustomerAddressTypeValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsCustomerAddressType.length; i++) {
-				if ($scope.optionsCustomerAddressType[i].value === optionKey) {
-					return $scope.optionsCustomerAddressType[i].text;
+		$scope.optionsAddressTypeValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsAddressType.length; i++) {
+				if ($scope.optionsAddressType[i].value === optionKey) {
+					return $scope.optionsAddressType[i].text;
 				}
 			}
 			return null;

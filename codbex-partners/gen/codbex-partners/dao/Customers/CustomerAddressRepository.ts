@@ -11,7 +11,7 @@ export interface CustomerAddressEntity {
     AdressLine1?: string;
     AddressLine2?: string;
     PostalCode?: string;
-    CustomerAddressType?: number;
+    AddressType?: number;
 }
 
 export interface CustomerAddressCreateEntity {
@@ -21,7 +21,7 @@ export interface CustomerAddressCreateEntity {
     readonly AdressLine1?: string;
     readonly AddressLine2?: string;
     readonly PostalCode?: string;
-    readonly CustomerAddressType?: number;
+    readonly AddressType?: number;
 }
 
 export interface CustomerAddressUpdateEntity extends CustomerAddressCreateEntity {
@@ -38,7 +38,7 @@ export interface CustomerAddressEntityOptions {
             AdressLine1?: string | string[];
             AddressLine2?: string | string[];
             PostalCode?: string | string[];
-            CustomerAddressType?: number | number[];
+            AddressType?: number | number[];
         };
         notEquals?: {
             Id?: number | number[];
@@ -48,7 +48,7 @@ export interface CustomerAddressEntityOptions {
             AdressLine1?: string | string[];
             AddressLine2?: string | string[];
             PostalCode?: string | string[];
-            CustomerAddressType?: number | number[];
+            AddressType?: number | number[];
         };
         contains?: {
             Id?: number;
@@ -58,7 +58,7 @@ export interface CustomerAddressEntityOptions {
             AdressLine1?: string;
             AddressLine2?: string;
             PostalCode?: string;
-            CustomerAddressType?: number;
+            AddressType?: number;
         };
         greaterThan?: {
             Id?: number;
@@ -68,7 +68,7 @@ export interface CustomerAddressEntityOptions {
             AdressLine1?: string;
             AddressLine2?: string;
             PostalCode?: string;
-            CustomerAddressType?: number;
+            AddressType?: number;
         };
         greaterThanOrEqual?: {
             Id?: number;
@@ -78,7 +78,7 @@ export interface CustomerAddressEntityOptions {
             AdressLine1?: string;
             AddressLine2?: string;
             PostalCode?: string;
-            CustomerAddressType?: number;
+            AddressType?: number;
         };
         lessThan?: {
             Id?: number;
@@ -88,7 +88,7 @@ export interface CustomerAddressEntityOptions {
             AdressLine1?: string;
             AddressLine2?: string;
             PostalCode?: string;
-            CustomerAddressType?: number;
+            AddressType?: number;
         };
         lessThanOrEqual?: {
             Id?: number;
@@ -98,7 +98,7 @@ export interface CustomerAddressEntityOptions {
             AdressLine1?: string;
             AddressLine2?: string;
             PostalCode?: string;
-            CustomerAddressType?: number;
+            AddressType?: number;
         };
     },
     $select?: (keyof CustomerAddressEntity)[],
@@ -166,7 +166,7 @@ export class CustomerAddressRepository {
                 type: "VARCHAR",
             },
             {
-                name: "CustomerAddressType",
+                name: "AddressType",
                 column: "CUSTOMERADDRESS_CUSTOMERADDRESSTYPE",
                 type: "INTEGER",
             }

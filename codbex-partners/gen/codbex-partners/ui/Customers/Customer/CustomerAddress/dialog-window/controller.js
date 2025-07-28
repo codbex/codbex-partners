@@ -36,7 +36,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			$scope.selectedMainEntityId = params.selectedMainEntityId;
 			$scope.optionsCountry = params.optionsCountry;
 			$scope.optionsCity = params.optionsCity;
-			$scope.optionsCustomerAddressType = params.optionsCustomerAddressType;
+			$scope.optionsAddressType = params.optionsAddressType;
 		}
 
 		$scope.create = () => {
@@ -86,7 +86,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 
 		$scope.serviceCountry = '/services/ts/codbex-countries/gen/codbex-countries/api/Settings/CountryService.ts';
 		$scope.serviceCity = '/services/ts/codbex-cities/gen/codbex-cities/api/Settings/CityService.ts';
-		$scope.serviceCustomerAddressType = '/services/ts/codbex-partners/gen/codbex-partners/api/entities/CustomerAddressTypeService.ts';
+		$scope.serviceAddressType = '/services/ts/codbex-partners/gen/codbex-partners/api/entities/CustomerAddressTypeService.ts';
 
 		$scope.alert = (message) => {
 			if (message) Dialogs.showAlert({

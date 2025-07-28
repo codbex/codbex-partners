@@ -12,7 +12,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 		$scope.selectedMainEntityId = params.selectedMainEntityId;
 		$scope.optionsCountry = params.optionsCountry;
 		$scope.optionsCity = params.optionsCity;
-		$scope.optionsCustomerAddressType = params.optionsCustomerAddressType;
+		$scope.optionsAddressType = params.optionsAddressType;
 	}
 
 	$scope.filter = () => {
@@ -56,8 +56,8 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 		if (entity.PostalCode) {
 			filter.$filter.contains.PostalCode = entity.PostalCode;
 		}
-		if (entity.CustomerAddressType !== undefined) {
-			filter.$filter.equals.CustomerAddressType = entity.CustomerAddressType;
+		if (entity.AddressType !== undefined) {
+			filter.$filter.equals.AddressType = entity.AddressType;
 		}
 		Dialogs.postMessage({ topic: 'codbex-partners.Customers.CustomerAddress.entitySearch', data: {
 			entity: entity,

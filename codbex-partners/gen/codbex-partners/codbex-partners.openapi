@@ -5643,7 +5643,7 @@ components:
         - City
         - AdressLine1
         - PostalCode
-        - CustomerAddressType
+        - AddressType
       properties:
         Id:
           type: integer
@@ -5669,7 +5669,7 @@ components:
           type: string
           minLength: 0
           maxLength: 10
-        CustomerAddressType:
+        AddressType:
           type: integer
           format: int32
     CustomerAddressFilterOptions:
@@ -5746,7 +5746,7 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 10
-                CustomerAddressType:
+                AddressType:
                   oneOf:
                     - type: integer
                       format: int32
@@ -5822,7 +5822,7 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 10
-                CustomerAddressType:
+                AddressType:
                   oneOf:
                     - type: integer
                       format: int32
@@ -5849,7 +5849,7 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 10
-                CustomerAddressType:
+                AddressType:
             greaterThan:
               type: object
               properties:
@@ -5877,7 +5877,7 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 10
-                CustomerAddressType:
+                AddressType:
                   type: integer
                   format: int32
             greaterThanOrEqual:
@@ -5907,7 +5907,7 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 10
-                CustomerAddressType:
+                AddressType:
                   type: integer
                   format: int32
             lessThan:
@@ -5937,7 +5937,7 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 10
-                CustomerAddressType:
+                AddressType:
                   type: integer
                   format: int32
             lessThanOrEqual:
@@ -5967,17 +5967,17 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 10
-                CustomerAddressType:
+                AddressType:
                   type: integer
                   format: int32
         $select:
           type: array
-          example: ["Id", "Customer", "Country", "City", "AdressLine1", "AddressLine2", "PostalCode", "CustomerAddressType"]
+          example: ["Id", "Customer", "Country", "City", "AdressLine1", "AddressLine2", "PostalCode", "AddressType"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Customer,Country,City,AdressLine1,AddressLine2,PostalCode,CustomerAddressType"
+            example: "Id,Customer,Country,City,AdressLine1,AddressLine2,PostalCode,AddressType"
         $order:
           type: string
           enum: ["asc", "desc"]

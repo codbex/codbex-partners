@@ -151,8 +151,8 @@ class CustomerAddressService {
         if (entity.PostalCode?.length > 10) {
             throw new ValidationError(`The 'PostalCode' exceeds the maximum length of [10] characters`);
         }
-        if (entity.CustomerAddressType === null || entity.CustomerAddressType === undefined) {
-            throw new ValidationError(`The 'CustomerAddressType' property is required, provide a valid value`);
+        if (entity.AddressType === null || entity.AddressType === undefined) {
+            throw new ValidationError(`The 'AddressType' property is required, provide a valid value`);
         }
         for (const next of validationModules) {
             next.validate(entity);
