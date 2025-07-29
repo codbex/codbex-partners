@@ -5640,11 +5640,9 @@ components:
       type: object
       required:
         - Country
-        - City
         - AdressLine1
         - PostalCode
         - AddressType
-        - IsActive
       properties:
         Id:
           type: integer

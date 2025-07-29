@@ -133,9 +133,6 @@ class CustomerAddressService {
         if (entity.Country === null || entity.Country === undefined) {
             throw new ValidationError(`The 'Country' property is required, provide a valid value`);
         }
-        if (entity.City === null || entity.City === undefined) {
-            throw new ValidationError(`The 'City' property is required, provide a valid value`);
-        }
         if (entity.AdressLine1 === null || entity.AdressLine1 === undefined) {
             throw new ValidationError(`The 'AdressLine1' property is required, provide a valid value`);
         }
@@ -153,9 +150,6 @@ class CustomerAddressService {
         }
         if (entity.AddressType === null || entity.AddressType === undefined) {
             throw new ValidationError(`The 'AddressType' property is required, provide a valid value`);
-        }
-        if (entity.IsActive === null || entity.IsActive === undefined) {
-            throw new ValidationError(`The 'IsActive' property is required, provide a valid value`);
         }
         for (const next of validationModules) {
             next.validate(entity);
