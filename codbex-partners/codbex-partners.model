@@ -1096,6 +1096,19 @@
                         "relationshipEntityName": "CustomerAddressType",
                         "relationshipEntityPerspectiveName": "entities",
                         "relationshipEntityPerspectiveLabel": "Entities"
+                    },
+                    {
+                        "dataName": "CUSTOMERADDRESS_ISACTIVE",
+                        "dataNullable": "true",
+                        "dataType": "BOOLEAN",
+                        "description": "",
+                        "isRequiredProperty": "true",
+                        "name": "IsActive",
+                        "tooltip": "",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "CHECKBOX"
                     }
                 ],
                 "caption": "Manage entity CustomerAddress",

@@ -2,6 +2,7 @@ import { query } from "sdk/db";
 import { producer } from "sdk/messaging";
 import { extensions } from "sdk/extensions";
 import { dao as daoApi } from "sdk/db";
+import { EntityUtils } from "../utils/EntityUtils";
 
 export interface CustomerAddressEntity {
     readonly Id: number;
@@ -12,6 +13,7 @@ export interface CustomerAddressEntity {
     AddressLine2?: string;
     PostalCode?: string;
     AddressType?: number;
+    IsActive?: boolean;
 }
 
 export interface CustomerAddressCreateEntity {
@@ -22,6 +24,7 @@ export interface CustomerAddressCreateEntity {
     readonly AddressLine2?: string;
     readonly PostalCode?: string;
     readonly AddressType?: number;
+    readonly IsActive?: boolean;
 }
 
 export interface CustomerAddressUpdateEntity extends CustomerAddressCreateEntity {
@@ -39,6 +42,7 @@ export interface CustomerAddressEntityOptions {
             AddressLine2?: string | string[];
             PostalCode?: string | string[];
             AddressType?: number | number[];
+            IsActive?: boolean | boolean[];
         };
         notEquals?: {
             Id?: number | number[];
@@ -49,6 +53,7 @@ export interface CustomerAddressEntityOptions {
             AddressLine2?: string | string[];
             PostalCode?: string | string[];
             AddressType?: number | number[];
+            IsActive?: boolean | boolean[];
         };
         contains?: {
             Id?: number;
@@ -59,6 +64,7 @@ export interface CustomerAddressEntityOptions {
             AddressLine2?: string;
             PostalCode?: string;
             AddressType?: number;
+            IsActive?: boolean;
         };
         greaterThan?: {
             Id?: number;
@@ -69,6 +75,7 @@ export interface CustomerAddressEntityOptions {
             AddressLine2?: string;
             PostalCode?: string;
             AddressType?: number;
+            IsActive?: boolean;
         };
         greaterThanOrEqual?: {
             Id?: number;
@@ -79,6 +86,7 @@ export interface CustomerAddressEntityOptions {
             AddressLine2?: string;
             PostalCode?: string;
             AddressType?: number;
+            IsActive?: boolean;
         };
         lessThan?: {
             Id?: number;
@@ -89,6 +97,7 @@ export interface CustomerAddressEntityOptions {
             AddressLine2?: string;
             PostalCode?: string;
             AddressType?: number;
+            IsActive?: boolean;
         };
         lessThanOrEqual?: {
             Id?: number;
@@ -99,6 +108,7 @@ export interface CustomerAddressEntityOptions {
             AddressLine2?: string;
             PostalCode?: string;
             AddressType?: number;
+            IsActive?: boolean;
         };
     },
     $select?: (keyof CustomerAddressEntity)[],
@@ -169,6 +179,11 @@ export class CustomerAddressRepository {
                 name: "AddressType",
                 column: "CUSTOMERADDRESS_CUSTOMERADDRESSTYPE",
                 type: "INTEGER",
+            },
+            {
+                name: "IsActive",
+                column: "CUSTOMERADDRESS_ISACTIVE",
+                type: "BOOLEAN",
             }
         ]
     };
@@ -180,15 +195,20 @@ export class CustomerAddressRepository {
     }
 
     public findAll(options: CustomerAddressEntityOptions = {}): CustomerAddressEntity[] {
-        return this.dao.list(options);
+        return this.dao.list(options).map((e: CustomerAddressEntity) => {
+            EntityUtils.setBoolean(e, "IsActive");
+            return e;
+        });
     }
 
     public findById(id: number): CustomerAddressEntity | undefined {
         const entity = this.dao.find(id);
+        EntityUtils.setBoolean(entity, "IsActive");
         return entity ?? undefined;
     }
 
     public create(entity: CustomerAddressCreateEntity): number {
+        EntityUtils.setBoolean(entity, "IsActive");
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
@@ -204,6 +224,7 @@ export class CustomerAddressRepository {
     }
 
     public update(entity: CustomerAddressUpdateEntity): void {
+        EntityUtils.setBoolean(entity, "IsActive");
         const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({

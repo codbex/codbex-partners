@@ -5644,6 +5644,7 @@ components:
         - AdressLine1
         - PostalCode
         - AddressType
+        - IsActive
       properties:
         Id:
           type: integer
@@ -5672,6 +5673,8 @@ components:
         AddressType:
           type: integer
           format: int32
+        IsActive:
+          type: boolean
     CustomerAddressFilterOptions:
       type: object
       properties:
@@ -5754,6 +5757,12 @@ components:
                       items:
                         type: integer
                         format: int32
+                IsActive:
+                  oneOf:
+                    - type: boolean
+                    - type: array
+                      items:
+                        type: boolean
             notEquals:
               type: object
               properties:
@@ -5830,6 +5839,12 @@ components:
                       items:
                         type: integer
                         format: int32
+                IsActive:
+                  oneOf:
+                    - type: boolean
+                    - type: array
+                      items:
+                        type: boolean
             contains:
               type: object
               properties:
@@ -5850,6 +5865,7 @@ components:
                   minLength: 0
                   maxLength: 10
                 AddressType:
+                IsActive:
             greaterThan:
               type: object
               properties:
@@ -5880,6 +5896,7 @@ components:
                 AddressType:
                   type: integer
                   format: int32
+                IsActive:
             greaterThanOrEqual:
               type: object
               properties:
@@ -5910,6 +5927,7 @@ components:
                 AddressType:
                   type: integer
                   format: int32
+                IsActive:
             lessThan:
               type: object
               properties:
@@ -5940,6 +5958,7 @@ components:
                 AddressType:
                   type: integer
                   format: int32
+                IsActive:
             lessThanOrEqual:
               type: object
               properties:
@@ -5970,14 +5989,15 @@ components:
                 AddressType:
                   type: integer
                   format: int32
+                IsActive:
         $select:
           type: array
-          example: ["Id", "Customer", "Country", "City", "AdressLine1", "AddressLine2", "PostalCode", "AddressType"]
+          example: ["Id", "Customer", "Country", "City", "AdressLine1", "AddressLine2", "PostalCode", "AddressType", "IsActive"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Customer,Country,City,AdressLine1,AddressLine2,PostalCode,AddressType"
+            example: "Id,Customer,Country,City,AdressLine1,AddressLine2,PostalCode,AddressType,IsActive"
         $order:
           type: string
           enum: ["asc", "desc"]

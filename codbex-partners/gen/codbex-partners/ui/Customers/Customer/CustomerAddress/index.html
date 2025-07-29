@@ -35,6 +35,7 @@
 						<th bk-table-header-cell>{{ 'codbex-partners:t.CUSTOMERADDRESS_ADDRESSLINE2' | t:'AddressLine2' }}</th>
 						<th bk-table-header-cell>{{ 'codbex-partners:t.CUSTOMERADDRESS_POSTALCODE' | t:'PostalCode' }}</th>
 						<th bk-table-header-cell>{{ 'codbex-partners:t.CUSTOMERADDRESS_CUSTOMERADDRESSTYPE' | t:'AddressType' }}</th>
+						<th bk-table-header-cell>{{ 'codbex-partners:t.CUSTOMERADDRESS_ISACTIVE' | t:'IsActive' }}</th>
 						<th bk-table-header-cell></th>
 					</tr>
 				</thead>
@@ -54,6 +55,10 @@
 						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.PostalCode}}</td>
 						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
 							{{optionsAddressTypeValue(next.AddressType)}}
+						</td>
+						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
+							<bk-checkbox id="idIsActive" compact="false" ng-readonly="true" ng-model="next.IsActive"></bk-checkbox>
+							<bk-checkbox-label for="idIsActive" empty="true"></bk-checkbox-label>
 						</td>
 						<td bk-table-cell fit-content="true">
 							<bk-popover>

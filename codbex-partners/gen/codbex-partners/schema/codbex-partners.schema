@@ -315,6 +315,11 @@
                         "type": "INTEGER",
                         "nullable": true,
                         "name": "CUSTOMERADDRESS_CUSTOMERADDRESSTYPE"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "nullable": true,
+                        "name": "CUSTOMERADDRESS_ISACTIVE"
                     }
                 ]
             },

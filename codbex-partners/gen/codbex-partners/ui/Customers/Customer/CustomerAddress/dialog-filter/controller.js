@@ -59,6 +59,9 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 		if (entity.AddressType !== undefined) {
 			filter.$filter.equals.AddressType = entity.AddressType;
 		}
+		if (entity.IsActive !== undefined && entity.isIsActiveIndeterminate === false) {
+			filter.$filter.equals.IsActive = entity.IsActive;
+		}
 		Dialogs.postMessage({ topic: 'codbex-partners.Customers.CustomerAddress.entitySearch', data: {
 			entity: entity,
 			filter: filter

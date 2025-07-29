@@ -114,6 +114,19 @@
 	                        </bk-combobox-input>
 	                    </div>
                     </bk-form-item>
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2"></div>
+	                    <div class="fd-col fd-col-md--8">
+							<bk-checkbox id="idIsActive"
+	                            compact="false"
+								ng-init="entity.isIsActiveIndeterminate=true"
+								ng-model="entity.IsActive"
+								indeterminate="entity.isIsActiveIndeterminate"
+								ng-click="entity.isIsActiveIndeterminate=false">
+	                        </bk-checkbox>
+                        	<bk-checkbox-label for="idIsActive">{{ 'codbex-partners:t.CUSTOMERADDRESS_ISACTIVE' | t }}</bk-checkbox-label>
+                        </div>
+                    </bk-form-item>
                 </bk-form-group>
             </bk-fieldset>
         </bk-scrollbar>
