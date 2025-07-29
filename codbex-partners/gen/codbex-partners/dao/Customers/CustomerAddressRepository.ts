@@ -9,7 +9,7 @@ export interface CustomerAddressEntity {
     Customer?: number;
     Country?: number;
     City?: number;
-    AdressLine1?: string;
+    AddressLine1?: string;
     AddressLine2?: string;
     PostalCode?: string;
     AddressType?: number;
@@ -20,7 +20,7 @@ export interface CustomerAddressCreateEntity {
     readonly Customer?: number;
     readonly Country?: number;
     readonly City?: number;
-    readonly AdressLine1?: string;
+    readonly AddressLine1?: string;
     readonly AddressLine2?: string;
     readonly PostalCode?: string;
     readonly AddressType?: number;
@@ -38,7 +38,7 @@ export interface CustomerAddressEntityOptions {
             Customer?: number | number[];
             Country?: number | number[];
             City?: number | number[];
-            AdressLine1?: string | string[];
+            AddressLine1?: string | string[];
             AddressLine2?: string | string[];
             PostalCode?: string | string[];
             AddressType?: number | number[];
@@ -49,7 +49,7 @@ export interface CustomerAddressEntityOptions {
             Customer?: number | number[];
             Country?: number | number[];
             City?: number | number[];
-            AdressLine1?: string | string[];
+            AddressLine1?: string | string[];
             AddressLine2?: string | string[];
             PostalCode?: string | string[];
             AddressType?: number | number[];
@@ -60,7 +60,7 @@ export interface CustomerAddressEntityOptions {
             Customer?: number;
             Country?: number;
             City?: number;
-            AdressLine1?: string;
+            AddressLine1?: string;
             AddressLine2?: string;
             PostalCode?: string;
             AddressType?: number;
@@ -71,7 +71,7 @@ export interface CustomerAddressEntityOptions {
             Customer?: number;
             Country?: number;
             City?: number;
-            AdressLine1?: string;
+            AddressLine1?: string;
             AddressLine2?: string;
             PostalCode?: string;
             AddressType?: number;
@@ -82,7 +82,7 @@ export interface CustomerAddressEntityOptions {
             Customer?: number;
             Country?: number;
             City?: number;
-            AdressLine1?: string;
+            AddressLine1?: string;
             AddressLine2?: string;
             PostalCode?: string;
             AddressType?: number;
@@ -93,7 +93,7 @@ export interface CustomerAddressEntityOptions {
             Customer?: number;
             Country?: number;
             City?: number;
-            AdressLine1?: string;
+            AddressLine1?: string;
             AddressLine2?: string;
             PostalCode?: string;
             AddressType?: number;
@@ -104,7 +104,7 @@ export interface CustomerAddressEntityOptions {
             Customer?: number;
             Country?: number;
             City?: number;
-            AdressLine1?: string;
+            AddressLine1?: string;
             AddressLine2?: string;
             PostalCode?: string;
             AddressType?: number;
@@ -161,7 +161,7 @@ export class CustomerAddressRepository {
                 type: "INTEGER",
             },
             {
-                name: "AdressLine1",
+                name: "AddressLine1",
                 column: "CUSTOMERADDRESS_ADRESSLINE1",
                 type: "VARCHAR",
             },

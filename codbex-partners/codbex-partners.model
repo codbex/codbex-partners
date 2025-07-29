@@ -1043,7 +1043,7 @@
                         "dataType": "VARCHAR",
                         "description": "",
                         "isRequiredProperty": "true",
-                        "name": "AdressLine1",
+                        "name": "AddressLine1",
                         "tooltip": "",
                         "widgetIsMajor": "true",
                         "widgetLength": "500",

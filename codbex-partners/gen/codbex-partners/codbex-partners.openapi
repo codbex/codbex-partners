@@ -3132,7 +3132,7 @@ paths:
                     notEquals:
                       Id: 33
                     contains:
-                      AdressLine1: "abcd"
+                      AddressLine1: "abcd"
                       AddressLine2: "abcd"
                       PostalCode: "abcd"
                     greaterThan:
@@ -3156,7 +3156,7 @@ paths:
                 value:
                   $filter:
                     contains:
-                      AdressLine1: "abcd"
+                      AddressLine1: "abcd"
                       AddressLine2: "abcd"
                       PostalCode: "abcd"
               countWithGreaterThan:
@@ -3222,7 +3222,7 @@ paths:
                     notEquals:
                       Id: 33
                     contains:
-                      AdressLine1: "abcd"
+                      AddressLine1: "abcd"
                       AddressLine2: "abcd"
                       PostalCode: "abcd"
                     greaterThan:
@@ -3246,7 +3246,7 @@ paths:
                 value:
                   $filter:
                     contains:
-                      AdressLine1: "abcd"
+                      AddressLine1: "abcd"
                       AddressLine2: "abcd"
                       PostalCode: "abcd"
               searchWithGreaterThan:
@@ -5640,7 +5640,7 @@ components:
       type: object
       required:
         - Country
-        - AdressLine1
+        - AddressLine1
         - PostalCode
         - AddressType
       properties:
@@ -5656,7 +5656,7 @@ components:
         City:
           type: integer
           format: int32
-        AdressLine1:
+        AddressLine1:
           type: string
           minLength: 0
           maxLength: 500
@@ -5714,7 +5714,7 @@ components:
                       items:
                         type: integer
                         format: int32
-                AdressLine1:
+                AddressLine1:
                   oneOf:
                     - type: string
                       minLength: 0
@@ -5796,7 +5796,7 @@ components:
                       items:
                         type: integer
                         format: int32
-                AdressLine1:
+                AddressLine1:
                   oneOf:
                     - type: string
                       minLength: 0
@@ -5850,7 +5850,7 @@ components:
                 Customer:
                 Country:
                 City:
-                AdressLine1:
+                AddressLine1:
                   type: string
                   minLength: 0
                   maxLength: 500
@@ -5879,7 +5879,7 @@ components:
                 City:
                   type: integer
                   format: int32
-                AdressLine1:
+                AddressLine1:
                   type: string
                   minLength: 0
                   maxLength: 500
@@ -5910,7 +5910,7 @@ components:
                 City:
                   type: integer
                   format: int32
-                AdressLine1:
+                AddressLine1:
                   type: string
                   minLength: 0
                   maxLength: 500
@@ -5941,7 +5941,7 @@ components:
                 City:
                   type: integer
                   format: int32
-                AdressLine1:
+                AddressLine1:
                   type: string
                   minLength: 0
                   maxLength: 500
@@ -5972,7 +5972,7 @@ components:
                 City:
                   type: integer
                   format: int32
-                AdressLine1:
+                AddressLine1:
                   type: string
                   minLength: 0
                   maxLength: 500
@@ -5990,12 +5990,12 @@ components:
                 IsActive:
         $select:
           type: array
-          example: ["Id", "Customer", "Country", "City", "AdressLine1", "AddressLine2", "PostalCode", "AddressType", "IsActive"]
+          example: ["Id", "Customer", "Country", "City", "AddressLine1", "AddressLine2", "PostalCode", "AddressType", "IsActive"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Customer,Country,City,AdressLine1,AddressLine2,PostalCode,AddressType,IsActive"
+            example: "Id,Customer,Country,City,AddressLine1,AddressLine2,PostalCode,AddressType,IsActive"
         $order:
           type: string
           enum: ["asc", "desc"]

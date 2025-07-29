@@ -47,8 +47,8 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 		if (entity.City !== undefined) {
 			filter.$filter.equals.City = entity.City;
 		}
-		if (entity.AdressLine1) {
-			filter.$filter.contains.AdressLine1 = entity.AdressLine1;
+		if (entity.AddressLine1) {
+			filter.$filter.contains.AddressLine1 = entity.AddressLine1;
 		}
 		if (entity.AddressLine2) {
 			filter.$filter.contains.AddressLine2 = entity.AddressLine2;

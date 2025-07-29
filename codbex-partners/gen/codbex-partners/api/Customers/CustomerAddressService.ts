@@ -133,11 +133,11 @@ class CustomerAddressService {
         if (entity.Country === null || entity.Country === undefined) {
             throw new ValidationError(`The 'Country' property is required, provide a valid value`);
         }
-        if (entity.AdressLine1 === null || entity.AdressLine1 === undefined) {
-            throw new ValidationError(`The 'AdressLine1' property is required, provide a valid value`);
+        if (entity.AddressLine1 === null || entity.AddressLine1 === undefined) {
+            throw new ValidationError(`The 'AddressLine1' property is required, provide a valid value`);
         }
-        if (entity.AdressLine1?.length > 500) {
-            throw new ValidationError(`The 'AdressLine1' exceeds the maximum length of [500] characters`);
+        if (entity.AddressLine1?.length > 500) {
+            throw new ValidationError(`The 'AddressLine1' exceeds the maximum length of [500] characters`);
         }
         if (entity.AddressLine2?.length > 500) {
             throw new ValidationError(`The 'AddressLine2' exceeds the maximum length of [500] characters`);
