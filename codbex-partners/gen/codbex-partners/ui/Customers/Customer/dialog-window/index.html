@@ -21,69 +21,64 @@
                 <bk-form-group label="{{formHeaders[action]}}" name="entityForm" transclude-classes="fd-container fd-form-layout-grid-container">
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idName" ng-required="true" colon="true">Name</bk-form-label>
+                        	<bk-form-label for="idFirstName" ng-required="true" colon="true">{{ 'codbex-partners:t.CUSTOMER_FIRSTNAME' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
-							<bk-form-input-message state="{{ forms.details['Name'].$valid ? '' : 'error' }}" message="'The value doesn\'t match the required pattern: '">
+							<bk-form-input-message state="{{ forms.details['FirstName'].$valid ? '' : 'error' }}" text="{{ 'codbex-partners:messages.error.pattern' | t:{'rule':''} }}">
+								<bk-input id="idFirstName"
+	                                name="FirstName"
+	                                state="{{ forms.details['FirstName'].$valid ? '' : 'error' }}"
+									ng-required="true"
+	                                ng-model="entity.FirstName"
+	                                ng-readonly="action === 'select'"
+									ng-maxlength="50.0"
+	                                input-rules="{ patterns: [''] }"
+	                                type="text"
+	                                placeholder="{{ 'codbex-partners:messages.inputEnter' | t:{'name':'$t(codbex-partners:t.CUSTOMER_FIRSTNAME)'} }}">
+	                            </bk-input>
+							</bk-form-input-message>
+	                    </div>
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idLastName" ng-required="true" colon="true">{{ 'codbex-partners:t.CUSTOMER_LASTNAME' | t }}</bk-form-label>
+                        </div>
+                        <div class="fd-col  fd-col-md--8 ">
+							<bk-form-input-message state="{{ forms.details['LastName'].$valid ? '' : 'error' }}" text="{{ 'codbex-partners:messages.error.pattern' | t:{'rule':''} }}">
+								<bk-input id="idLastName"
+	                                name="LastName"
+	                                state="{{ forms.details['LastName'].$valid ? '' : 'error' }}"
+									ng-required="true"
+	                                ng-model="entity.LastName"
+	                                ng-readonly="action === 'select'"
+									ng-maxlength="50.0"
+	                                input-rules="{ patterns: [''] }"
+	                                type="text"
+	                                placeholder="{{ 'codbex-partners:messages.inputEnter' | t:{'name':'$t(codbex-partners:t.CUSTOMER_LASTNAME)'} }}">
+	                            </bk-input>
+							</bk-form-input-message>
+	                    </div>
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idName" ng-required="false" colon="true">{{ 'codbex-partners:t.CUSTOMER_PROPERTY11' | t }}</bk-form-label>
+                        </div>
+                        <div class="fd-col  fd-col-md--8 ">
 								<bk-input id="idName"
 	                                name="Name"
-	                                state="{{ forms.details['Name'].$valid ? '' : 'error' }}"
-									ng-required="true"
 	                                ng-model="entity.Name"
-	                                ng-readonly="action === 'select'"
-									ng-maxlength="100.0"
-	                                input-rules="{ patterns: [''] }"
+	                                ng-readonly="true"
 	                                type="text"
-	                                placeholder="Enter Name">
+	                                placeholder="{{ 'codbex-partners:messages.inputEnter' | t:{'name':'$t(codbex-partners:t.CUSTOMER_PROPERTY11)'} }}">
 	                            </bk-input>
-							</bk-form-input-message>
-	                    </div>
-                    </bk-form-item>
-					<bk-form-item class="fd-row">
-						<div class="fd-col fd-col-md--2">
-							<bk-form-label for="idAddress" ng-required="false" colon="true">Address</bk-form-label>
-						</div>
-						<div class="fd-col  fd-col-md--8 ">
-							<bk-form-input-message state="{{ forms.details['Address'].$valid ? '' : 'error' }}" message="'The value doesn\'t match the required pattern: '">
-								<bk-textarea id="idAddress"
-									name="Address"
-									state="{{ forms.details['Address'].$valid ? '' : 'error' }}"
-									ng-required="false"
-									ng-model="entity.Address"
-	                            	ng-readonly="action === 'select'"
-									ng-maxlength="200.0"
-									input-rules="{ patterns: [''] }"
-									placeholder="Enter Address">
-								</bk-textarea>
-							</bk-form-input-message>
-						</div>
-					</bk-form-item>
-                    <bk-form-item class="fd-row">
-                    	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idPostalCode" ng-required="false" colon="true">PostalCode</bk-form-label>
-                        </div>
-                        <div class="fd-col fd-col-md--2 fd-col--3">
-							<bk-form-input-message state="{{ forms.details['PostalCode'].$valid ? '' : 'error' }}" message="'The value doesn\'t match the required pattern: '">
-								<bk-input id="idPostalCode"
-	                                name="PostalCode"
-	                                state="{{ forms.details['PostalCode'].$valid ? '' : 'error' }}"
-									ng-required="false"
-	                                ng-model="entity.PostalCode"
-	                                ng-readonly="action === 'select'"
-									ng-maxlength="20.0"
-	                                input-rules="{ patterns: [''] }"
-	                                type="text"
-	                                placeholder="Enter PostalCode">
-	                            </bk-input>
-							</bk-form-input-message>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idEmail" ng-required="true" colon="true">Email</bk-form-label>
+                        	<bk-form-label for="idEmail" ng-required="true" colon="true">{{ 'codbex-partners:t.CUSTOMER_EMAIL' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--6 fd-col--9">
-							<bk-form-input-message state="{{ forms.details['Email'].$valid ? '' : 'error' }}" message="'The value doesn\'t match the required pattern: '">
+							<bk-form-input-message state="{{ forms.details['Email'].$valid ? '' : 'error' }}" text="{{ 'codbex-partners:messages.error.pattern' | t:{'rule':''} }}">
 								<bk-input id="idEmail"
 	                                name="Email"
 	                                state="{{ forms.details['Email'].$valid ? '' : 'error' }}"
@@ -93,17 +88,17 @@
 									ng-maxlength="100.0"
 	                                input-rules="{ patterns: [''] }"
 	                                type="text"
-	                                placeholder="Enter Email">
+	                                placeholder="{{ 'codbex-partners:messages.inputEnter' | t:{'name':'$t(codbex-partners:t.CUSTOMER_EMAIL)'} }}">
 	                            </bk-input>
 							</bk-form-input-message>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idPhone" ng-required="false" colon="true">Phone</bk-form-label>
+                        	<bk-form-label for="idPhone" ng-required="false" colon="true">{{ 'codbex-partners:t.CUSTOMER_PHONE' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--2 fd-col--3">
-							<bk-form-input-message state="{{ forms.details['Phone'].$valid ? '' : 'error' }}" message="'The value doesn\'t match the required pattern: '">
+							<bk-form-input-message state="{{ forms.details['Phone'].$valid ? '' : 'error' }}" text="{{ 'codbex-partners:messages.error.pattern' | t:{'rule':''} }}">
 								<bk-input id="idPhone"
 	                                name="Phone"
 	                                state="{{ forms.details['Phone'].$valid ? '' : 'error' }}"
@@ -113,17 +108,17 @@
 									ng-maxlength="20.0"
 	                                input-rules="{ patterns: [''] }"
 	                                type="text"
-	                                placeholder="Enter Phone">
+	                                placeholder="{{ 'codbex-partners:messages.inputEnter' | t:{'name':'$t(codbex-partners:t.CUSTOMER_PHONE)'} }}">
 	                            </bk-input>
 							</bk-form-input-message>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idFax" ng-required="false" colon="true">Fax</bk-form-label>
+                        	<bk-form-label for="idFax" ng-required="false" colon="true">{{ 'codbex-partners:t.CUSTOMER_FAX' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--2 fd-col--3">
-							<bk-form-input-message state="{{ forms.details['Fax'].$valid ? '' : 'error' }}" message="'The value doesn\'t match the required pattern: '">
+							<bk-form-input-message state="{{ forms.details['Fax'].$valid ? '' : 'error' }}" text="{{ 'codbex-partners:messages.error.pattern' | t:{'rule':''} }}">
 								<bk-input id="idFax"
 	                                name="Fax"
 	                                state="{{ forms.details['Fax'].$valid ? '' : 'error' }}"
@@ -133,51 +128,17 @@
 									ng-maxlength="20.0"
 	                                input-rules="{ patterns: [''] }"
 	                                type="text"
-	                                placeholder="Enter Fax">
+	                                placeholder="{{ 'codbex-partners:messages.inputEnter' | t:{'name':'$t(codbex-partners:t.CUSTOMER_FAX)'} }}">
 	                            </bk-input>
 							</bk-form-input-message>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idCountry" ng-required="true" colon="true">Country</bk-form-label>
-                        </div>
-                        <div class="fd-col  fd-col-md--8 ">
-	                        <bk-combobox-input input-id="idCountry"
-	                            name="Country"
-	                            state="{{ forms.details['Country'].$valid ? '' : 'error' }}"
-	                            ng-required="true"
-	                            ng-model="entity.Country"
-	                            is-readonly="action === 'select'"
-	                            dropdown-items="optionsCountry"
-	                            placeholder="Search Country ..."
-								btn-aria-label="show/hide Country options" list-aria-label="Country options">
-	                        </bk-combobox-input>
-	                    </div>
-                    </bk-form-item>
-                    <bk-form-item class="fd-row">
-                    	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idCity" ng-required="true" colon="true">City</bk-form-label>
-                        </div>
-                        <div class="fd-col  fd-col-md--8 ">
-	                        <bk-combobox-input input-id="idCity"
-	                            name="City"
-	                            state="{{ forms.details['City'].$valid ? '' : 'error' }}"
-	                            ng-required="true"
-	                            ng-model="entity.City"
-	                            is-readonly="action === 'select'"
-	                            dropdown-items="optionsCity"
-	                            placeholder="Search City ..."
-								btn-aria-label="show/hide City options" list-aria-label="City options">
-	                        </bk-combobox-input>
-	                    </div>
-                    </bk-form-item>
-                    <bk-form-item class="fd-row">
-                    	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idTIN" ng-required="false" colon="true">TIN</bk-form-label>
+                        	<bk-form-label for="idTIN" ng-required="false" colon="true">{{ 'codbex-partners:t.CUSTOMER_TIN' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--4 fd-col--6">
-							<bk-form-input-message state="{{ forms.details['TIN'].$valid ? '' : 'error' }}" message="'The value doesn\'t match the required pattern: '">
+							<bk-form-input-message state="{{ forms.details['TIN'].$valid ? '' : 'error' }}" text="{{ 'codbex-partners:messages.error.pattern' | t:{'rule':''} }}">
 								<bk-input id="idTIN"
 	                                name="TIN"
 	                                state="{{ forms.details['TIN'].$valid ? '' : 'error' }}"
@@ -187,17 +148,17 @@
 									ng-maxlength="20.0"
 	                                input-rules="{ patterns: [''] }"
 	                                type="text"
-	                                placeholder="Enter TIN">
+	                                placeholder="{{ 'codbex-partners:messages.inputEnter' | t:{'name':'$t(codbex-partners:t.CUSTOMER_TIN)'} }}">
 	                            </bk-input>
 							</bk-form-input-message>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idIBAN" ng-required="false" colon="true">IBAN</bk-form-label>
+                        	<bk-form-label for="idIBAN" ng-required="false" colon="true">{{ 'codbex-partners:t.CUSTOMER_IBAN' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--4 fd-col--6">
-							<bk-form-input-message state="{{ forms.details['IBAN'].$valid ? '' : 'error' }}" message="'The value doesn\'t match the required pattern: '">
+							<bk-form-input-message state="{{ forms.details['IBAN'].$valid ? '' : 'error' }}" text="{{ 'codbex-partners:messages.error.pattern' | t:{'rule':''} }}">
 								<bk-input id="idIBAN"
 	                                name="IBAN"
 	                                state="{{ forms.details['IBAN'].$valid ? '' : 'error' }}"
@@ -207,7 +168,7 @@
 									ng-maxlength="36.0"
 	                                input-rules="{ patterns: [''] }"
 	                                type="text"
-	                                placeholder="Enter IBAN">
+	                                placeholder="{{ 'codbex-partners:messages.inputEnter' | t:{'name':'$t(codbex-partners:t.CUSTOMER_IBAN)'} }}">
 	                            </bk-input>
 							</bk-form-input-message>
 	                    </div>
@@ -219,10 +180,11 @@
 		<bk-bar bar-design="footer" compact="true" ng-show="action !== 'select'">
 			<bk-bar-right>
 				<bk-bar-element>
-					<bk-button label="{{action === 'create' ? 'Create' : 'Update'}}" state="emphasized" ng-click="action === 'create' ? create() : update()" ng-disabled="!forms.details.$valid"></bk-button>
+					<bk-button ng-if="action === 'create'" label="{{'codbex-partners:defaults.create' | t}}" state="emphasized" ng-click="create()" ng-disabled="!forms.details.$valid"></bk-button>
+					<bk-button ng-if="action !== 'create'" label="{{'codbex-partners:defaults.update' | t}}" state="emphasized" ng-click="update()" ng-disabled="!forms.details.$valid"></bk-button>
 				</bk-bar-element>
 				<bk-bar-element>
-					<bk-button label="Cancel" ng-click="cancel()"></bk-button>
+					<bk-button label="{{ 'codbex-partners:defaults.cancel' | t }}" ng-click="cancel()"></bk-button>
 				</bk-bar-element>
 			</bk-bar-right>
 		</bk-bar>

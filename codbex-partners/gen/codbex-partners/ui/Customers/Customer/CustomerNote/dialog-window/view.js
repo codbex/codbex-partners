@@ -6,6 +6,9 @@
 const viewData = {
     id: 'CustomerNote-details',
     label: 'CustomerNote',
+    translation: {
+        key: 'codbex-partners:t.CUSTOMERNOTE',
+    },
     path: '/services/web/codbex-partners/gen/codbex-partners/ui/Customers/Customer/CustomerNote/dialog-window/index.html',
     perspectiveName: 'Customers'
 };

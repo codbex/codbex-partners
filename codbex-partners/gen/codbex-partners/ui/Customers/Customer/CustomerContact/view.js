@@ -6,6 +6,9 @@
 const viewData = {
     id: 'CustomerContact',
     label: 'CustomerContact',
+    translation: {
+        key: 'codbex-partners:t.CUSTOMERCONTACT',
+    },
     region: 'bottom',
     lazyLoad: false,
 	autoFocusTab: true,

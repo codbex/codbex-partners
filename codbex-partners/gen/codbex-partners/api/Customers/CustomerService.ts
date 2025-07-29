@@ -138,17 +138,20 @@ class CustomerService {
     }
 
     private validateEntity(entity: any): void {
-        if (entity.Name === null || entity.Name === undefined) {
-            throw new ValidationError(`The 'Name' property is required, provide a valid value`);
+        if (entity.FirstName === null || entity.FirstName === undefined) {
+            throw new ValidationError(`The 'FirstName' property is required, provide a valid value`);
+        }
+        if (entity.FirstName?.length > 50) {
+            throw new ValidationError(`The 'FirstName' exceeds the maximum length of [50] characters`);
+        }
+        if (entity.LastName === null || entity.LastName === undefined) {
+            throw new ValidationError(`The 'LastName' property is required, provide a valid value`);
+        }
+        if (entity.LastName?.length > 50) {
+            throw new ValidationError(`The 'LastName' exceeds the maximum length of [50] characters`);
         }
         if (entity.Name?.length > 100) {
             throw new ValidationError(`The 'Name' exceeds the maximum length of [100] characters`);
-        }
-        if (entity.Address?.length > 200) {
-            throw new ValidationError(`The 'Address' exceeds the maximum length of [200] characters`);
-        }
-        if (entity.PostalCode?.length > 20) {
-            throw new ValidationError(`The 'PostalCode' exceeds the maximum length of [20] characters`);
         }
         if (entity.Email === null || entity.Email === undefined) {
             throw new ValidationError(`The 'Email' property is required, provide a valid value`);
@@ -161,12 +164,6 @@ class CustomerService {
         }
         if (entity.Fax?.length > 20) {
             throw new ValidationError(`The 'Fax' exceeds the maximum length of [20] characters`);
-        }
-        if (entity.Country === null || entity.Country === undefined) {
-            throw new ValidationError(`The 'Country' property is required, provide a valid value`);
-        }
-        if (entity.City === null || entity.City === undefined) {
-            throw new ValidationError(`The 'City' property is required, provide a valid value`);
         }
         if (entity.TIN?.length > 20) {
             throw new ValidationError(`The 'TIN' exceeds the maximum length of [20] characters`);

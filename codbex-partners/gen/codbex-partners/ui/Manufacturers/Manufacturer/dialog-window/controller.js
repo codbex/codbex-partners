@@ -1,10 +1,13 @@
-angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
+angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntityService'])
 	.config(['EntityServiceProvider', (EntityServiceProvider) => {
 		EntityServiceProvider.baseUrl = '/services/ts/codbex-partners/gen/codbex-partners/api/Manufacturers/ManufacturerService.ts';
 	}])
-	.controller('PageController', ($scope, $http, ViewParameters, EntityService) => {
+	.controller('PageController', ($scope, $http, ViewParameters, LocaleService, EntityService) => {
 		const Dialogs = new DialogHub();
 		const Notifications = new NotificationHub();
+		let description = 'Description';
+		let propertySuccessfullyCreated = 'Manufacturer successfully created';
+		let propertySuccessfullyUpdated = 'Manufacturer successfully updated';
 		$scope.entity = {};
 		$scope.forms = {
 			details: {},
@@ -15,6 +18,15 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			update: 'Update Manufacturer'
 		};
 		$scope.action = 'select';
+
+		LocaleService.onInit(() => {
+			description = LocaleService.t('codbex-partners:defaults.description');
+			$scope.formHeaders.select = LocaleService.t('codbex-partners:defaults.formHeadSelect', { name: '$t(codbex-partners:t.MANUFACTURER)' });
+			$scope.formHeaders.create = LocaleService.t('codbex-partners:defaults.formHeadCreate', { name: '$t(codbex-partners:t.MANUFACTURER)' });
+			$scope.formHeaders.update = LocaleService.t('codbex-partners:defaults.formHeadUpdate', { name: '$t(codbex-partners:t.MANUFACTURER)' });
+			propertySuccessfullyCreated = LocaleService.t('codbex-partners:messages.propertySuccessfullyCreated', { name: '$t(codbex-partners:t.MANUFACTURER)' });
+			propertySuccessfullyUpdated = LocaleService.t('codbex-partners:messages.propertySuccessfullyUpdated', { name: '$t(codbex-partners:t.MANUFACTURER)' });
+		});
 
 		let params = ViewParameters.get();
 		if (Object.keys(params).length) {
@@ -32,15 +44,15 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			EntityService.create(entity).then((response) => {
 				Dialogs.postMessage({ topic: 'codbex-partners.Manufacturers.Manufacturer.entityCreated', data: response.data });
 				Notifications.show({
-					title: 'Manufacturer',
-					description: 'Manufacturer successfully created',
+					title: LocaleService.t('codbex-partners:t.MANUFACTURER'),
+					description: propertySuccessfullyCreated,
 					type: 'positive'
 				});
 				$scope.cancel();
 			}, (error) => {
 				const message = error.data ? error.data.message : '';
 				$scope.$evalAsync(() => {
-					$scope.errorMessage = `Unable to create Manufacturer: '${message}'`;
+					$scope.errorMessage = LocaleService.t('codbex-partners:messages.error.unableToCreate', { name: '$t(codbex-partners:t.MANUFACTURER)', message: message });
 				});
 				console.error('EntityService:', error);
 			});
@@ -54,14 +66,14 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 				Dialogs.postMessage({ topic: 'codbex-partners.Manufacturers.Manufacturer.entityUpdated', data: response.data });
 				$scope.cancel();
 				Notifications.show({
-					title: 'Manufacturer',
-					description: 'Manufacturer successfully updated',
+					title: LocaleService.t('codbex-partners:t.MANUFACTURER'),
+					description: propertySuccessfullyUpdated,
 					type: 'positive'
 				});
 			}, (error) => {
 				const message = error.data ? error.data.message : '';
 				$scope.$evalAsync(() => {
-					$scope.errorMessage = `Unable to update Manufacturer: '${message}'`;
+					$scope.errorMessage = LocaleService.t('codbex-partners:messages.error.unableToUpdate', { name: '$t(codbex-partners:t.MANUFACTURER)', message: message });
 				});
 				console.error('EntityService:', error);
 			});
@@ -81,7 +93,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			const message = error.data ? error.data.message : '';
 			Dialogs.showAlert({
 				title: 'Country',
-				message: `Unable to load data: '${message}'`,
+				message: LocaleService.t('codbex-partners:messages.error.unableToLoad', { message: message }),
 				type: AlertTypes.Error
 			});
 		});
@@ -99,7 +111,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			const message = error.data ? error.data.message : '';
 			Dialogs.showAlert({
 				title: 'City',
-				message: `Unable to load data: '${message}'`,
+				message: LocaleService.t('codbex-partners:messages.error.unableToLoad', { message: message }),
 				type: AlertTypes.Error
 			});
 		});
@@ -137,7 +149,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 
 		$scope.alert = (message) => {
 			if (message) Dialogs.showAlert({
-				title: 'Description',
+				title: description,
 				message: message,
 				type: AlertTypes.Information,
 				preformatted: true,

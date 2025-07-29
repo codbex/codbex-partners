@@ -1,0 +1,15 @@
+{
+  "files": [
+    {
+      "table": "CODBEX_CUSTOMERADDRESSTYPE",
+      "schema": "PUBLIC",
+      "file": "/codbex-partners/data/customer-address-types.csv",
+      "header": true,
+      "useHeaderNames": true,
+      "delimField": ",",
+      "delimEnclosing": "\"",
+      "distinguishEmptyFromNull": true,
+      "version": "1.0"
+    }
+  ]
+}

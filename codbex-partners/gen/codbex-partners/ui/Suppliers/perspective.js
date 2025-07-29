@@ -6,6 +6,9 @@
 const perspectiveData = {
 	id: 'Suppliers',
 	label: 'Suppliers',
+	translation: {
+        key: 'codbex-partners:t.SUPPLIER',
+    },
 	path: '/services/web/codbex-partners/gen/codbex-partners/ui/Suppliers/index.html',
 	groupId: 'partners-navigation-group',
 	order: 200,

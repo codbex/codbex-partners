@@ -6,6 +6,9 @@
 const viewData = {
     id: 'CustomerNote',
     label: 'CustomerNote',
+    translation: {
+        key: 'codbex-partners:t.CUSTOMERNOTE',
+    },
     region: 'bottom',
     lazyLoad: false,
 	autoFocusTab: true,

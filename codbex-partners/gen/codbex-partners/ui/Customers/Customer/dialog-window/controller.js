@@ -1,10 +1,13 @@
-angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
+angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntityService'])
 	.config(['EntityServiceProvider', (EntityServiceProvider) => {
 		EntityServiceProvider.baseUrl = '/services/ts/codbex-partners/gen/codbex-partners/api/Customers/CustomerService.ts';
 	}])
-	.controller('PageController', ($scope, $http, ViewParameters, EntityService) => {
+	.controller('PageController', ($scope, $http, ViewParameters, LocaleService, EntityService) => {
 		const Dialogs = new DialogHub();
 		const Notifications = new NotificationHub();
+		let description = 'Description';
+		let propertySuccessfullyCreated = 'Customer successfully created';
+		let propertySuccessfullyUpdated = 'Customer successfully updated';
 		$scope.entity = {};
 		$scope.forms = {
 			details: {},
@@ -16,14 +19,21 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 		};
 		$scope.action = 'select';
 
+		LocaleService.onInit(() => {
+			description = LocaleService.t('codbex-partners:defaults.description');
+			$scope.formHeaders.select = LocaleService.t('codbex-partners:defaults.formHeadSelect', { name: '$t(codbex-partners:t.CUSTOMER)' });
+			$scope.formHeaders.create = LocaleService.t('codbex-partners:defaults.formHeadCreate', { name: '$t(codbex-partners:t.CUSTOMER)' });
+			$scope.formHeaders.update = LocaleService.t('codbex-partners:defaults.formHeadUpdate', { name: '$t(codbex-partners:t.CUSTOMER)' });
+			propertySuccessfullyCreated = LocaleService.t('codbex-partners:messages.propertySuccessfullyCreated', { name: '$t(codbex-partners:t.CUSTOMER)' });
+			propertySuccessfullyUpdated = LocaleService.t('codbex-partners:messages.propertySuccessfullyUpdated', { name: '$t(codbex-partners:t.CUSTOMER)' });
+		});
+
 		let params = ViewParameters.get();
 		if (Object.keys(params).length) {
 			$scope.action = params.action;
 			$scope.entity = params.entity;
 			$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 			$scope.selectedMainEntityId = params.selectedMainEntityId;
-			$scope.optionsCountry = params.optionsCountry;
-			$scope.optionsCity = params.optionsCity;
 		}
 
 		$scope.create = () => {
@@ -32,15 +42,15 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			EntityService.create(entity).then((response) => {
 				Dialogs.postMessage({ topic: 'codbex-partners.Customers.Customer.entityCreated', data: response.data });
 				Notifications.show({
-					title: 'Customer',
-					description: 'Customer successfully created',
+					title: LocaleService.t('codbex-partners:t.CUSTOMER'),
+					description: propertySuccessfullyCreated,
 					type: 'positive'
 				});
 				$scope.cancel();
 			}, (error) => {
 				const message = error.data ? error.data.message : '';
 				$scope.$evalAsync(() => {
-					$scope.errorMessage = `Unable to create Customer: '${message}'`;
+					$scope.errorMessage = LocaleService.t('codbex-partners:messages.error.unableToCreate', { name: '$t(codbex-partners:t.CUSTOMER)', message: message });
 				});
 				console.error('EntityService:', error);
 			});
@@ -54,90 +64,23 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 				Dialogs.postMessage({ topic: 'codbex-partners.Customers.Customer.entityUpdated', data: response.data });
 				$scope.cancel();
 				Notifications.show({
-					title: 'Customer',
-					description: 'Customer successfully updated',
+					title: LocaleService.t('codbex-partners:t.CUSTOMER'),
+					description: propertySuccessfullyUpdated,
 					type: 'positive'
 				});
 			}, (error) => {
 				const message = error.data ? error.data.message : '';
 				$scope.$evalAsync(() => {
-					$scope.errorMessage = `Unable to update Customer: '${message}'`;
+					$scope.errorMessage = LocaleService.t('codbex-partners:messages.error.unableToUpdate', { name: '$t(codbex-partners:t.CUSTOMER)', message: message });
 				});
 				console.error('EntityService:', error);
 			});
 		};
 
-		$scope.serviceCountry = '/services/ts/codbex-countries/gen/codbex-countries/api/Settings/CountryService.ts';
-		
-		$scope.optionsCountry = [];
-		
-		$http.get('/services/ts/codbex-countries/gen/codbex-countries/api/Settings/CountryService.ts').then((response) => {
-			$scope.optionsCountry = response.data.map(e => ({
-				value: e.Id,
-				text: e.Name
-			}));
-		}, (error) => {
-			console.error(error);
-			const message = error.data ? error.data.message : '';
-			Dialogs.showAlert({
-				title: 'Country',
-				message: `Unable to load data: '${message}'`,
-				type: AlertTypes.Error
-			});
-		});
-		$scope.serviceCity = '/services/ts/codbex-cities/gen/codbex-cities/api/Settings/CityService.ts';
-		
-		$scope.optionsCity = [];
-		
-		$http.get('/services/ts/codbex-cities/gen/codbex-cities/api/Settings/CityService.ts').then((response) => {
-			$scope.optionsCity = response.data.map(e => ({
-				value: e.Id,
-				text: e.Name
-			}));
-		}, (error) => {
-			console.error(error);
-			const message = error.data ? error.data.message : '';
-			Dialogs.showAlert({
-				title: 'City',
-				message: `Unable to load data: '${message}'`,
-				type: AlertTypes.Error
-			});
-		});
-
-		$scope.$watch('entity.Country', (newValue, oldValue) => {
-			if (newValue !== undefined && newValue !== null) {
-				$http.get($scope.serviceCountry + '/' + newValue).then((response) => {
-					let valueFrom = response.data.Id;
-					$http.post('/services/ts/codbex-cities/gen/codbex-cities/api/Settings/CityService.ts/search', {
-						$filter: {
-							equals: {
-								Country: valueFrom
-							}
-						}
-					}).then((response) => {
-						$scope.optionsCity = response.data.map(e => ({
-							value: e.Id,
-							text: e.Name
-						}));
-						if ($scope.action !== 'select' && newValue !== oldValue) {
-							if ($scope.optionsCity.length == 1) {
-								$scope.entity.City = $scope.optionsCity[0].value;
-							} else {
-								$scope.entity.City = undefined;
-							}
-						}
-					}, (error) => {
-						console.error(error);
-					});
-				}, (error) => {
-					console.error(error);
-				});
-			}
-		});
 
 		$scope.alert = (message) => {
 			if (message) Dialogs.showAlert({
-				title: 'Description',
+				title: description,
 				message: message,
 				type: AlertTypes.Information,
 				preformatted: true,

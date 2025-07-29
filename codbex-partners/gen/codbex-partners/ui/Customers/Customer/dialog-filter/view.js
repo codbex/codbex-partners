@@ -6,6 +6,12 @@
 const viewData = {
     id: 'Customer-filter',
     label: 'Customer Filter',
+    translation: {
+        key: 'codbex-partners:extName',
+        options: {
+            content: '$t(codbex-partners:t.CUSTOMER) $t(codbex-partners:defaults.filter)',
+        }
+    },
     path: '/services/web/codbex-partners/gen/codbex-partners/ui/Customers/Customer/dialog-filter/index.html',
     perspectiveName: 'Customers'
 };

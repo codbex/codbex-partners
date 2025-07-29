@@ -1,0 +1,5 @@
+{
+    "module": "codbex-partners/gen/codbex-partners/ui/entities/CustomerAddressType/view.js",
+    "extensionPoint": "application-views",
+    "description": "codbex-partners - Application View"
+}
