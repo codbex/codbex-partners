@@ -54,7 +54,7 @@ export interface CustomerAddressTypeEntityOptions {
     $limit?: number,
 }
 
-interface CustomerAddressTypeEntityEvent {
+export interface CustomerAddressTypeEntityEvent {
     readonly operation: 'create' | 'update' | 'delete';
     readonly table: string;
     readonly entity: Partial<CustomerAddressTypeEntity>;
@@ -65,7 +65,7 @@ interface CustomerAddressTypeEntityEvent {
     }
 }
 
-interface CustomerAddressTypeUpdateEntityEvent extends CustomerAddressTypeEntityEvent {
+export interface CustomerAddressTypeUpdateEntityEvent extends CustomerAddressTypeEntityEvent {
     readonly previousEntity: CustomerAddressTypeEntity;
 }
 

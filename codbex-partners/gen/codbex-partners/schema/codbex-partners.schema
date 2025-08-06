@@ -28,7 +28,7 @@
                         "type": "VARCHAR",
                         "length": 100,
                         "nullable": true,
-                        "name": "CUSTOMER_PROPERTY11"
+                        "name": "CUSTOMER_NAME"
                     },
                     {
                         "type": "VARCHAR",
