@@ -135,7 +135,7 @@ export interface SupplierEntityOptions {
     $limit?: number,
 }
 
-interface SupplierEntityEvent {
+export interface SupplierEntityEvent {
     readonly operation: 'create' | 'update' | 'delete';
     readonly table: string;
     readonly entity: Partial<SupplierEntity>;
@@ -146,7 +146,7 @@ interface SupplierEntityEvent {
     }
 }
 
-interface SupplierUpdateEntityEvent extends SupplierEntityEvent {
+export interface SupplierUpdateEntityEvent extends SupplierEntityEvent {
     readonly previousEntity: SupplierEntity;
 }
 

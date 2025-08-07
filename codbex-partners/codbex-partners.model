@@ -49,7 +49,7 @@
                         "calculatedPropertyExpressionCreate": "entity[\"FirstName\"] + \" \" + entity[\"LastName\"]",
                         "calculatedPropertyExpressionUpdate": "entity[\"FirstName\"] + \" \" + entity[\"LastName\"]",
                         "dataLength": "100",
-                        "dataName": "CUSTOMER_PROPERTY11",
+                        "dataName": "CUSTOMER_NAME",
                         "dataNullable": "true",
                         "dataType": "VARCHAR",
                         "description": "",

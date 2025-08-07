@@ -116,7 +116,7 @@ export interface CustomerEntityOptions {
     $limit?: number,
 }
 
-interface CustomerEntityEvent {
+export interface CustomerEntityEvent {
     readonly operation: 'create' | 'update' | 'delete';
     readonly table: string;
     readonly entity: Partial<CustomerEntity>;
@@ -127,7 +127,7 @@ interface CustomerEntityEvent {
     }
 }
 
-interface CustomerUpdateEntityEvent extends CustomerEntityEvent {
+export interface CustomerUpdateEntityEvent extends CustomerEntityEvent {
     readonly previousEntity: CustomerEntity;
 }
 
@@ -155,7 +155,7 @@ export class CustomerRepository {
             },
             {
                 name: "Name",
-                column: "CUSTOMER_PROPERTY11",
+                column: "CUSTOMER_NAME",
                 type: "VARCHAR",
             },
             {

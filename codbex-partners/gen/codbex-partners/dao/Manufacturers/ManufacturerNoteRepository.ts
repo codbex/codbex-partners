@@ -63,7 +63,7 @@ export interface ManufacturerNoteEntityOptions {
     $limit?: number,
 }
 
-interface ManufacturerNoteEntityEvent {
+export interface ManufacturerNoteEntityEvent {
     readonly operation: 'create' | 'update' | 'delete';
     readonly table: string;
     readonly entity: Partial<ManufacturerNoteEntity>;
@@ -74,7 +74,7 @@ interface ManufacturerNoteEntityEvent {
     }
 }
 
-interface ManufacturerNoteUpdateEntityEvent extends ManufacturerNoteEntityEvent {
+export interface ManufacturerNoteUpdateEntityEvent extends ManufacturerNoteEntityEvent {
     readonly previousEntity: ManufacturerNoteEntity;
 }
 

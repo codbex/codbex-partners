@@ -90,7 +90,7 @@ export interface CustomerContactEntityOptions {
     $limit?: number,
 }
 
-interface CustomerContactEntityEvent {
+export interface CustomerContactEntityEvent {
     readonly operation: 'create' | 'update' | 'delete';
     readonly table: string;
     readonly entity: Partial<CustomerContactEntity>;
@@ -101,7 +101,7 @@ interface CustomerContactEntityEvent {
     }
 }
 
-interface CustomerContactUpdateEntityEvent extends CustomerContactEntityEvent {
+export interface CustomerContactUpdateEntityEvent extends CustomerContactEntityEvent {
     readonly previousEntity: CustomerContactEntity;
 }
 
