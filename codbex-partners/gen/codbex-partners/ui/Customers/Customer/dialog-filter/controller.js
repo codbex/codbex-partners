@@ -7,6 +7,12 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 
 	let params = ViewParameters.get();
 	if (Object.keys(params).length) {
+		if (params?.entity?.CreatedAtFrom) {
+			params.entity.CreatedAtFrom = new Date(params.entity.CreatedAtFrom);
+		}
+		if (params?.entity?.CreatedAtTo) {
+			params.entity.CreatedAtTo = new Date(params.entity.CreatedAtTo);
+		}
 		$scope.entity = params.entity ?? {};
 		$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 		$scope.selectedMainEntityId = params.selectedMainEntityId;
@@ -58,6 +64,15 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 		}
 		if (entity.IBAN) {
 			filter.$filter.contains.IBAN = entity.IBAN;
+		}
+		if (entity.Identifier) {
+			filter.$filter.contains.Identifier = entity.Identifier;
+		}
+		if (entity.CreatedAtFrom) {
+			filter.$filter.greaterThanOrEqual.CreatedAt = entity.CreatedAtFrom;
+		}
+		if (entity.CreatedAtTo) {
+			filter.$filter.lessThanOrEqual.CreatedAt = entity.CreatedAtTo;
 		}
 		Dialogs.postMessage({ topic: 'codbex-partners.Customers.Customer.entitySearch', data: {
 			entity: entity,

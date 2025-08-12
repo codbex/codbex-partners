@@ -58,6 +58,17 @@
                         "length": 36,
                         "nullable": true,
                         "name": "CUSTOMER_IBAN"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 36,
+                        "nullable": true,
+                        "name": "CUSTOMER_IDENTIFIER"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "nullable": true,
+                        "name": "CUSTOMER_CREATEDAT"
                     }
                 ]
             },

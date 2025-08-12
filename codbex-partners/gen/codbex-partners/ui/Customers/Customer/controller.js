@@ -100,6 +100,12 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 						$scope.data = [];
 						$scope.dataReset = false;
 					}
+					response.data.forEach(e => {
+						if (e.CreatedAt) {
+							e.CreatedAt = new Date(e.CreatedAt);
+						}
+					});
+
 					$scope.data = $scope.data.concat(response.data);
 					$scope.dataPage++;
 				}, (error) => {

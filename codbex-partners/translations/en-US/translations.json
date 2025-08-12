@@ -72,6 +72,8 @@
     "CUSTOMER_FAX": "Fax",
     "CUSTOMER_TIN": "TIN",
     "CUSTOMER_IBAN": "IBAN",
+    "CUSTOMER_IDENTIFIER": "Identifier",
+    "CUSTOMER_CREATEDAT": "CreatedAt",
     "SUPPLIER": "Supplier",
     "SUPPLIER_ID": "Id",
     "SUPPLIER_NAME": "Name",
