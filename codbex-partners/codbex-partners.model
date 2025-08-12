@@ -126,6 +126,33 @@
                         "widgetLength": "36",
                         "widgetSize": "fd-col-md--4 fd-col--6",
                         "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "dataLength": "36",
+                        "dataName": "CUSTOMER_IDENTIFIER",
+                        "dataNullable": "true",
+                        "dataType": "VARCHAR",
+                        "description": "",
+                        "name": "Identifier",
+                        "tooltip": "",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "36",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "calculatedPropertyExpressionCreate": "new Date().toISOString().slice(0, 19).replace('T', ' ')",
+                        "dataName": "CUSTOMER_CREATEDAT",
+                        "dataNullable": "true",
+                        "dataType": "TIMESTAMP",
+                        "description": "",
+                        "isCalculatedProperty": "true",
+                        "name": "CreatedAt",
+                        "tooltip": "",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "DATETIME-LOCAL"
                     }
                 ],
                 "caption": "Manage entity Customer",

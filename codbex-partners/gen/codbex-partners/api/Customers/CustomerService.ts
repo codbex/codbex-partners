@@ -171,6 +171,9 @@ class CustomerService {
         if (entity.IBAN?.length > 36) {
             throw new ValidationError(`The 'IBAN' exceeds the maximum length of [36] characters`);
         }
+        if (entity.Identifier?.length > 36) {
+            throw new ValidationError(`The 'Identifier' exceeds the maximum length of [36] characters`);
+        }
         for (const next of validationModules) {
             next.validate(entity);
         }

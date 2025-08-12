@@ -272,6 +272,7 @@ paths:
                       Fax: "abcd"
                       TIN: "abcd"
                       IBAN: "abcd"
+                      Identifier: "abcd"
                     greaterThan:
                       Id: 0
                     lessThanOrEqual:
@@ -301,6 +302,7 @@ paths:
                       Fax: "abcd"
                       TIN: "abcd"
                       IBAN: "abcd"
+                      Identifier: "abcd"
               countWithGreaterThan:
                 summary: Count with Greater Than
                 value:
@@ -372,6 +374,7 @@ paths:
                       Fax: "abcd"
                       TIN: "abcd"
                       IBAN: "abcd"
+                      Identifier: "abcd"
                     greaterThan:
                       Id: 0
                     lessThanOrEqual:
@@ -401,6 +404,7 @@ paths:
                       Fax: "abcd"
                       TIN: "abcd"
                       IBAN: "abcd"
+                      Identifier: "abcd"
               searchWithGreaterThan:
                 summary: Search with Greater Than
                 value:
@@ -3740,6 +3744,11 @@ components:
           type: string
           minLength: 0
           maxLength: 36
+        Identifier:
+          type: string
+          minLength: 0
+          maxLength: 36
+        CreatedAt:
     CustomerFilterOptions:
       type: object
       properties:
@@ -3845,6 +3854,19 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 36
+                Identifier:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 36
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 36
+                CreatedAt:
+                  oneOf:
             notEquals:
               type: object
               properties:
@@ -3944,6 +3966,19 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 36
+                Identifier:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 36
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 36
+                CreatedAt:
+                  oneOf:
             contains:
               type: object
               properties:
@@ -3980,6 +4015,11 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 36
+                Identifier:
+                  type: string
+                  minLength: 0
+                  maxLength: 36
+                CreatedAt:
             greaterThan:
               type: object
               properties:
@@ -4018,6 +4058,11 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 36
+                Identifier:
+                  type: string
+                  minLength: 0
+                  maxLength: 36
+                CreatedAt:
             greaterThanOrEqual:
               type: object
               properties:
@@ -4056,6 +4101,11 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 36
+                Identifier:
+                  type: string
+                  minLength: 0
+                  maxLength: 36
+                CreatedAt:
             lessThan:
               type: object
               properties:
@@ -4094,6 +4144,11 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 36
+                Identifier:
+                  type: string
+                  minLength: 0
+                  maxLength: 36
+                CreatedAt:
             lessThanOrEqual:
               type: object
               properties:
@@ -4132,14 +4187,19 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 36
+                Identifier:
+                  type: string
+                  minLength: 0
+                  maxLength: 36
+                CreatedAt:
         $select:
           type: array
-          example: ["Id", "FirstName", "LastName", "Name", "Email", "Phone", "Fax", "TIN", "IBAN"]
+          example: ["Id", "FirstName", "LastName", "Name", "Email", "Phone", "Fax", "TIN", "IBAN", "Identifier", "CreatedAt"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,FirstName,LastName,Name,Email,Phone,Fax,TIN,IBAN"
+            example: "Id,FirstName,LastName,Name,Email,Phone,Fax,TIN,IBAN,Identifier,CreatedAt"
         $order:
           type: string
           enum: ["asc", "desc"]

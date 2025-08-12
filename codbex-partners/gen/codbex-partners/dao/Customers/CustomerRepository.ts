@@ -13,6 +13,8 @@ export interface CustomerEntity {
     Fax?: string;
     TIN?: string;
     IBAN?: string;
+    Identifier?: string;
+    CreatedAt?: Date;
 }
 
 export interface CustomerCreateEntity {
@@ -23,6 +25,7 @@ export interface CustomerCreateEntity {
     readonly Fax?: string;
     readonly TIN?: string;
     readonly IBAN?: string;
+    readonly Identifier?: string;
 }
 
 export interface CustomerUpdateEntity extends CustomerCreateEntity {
@@ -41,6 +44,8 @@ export interface CustomerEntityOptions {
             Fax?: string | string[];
             TIN?: string | string[];
             IBAN?: string | string[];
+            Identifier?: string | string[];
+            CreatedAt?: Date | Date[];
         };
         notEquals?: {
             Id?: number | number[];
@@ -52,6 +57,8 @@ export interface CustomerEntityOptions {
             Fax?: string | string[];
             TIN?: string | string[];
             IBAN?: string | string[];
+            Identifier?: string | string[];
+            CreatedAt?: Date | Date[];
         };
         contains?: {
             Id?: number;
@@ -63,6 +70,8 @@ export interface CustomerEntityOptions {
             Fax?: string;
             TIN?: string;
             IBAN?: string;
+            Identifier?: string;
+            CreatedAt?: Date;
         };
         greaterThan?: {
             Id?: number;
@@ -74,6 +83,8 @@ export interface CustomerEntityOptions {
             Fax?: string;
             TIN?: string;
             IBAN?: string;
+            Identifier?: string;
+            CreatedAt?: Date;
         };
         greaterThanOrEqual?: {
             Id?: number;
@@ -85,6 +96,8 @@ export interface CustomerEntityOptions {
             Fax?: string;
             TIN?: string;
             IBAN?: string;
+            Identifier?: string;
+            CreatedAt?: Date;
         };
         lessThan?: {
             Id?: number;
@@ -96,6 +109,8 @@ export interface CustomerEntityOptions {
             Fax?: string;
             TIN?: string;
             IBAN?: string;
+            Identifier?: string;
+            CreatedAt?: Date;
         };
         lessThanOrEqual?: {
             Id?: number;
@@ -107,6 +122,8 @@ export interface CustomerEntityOptions {
             Fax?: string;
             TIN?: string;
             IBAN?: string;
+            Identifier?: string;
+            CreatedAt?: Date;
         };
     },
     $select?: (keyof CustomerEntity)[],
@@ -183,6 +200,16 @@ export class CustomerRepository {
                 name: "IBAN",
                 column: "CUSTOMER_IBAN",
                 type: "VARCHAR",
+            },
+            {
+                name: "Identifier",
+                column: "CUSTOMER_IDENTIFIER",
+                type: "VARCHAR",
+            },
+            {
+                name: "CreatedAt",
+                column: "CUSTOMER_CREATEDAT",
+                type: "TIMESTAMP",
             }
         ]
     };
@@ -205,6 +232,8 @@ export class CustomerRepository {
     public create(entity: CustomerCreateEntity): number {
         // @ts-ignore
         (entity as CustomerEntity).Name = entity["FirstName"] + " " + entity["LastName"];
+        // @ts-ignore
+        (entity as CustomerEntity).CreatedAt = new Date().toISOString().slice(0, 19).replace('T', ' ');
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",

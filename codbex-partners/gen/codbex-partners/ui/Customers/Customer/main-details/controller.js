@@ -55,6 +55,9 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 		}});
 		Dialogs.addMessageListener({ topic: 'codbex-partners.Customers.Customer.entitySelected', handler: (data) => {
 			$scope.$evalAsync(() => {
+				if (data.entity.CreatedAt) {
+					data.entity.CreatedAt = new Date(data.entity.CreatedAt);
+				}
 				$scope.entity = data.entity;
 				$scope.action = 'select';
 			});
@@ -67,6 +70,9 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 		}});
 		Dialogs.addMessageListener({ topic: 'codbex-partners.Customers.Customer.updateEntity', handler: (data) => {
 			$scope.$evalAsync(() => {
+				if (data.entity.CreatedAt) {
+					data.entity.CreatedAt = new Date(data.entity.CreatedAt);
+				}
 				$scope.entity = data.entity;
 				$scope.action = 'update';
 			});
