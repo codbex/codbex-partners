@@ -41,6 +41,18 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 		if (entity.Customer !== undefined) {
 			filter.$filter.equals.Customer = entity.Customer;
 		}
+		if (entity.FirstName) {
+			filter.$filter.contains.FirstName = entity.FirstName;
+		}
+		if (entity.LastName) {
+			filter.$filter.contains.LastName = entity.LastName;
+		}
+		if (entity.Email) {
+			filter.$filter.contains.Email = entity.Email;
+		}
+		if (entity.Phone) {
+			filter.$filter.contains.Phone = entity.Phone;
+		}
 		if (entity.Country !== undefined) {
 			filter.$filter.equals.Country = entity.Country;
 		}

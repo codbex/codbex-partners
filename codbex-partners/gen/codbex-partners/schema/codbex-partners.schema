@@ -295,6 +295,30 @@
                         "name": "CUSTOMERADDRESS_CUSTOMER"
                     },
                     {
+                        "type": "VARCHAR",
+                        "length": 50,
+                        "nullable": true,
+                        "name": "CUSTOMERADDRESS_FIRSTNAME"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 50,
+                        "nullable": true,
+                        "name": "CUSTOMERADDRESS_LASTNAME"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 100,
+                        "nullable": true,
+                        "name": "CUSTOMERADDRESS_EMAIL"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "CUSTOMERADDRESS_PHONE"
+                    },
+                    {
                         "type": "INTEGER",
                         "nullable": true,
                         "name": "CUSTOMERADDRESS_COUNTRY"

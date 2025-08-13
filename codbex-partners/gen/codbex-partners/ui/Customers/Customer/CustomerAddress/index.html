@@ -29,6 +29,10 @@
 			<table bk-table display-mode="compact" inner-borders="top" outer-borders="none">
 				<thead bk-table-header sticky="true">
 					<tr bk-table-row>
+						<th bk-table-header-cell>{{ 'codbex-partners:t.CUSTOMERADDRESS_FIRSTNAME' | t:'FirstName' }}</th>
+						<th bk-table-header-cell>{{ 'codbex-partners:t.CUSTOMERADDRESS_LASTNAME' | t:'LastName' }}</th>
+						<th bk-table-header-cell>{{ 'codbex-partners:t.CUSTOMERADDRESS_EMAIL' | t:'Email' }}</th>
+						<th bk-table-header-cell>{{ 'codbex-partners:t.CUSTOMERADDRESS_PHONE' | t:'Phone' }}</th>
 						<th bk-table-header-cell>{{ 'codbex-partners:t.CUSTOMERADDRESS_COUNTRY' | t:'Country' }}</th>
 						<th bk-table-header-cell>{{ 'codbex-partners:t.CUSTOMERADDRESS_CITY' | t:'City' }}</th>
 						<th bk-table-header-cell>{{ 'codbex-partners:t.CUSTOMERADDRESS_ADRESSLINE1' | t:'AddressLine1' }}</th>
@@ -44,6 +48,14 @@
 						<td bk-table-cell no-data="true">{{'codbex-partners:messages.noData' | t}}</td>
 					</tr>
 					<tr bk-table-row hoverable="true" ng-repeat="next in data track by $index" selected="next.Id === selectedEntity.Id" ng-click="selectEntity(next)">
+						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.FirstName}}</td>
+						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.LastName}}</td>
+						<td bk-table-cell>
+							<bk-link href="mailto:{{next.Email}}">{{next.Email}}</bk-link>
+						</td>
+						<td bk-table-cell>
+							<bk-link href="tel:{{next.Phone}}">{{next.Phone}}</bk-link>
+						</td>
 						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
 							{{optionsCountryValue(next.Country)}}
 						</td>

@@ -3136,6 +3136,10 @@ paths:
                     notEquals:
                       Id: 33
                     contains:
+                      FirstName: "abcd"
+                      LastName: "abcd"
+                      Email: "abcd"
+                      Phone: "abcd"
                       AddressLine1: "abcd"
                       AddressLine2: "abcd"
                       PostalCode: "abcd"
@@ -3160,6 +3164,10 @@ paths:
                 value:
                   $filter:
                     contains:
+                      FirstName: "abcd"
+                      LastName: "abcd"
+                      Email: "abcd"
+                      Phone: "abcd"
                       AddressLine1: "abcd"
                       AddressLine2: "abcd"
                       PostalCode: "abcd"
@@ -3226,6 +3234,10 @@ paths:
                     notEquals:
                       Id: 33
                     contains:
+                      FirstName: "abcd"
+                      LastName: "abcd"
+                      Email: "abcd"
+                      Phone: "abcd"
                       AddressLine1: "abcd"
                       AddressLine2: "abcd"
                       PostalCode: "abcd"
@@ -3250,6 +3262,10 @@ paths:
                 value:
                   $filter:
                     contains:
+                      FirstName: "abcd"
+                      LastName: "abcd"
+                      Email: "abcd"
+                      Phone: "abcd"
                       AddressLine1: "abcd"
                       AddressLine2: "abcd"
                       PostalCode: "abcd"
@@ -5710,6 +5726,22 @@ components:
         Customer:
           type: integer
           format: int32
+        FirstName:
+          type: string
+          minLength: 0
+          maxLength: 50
+        LastName:
+          type: string
+          minLength: 0
+          maxLength: 50
+        Email:
+          type: string
+          minLength: 0
+          maxLength: 100
+        Phone:
+          type: string
+          minLength: 0
+          maxLength: 20
         Country:
           type: integer
           format: int32
@@ -5758,6 +5790,50 @@ components:
                       items:
                         type: integer
                         format: int32
+                FirstName:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 50
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 50
+                LastName:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 50
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 50
+                Email:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 100
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 100
+                Phone:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 20
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 20
                 Country:
                   oneOf:
                     - type: integer
@@ -5840,6 +5916,50 @@ components:
                       items:
                         type: integer
                         format: int32
+                FirstName:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 50
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 50
+                LastName:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 50
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 50
+                Email:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 100
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 100
+                Phone:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 20
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 20
                 Country:
                   oneOf:
                     - type: integer
@@ -5908,6 +6028,22 @@ components:
               properties:
                 Id:
                 Customer:
+                FirstName:
+                  type: string
+                  minLength: 0
+                  maxLength: 50
+                LastName:
+                  type: string
+                  minLength: 0
+                  maxLength: 50
+                Email:
+                  type: string
+                  minLength: 0
+                  maxLength: 100
+                Phone:
+                  type: string
+                  minLength: 0
+                  maxLength: 20
                 Country:
                 City:
                 AddressLine1:
@@ -5933,6 +6069,22 @@ components:
                 Customer:
                   type: integer
                   format: int32
+                FirstName:
+                  type: string
+                  minLength: 0
+                  maxLength: 50
+                LastName:
+                  type: string
+                  minLength: 0
+                  maxLength: 50
+                Email:
+                  type: string
+                  minLength: 0
+                  maxLength: 100
+                Phone:
+                  type: string
+                  minLength: 0
+                  maxLength: 20
                 Country:
                   type: integer
                   format: int32
@@ -5964,6 +6116,22 @@ components:
                 Customer:
                   type: integer
                   format: int32
+                FirstName:
+                  type: string
+                  minLength: 0
+                  maxLength: 50
+                LastName:
+                  type: string
+                  minLength: 0
+                  maxLength: 50
+                Email:
+                  type: string
+                  minLength: 0
+                  maxLength: 100
+                Phone:
+                  type: string
+                  minLength: 0
+                  maxLength: 20
                 Country:
                   type: integer
                   format: int32
@@ -5995,6 +6163,22 @@ components:
                 Customer:
                   type: integer
                   format: int32
+                FirstName:
+                  type: string
+                  minLength: 0
+                  maxLength: 50
+                LastName:
+                  type: string
+                  minLength: 0
+                  maxLength: 50
+                Email:
+                  type: string
+                  minLength: 0
+                  maxLength: 100
+                Phone:
+                  type: string
+                  minLength: 0
+                  maxLength: 20
                 Country:
                   type: integer
                   format: int32
@@ -6026,6 +6210,22 @@ components:
                 Customer:
                   type: integer
                   format: int32
+                FirstName:
+                  type: string
+                  minLength: 0
+                  maxLength: 50
+                LastName:
+                  type: string
+                  minLength: 0
+                  maxLength: 50
+                Email:
+                  type: string
+                  minLength: 0
+                  maxLength: 100
+                Phone:
+                  type: string
+                  minLength: 0
+                  maxLength: 20
                 Country:
                   type: integer
                   format: int32
@@ -6050,12 +6250,12 @@ components:
                 IsActive:
         $select:
           type: array
-          example: ["Id", "Customer", "Country", "City", "AddressLine1", "AddressLine2", "PostalCode", "AddressType", "IsActive"]
+          example: ["Id", "Customer", "FirstName", "LastName", "Email", "Phone", "Country", "City", "AddressLine1", "AddressLine2", "PostalCode", "AddressType", "IsActive"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Customer,Country,City,AddressLine1,AddressLine2,PostalCode,AddressType,IsActive"
+            example: "Id,Customer,FirstName,LastName,Email,Phone,Country,City,AddressLine1,AddressLine2,PostalCode,AddressType,IsActive"
         $order:
           type: string
           enum: ["asc", "desc"]
