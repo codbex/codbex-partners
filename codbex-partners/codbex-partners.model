@@ -1027,6 +1027,58 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
+                        "dataLength": "50",
+                        "dataName": "CUSTOMERADDRESS_FIRSTNAME",
+                        "dataNullable": "true",
+                        "dataType": "VARCHAR",
+                        "description": "",
+                        "name": "FirstName",
+                        "tooltip": "",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "50",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "dataLength": "50",
+                        "dataName": "CUSTOMERADDRESS_LASTNAME",
+                        "dataNullable": "true",
+                        "dataType": "VARCHAR",
+                        "description": "",
+                        "name": "LastName",
+                        "tooltip": "",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "50",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "dataLength": "100",
+                        "dataName": "CUSTOMERADDRESS_EMAIL",
+                        "dataNullable": "true",
+                        "dataType": "VARCHAR",
+                        "description": "",
+                        "name": "Email",
+                        "tooltip": "",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "EMAIL"
+                    },
+                    {
+                        "dataLength": "20",
+                        "dataName": "CUSTOMERADDRESS_PHONE",
+                        "dataNullable": "true",
+                        "dataType": "VARCHAR",
+                        "description": "",
+                        "name": "Phone",
+                        "tooltip": "",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "TEL"
+                    },
+                    {
                         "dataName": "CUSTOMERADDRESS_COUNTRY",
                         "dataNullable": "true",
                         "dataType": "INTEGER",

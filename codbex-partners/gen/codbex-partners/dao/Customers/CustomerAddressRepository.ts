@@ -7,6 +7,10 @@ import { EntityUtils } from "../utils/EntityUtils";
 export interface CustomerAddressEntity {
     readonly Id: number;
     Customer?: number;
+    FirstName?: string;
+    LastName?: string;
+    Email?: string;
+    Phone?: string;
     Country?: number;
     City?: number;
     AddressLine1?: string;
@@ -18,6 +22,10 @@ export interface CustomerAddressEntity {
 
 export interface CustomerAddressCreateEntity {
     readonly Customer?: number;
+    readonly FirstName?: string;
+    readonly LastName?: string;
+    readonly Email?: string;
+    readonly Phone?: string;
     readonly Country?: number;
     readonly City?: number;
     readonly AddressLine1?: string;
@@ -36,6 +44,10 @@ export interface CustomerAddressEntityOptions {
         equals?: {
             Id?: number | number[];
             Customer?: number | number[];
+            FirstName?: string | string[];
+            LastName?: string | string[];
+            Email?: string | string[];
+            Phone?: string | string[];
             Country?: number | number[];
             City?: number | number[];
             AddressLine1?: string | string[];
@@ -47,6 +59,10 @@ export interface CustomerAddressEntityOptions {
         notEquals?: {
             Id?: number | number[];
             Customer?: number | number[];
+            FirstName?: string | string[];
+            LastName?: string | string[];
+            Email?: string | string[];
+            Phone?: string | string[];
             Country?: number | number[];
             City?: number | number[];
             AddressLine1?: string | string[];
@@ -58,6 +74,10 @@ export interface CustomerAddressEntityOptions {
         contains?: {
             Id?: number;
             Customer?: number;
+            FirstName?: string;
+            LastName?: string;
+            Email?: string;
+            Phone?: string;
             Country?: number;
             City?: number;
             AddressLine1?: string;
@@ -69,6 +89,10 @@ export interface CustomerAddressEntityOptions {
         greaterThan?: {
             Id?: number;
             Customer?: number;
+            FirstName?: string;
+            LastName?: string;
+            Email?: string;
+            Phone?: string;
             Country?: number;
             City?: number;
             AddressLine1?: string;
@@ -80,6 +104,10 @@ export interface CustomerAddressEntityOptions {
         greaterThanOrEqual?: {
             Id?: number;
             Customer?: number;
+            FirstName?: string;
+            LastName?: string;
+            Email?: string;
+            Phone?: string;
             Country?: number;
             City?: number;
             AddressLine1?: string;
@@ -91,6 +119,10 @@ export interface CustomerAddressEntityOptions {
         lessThan?: {
             Id?: number;
             Customer?: number;
+            FirstName?: string;
+            LastName?: string;
+            Email?: string;
+            Phone?: string;
             Country?: number;
             City?: number;
             AddressLine1?: string;
@@ -102,6 +134,10 @@ export interface CustomerAddressEntityOptions {
         lessThanOrEqual?: {
             Id?: number;
             Customer?: number;
+            FirstName?: string;
+            LastName?: string;
+            Email?: string;
+            Phone?: string;
             Country?: number;
             City?: number;
             AddressLine1?: string;
@@ -149,6 +185,26 @@ export class CustomerAddressRepository {
                 name: "Customer",
                 column: "CUSTOMERADDRESS_CUSTOMER",
                 type: "INTEGER",
+            },
+            {
+                name: "FirstName",
+                column: "CUSTOMERADDRESS_FIRSTNAME",
+                type: "VARCHAR",
+            },
+            {
+                name: "LastName",
+                column: "CUSTOMERADDRESS_LASTNAME",
+                type: "VARCHAR",
+            },
+            {
+                name: "Email",
+                column: "CUSTOMERADDRESS_EMAIL",
+                type: "VARCHAR",
+            },
+            {
+                name: "Phone",
+                column: "CUSTOMERADDRESS_PHONE",
+                type: "VARCHAR",
             },
             {
                 name: "Country",
