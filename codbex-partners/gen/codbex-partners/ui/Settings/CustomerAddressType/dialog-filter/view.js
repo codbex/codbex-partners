@@ -7,13 +7,13 @@ const viewData = {
     id: 'CustomerAddressType-filter',
     label: 'CustomerAddressType Filter',
     translation: {
-        key: 'codbex-partners:extName',
+        key: 'codbex-partners:codbex-partners-model.extName',
         options: {
-            content: '$t(codbex-partners:t.CUSTOMERADDRESSTYPE) $t(codbex-partners:defaults.filter)',
+            content: '$t(codbex-partners:codbex-partners-model.t.CUSTOMERADDRESSTYPE) $t(codbex-partners:codbex-partners-model.defaults.filter)',
         }
     },
-    path: '/services/web/codbex-partners/gen/codbex-partners/ui/entities/CustomerAddressType/dialog-filter/index.html',
-    perspectiveName: 'entities'
+    path: '/services/web/codbex-partners/gen/codbex-partners/ui/Settings/CustomerAddressType/dialog-filter/index.html',
+    perspectiveName: 'Settings'
 };
 if (typeof exports !== 'undefined') {
     exports.getView = () => viewData;

@@ -150,22 +150,11 @@
     "Settings": {
       "views": [
         "City",
-        "Country"
+        "Country",
+        "CustomerAddressType"
       ],
       "name": "Settings",
       "label": "Settings",
-      "header": "",
-      "order": "100",
-      "navId": "",
-      "icon": "/services/web/resources/unicons/globe.svg",
-      "role": ""
-    },
-    "entities": {
-      "views": [
-        "CustomerAddressType"
-      ],
-      "name": "entities",
-      "label": "entities",
       "header": "",
       "order": "100",
       "navId": "",
@@ -173,6 +162,7 @@
       "role": ""
     }
   },
+  "tprefix": "codbex-partners-model",
   "models": [
     {
       "properties": [
@@ -2759,15 +2749,15 @@
           "widgetType": "DROPDOWN",
           "relationshipName": "CustomerAddress_CustomerAddressType",
           "relationshipEntityName": "CustomerAddressType",
-          "relationshipEntityPerspectiveName": "entities",
-          "relationshipEntityPerspectiveLabel": "Entities",
+          "relationshipEntityPerspectiveName": "Settings",
+          "relationshipEntityPerspectiveLabel": "",
           "dataNotNull": false,
           "dataAutoIncrement": false,
           "dataPrimaryKey": false,
           "dataUnique": false,
           "isCalculatedProperty": false,
           "widgetLabel": "AddressType",
-          "widgetDropdownUrl": "/services/ts/codbex-partners/gen/codbex-partners/api/entities/CustomerAddressTypeService.ts",
+          "widgetDropdownUrl": "/services/ts/codbex-partners/gen/codbex-partners/api/Settings/CustomerAddressTypeService.ts",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -2897,24 +2887,24 @@
       "dataName": "CUSTOMERADDRESSTYPE",
       "dataQuery": "",
       "description": "Manage entity CustomerAddressType",
+      "feedPassword": "YWRtaW4=",
+      "feedUsername": "YWRtaW4=",
       "generateDefaultRoles": "false",
       "generateReport": "false",
       "icon": "/services/web/resources/unicons/file.svg",
-      "layoutType": "MANAGE",
       "menuIndex": "100",
       "menuKey": "customeraddresstype",
       "menuLabel": "CustomerAddressType",
       "name": "CustomerAddressType",
       "perspectiveHeader": "",
       "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-      "perspectiveLabel": "Entities",
-      "perspectiveName": "entities",
+      "perspectiveName": "Settings",
       "perspectiveNavId": "",
       "perspectiveOrder": "100",
       "perspectiveRole": "",
       "title": "CustomerAddressType",
       "tooltip": "CustomerAddressType",
-      "type": "PRIMARY",
+      "type": "SETTING",
       "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [

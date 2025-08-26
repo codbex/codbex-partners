@@ -1,10 +1,10 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
 import { Extensions } from "sdk/extensions"
-import { CustomerAddressTypeRepository, CustomerAddressTypeEntityOptions } from "../../dao/entities/CustomerAddressTypeRepository";
+import { CustomerAddressTypeRepository, CustomerAddressTypeEntityOptions } from "../../dao/Settings/CustomerAddressTypeRepository";
 import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
 
-const validationModules = await Extensions.loadExtensionModules("codbex-partners-entities-CustomerAddressType", ["validate"]);
+const validationModules = await Extensions.loadExtensionModules("codbex-partners-Settings-CustomerAddressType", ["validate"]);
 
 @Controller
 class CustomerAddressTypeService {
@@ -30,7 +30,7 @@ class CustomerAddressTypeService {
         try {
             this.validateEntity(entity);
             entity.Id = this.repository.create(entity);
-            response.setHeader("Content-Location", "/services/ts/codbex-partners/gen/codbex-partners/api/entities/CustomerAddressTypeService.ts/" + entity.Id);
+            response.setHeader("Content-Location", "/services/ts/codbex-partners/gen/codbex-partners/api/Settings/CustomerAddressTypeService.ts/" + entity.Id);
             response.setStatus(response.CREATED);
             return entity;
         } catch (error: any) {

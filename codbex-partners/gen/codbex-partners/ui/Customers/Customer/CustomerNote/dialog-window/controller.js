@@ -20,12 +20,12 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 		$scope.action = 'select';
 
 		LocaleService.onInit(() => {
-			description = LocaleService.t('codbex-partners:defaults.description');
-			$scope.formHeaders.select = LocaleService.t('codbex-partners:defaults.formHeadSelect', { name: '$t(codbex-partners:t.CUSTOMERNOTE)' });
-			$scope.formHeaders.create = LocaleService.t('codbex-partners:defaults.formHeadCreate', { name: '$t(codbex-partners:t.CUSTOMERNOTE)' });
-			$scope.formHeaders.update = LocaleService.t('codbex-partners:defaults.formHeadUpdate', { name: '$t(codbex-partners:t.CUSTOMERNOTE)' });
-			propertySuccessfullyCreated = LocaleService.t('codbex-partners:messages.propertySuccessfullyCreated', { name: '$t(codbex-partners:t.CUSTOMERNOTE)' });
-			propertySuccessfullyUpdated = LocaleService.t('codbex-partners:messages.propertySuccessfullyUpdated', { name: '$t(codbex-partners:t.CUSTOMERNOTE)' });
+			description = LocaleService.t('codbex-partners:codbex-partners-model.defaults.description');
+			$scope.formHeaders.select = LocaleService.t('codbex-partners:codbex-partners-model.defaults.formHeadSelect', { name: '$t(codbex-partners:codbex-partners-model.t.CUSTOMERNOTE)' });
+			$scope.formHeaders.create = LocaleService.t('codbex-partners:codbex-partners-model.defaults.formHeadCreate', { name: '$t(codbex-partners:codbex-partners-model.t.CUSTOMERNOTE)' });
+			$scope.formHeaders.update = LocaleService.t('codbex-partners:codbex-partners-model.defaults.formHeadUpdate', { name: '$t(codbex-partners:codbex-partners-model.t.CUSTOMERNOTE)' });
+			propertySuccessfullyCreated = LocaleService.t('codbex-partners:codbex-partners-model.messages.propertySuccessfullyCreated', { name: '$t(codbex-partners:codbex-partners-model.t.CUSTOMERNOTE)' });
+			propertySuccessfullyUpdated = LocaleService.t('codbex-partners:codbex-partners-model.messages.propertySuccessfullyUpdated', { name: '$t(codbex-partners:codbex-partners-model.t.CUSTOMERNOTE)' });
 		});
 
 		let params = ViewParameters.get();
@@ -42,7 +42,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			EntityService.create(entity).then((response) => {
 				Dialogs.postMessage({ topic: 'codbex-partners.Customers.CustomerNote.entityCreated', data: response.data });
 				Notifications.show({
-					title: LocaleService.t('codbex-partners:t.CUSTOMERNOTE'),
+					title: LocaleService.t('codbex-partners:codbex-partners-model.t.CUSTOMERNOTE'),
 					description: propertySuccessfullyCreated,
 					type: 'positive'
 				});
@@ -50,8 +50,8 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			}, (error) => {
 				const message = error.data ? error.data.message : '';
 				Dialogs.showAlert({
-					title: LocaleService.t('codbex-partners:t.CUSTOMERNOTE'),
-					message: LocaleService.t('codbex-partners:messages.error.unableToCreate', { name: '$t(codbex-partners:t.CUSTOMERNOTE)', message: message }),
+					title: LocaleService.t('codbex-partners:codbex-partners-model.t.CUSTOMERNOTE'),
+					message: LocaleService.t('codbex-partners:codbex-partners-model.messages.error.unableToCreate', { name: '$t(codbex-partners:codbex-partners-model.t.CUSTOMERNOTE)', message: message }),
 					type: AlertTypes.Error
 				});
 				console.error('EntityService:', error);
@@ -65,7 +65,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			EntityService.update(id, entity).then((response) => {
 				Dialogs.postMessage({ topic: 'codbex-partners.Customers.CustomerNote.entityUpdated', data: response.data });
 				Notifications.show({
-					title: LocaleService.t('codbex-partners:t.CUSTOMERNOTE'),
+					title: LocaleService.t('codbex-partners:codbex-partners-model.t.CUSTOMERNOTE'),
 					description: propertySuccessfullyUpdated,
 					type: 'positive'
 				});
@@ -73,8 +73,8 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			}, (error) => {
 				const message = error.data ? error.data.message : '';
 				Dialogs.showAlert({
-					title: LocaleService.t('codbex-partners:t.CUSTOMERNOTE'),
-					message: LocaleService.t('codbex-partners:messages.error.unableToUpdate', { name: '$t(codbex-partners:t.CUSTOMERNOTE)', message: message }),
+					title: LocaleService.t('codbex-partners:codbex-partners-model.t.CUSTOMERNOTE'),
+					message: LocaleService.t('codbex-partners:codbex-partners-model.messages.error.unableToUpdate', { name: '$t(codbex-partners:codbex-partners-model.t.CUSTOMERNOTE)', message: message }),
 					type: AlertTypes.Error
 				});
 				console.error('EntityService:', error);

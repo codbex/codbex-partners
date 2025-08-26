@@ -19,10 +19,10 @@
                 <bk-form-group label="{{formHeaders[action]}}" name="entityForm" transclude-classes="fd-container fd-form-layout-grid-container">
 					<bk-form-item class="fd-row">
 						<div class="fd-col fd-col-md--2">
-							<bk-form-label for="idNote" ng-required="false" colon="true">{{ 'codbex-partners:t.SUPPLIERNOTE_NOTE' | t }}</bk-form-label>
+							<bk-form-label for="idNote" ng-required="false" colon="true">{{ 'codbex-partners:codbex-partners-model.t.SUPPLIERNOTE_NOTE' | t }}</bk-form-label>
 						</div>
 						<div class="fd-col  fd-col-md--8 ">
-							<bk-form-input-message state="{{ forms.details['Note'].$valid ? '' : 'error' }}" text="{{ 'codbex-partners:messages.error.pattern' | t:{'rule':''} }}">
+							<bk-form-input-message state="{{ forms.details['Note'].$valid ? '' : 'error' }}" text="{{ 'codbex-partners:codbex-partners-model.messages.error.pattern' | t:{'rule':''} }}">
 								<bk-textarea id="idNote"
 									name="Note"
 									state="{{ forms.details['Note'].$valid ? '' : 'error' }}"
@@ -31,7 +31,7 @@
 	                            	ng-readonly="action === 'select'"
 									ng-maxlength="5000.0"
 									input-rules="{ patterns: [''] }"
-									placeholder="{{ 'codbex-partners:messages.inputEnter' | t:{'name':'$t(codbex-partners:t.SUPPLIERNOTE_NOTE)'} }}">
+									placeholder="{{ 'codbex-partners:codbex-partners-model.messages.inputEnter' | t:{'name':'$t(codbex-partners:codbex-partners-model.t.SUPPLIERNOTE_NOTE)'} }}">
 								</bk-textarea>
 							</bk-form-input-message>
 						</div>
@@ -43,11 +43,11 @@
 		<bk-bar bar-design="footer" compact="true" ng-show="action !== 'select'">
 			<bk-bar-right>
 				<bk-bar-element>
-					<bk-button ng-if="action === 'create'" label="{{'codbex-partners:defaults.create' | t}}" state="emphasized" ng-click="create()" ng-disabled="!forms.details.$valid"></bk-button>
-					<bk-button ng-if="action !== 'create'" label="{{'codbex-partners:defaults.update' | t}}" state="emphasized" ng-click="update()" ng-disabled="!forms.details.$valid"></bk-button>
+					<bk-button ng-if="action === 'create'" label="{{'codbex-partners:codbex-partners-model.defaults.create' | t}}" state="emphasized" ng-click="create()" ng-disabled="!forms.details.$valid"></bk-button>
+					<bk-button ng-if="action !== 'create'" label="{{'codbex-partners:codbex-partners-model.defaults.update' | t}}" state="emphasized" ng-click="update()" ng-disabled="!forms.details.$valid"></bk-button>
 				</bk-bar-element>
 				<bk-bar-element>
-					<bk-button label="{{ 'codbex-partners:defaults.cancel' | t }}" ng-click="cancel()"></bk-button>
+					<bk-button label="{{ 'codbex-partners:codbex-partners-model.defaults.cancel' | t }}" ng-click="cancel()"></bk-button>
 				</bk-bar-element>
 			</bk-bar-right>
 		</bk-bar>

@@ -7,7 +7,7 @@ const perspectiveData = {
 	id: 'Customers',
 	label: 'Customers',
 	translation: {
-        key: 'codbex-partners:t.CUSTOMER',
+        key: 'codbex-partners:codbex-partners-model.t.CUSTOMER',
     },
 	path: '/services/web/codbex-partners/gen/codbex-partners/ui/Customers/index.html',
 	groupId: 'partners-navigation-group',

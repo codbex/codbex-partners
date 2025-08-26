@@ -7,9 +7,9 @@ const viewData = {
     id: 'CustomerContact-filter',
     label: 'CustomerContact Filter',
     translation: {
-        key: 'codbex-partners:extName',
+        key: 'codbex-partners:codbex-partners-model.extName',
         options: {
-            content: '$t(codbex-partners:t.CUSTOMERCONTACT) $t(codbex-partners:defaults.filter)',
+            content: '$t(codbex-partners:codbex-partners-model.t.CUSTOMERCONTACT) $t(codbex-partners:codbex-partners-model.defaults.filter)',
         }
     },
     path: '/services/web/codbex-partners/gen/codbex-partners/ui/Customers/Customer/CustomerContact/dialog-filter/index.html',

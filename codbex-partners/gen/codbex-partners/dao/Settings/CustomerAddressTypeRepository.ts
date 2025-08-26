@@ -182,7 +182,7 @@ export class CustomerAddressTypeRepository {
     }
 
     private async triggerEvent(data: CustomerAddressTypeEntityEvent | CustomerAddressTypeUpdateEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-partners-entities-CustomerAddressType", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-partners-Settings-CustomerAddressType", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);
@@ -190,6 +190,6 @@ export class CustomerAddressTypeRepository {
                 console.error(error);
             }            
         });
-        producer.topic("codbex-partners-entities-CustomerAddressType").send(JSON.stringify(data));
+        producer.topic("codbex-partners-Settings-CustomerAddressType").send(JSON.stringify(data));
     }
 }

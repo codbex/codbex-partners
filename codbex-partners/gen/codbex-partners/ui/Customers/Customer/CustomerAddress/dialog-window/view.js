@@ -7,7 +7,7 @@ const viewData = {
     id: 'CustomerAddress-details',
     label: 'CustomerAddress',
     translation: {
-        key: 'codbex-partners:t.CUSTOMERADDRESS',
+        key: 'codbex-partners:codbex-partners-model.t.CUSTOMERADDRESS',
     },
     path: '/services/web/codbex-partners/gen/codbex-partners/ui/Customers/Customer/CustomerAddress/dialog-window/index.html',
     perspectiveName: 'Customers'

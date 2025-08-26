@@ -1172,8 +1172,8 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "CustomerAddress_CustomerAddressType",
                         "relationshipEntityName": "CustomerAddressType",
-                        "relationshipEntityPerspectiveName": "entities",
-                        "relationshipEntityPerspectiveLabel": "Entities"
+                        "relationshipEntityPerspectiveName": "Settings",
+                        "relationshipEntityPerspectiveLabel": ""
                     },
                     {
                         "dataName": "CUSTOMERADDRESS_ISACTIVE",
@@ -1248,24 +1248,26 @@
                 "dataName": "CUSTOMERADDRESSTYPE",
                 "dataQuery": "",
                 "description": "Manage entity CustomerAddressType",
+                "feedPassword": "YWRtaW4=",
+                "feedUsername": "YWRtaW4=",
                 "generateDefaultRoles": "false",
                 "generateReport": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
-                "layoutType": "MANAGE",
+                "layoutType": "",
                 "menuIndex": "100",
                 "menuKey": "customeraddresstype",
                 "menuLabel": "CustomerAddressType",
                 "name": "CustomerAddressType",
                 "perspectiveHeader": "",
                 "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-                "perspectiveLabel": "Entities",
-                "perspectiveName": "entities",
+                "perspectiveLabel": "",
+                "perspectiveName": "Settings",
                 "perspectiveNavId": "",
                 "perspectiveOrder": "100",
                 "perspectiveRole": "",
                 "title": "CustomerAddressType",
                 "tooltip": "CustomerAddressType",
-                "type": "PRIMARY"
+                "type": "SETTING"
             }
         ],
         "perspectives": [

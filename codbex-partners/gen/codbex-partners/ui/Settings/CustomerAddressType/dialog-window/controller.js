@@ -1,6 +1,6 @@
 angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntityService'])
 	.config(['EntityServiceProvider', (EntityServiceProvider) => {
-		EntityServiceProvider.baseUrl = '/services/ts/codbex-partners/gen/codbex-partners/api/entities/CustomerAddressTypeService.ts';
+		EntityServiceProvider.baseUrl = '/services/ts/codbex-partners/gen/codbex-partners/api/Settings/CustomerAddressTypeService.ts';
 	}])
 	.controller('PageController', ($scope, $http, ViewParameters, LocaleService, EntityService) => {
 		const Dialogs = new DialogHub();
@@ -21,12 +21,12 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 		$scope.action = 'select';
 
 		LocaleService.onInit(() => {
-			description = LocaleService.t('codbex-partners:defaults.description');
-			$scope.formHeaders.select = LocaleService.t('codbex-partners:defaults.formHeadSelect', { name: '$t(codbex-partners:t.CUSTOMERADDRESSTYPE)' });
-			$scope.formHeaders.create = LocaleService.t('codbex-partners:defaults.formHeadCreate', { name: '$t(codbex-partners:t.CUSTOMERADDRESSTYPE)' });
-			$scope.formHeaders.update = LocaleService.t('codbex-partners:defaults.formHeadUpdate', { name: '$t(codbex-partners:t.CUSTOMERADDRESSTYPE)' });
-			propertySuccessfullyCreated = LocaleService.t('codbex-partners:messages.propertySuccessfullyCreated', { name: '$t(codbex-partners:t.CUSTOMERADDRESSTYPE)' });
-			propertySuccessfullyUpdated = LocaleService.t('codbex-partners:messages.propertySuccessfullyUpdated', { name: '$t(codbex-partners:t.CUSTOMERADDRESSTYPE)' });
+			description = LocaleService.t('codbex-partners:codbex-partners-model.defaults.description');
+			$scope.formHeaders.select = LocaleService.t('codbex-partners:codbex-partners-model.defaults.formHeadSelect', { name: '$t(codbex-partners:codbex-partners-model.t.CUSTOMERADDRESSTYPE)' });
+			$scope.formHeaders.create = LocaleService.t('codbex-partners:codbex-partners-model.defaults.formHeadCreate', { name: '$t(codbex-partners:codbex-partners-model.t.CUSTOMERADDRESSTYPE)' });
+			$scope.formHeaders.update = LocaleService.t('codbex-partners:codbex-partners-model.defaults.formHeadUpdate', { name: '$t(codbex-partners:codbex-partners-model.t.CUSTOMERADDRESSTYPE)' });
+			propertySuccessfullyCreated = LocaleService.t('codbex-partners:codbex-partners-model.messages.propertySuccessfullyCreated', { name: '$t(codbex-partners:codbex-partners-model.t.CUSTOMERADDRESSTYPE)' });
+			propertySuccessfullyUpdated = LocaleService.t('codbex-partners:codbex-partners-model.messages.propertySuccessfullyUpdated', { name: '$t(codbex-partners:codbex-partners-model.t.CUSTOMERADDRESSTYPE)' });
 		});
 
 		let params = ViewParameters.get();
@@ -41,9 +41,9 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			let entity = $scope.entity;
 			entity[$scope.selectedMainEntityKey] = $scope.selectedMainEntityId;
 			EntityService.create(entity).then((response) => {
-				Dialogs.postMessage({ topic: 'codbex-partners.entities.CustomerAddressType.entityCreated', data: response.data });
+				Dialogs.postMessage({ topic: 'codbex-partners.Settings.CustomerAddressType.entityCreated', data: response.data });
 				Notifications.show({
-					title: LocaleService.t('codbex-partners:t.CUSTOMERADDRESSTYPE'),
+					title: LocaleService.t('codbex-partners:codbex-partners-model.t.CUSTOMERADDRESSTYPE'),
 					description: propertySuccessfullyCreated,
 					type: 'positive'
 				});
@@ -51,7 +51,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			}, (error) => {
 				const message = error.data ? error.data.message : '';
 				$scope.$evalAsync(() => {
-					$scope.errorMessage = LocaleService.t('codbex-partners:messages.error.unableToCreate', { name: '$t(codbex-partners:t.CUSTOMERADDRESSTYPE)', message: message });
+					$scope.errorMessage = LocaleService.t('codbex-partners:codbex-partners-model.messages.error.unableToCreate', { name: '$t(codbex-partners:codbex-partners-model.t.CUSTOMERADDRESSTYPE)', message: message });
 				});
 				console.error('EntityService:', error);
 			});
@@ -62,9 +62,9 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			let entity = $scope.entity;
 			entity[$scope.selectedMainEntityKey] = $scope.selectedMainEntityId;
 			EntityService.update(id, entity).then((response) => {
-				Dialogs.postMessage({ topic: 'codbex-partners.entities.CustomerAddressType.entityUpdated', data: response.data });
+				Dialogs.postMessage({ topic: 'codbex-partners.Settings.CustomerAddressType.entityUpdated', data: response.data });
 				Notifications.show({
-					title: LocaleService.t('codbex-partners:t.CUSTOMERADDRESSTYPE'),
+					title: LocaleService.t('codbex-partners:codbex-partners-model.t.CUSTOMERADDRESSTYPE'),
 					description: propertySuccessfullyUpdated,
 					type: 'positive'
 				});
@@ -72,7 +72,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			}, (error) => {
 				const message = error.data ? error.data.message : '';
 				$scope.$evalAsync(() => {
-					$scope.errorMessage = LocaleService.t('codbex-partners:messages.error.unableToUpdate', { name: '$t(codbex-partners:t.CUSTOMERADDRESSTYPE)', message: message });
+					$scope.errorMessage = LocaleService.t('codbex-partners:codbex-partners-model.messages.error.unableToUpdate', { name: '$t(codbex-partners:codbex-partners-model.t.CUSTOMERADDRESSTYPE)', message: message });
 				});
 				console.error('EntityService:', error);
 			});

@@ -7,10 +7,10 @@ const viewData = {
     id: 'CustomerAddressType-details',
     label: 'CustomerAddressType',
     translation: {
-        key: 'codbex-partners:t.CUSTOMERADDRESSTYPE',
+        key: 'codbex-partners:codbex-partners-model.t.CUSTOMERADDRESSTYPE',
     },
-    path: '/services/web/codbex-partners/gen/codbex-partners/ui/entities/CustomerAddressType/dialog-window/index.html',
-    perspectiveName: 'entities'
+    path: '/services/web/codbex-partners/gen/codbex-partners/ui/Settings/CustomerAddressType/dialog-window/index.html',
+    perspectiveName: 'Settings'
 };
 if (typeof exports !== 'undefined') {
     exports.getView = () => viewData;

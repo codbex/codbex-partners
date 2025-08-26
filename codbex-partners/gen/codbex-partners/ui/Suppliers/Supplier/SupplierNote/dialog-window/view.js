@@ -7,7 +7,7 @@ const viewData = {
     id: 'SupplierNote-details',
     label: 'SupplierNote',
     translation: {
-        key: 'codbex-partners:t.SUPPLIERNOTE',
+        key: 'codbex-partners:codbex-partners-model.t.SUPPLIERNOTE',
     },
     path: '/services/web/codbex-partners/gen/codbex-partners/ui/Suppliers/Supplier/SupplierNote/dialog-window/index.html',
     perspectiveName: 'Suppliers'

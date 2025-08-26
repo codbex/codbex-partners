@@ -7,7 +7,7 @@ const viewData = {
     id: 'CustomerNote',
     label: 'CustomerNote',
     translation: {
-        key: 'codbex-partners:t.CUSTOMERNOTE',
+        key: 'codbex-partners:codbex-partners-model.t.CUSTOMERNOTE',
     },
     region: 'bottom',
     lazyLoad: false,
