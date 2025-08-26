@@ -20,12 +20,12 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 		$scope.action = 'select';
 
 		LocaleService.onInit(() => {
-			description = LocaleService.t('codbex-partners:defaults.description');
-			$scope.formHeaders.select = LocaleService.t('codbex-partners:defaults.formHeadSelect', { name: '$t(codbex-partners:t.MANUFACTURER)' });
-			$scope.formHeaders.create = LocaleService.t('codbex-partners:defaults.formHeadCreate', { name: '$t(codbex-partners:t.MANUFACTURER)' });
-			$scope.formHeaders.update = LocaleService.t('codbex-partners:defaults.formHeadUpdate', { name: '$t(codbex-partners:t.MANUFACTURER)' });
-			propertySuccessfullyCreated = LocaleService.t('codbex-partners:messages.propertySuccessfullyCreated', { name: '$t(codbex-partners:t.MANUFACTURER)' });
-			propertySuccessfullyUpdated = LocaleService.t('codbex-partners:messages.propertySuccessfullyUpdated', { name: '$t(codbex-partners:t.MANUFACTURER)' });
+			description = LocaleService.t('codbex-partners:codbex-partners-model.defaults.description');
+			$scope.formHeaders.select = LocaleService.t('codbex-partners:codbex-partners-model.defaults.formHeadSelect', { name: '$t(codbex-partners:codbex-partners-model.t.MANUFACTURER)' });
+			$scope.formHeaders.create = LocaleService.t('codbex-partners:codbex-partners-model.defaults.formHeadCreate', { name: '$t(codbex-partners:codbex-partners-model.t.MANUFACTURER)' });
+			$scope.formHeaders.update = LocaleService.t('codbex-partners:codbex-partners-model.defaults.formHeadUpdate', { name: '$t(codbex-partners:codbex-partners-model.t.MANUFACTURER)' });
+			propertySuccessfullyCreated = LocaleService.t('codbex-partners:codbex-partners-model.messages.propertySuccessfullyCreated', { name: '$t(codbex-partners:codbex-partners-model.t.MANUFACTURER)' });
+			propertySuccessfullyUpdated = LocaleService.t('codbex-partners:codbex-partners-model.messages.propertySuccessfullyUpdated', { name: '$t(codbex-partners:codbex-partners-model.t.MANUFACTURER)' });
 		});
 
 		//-----------------Custom Actions-------------------//
@@ -121,15 +121,15 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				Dialogs.postMessage({ topic: 'codbex-partners.Manufacturers.Manufacturer.entityCreated', data: response.data });
 				Dialogs.postMessage({ topic: 'codbex-partners.Manufacturers.Manufacturer.clearDetails' , data: response.data });
 				Notifications.show({
-					title: LocaleService.t('codbex-partners:t.MANUFACTURER'),
+					title: LocaleService.t('codbex-partners:codbex-partners-model.t.MANUFACTURER'),
 					description: propertySuccessfullyCreated,
 					type: 'positive'
 				});
 			}, (error) => {
 				const message = error.data ? error.data.message : '';
 				Dialogs.showAlert({
-					title: LocaleService.t('codbex-partners:t.MANUFACTURER'),
-					message: LocaleService.t('codbex-partners:messages.error.unableToCreate', { name: '$t(codbex-partners:t.MANUFACTURER)', message: message }),
+					title: LocaleService.t('codbex-partners:codbex-partners-model.t.MANUFACTURER'),
+					message: LocaleService.t('codbex-partners:codbex-partners-model.messages.error.unableToCreate', { name: '$t(codbex-partners:codbex-partners-model.t.MANUFACTURER)', message: message }),
 					type: AlertTypes.Error
 				});
 				console.error('EntityService:', error);
@@ -141,15 +141,15 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				Dialogs.postMessage({ topic: 'codbex-partners.Manufacturers.Manufacturer.entityUpdated', data: response.data });
 				Dialogs.postMessage({ topic: 'codbex-partners.Manufacturers.Manufacturer.clearDetails', data: response.data });
 				Notifications.show({
-					title: LocaleService.t('codbex-partners:t.MANUFACTURER'),
+					title: LocaleService.t('codbex-partners:codbex-partners-model.t.MANUFACTURER'),
 					description: propertySuccessfullyUpdated,
 					type: 'positive'
 				});
 			}, (error) => {
 				const message = error.data ? error.data.message : '';
 				Dialogs.showAlert({
-					title: LocaleService.t('codbex-partners:t.MANUFACTURER'),
-					message: LocaleService.t('codbex-partners:messages.error.unableToCreate', { name: '$t(codbex-partners:t.MANUFACTURER)', message: message }),
+					title: LocaleService.t('codbex-partners:codbex-partners-model.t.MANUFACTURER'),
+					message: LocaleService.t('codbex-partners:codbex-partners-model.messages.error.unableToCreate', { name: '$t(codbex-partners:codbex-partners-model.t.MANUFACTURER)', message: message }),
 					type: AlertTypes.Error
 				});
 				console.error('EntityService:', error);
@@ -209,7 +209,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				const message = error.data ? error.data.message : '';
 				Dialogs.showAlert({
 					title: 'Country',
-					message: LocaleService.t('codbex-partners:messages.error.unableToLoad', { message: message }),
+					message: LocaleService.t('codbex-partners:codbex-partners-model.messages.error.unableToLoad', { message: message }),
 					type: AlertTypes.Error
 				});
 			});
@@ -226,7 +226,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				const message = error.data ? error.data.message : '';
 				Dialogs.showAlert({
 					title: 'City',
-					message: LocaleService.t('codbex-partners:messages.error.unableToLoad', { message: message }),
+					message: LocaleService.t('codbex-partners:codbex-partners-model.messages.error.unableToLoad', { message: message }),
 					type: AlertTypes.Error
 				});
 			});

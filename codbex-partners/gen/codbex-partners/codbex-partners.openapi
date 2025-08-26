@@ -17,7 +17,7 @@ tags:
   - name: Manufacturers
   - name: Customers
   - name: Customers
-  - name: entities
+  - name: Settings
 paths:
   /codbex-partners/gen/codbex-partners/api/Customers/CustomerService.ts:
     get:
@@ -3315,7 +3315,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-partners/gen/codbex-partners/api/entities/CustomerAddressTypeService.ts:
+  /codbex-partners/gen/codbex-partners/api/Settings/CustomerAddressTypeService.ts:
     get:
       summary: List CustomerAddressType
       parameters:
@@ -3336,7 +3336,7 @@ paths:
             type: integer
             allowEmptyValue: true
       tags:
-        - entities
+        - Settings
       responses:
         200:
           description: Successful Request
@@ -3367,7 +3367,7 @@ paths:
     post:
       summary: Create CustomerAddressType
       tags:
-        - entities
+        - Settings
       requestBody:
         content:
           application/json:
@@ -3399,7 +3399,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-partners/gen/codbex-partners/api/entities/CustomerAddressTypeService.ts/{id}:
+  /codbex-partners/gen/codbex-partners/api/Settings/CustomerAddressTypeService.ts/{id}:
     get:
       summary: Get CustomerAddressType by Id
       parameters:
@@ -3410,7 +3410,7 @@ paths:
           schema:
             type: string
       tags:
-        - entities
+        - Settings
       responses:
         200:
           description: Successful Request
@@ -3448,7 +3448,7 @@ paths:
           schema:
             type: string
       tags:
-        - entities
+        - Settings
       requestBody:
         content:
           application/json:
@@ -3496,7 +3496,7 @@ paths:
           schema:
             type: string
       tags:
-        - entities
+        - Settings
       responses:
         204:
           description: Successful Request
@@ -3518,11 +3518,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-partners/gen/codbex-partners/api/entities/CustomerAddressTypeService.ts/count:
+  /codbex-partners/gen/codbex-partners/api/Settings/CustomerAddressTypeService.ts/count:
     get:
       summary: Count the number of CustomerAddressType
       tags:
-        - entities
+        - Settings
       responses:
         200:
           description: Successful Request
@@ -3546,7 +3546,7 @@ paths:
     post:
       summary: Count the number of CustomerAddressType by CustomerAddressTypeFilterOptions
       tags:
-        - entities
+        - Settings
       requestBody:
         content:
           application/json:
@@ -3628,11 +3628,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-partners/gen/codbex-partners/api/entities/CustomerAddressTypeService.ts/search:
+  /codbex-partners/gen/codbex-partners/api/Settings/CustomerAddressTypeService.ts/search:
     post:
       summary: Search CustomerAddressType by CustomerAddressTypeFilterOptions
       tags:
-        - entities
+        - Settings
       requestBody:
         content:
           application/json:

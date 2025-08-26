@@ -1,6 +1,6 @@
 angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntityService'])
 	.config(['EntityServiceProvider', (EntityServiceProvider) => {
-		EntityServiceProvider.baseUrl = '/services/ts/codbex-partners/gen/codbex-partners/api/entities/CustomerAddressTypeService.ts';
+		EntityServiceProvider.baseUrl = '/services/ts/codbex-partners/gen/codbex-partners/api/Settings/CustomerAddressTypeService.ts';
 	}])
 	.controller('PageController', ($scope, EntityService, Extensions, LocaleService, ButtonStates) => {
 		const Dialogs = new DialogHub();
@@ -12,10 +12,10 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 		};
 
 		LocaleService.onInit(() => {
-			translated.yes = LocaleService.t('codbex-partners:defaults.yes');
-			translated.no = LocaleService.t('codbex-partners:defaults.no');
-			translated.deleteTitle = LocaleService.t('codbex-partners:defaults.deleteTitle', { name: '$t(codbex-partners:t.CUSTOMERADDRESSTYPE)' });
-			translated.deleteConfirm = LocaleService.t('codbex-partners:messages.deleteConfirm', { name: '$t(codbex-partners:t.CUSTOMERADDRESSTYPE)' });
+			translated.yes = LocaleService.t('codbex-partners:codbex-partners-model.defaults.yes');
+			translated.no = LocaleService.t('codbex-partners:codbex-partners-model.defaults.no');
+			translated.deleteTitle = LocaleService.t('codbex-partners:codbex-partners-model.defaults.deleteTitle', { name: '$t(codbex-partners:codbex-partners-model.t.CUSTOMERADDRESSTYPE)' });
+			translated.deleteConfirm = LocaleService.t('codbex-partners:codbex-partners-model.messages.deleteConfirm', { name: '$t(codbex-partners:codbex-partners-model.t.CUSTOMERADDRESSTYPE)' });
 		});
 
 		$scope.dataPage = 1;
@@ -24,8 +24,8 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 
 		//-----------------Custom Actions-------------------//
 		Extensions.getWindows(['codbex-partners-custom-action']).then((response) => {
-			$scope.pageActions = response.data.filter(e => e.perspective === 'entities' && e.view === 'CustomerAddressType' && (e.type === 'page' || e.type === undefined));
-			$scope.entityActions = response.data.filter(e => e.perspective === 'entities' && e.view === 'CustomerAddressType' && e.type === 'entity');
+			$scope.pageActions = response.data.filter(e => e.perspective === 'Settings' && e.view === 'CustomerAddressType' && (e.type === 'page' || e.type === undefined));
+			$scope.entityActions = response.data.filter(e => e.perspective === 'Settings' && e.view === 'CustomerAddressType' && e.type === 'entity');
 		});
 
 		$scope.triggerPageAction = (action) => {
@@ -60,13 +60,13 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 		resetPagination();
 
 		//-----------------Events-------------------//
-		Dialogs.addMessageListener({ topic: 'codbex-partners.entities.CustomerAddressType.entityCreated', handler: () => {
+		Dialogs.addMessageListener({ topic: 'codbex-partners.Settings.CustomerAddressType.entityCreated', handler: () => {
 			$scope.loadPage($scope.dataPage, $scope.filter);
 		}});
-		Dialogs.addMessageListener({ topic: 'codbex-partners.entities.CustomerAddressType.entityUpdated', handler: () => {
+		Dialogs.addMessageListener({ topic: 'codbex-partners.Settings.CustomerAddressType.entityUpdated', handler: () => {
 			$scope.loadPage($scope.dataPage, $scope.filter);
 		}});
-		Dialogs.addMessageListener({ topic: 'codbex-partners.entities.CustomerAddressType.entitySearch', handler: (data) => {
+		Dialogs.addMessageListener({ topic: 'codbex-partners.Settings.CustomerAddressType.entitySearch', handler: (data) => {
 			resetPagination();
 			$scope.filter = data.filter;
 			$scope.filterEntity = data.entity;
@@ -98,8 +98,8 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				}, (error) => {
 					const message = error.data ? error.data.message : '';
 					Dialogs.showAlert({
-						title: LocaleService.t('codbex-partners:t.CUSTOMERADDRESSTYPE'),
-						message: LocaleService.t('codbex-partners:messages.error.unableToLF', { name: '$t(codbex-partners:t.CUSTOMERADDRESSTYPE)', message: message }),
+						title: LocaleService.t('codbex-partners:codbex-partners-model.t.CUSTOMERADDRESSTYPE'),
+						message: LocaleService.t('codbex-partners:codbex-partners-model.messages.error.unableToLF', { name: '$t(codbex-partners:codbex-partners-model.t.CUSTOMERADDRESSTYPE)', message: message }),
 						type: AlertTypes.Error
 					});
 					console.error('EntityService:', error);
@@ -107,8 +107,8 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			}, (error) => {
 				const message = error.data ? error.data.message : '';
 				Dialogs.showAlert({
-					title: LocaleService.t('codbex-partners:t.CUSTOMERADDRESSTYPE'),
-					message: LocaleService.t('codbex-partners:messages.error.unableToCount', { name: '$t(codbex-partners:t.CUSTOMERADDRESSTYPE)', message: message }),
+					title: LocaleService.t('codbex-partners:codbex-partners-model.t.CUSTOMERADDRESSTYPE'),
+					message: LocaleService.t('codbex-partners:codbex-partners-model.messages.error.unableToCount', { name: '$t(codbex-partners:codbex-partners-model.t.CUSTOMERADDRESSTYPE)', message: message }),
 					type: AlertTypes.Error
 				});
 				console.error('EntityService:', error);
@@ -182,12 +182,12 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				if (buttonId === 'delete-btn-yes') {
 					EntityService.delete(id).then((response) => {
 						$scope.loadPage($scope.dataPage, $scope.filter);
-						Dialogs.triggerEvent('codbex-partners.entities.CustomerAddressType.clearDetails');
+						Dialogs.triggerEvent('codbex-partners.Settings.CustomerAddressType.clearDetails');
 					}, (error) => {
 						const message = error.data ? error.data.message : '';
 						Dialogs.showAlert({
-							title: LocaleService.t('codbex-partners:t.CUSTOMERADDRESSTYPE'),
-							message: LocaleService.t('codbex-partners:messages.error.unableToDelete', { name: '$t(codbex-partners:t.CUSTOMERADDRESSTYPE)', message: message }),
+							title: LocaleService.t('codbex-partners:codbex-partners-model.t.CUSTOMERADDRESSTYPE'),
+							message: LocaleService.t('codbex-partners:codbex-partners-model.messages.error.unableToDelete', { name: '$t(codbex-partners:codbex-partners-model.t.CUSTOMERADDRESSTYPE)', message: message }),
 							type: AlertTypes.Error
 						});
 						console.error('EntityService:', error);

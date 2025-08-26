@@ -1,5 +1,5 @@
 {
-    "module": "codbex-partners/gen/codbex-partners/ui/entities/CustomerAddressType/dialog-window/view.js",
+    "module": "codbex-partners/gen/codbex-partners/ui/Settings/CustomerAddressType/dialog-filter/view.js",
     "extensionPoint": "application-windows",
     "description": "codbex-partners - Application Dialog Window"
 }

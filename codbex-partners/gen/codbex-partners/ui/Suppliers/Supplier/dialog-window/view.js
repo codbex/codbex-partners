@@ -7,7 +7,7 @@ const viewData = {
     id: "Supplier-details",
     label: "Supplier",
     translation: {
-        key: 'codbex-partners:t.SUPPLIER',
+        key: 'codbex-partners:codbex-partners-model.t.SUPPLIER',
     },
     path: "/services/web/codbex-partners/gen/codbex-partners/ui/Suppliers/Supplier/dialog-window/index.html",
     perspectiveName: "Suppliers",

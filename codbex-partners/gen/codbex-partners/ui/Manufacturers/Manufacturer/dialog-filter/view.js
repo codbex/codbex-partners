@@ -7,9 +7,9 @@ const viewData = {
     id: 'Manufacturer-filter',
     label: 'Manufacturer Filter',
     translation: {
-        key: 'codbex-partners:extName',
+        key: 'codbex-partners:codbex-partners-model.extName',
         options: {
-            content: '$t(codbex-partners:t.MANUFACTURER) $t(codbex-partners:defaults.filter)',
+            content: '$t(codbex-partners:codbex-partners-model.t.MANUFACTURER) $t(codbex-partners:codbex-partners-model.defaults.filter)',
         }
     },
     path: '/services/web/codbex-partners/gen/codbex-partners/ui/Manufacturers/Manufacturer/dialog-filter/index.html',

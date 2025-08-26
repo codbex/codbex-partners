@@ -7,7 +7,7 @@ const viewData = {
     id: 'Manufacturer',
     label: 'Manufacturer',
     translation: {
-        key: 'codbex-partners:t.MANUFACTURER',
+        key: 'codbex-partners:codbex-partners-model.t.MANUFACTURER',
     },
     region: 'left',
     lazyLoad: false,

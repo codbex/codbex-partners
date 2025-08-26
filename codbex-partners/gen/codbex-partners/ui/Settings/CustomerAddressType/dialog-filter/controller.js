@@ -7,7 +7,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 	};
 
 	LocaleService.onInit(() => {
-		description = LocaleService.t('codbex-partners:defaults.description');
+		description = LocaleService.t('codbex-partners:codbex-partners-model.defaults.description');
 	});
 
 	let params = ViewParameters.get();
@@ -43,7 +43,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 		if (entity.Name) {
 			filter.$filter.contains.Name = entity.Name;
 		}
-		Dialogs.postMessage({ topic: 'codbex-partners.entities.CustomerAddressType.entitySearch', data: {
+		Dialogs.postMessage({ topic: 'codbex-partners.Settings.CustomerAddressType.entitySearch', data: {
 			entity: entity,
 			filter: filter
 		}});

@@ -7,7 +7,7 @@ const viewData = {
     id: 'CustomerContact',
     label: 'CustomerContact',
     translation: {
-        key: 'codbex-partners:t.CUSTOMERCONTACT',
+        key: 'codbex-partners:codbex-partners-model.t.CUSTOMERCONTACT',
     },
     region: 'bottom',
     lazyLoad: false,

@@ -7,7 +7,7 @@ const viewData = {
     id: 'SupplierNote',
     label: 'SupplierNote',
     translation: {
-        key: 'codbex-partners:t.SUPPLIERNOTE',
+        key: 'codbex-partners:codbex-partners-model.t.SUPPLIERNOTE',
     },
     region: 'bottom',
     lazyLoad: false,
