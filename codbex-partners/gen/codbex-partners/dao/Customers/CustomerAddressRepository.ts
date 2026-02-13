@@ -1,7 +1,7 @@
-import { query } from "sdk/db";
-import { producer } from "sdk/messaging";
-import { extensions } from "sdk/extensions";
-import { dao as daoApi } from "sdk/db";
+import { sql, query } from "@aerokit/sdk/db";
+import { producer } from "@aerokit/sdk/messaging";
+import { extensions } from "@aerokit/sdk/extensions";
+import { dao as daoApi } from "@aerokit/sdk/db";
 import { EntityUtils } from "../utils/EntityUtils";
 
 export interface CustomerAddressEntity {
@@ -152,6 +152,7 @@ export interface CustomerAddressEntityOptions {
     $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
+    $language?: string
 }
 
 export interface CustomerAddressEntityEvent {
@@ -251,13 +252,14 @@ export class CustomerAddressRepository {
     }
 
     public findAll(options: CustomerAddressEntityOptions = {}): CustomerAddressEntity[] {
-        return this.dao.list(options).map((e: CustomerAddressEntity) => {
+        let list = this.dao.list(options).map((e: CustomerAddressEntity) => {
             EntityUtils.setBoolean(e, "IsActive");
             return e;
         });
+        return list;
     }
 
-    public findById(id: number): CustomerAddressEntity | undefined {
+    public findById(id: number, options: CustomerAddressEntityOptions = {}): CustomerAddressEntity | undefined {
         const entity = this.dao.find(id);
         EntityUtils.setBoolean(entity, "IsActive");
         return entity ?? undefined;

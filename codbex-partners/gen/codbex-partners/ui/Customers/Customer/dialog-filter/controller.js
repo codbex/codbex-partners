@@ -22,57 +22,59 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 		let entity = $scope.entity;
 		const filter = {
 			$filter: {
-				equals: {
-				},
-				notEquals: {
-				},
-				contains: {
-				},
-				greaterThan: {
-				},
-				greaterThanOrEqual: {
-				},
-				lessThan: {
-				},
-				lessThanOrEqual: {
-				}
-			},
+				conditions: [],
+				sorts: [],
+				limit: 20,
+				offset: 0
+			}
 		};
 		if (entity.Id !== undefined) {
-			filter.$filter.equals.Id = entity.Id;
+			const condition = { propertyName: 'Id', operator: 'EQ', value: entity.Id };
+			filter.$filter.conditions.push(condition);
 		}
 		if (entity.FirstName) {
-			filter.$filter.contains.FirstName = entity.FirstName;
+			const condition = { propertyName: 'FirstName', operator: 'LIKE', value: `%${entity.FirstName}%` };
+			filter.$filter.conditions.push(condition);
 		}
 		if (entity.LastName) {
-			filter.$filter.contains.LastName = entity.LastName;
+			const condition = { propertyName: 'LastName', operator: 'LIKE', value: `%${entity.LastName}%` };
+			filter.$filter.conditions.push(condition);
 		}
 		if (entity.Name) {
-			filter.$filter.contains.Name = entity.Name;
+			const condition = { propertyName: 'Name', operator: 'LIKE', value: `%${entity.Name}%` };
+			filter.$filter.conditions.push(condition);
 		}
 		if (entity.Email) {
-			filter.$filter.contains.Email = entity.Email;
+			const condition = { propertyName: 'Email', operator: 'LIKE', value: `%${entity.Email}%` };
+			filter.$filter.conditions.push(condition);
 		}
 		if (entity.Phone) {
-			filter.$filter.contains.Phone = entity.Phone;
+			const condition = { propertyName: 'Phone', operator: 'LIKE', value: `%${entity.Phone}%` };
+			filter.$filter.conditions.push(condition);
 		}
 		if (entity.Fax) {
-			filter.$filter.contains.Fax = entity.Fax;
+			const condition = { propertyName: 'Fax', operator: 'LIKE', value: `%${entity.Fax}%` };
+			filter.$filter.conditions.push(condition);
 		}
 		if (entity.TIN) {
-			filter.$filter.contains.TIN = entity.TIN;
+			const condition = { propertyName: 'TIN', operator: 'LIKE', value: `%${entity.TIN}%` };
+			filter.$filter.conditions.push(condition);
 		}
 		if (entity.IBAN) {
-			filter.$filter.contains.IBAN = entity.IBAN;
+			const condition = { propertyName: 'IBAN', operator: 'LIKE', value: `%${entity.IBAN}%` };
+			filter.$filter.conditions.push(condition);
 		}
 		if (entity.Identifier) {
-			filter.$filter.contains.Identifier = entity.Identifier;
+			const condition = { propertyName: 'Identifier', operator: 'LIKE', value: `%${entity.Identifier}%` };
+			filter.$filter.conditions.push(condition);
 		}
 		if (entity.CreatedAtFrom) {
-			filter.$filter.greaterThanOrEqual.CreatedAt = entity.CreatedAtFrom;
+			const condition = { propertyName: 'CreatedAt', operator: 'GE', value: entity.CreatedAtFrom };
+			filter.$filter.conditions.push(condition);
 		}
 		if (entity.CreatedAtTo) {
-			filter.$filter.lessThanOrEqual.CreatedAt = entity.CreatedAtTo;
+			const condition = { propertyName: 'CreatedAt', operator: 'LE', value: entity.CreatedAtTo };
+			filter.$filter.conditions.push(condition);
 		}
 		Dialogs.postMessage({ topic: 'codbex-partners.Customers.Customer.entitySearch', data: {
 			entity: entity,
