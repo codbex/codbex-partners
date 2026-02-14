@@ -1,7 +1,7 @@
-import { query } from "sdk/db";
-import { producer } from "sdk/messaging";
-import { extensions } from "sdk/extensions";
-import { dao as daoApi } from "sdk/db";
+import { sql, query } from "@aerokit/sdk/db";
+import { producer } from "@aerokit/sdk/messaging";
+import { extensions } from "@aerokit/sdk/extensions";
+import { dao as daoApi } from "@aerokit/sdk/db";
 
 export interface ManufacturerEntity {
     readonly Id: number;
@@ -70,6 +70,7 @@ export interface ManufacturerEntityOptions {
     $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
+    $language?: string
 }
 
 export interface ManufacturerEntityEvent {
@@ -127,10 +128,11 @@ export class ManufacturerRepository {
     }
 
     public findAll(options: ManufacturerEntityOptions = {}): ManufacturerEntity[] {
-        return this.dao.list(options);
+        let list = this.dao.list(options);
+        return list;
     }
 
-    public findById(id: number): ManufacturerEntity | undefined {
+    public findById(id: number, options: ManufacturerEntityOptions = {}): ManufacturerEntity | undefined {
         const entity = this.dao.find(id);
         return entity ?? undefined;
     }

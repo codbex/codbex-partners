@@ -19,60 +19,63 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 		let entity = $scope.entity;
 		const filter = {
 			$filter: {
-				equals: {
-				},
-				notEquals: {
-				},
-				contains: {
-				},
-				greaterThan: {
-				},
-				greaterThanOrEqual: {
-				},
-				lessThan: {
-				},
-				lessThanOrEqual: {
-				}
-			},
+				conditions: [],
+				sorts: [],
+				limit: 20,
+				offset: 0
+			}
 		};
 		if (entity.Id !== undefined) {
-			filter.$filter.equals.Id = entity.Id;
+			const condition = { propertyName: 'Id', operator: 'EQ', value: entity.Id };
+			filter.$filter.conditions.push(condition);
 		}
 		if (entity.Customer !== undefined) {
-			filter.$filter.equals.Customer = entity.Customer;
+			const condition = { propertyName: 'Customer', operator: 'EQ', value: entity.Customer };
+			filter.$filter.conditions.push(condition);
 		}
 		if (entity.FirstName) {
-			filter.$filter.contains.FirstName = entity.FirstName;
+			const condition = { propertyName: 'FirstName', operator: 'LIKE', value: `%${entity.FirstName}%` };
+			filter.$filter.conditions.push(condition);
 		}
 		if (entity.LastName) {
-			filter.$filter.contains.LastName = entity.LastName;
+			const condition = { propertyName: 'LastName', operator: 'LIKE', value: `%${entity.LastName}%` };
+			filter.$filter.conditions.push(condition);
 		}
 		if (entity.Email) {
-			filter.$filter.contains.Email = entity.Email;
+			const condition = { propertyName: 'Email', operator: 'LIKE', value: `%${entity.Email}%` };
+			filter.$filter.conditions.push(condition);
 		}
 		if (entity.Phone) {
-			filter.$filter.contains.Phone = entity.Phone;
+			const condition = { propertyName: 'Phone', operator: 'LIKE', value: `%${entity.Phone}%` };
+			filter.$filter.conditions.push(condition);
 		}
 		if (entity.Country !== undefined) {
-			filter.$filter.equals.Country = entity.Country;
+			const condition = { propertyName: 'Country', operator: 'EQ', value: entity.Country };
+			filter.$filter.conditions.push(condition);
 		}
 		if (entity.City !== undefined) {
-			filter.$filter.equals.City = entity.City;
+			const condition = { propertyName: 'City', operator: 'EQ', value: entity.City };
+			filter.$filter.conditions.push(condition);
 		}
 		if (entity.AddressLine1) {
-			filter.$filter.contains.AddressLine1 = entity.AddressLine1;
+			const condition = { propertyName: 'AddressLine1', operator: 'LIKE', value: `%${entity.AddressLine1}%` };
+			filter.$filter.conditions.push(condition);
 		}
 		if (entity.AddressLine2) {
-			filter.$filter.contains.AddressLine2 = entity.AddressLine2;
+			const condition = { propertyName: 'AddressLine2', operator: 'LIKE', value: `%${entity.AddressLine2}%` };
+			filter.$filter.conditions.push(condition);
 		}
 		if (entity.PostalCode) {
-			filter.$filter.contains.PostalCode = entity.PostalCode;
+			const condition = { propertyName: 'PostalCode', operator: 'LIKE', value: `%${entity.PostalCode}%` };
+			filter.$filter.conditions.push(condition);
 		}
 		if (entity.AddressType !== undefined) {
-			filter.$filter.equals.AddressType = entity.AddressType;
+			const condition = { propertyName: 'AddressType', operator: 'EQ', value: entity.AddressType };
+			filter.$filter.conditions.push(condition);
 		}
 		if (entity.IsActive !== undefined && entity.isIsActiveIndeterminate === false) {
-			filter.$filter.equals.IsActive = entity.IsActive;
+			const condition = { propertyName: 'IsActive', operator: 'EQ', value: entity.IsActive };
+			filter.$filter.conditions.push(condition);
 		}
 		Dialogs.postMessage({ topic: 'codbex-partners.Customers.CustomerAddress.entitySearch', data: {
 			entity: entity,

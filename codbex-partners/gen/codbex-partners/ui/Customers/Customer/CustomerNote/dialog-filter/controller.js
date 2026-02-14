@@ -16,30 +16,23 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 		let entity = $scope.entity;
 		const filter = {
 			$filter: {
-				equals: {
-				},
-				notEquals: {
-				},
-				contains: {
-				},
-				greaterThan: {
-				},
-				greaterThanOrEqual: {
-				},
-				lessThan: {
-				},
-				lessThanOrEqual: {
-				}
-			},
+				conditions: [],
+				sorts: [],
+				limit: 20,
+				offset: 0
+			}
 		};
 		if (entity.Id !== undefined) {
-			filter.$filter.equals.Id = entity.Id;
+			const condition = { propertyName: 'Id', operator: 'EQ', value: entity.Id };
+			filter.$filter.conditions.push(condition);
 		}
 		if (entity.Customer !== undefined) {
-			filter.$filter.equals.Customer = entity.Customer;
+			const condition = { propertyName: 'Customer', operator: 'EQ', value: entity.Customer };
+			filter.$filter.conditions.push(condition);
 		}
 		if (entity.Note) {
-			filter.$filter.contains.Note = entity.Note;
+			const condition = { propertyName: 'Note', operator: 'LIKE', value: `%${entity.Note}%` };
+			filter.$filter.conditions.push(condition);
 		}
 		Dialogs.postMessage({ topic: 'codbex-partners.Customers.CustomerNote.entitySearch', data: {
 			entity: entity,

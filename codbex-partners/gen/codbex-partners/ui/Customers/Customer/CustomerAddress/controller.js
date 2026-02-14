@@ -1,6 +1,6 @@
 angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntityService'])
 	.config(['EntityServiceProvider', (EntityServiceProvider) => {
-		EntityServiceProvider.baseUrl = '/services/ts/codbex-partners/gen/codbex-partners/api/Customers/CustomerAddressService.ts';
+		EntityServiceProvider.baseUrl = '/services/ts/codbex-partners/gen/codbex-partners/api/Customers/CustomerAddressController.ts';
 	}])
 	.controller('PageController', ($scope, $http, EntityService, Extensions, LocaleService, ButtonStates) => {
 		const Dialogs = new DialogHub();
@@ -100,21 +100,19 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				filter = $scope.filter;
 			}
 			if (!filter) {
-				filter = {};
+				filter = {
+					$filter: {
+						conditions: []
+					}
+				};
 			}
-			if (!filter.$filter) {
-				filter.$filter = {};
-			}
-			if (!filter.$filter.equals) {
-				filter.$filter.equals = {};
-			}
-			filter.$filter.equals.Customer = Customer;
+			filter.$filter.conditions.push({ propertyName: 'Customer', operator: 'EQ', value: Customer });
 			EntityService.count(filter).then((resp) => {
 				if (resp.data) {
 					$scope.dataCount = resp.data.count;
 				}
-				filter.$offset = (pageNumber - 1) * $scope.dataLimit;
-				filter.$limit = $scope.dataLimit;
+				filter.$filter.offset = (pageNumber - 1) * $scope.dataLimit;
+				filter.$filter.limit = $scope.dataLimit;
 				EntityService.search(filter).then((response) => {
 					$scope.data = response.data;
 				}, (error) => {
@@ -240,7 +238,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 		$scope.optionsAddressType = [];
 
 
-		$http.get('/services/ts/codbex-countries/gen/codbex-countries/api/Settings/CountryService.ts').then((response) => {
+		$http.get('/services/ts/codbex-countries/gen/codbex-countries/api/Settings/CountryController.ts').then((response) => {
 			$scope.optionsCountry = response.data.map(e => ({
 				value: e.Id,
 				text: e.Name
@@ -255,7 +253,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			});
 		});
 
-		$http.get('/services/ts/codbex-cities/gen/codbex-cities/api/Settings/CityService.ts').then((response) => {
+		$http.get('/services/ts/codbex-cities/gen/codbex-cities/api/Settings/CityController.ts').then((response) => {
 			$scope.optionsCity = response.data.map(e => ({
 				value: e.Id,
 				text: e.Name
@@ -270,7 +268,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			});
 		});
 
-		$http.get('/services/ts/codbex-partners/gen/codbex-partners/api/Settings/CustomerAddressTypeService.ts').then((response) => {
+		$http.get('/services/ts/codbex-partners/gen/codbex-partners/api/Settings/CustomerAddressTypeController.ts').then((response) => {
 			$scope.optionsAddressType = response.data.map(e => ({
 				value: e.Id,
 				text: e.Name

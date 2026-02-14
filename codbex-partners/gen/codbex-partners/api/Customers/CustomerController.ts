@@ -1,117 +1,143 @@
-import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
-import { Extensions } from "sdk/extensions"
-import { CustomerRepository, CustomerEntityOptions } from "../../dao/Customers/CustomerRepository";
-import { user } from "sdk/security"
-import { ForbiddenError } from "../utils/ForbiddenError";
-import { ValidationError } from "../utils/ValidationError";
-import { HttpUtils } from "../utils/HttpUtils";
+import { Controller, Get, Post, Put, Delete, Documentation, request, response } from '@aerokit/sdk/http'
+import { HttpUtils } from "@aerokit/sdk/http/utils";
+import { ValidationError } from '@aerokit/sdk/http/errors'
+import { ForbiddenError } from '@aerokit/sdk/http/errors'
+import { user } from '@aerokit/sdk/security'
+import { Options } from '@aerokit/sdk/db'
+import { Extensions } from "@aerokit/sdk/extensions"
+import { Injected, Inject } from '@aerokit/sdk/component'
+import { CustomerRepository } from '../../data/Customers/CustomerRepository'
+import { CustomerEntity } from '../../data/Customers/CustomerEntity'
 
-const validationModules = await Extensions.loadExtensionModules("codbex-partners-Customers-Customer", ["validate"]);
+const validationModules = await Extensions.loadExtensionModules('codbex-partners-Customers-Customer', ['validate']);
 
 @Controller
-class CustomerService {
+@Documentation('codbex-partners - Customer Controller')
+@Injected()
+class CustomerController {
 
-    private readonly repository = new CustomerRepository();
+    @Inject('CustomerRepository')
+    private readonly repository!: CustomerRepository;
 
-    @Get("/")
-    public getAll(_: any, ctx: any) {
+    @Get('/')
+    @Documentation('Get All Customer')
+    public getAll(_: any, ctx: any): CustomerEntity[] {
         try {
-            this.checkPermissions("read");
-            const options: CustomerEntityOptions = {
-                $limit: ctx.queryParameters["$limit"] ? parseInt(ctx.queryParameters["$limit"]) : undefined,
-                $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined
+            this.checkPermissions('read');
+            const options: Options = {
+                limit: ctx.queryParameters["$limit"] ? parseInt(ctx.queryParameters["$limit"]) : 20,
+                offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : 0,
+                language: request.getLocale().slice(0, 2)
             };
 
             return this.repository.findAll(options);
         } catch (error: any) {
             this.handleError(error);
         }
+        return undefined as any;
     }
 
-    @Post("/")
-    public create(entity: any) {
+    @Post('/')
+    @Documentation('Create Customer')
+    public create(entity: CustomerEntity): CustomerEntity {
         try {
-            this.checkPermissions("write");
+            this.checkPermissions('write');
             this.validateEntity(entity);
-            entity.Id = this.repository.create(entity);
-            response.setHeader("Content-Location", "/services/ts/codbex-partners/gen/codbex-partners/api/Customers/CustomerService.ts/" + entity.Id);
+            entity.Id = this.repository.create(entity) as any;
+            response.setHeader('Content-Location', '/services/ts/codbex-partners/gen/codbex-partners/api/Customers/CustomerService.ts/' + entity.Id);
             response.setStatus(response.CREATED);
             return entity;
         } catch (error: any) {
             this.handleError(error);
         }
+        return undefined as any;
     }
 
-    @Get("/count")
-    public count() {
+    @Get('/count')
+    @Documentation('Count Customer')
+    public count(): { count: number } {
         try {
-            this.checkPermissions("read");
+            this.checkPermissions('read');
             return { count: this.repository.count() };
         } catch (error: any) {
             this.handleError(error);
         }
+        return undefined as any;
     }
 
-    @Post("/count")
-    public countWithFilter(filter: any) {
+    @Post('/count')
+    @Documentation('Count Customer with filter')
+    public countWithFilter(filter: any): { count: number } {
         try {
-            this.checkPermissions("read");
+            this.checkPermissions('read');
             return { count: this.repository.count(filter) };
         } catch (error: any) {
             this.handleError(error);
         }
+        return undefined as any;
     }
 
-    @Post("/search")
-    public search(filter: any) {
+    @Post('/search')
+    @Documentation('Search Customer')
+    public search(filter: any): CustomerEntity[] {
         try {
-            this.checkPermissions("read");
+            this.checkPermissions('read');
             return this.repository.findAll(filter);
         } catch (error: any) {
             this.handleError(error);
         }
+        return undefined as any;
     }
 
-    @Get("/:id")
-    public getById(_: any, ctx: any) {
+    @Get('/:id')
+    @Documentation('Get Customer by id')
+    public getById(_: any, ctx: any): CustomerEntity {
         try {
-            this.checkPermissions("read");
+            this.checkPermissions('read');
             const id = parseInt(ctx.pathParameters.id);
-            const entity = this.repository.findById(id);
+            const options: Options = {
+                language: request.getLocale().slice(0, 2)
+            };
+            const entity = this.repository.findById(id, options);
             if (entity) {
                 return entity;
             } else {
-                HttpUtils.sendResponseNotFound("Customer not found");
+                HttpUtils.sendResponseNotFound('Customer not found');
             }
         } catch (error: any) {
             this.handleError(error);
         }
+        return undefined as any;
     }
 
-    @Put("/:id")
-    public update(entity: any, ctx: any) {
+    @Put('/:id')
+    @Documentation('Update Customer by id')
+    public update(entity: CustomerEntity, ctx: any): CustomerEntity {
         try {
-            this.checkPermissions("write");
-            entity.Id = ctx.pathParameters.id;
+            this.checkPermissions('write');
+            const id = parseInt(ctx.pathParameters.id);
+            entity.Id = id;
             this.validateEntity(entity);
             this.repository.update(entity);
             return entity;
         } catch (error: any) {
             this.handleError(error);
         }
+        return undefined as any;
     }
 
-    @Delete("/:id")
-    public deleteById(_: any, ctx: any) {
+    @Delete('/:id')
+    @Documentation('Delete Customer by id')
+    public deleteById(_: any, ctx: any): void {
         try {
-            this.checkPermissions("write");
-            const id = ctx.pathParameters.id;
+            this.checkPermissions('write');
+            const id = parseInt(ctx.pathParameters.id);
             const entity = this.repository.findById(id);
             if (entity) {
                 this.repository.deleteById(id);
                 HttpUtils.sendResponseNoContent();
             } else {
-                HttpUtils.sendResponseNotFound("Customer not found");
+                HttpUtils.sendResponseNotFound('Customer not found');
             }
         } catch (error: any) {
             this.handleError(error);
@@ -119,9 +145,9 @@ class CustomerService {
     }
 
     private handleError(error: any) {
-        if (error.name === "ForbiddenError") {
+        if (error.name === 'ForbiddenError') {
             HttpUtils.sendForbiddenRequest(error.message);
-        } else if (error.name === "ValidationError") {
+        } else if (error.name === 'ValidationError') {
             HttpUtils.sendResponseBadRequest(error.message);
         } else {
             HttpUtils.sendInternalServerError(error.message);
@@ -129,10 +155,10 @@ class CustomerService {
     }
 
     private checkPermissions(operationType: string) {
-        if (operationType === "read" && !(user.isInRole("codbex-partners.Customers.CustomerReadOnly") || user.isInRole("codbex-partners.Customers.CustomerFullAccess"))) {
+        if (operationType === 'read' && !(user.isInRole('codbex-partners.Customers.CustomerReadOnly') || user.isInRole('codbex-partners.Customers.CustomerFullAccess'))) {
             throw new ForbiddenError();
         }
-        if (operationType === "write" && !user.isInRole("codbex-partners.Customers.CustomerFullAccess")) {
+        if (operationType === 'write' && !user.isInRole('codbex-partners.Customers.CustomerFullAccess')) {
             throw new ForbiddenError();
         }
     }
