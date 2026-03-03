@@ -13,13 +13,11 @@ export class CustomerRepository extends Repository<CustomerEntity> {
 
     public override create(entity: CustomerEntity): string | number {
         entity.Name = entity["FirstName"] + " " + entity["LastName"];
-        entity.CreatedAt = new Date().toISOString().slice(0, 19).replace('T', ' ');
         return super.create(entity);
     }
 
     public override upsert(entity: CustomerEntity): string | number {
         entity.Name = entity["FirstName"] + " " + entity["LastName"];
-        entity.CreatedAt = new Date().toISOString().slice(0, 19).replace('T', ' ');
         entity.Name = entity["FirstName"] + " " + entity["LastName"];
         return super.upsert(entity);
     }

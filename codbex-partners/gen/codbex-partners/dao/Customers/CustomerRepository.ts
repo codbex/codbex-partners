@@ -5,27 +5,28 @@ import { dao as daoApi } from "@aerokit/sdk/db";
 
 export interface CustomerEntity {
     readonly Id: number;
-    FirstName?: string;
-    LastName?: string;
+    FirstName: string;
+    LastName: string;
     Name?: string;
     Email: string;
-    Phone?: string;
-    Fax?: string;
-    TIN?: string;
-    IBAN?: string;
-    Identifier?: string;
+    Phone: string;
+    Fax: string;
+    TIN: string;
+    IBAN: string;
+    Identifier: string;
     CreatedAt?: Date;
 }
 
 export interface CustomerCreateEntity {
-    readonly FirstName?: string;
-    readonly LastName?: string;
+    readonly FirstName: string;
+    readonly LastName: string;
     readonly Email: string;
-    readonly Phone?: string;
-    readonly Fax?: string;
-    readonly TIN?: string;
-    readonly IBAN?: string;
-    readonly Identifier?: string;
+    readonly Phone: string;
+    readonly Fax: string;
+    readonly TIN: string;
+    readonly IBAN: string;
+    readonly Identifier: string;
+    readonly CreatedAt?: Date;
 }
 
 export interface CustomerUpdateEntity extends CustomerCreateEntity {
@@ -165,11 +166,13 @@ export class CustomerRepository {
                 name: "FirstName",
                 column: "CUSTOMER_FIRSTNAME",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "LastName",
                 column: "CUSTOMER_LASTNAME",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "Name",
@@ -186,26 +189,31 @@ export class CustomerRepository {
                 name: "Phone",
                 column: "CUSTOMER_PHONE",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "Fax",
                 column: "CUSTOMER_FAX",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "TIN",
                 column: "CUSTOMER_TIN",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "IBAN",
                 column: "CUSTOMER_IBAN",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "Identifier",
                 column: "CUSTOMER_IDENTIFIER",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "CreatedAt",
@@ -234,8 +242,6 @@ export class CustomerRepository {
     public create(entity: CustomerCreateEntity): number {
         // @ts-ignore
         (entity as CustomerEntity).Name = entity["FirstName"] + " " + entity["LastName"];
-        // @ts-ignore
-        (entity as CustomerEntity).CreatedAt = new Date().toISOString().slice(0, 19).replace('T', ' ');
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",

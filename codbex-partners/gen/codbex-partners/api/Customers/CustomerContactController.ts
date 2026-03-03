@@ -175,17 +175,29 @@ class CustomerContactController {
     }
 
     private validateEntity(entity: any): void {
+        if (entity.Name === null || entity.Name === undefined) {
+            throw new ValidationError(`The 'Name' property is required, provide a valid value`);
+        }
         if (entity.Name?.length > 255) {
             throw new ValidationError(`The 'Name' exceeds the maximum length of [255] characters`);
+        }
+        if (entity.Designation === null || entity.Designation === undefined) {
+            throw new ValidationError(`The 'Designation' property is required, provide a valid value`);
         }
         if (entity.Designation?.length > 255) {
             throw new ValidationError(`The 'Designation' exceeds the maximum length of [255] characters`);
         }
-        if (entity.Email?.length > 255) {
-            throw new ValidationError(`The 'Email' exceeds the maximum length of [255] characters`);
+        if (entity.Email === null || entity.Email === undefined) {
+            throw new ValidationError(`The 'Email' property is required, provide a valid value`);
         }
-        if (entity.Phone?.length > 255) {
-            throw new ValidationError(`The 'Phone' exceeds the maximum length of [255] characters`);
+        if (entity.Email?.length > 100) {
+            throw new ValidationError(`The 'Email' exceeds the maximum length of [100] characters`);
+        }
+        if (entity.Phone === null || entity.Phone === undefined) {
+            throw new ValidationError(`The 'Phone' property is required, provide a valid value`);
+        }
+        if (entity.Phone?.length > 15) {
+            throw new ValidationError(`The 'Phone' exceeds the maximum length of [15] characters`);
         }
         for (const next of validationModules) {
             next.validate(entity);

@@ -1,4 +1,4 @@
-import { Entity, Table, Id, Generated, Column, Documentation } from '@aerokit/sdk/db'
+import { Entity, Table, Id, Generated, Column, Documentation, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy} from '@aerokit/sdk/db'
 
 @Entity('CustomerAddressEntity')
 @Table('CODBEX_CUSTOMERADDRESS')
@@ -27,42 +27,37 @@ export class CustomerAddressEntity {
         name: 'CUSTOMERADDRESS_FIRSTNAME',
         type: 'string',
         length: 50,
-        nullable: true,
     })
-    public FirstName?: string;
+    public FirstName!: string;
 
     @Documentation('LastName')
     @Column({
         name: 'CUSTOMERADDRESS_LASTNAME',
         type: 'string',
         length: 50,
-        nullable: true,
     })
-    public LastName?: string;
+    public LastName!: string;
 
     @Documentation('Email')
     @Column({
         name: 'CUSTOMERADDRESS_EMAIL',
         type: 'string',
         length: 100,
-        nullable: true,
     })
-    public Email?: string;
+    public Email!: string;
 
     @Documentation('Phone')
     @Column({
         name: 'CUSTOMERADDRESS_PHONE',
         type: 'string',
-        length: 20,
-        nullable: true,
+        length: 15,
     })
-    public Phone?: string;
+    public Phone!: string;
 
     @Documentation('Country')
     @Column({
         name: 'CUSTOMERADDRESS_COUNTRY',
         type: 'integer',
-        nullable: true,
     })
     public Country!: number;
 
@@ -70,16 +65,14 @@ export class CustomerAddressEntity {
     @Column({
         name: 'CUSTOMERADDRESS_CITY',
         type: 'integer',
-        nullable: true,
     })
-    public City?: number;
+    public City!: number;
 
     @Documentation('AddressLine1')
     @Column({
         name: 'CUSTOMERADDRESS_ADRESSLINE1',
         type: 'string',
         length: 500,
-        nullable: true,
     })
     public AddressLine1!: string;
 
@@ -88,16 +81,14 @@ export class CustomerAddressEntity {
         name: 'CUSTOMERADDRESS_ADDRESSLINE2',
         type: 'string',
         length: 500,
-        nullable: true,
     })
-    public AddressLine2?: string;
+    public AddressLine2!: string;
 
     @Documentation('PostalCode')
     @Column({
         name: 'CUSTOMERADDRESS_POSTALCODE',
         type: 'string',
         length: 10,
-        nullable: true,
     })
     public PostalCode!: string;
 
@@ -105,7 +96,6 @@ export class CustomerAddressEntity {
     @Column({
         name: 'CUSTOMERADDRESS_CUSTOMERADDRESSTYPE',
         type: 'integer',
-        nullable: true,
     })
     public AddressType!: number;
 
@@ -113,9 +103,8 @@ export class CustomerAddressEntity {
     @Column({
         name: 'CUSTOMERADDRESS_ISACTIVE',
         type: 'boolean',
-        nullable: true,
     })
-    public IsActive?: boolean;
+    public IsActive!: boolean;
 
 }
 

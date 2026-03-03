@@ -5,29 +5,26 @@ import { dao as daoApi } from "@aerokit/sdk/db";
 
 export interface SupplierEntity {
     readonly Id: number;
-    Name: string;
-    Address: string;
-    PostalCode?: string;
+    FirstName: string;
+    LastName: string;
+    Name?: string;
     Email: string;
-    Phone?: string;
-    Fax?: string;
-    Country: number;
-    City: number;
-    TIN?: string;
-    IBAN?: string;
+    Phone: string;
+    Fax: string;
+    TIN: string;
+    IBAN: string;
+    CreatedAt?: Date;
 }
 
 export interface SupplierCreateEntity {
-    readonly Name: string;
-    readonly Address: string;
-    readonly PostalCode?: string;
+    readonly FirstName: string;
+    readonly LastName: string;
     readonly Email: string;
-    readonly Phone?: string;
-    readonly Fax?: string;
-    readonly Country: number;
-    readonly City: number;
-    readonly TIN?: string;
-    readonly IBAN?: string;
+    readonly Phone: string;
+    readonly Fax: string;
+    readonly TIN: string;
+    readonly IBAN: string;
+    readonly CreatedAt?: Date;
 }
 
 export interface SupplierUpdateEntity extends SupplierCreateEntity {
@@ -38,94 +35,87 @@ export interface SupplierEntityOptions {
     $filter?: {
         equals?: {
             Id?: number | number[];
+            FirstName?: string | string[];
+            LastName?: string | string[];
             Name?: string | string[];
-            Address?: string | string[];
-            PostalCode?: string | string[];
             Email?: string | string[];
             Phone?: string | string[];
             Fax?: string | string[];
-            Country?: number | number[];
-            City?: number | number[];
             TIN?: string | string[];
             IBAN?: string | string[];
+            CreatedAt?: Date | Date[];
         };
         notEquals?: {
             Id?: number | number[];
+            FirstName?: string | string[];
+            LastName?: string | string[];
             Name?: string | string[];
-            Address?: string | string[];
-            PostalCode?: string | string[];
             Email?: string | string[];
             Phone?: string | string[];
             Fax?: string | string[];
-            Country?: number | number[];
-            City?: number | number[];
             TIN?: string | string[];
             IBAN?: string | string[];
+            CreatedAt?: Date | Date[];
         };
         contains?: {
             Id?: number;
+            FirstName?: string;
+            LastName?: string;
             Name?: string;
-            Address?: string;
-            PostalCode?: string;
             Email?: string;
             Phone?: string;
             Fax?: string;
-            Country?: number;
-            City?: number;
             TIN?: string;
             IBAN?: string;
+            CreatedAt?: Date;
         };
         greaterThan?: {
             Id?: number;
+            FirstName?: string;
+            LastName?: string;
             Name?: string;
-            Address?: string;
-            PostalCode?: string;
             Email?: string;
             Phone?: string;
             Fax?: string;
-            Country?: number;
-            City?: number;
             TIN?: string;
             IBAN?: string;
+            CreatedAt?: Date;
         };
         greaterThanOrEqual?: {
             Id?: number;
+            FirstName?: string;
+            LastName?: string;
             Name?: string;
-            Address?: string;
-            PostalCode?: string;
             Email?: string;
             Phone?: string;
             Fax?: string;
-            Country?: number;
-            City?: number;
             TIN?: string;
             IBAN?: string;
+            CreatedAt?: Date;
         };
         lessThan?: {
             Id?: number;
+            FirstName?: string;
+            LastName?: string;
             Name?: string;
-            Address?: string;
-            PostalCode?: string;
             Email?: string;
             Phone?: string;
             Fax?: string;
-            Country?: number;
-            City?: number;
             TIN?: string;
             IBAN?: string;
+            CreatedAt?: Date;
         };
         lessThanOrEqual?: {
             Id?: number;
+            FirstName?: string;
+            LastName?: string;
             Name?: string;
-            Address?: string;
-            PostalCode?: string;
             Email?: string;
             Phone?: string;
             Fax?: string;
-            Country?: number;
-            City?: number;
             TIN?: string;
             IBAN?: string;
+            CreatedAt?: Date;
         };
     },
     $select?: (keyof SupplierEntity)[],
@@ -164,20 +154,20 @@ export class SupplierRepository {
                 autoIncrement: true,
             },
             {
+                name: "FirstName",
+                column: "SUPPLIER_FIRSTNAME",
+                type: "VARCHAR",
+                required: true
+            },
+            {
+                name: "LastName",
+                column: "SUPPLIER_LASTNAME",
+                type: "VARCHAR",
+                required: true
+            },
+            {
                 name: "Name",
                 column: "SUPPLIER_NAME",
-                type: "VARCHAR",
-                required: true
-            },
-            {
-                name: "Address",
-                column: "SUPPLIER_ADDRESS",
-                type: "VARCHAR",
-                required: true
-            },
-            {
-                name: "PostalCode",
-                column: "SUPPLIER_POSTALCODE",
                 type: "VARCHAR",
             },
             {
@@ -190,33 +180,30 @@ export class SupplierRepository {
                 name: "Phone",
                 column: "SUPPLIER_PHONE",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "Fax",
                 column: "SUPPLIER_FAX",
                 type: "VARCHAR",
-            },
-            {
-                name: "Country",
-                column: "SUPPLIER_COUNTRY",
-                type: "INTEGER",
-                required: true
-            },
-            {
-                name: "City",
-                column: "SUPPLIER_CITY",
-                type: "INTEGER",
                 required: true
             },
             {
                 name: "TIN",
                 column: "SUPPLIER_TIN",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "IBAN",
                 column: "SUPPLIER_IBAN",
                 type: "VARCHAR",
+                required: true
+            },
+            {
+                name: "CreatedAt",
+                column: "SUPPLIER_CREATEDAT",
+                type: "TIMESTAMP",
             }
         ]
     };
@@ -238,6 +225,8 @@ export class SupplierRepository {
     }
 
     public create(entity: SupplierCreateEntity): number {
+        // @ts-ignore
+        (entity as SupplierEntity).Name = entity["FirstName"] + " " + entity["LastName"];
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
@@ -253,6 +242,8 @@ export class SupplierRepository {
     }
 
     public update(entity: SupplierUpdateEntity): void {
+        // @ts-ignore
+        (entity as SupplierEntity).Name = entity["FirstName"] + " " + entity["LastName"];
         const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({

@@ -1,4 +1,4 @@
-import { Entity, Table, Id, Generated, Column, Documentation } from '@aerokit/sdk/db'
+import { Entity, Table, Id, Generated, Column, Documentation, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy} from '@aerokit/sdk/db'
 
 @Entity('CustomerNoteEntity')
 @Table('CODBEX_CUSTOMERNOTE')
@@ -27,9 +27,8 @@ export class CustomerNoteEntity {
         name: 'CUSTOMERNOTE_NOTE',
         type: 'string',
         length: 5000,
-        nullable: true,
     })
-    public Note?: string;
+    public Note!: string;
 
 }
 

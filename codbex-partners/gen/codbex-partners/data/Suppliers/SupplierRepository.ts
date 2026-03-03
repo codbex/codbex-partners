@@ -11,6 +11,17 @@ export class SupplierRepository extends Repository<SupplierEntity> {
         super((SupplierEntity as EntityConstructor));
     }
 
+    public override create(entity: SupplierEntity): string | number {
+        entity.Name = entity["FirstName"] + " " + entity["LastName"];
+        return super.create(entity);
+    }
+
+    public override upsert(entity: SupplierEntity): string | number {
+        entity.Name = entity["FirstName"] + " " + entity["LastName"];
+        entity.Name = entity["FirstName"] + " " + entity["LastName"];
+        return super.upsert(entity);
+    }
+
     protected override async triggerEvent(data: EntityEvent<SupplierEntity>): Promise<void> {
         const triggerExtensions = await Extensions.loadExtensionModules('codbex-partners-Suppliers-Supplier', ['trigger']);
         triggerExtensions.forEach(triggerExtension => {

@@ -42,8 +42,8 @@
 							<bk-list-byline align="left">
 								{{next.LastName}} |
 								{{next.Name}} |
-								{{next.Email}} |
-								{{next.Phone}} |
+								<bk-link href="mailto:{{next.Email}}">{{next.Email}}</bk-link> |
+								<bk-link href="tel:{{next.Phone}}">{{next.Phone}}</bk-link> |
 								{{next.Fax}} |
 								{{next.TIN}} |
 								{{next.IBAN}} |

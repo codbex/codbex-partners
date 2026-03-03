@@ -6,12 +6,12 @@ import { dao as daoApi } from "@aerokit/sdk/db";
 export interface ManufacturerNoteEntity {
     readonly Id: number;
     Manufacturer?: number;
-    Note?: string;
+    Note: string;
 }
 
 export interface ManufacturerNoteCreateEntity {
     readonly Manufacturer?: number;
-    readonly Note?: string;
+    readonly Note: string;
 }
 
 export interface ManufacturerNoteUpdateEntity extends ManufacturerNoteCreateEntity {
@@ -100,6 +100,7 @@ export class ManufacturerNoteRepository {
                 name: "Note",
                 column: "MANUFACTURERNOTE_NOTE",
                 type: "VARCHAR",
+                required: true
             }
         ]
     };

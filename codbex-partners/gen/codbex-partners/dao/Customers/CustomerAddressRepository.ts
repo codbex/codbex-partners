@@ -7,32 +7,32 @@ import { EntityUtils } from "../utils/EntityUtils";
 export interface CustomerAddressEntity {
     readonly Id: number;
     Customer?: number;
-    FirstName?: string;
-    LastName?: string;
-    Email?: string;
-    Phone?: string;
-    Country?: number;
-    City?: number;
-    AddressLine1?: string;
-    AddressLine2?: string;
-    PostalCode?: string;
-    AddressType?: number;
-    IsActive?: boolean;
+    FirstName: string;
+    LastName: string;
+    Email: string;
+    Phone: string;
+    Country: number;
+    City: number;
+    AddressLine1: string;
+    AddressLine2: string;
+    PostalCode: string;
+    AddressType: number;
+    IsActive: boolean;
 }
 
 export interface CustomerAddressCreateEntity {
     readonly Customer?: number;
-    readonly FirstName?: string;
-    readonly LastName?: string;
-    readonly Email?: string;
-    readonly Phone?: string;
-    readonly Country?: number;
-    readonly City?: number;
-    readonly AddressLine1?: string;
-    readonly AddressLine2?: string;
-    readonly PostalCode?: string;
-    readonly AddressType?: number;
-    readonly IsActive?: boolean;
+    readonly FirstName: string;
+    readonly LastName: string;
+    readonly Email: string;
+    readonly Phone: string;
+    readonly Country: number;
+    readonly City: number;
+    readonly AddressLine1: string;
+    readonly AddressLine2: string;
+    readonly PostalCode: string;
+    readonly AddressType: number;
+    readonly IsActive: boolean;
 }
 
 export interface CustomerAddressUpdateEntity extends CustomerAddressCreateEntity {
@@ -191,56 +191,67 @@ export class CustomerAddressRepository {
                 name: "FirstName",
                 column: "CUSTOMERADDRESS_FIRSTNAME",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "LastName",
                 column: "CUSTOMERADDRESS_LASTNAME",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "Email",
                 column: "CUSTOMERADDRESS_EMAIL",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "Phone",
                 column: "CUSTOMERADDRESS_PHONE",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "Country",
                 column: "CUSTOMERADDRESS_COUNTRY",
                 type: "INTEGER",
+                required: true
             },
             {
                 name: "City",
                 column: "CUSTOMERADDRESS_CITY",
                 type: "INTEGER",
+                required: true
             },
             {
                 name: "AddressLine1",
                 column: "CUSTOMERADDRESS_ADRESSLINE1",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "AddressLine2",
                 column: "CUSTOMERADDRESS_ADDRESSLINE2",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "PostalCode",
                 column: "CUSTOMERADDRESS_POSTALCODE",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "AddressType",
                 column: "CUSTOMERADDRESS_CUSTOMERADDRESSTYPE",
                 type: "INTEGER",
+                required: true
             },
             {
                 name: "IsActive",
                 column: "CUSTOMERADDRESS_ISACTIVE",
                 type: "BOOLEAN",
+                required: true
             }
         ]
     };

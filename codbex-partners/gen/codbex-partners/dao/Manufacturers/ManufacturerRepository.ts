@@ -5,15 +5,26 @@ import { dao as daoApi } from "@aerokit/sdk/db";
 
 export interface ManufacturerEntity {
     readonly Id: number;
-    Name: string;
-    Country: number;
-    City: number;
+    FirstName: string;
+    LastName: string;
+    Name?: string;
+    Email: string;
+    Phone: string;
+    Fax: string;
+    TIN: string;
+    IBAN: string;
+    CreatedAt?: Date;
 }
 
 export interface ManufacturerCreateEntity {
-    readonly Name: string;
-    readonly Country: number;
-    readonly City: number;
+    readonly FirstName: string;
+    readonly LastName: string;
+    readonly Email: string;
+    readonly Phone: string;
+    readonly Fax: string;
+    readonly TIN: string;
+    readonly IBAN: string;
+    readonly CreatedAt?: Date;
 }
 
 export interface ManufacturerUpdateEntity extends ManufacturerCreateEntity {
@@ -24,45 +35,87 @@ export interface ManufacturerEntityOptions {
     $filter?: {
         equals?: {
             Id?: number | number[];
+            FirstName?: string | string[];
+            LastName?: string | string[];
             Name?: string | string[];
-            Country?: number | number[];
-            City?: number | number[];
+            Email?: string | string[];
+            Phone?: string | string[];
+            Fax?: string | string[];
+            TIN?: string | string[];
+            IBAN?: string | string[];
+            CreatedAt?: Date | Date[];
         };
         notEquals?: {
             Id?: number | number[];
+            FirstName?: string | string[];
+            LastName?: string | string[];
             Name?: string | string[];
-            Country?: number | number[];
-            City?: number | number[];
+            Email?: string | string[];
+            Phone?: string | string[];
+            Fax?: string | string[];
+            TIN?: string | string[];
+            IBAN?: string | string[];
+            CreatedAt?: Date | Date[];
         };
         contains?: {
             Id?: number;
+            FirstName?: string;
+            LastName?: string;
             Name?: string;
-            Country?: number;
-            City?: number;
+            Email?: string;
+            Phone?: string;
+            Fax?: string;
+            TIN?: string;
+            IBAN?: string;
+            CreatedAt?: Date;
         };
         greaterThan?: {
             Id?: number;
+            FirstName?: string;
+            LastName?: string;
             Name?: string;
-            Country?: number;
-            City?: number;
+            Email?: string;
+            Phone?: string;
+            Fax?: string;
+            TIN?: string;
+            IBAN?: string;
+            CreatedAt?: Date;
         };
         greaterThanOrEqual?: {
             Id?: number;
+            FirstName?: string;
+            LastName?: string;
             Name?: string;
-            Country?: number;
-            City?: number;
+            Email?: string;
+            Phone?: string;
+            Fax?: string;
+            TIN?: string;
+            IBAN?: string;
+            CreatedAt?: Date;
         };
         lessThan?: {
             Id?: number;
+            FirstName?: string;
+            LastName?: string;
             Name?: string;
-            Country?: number;
-            City?: number;
+            Email?: string;
+            Phone?: string;
+            Fax?: string;
+            TIN?: string;
+            IBAN?: string;
+            CreatedAt?: Date;
         };
         lessThanOrEqual?: {
             Id?: number;
+            FirstName?: string;
+            LastName?: string;
             Name?: string;
-            Country?: number;
-            City?: number;
+            Email?: string;
+            Phone?: string;
+            Fax?: string;
+            TIN?: string;
+            IBAN?: string;
+            CreatedAt?: Date;
         };
     },
     $select?: (keyof ManufacturerEntity)[],
@@ -101,22 +154,56 @@ export class ManufacturerRepository {
                 autoIncrement: true,
             },
             {
-                name: "Name",
-                column: "MANUFACTURER_NAME",
+                name: "FirstName",
+                column: "MANUFACTURER_FIRSTNAME",
                 type: "VARCHAR",
                 required: true
             },
             {
-                name: "Country",
-                column: "MANUFACTURER_COUNTRY",
-                type: "INTEGER",
+                name: "LastName",
+                column: "MANUFACTURER_LASTNAME",
+                type: "VARCHAR",
                 required: true
             },
             {
-                name: "City",
-                column: "MANUFACTURER_CITY",
-                type: "INTEGER",
+                name: "Name",
+                column: "MANUFACTURER_NAME",
+                type: "VARCHAR",
+            },
+            {
+                name: "Email",
+                column: "MANUFACTURER_EMAIL",
+                type: "VARCHAR",
                 required: true
+            },
+            {
+                name: "Phone",
+                column: "MANUFACTURER_PHONE",
+                type: "VARCHAR",
+                required: true
+            },
+            {
+                name: "Fax",
+                column: "MANUFACTURER_FAX",
+                type: "VARCHAR",
+                required: true
+            },
+            {
+                name: "TIN",
+                column: "MANUFACTURER_TIN",
+                type: "VARCHAR",
+                required: true
+            },
+            {
+                name: "IBAN",
+                column: "MANUFACTURER_IBAN",
+                type: "VARCHAR",
+                required: true
+            },
+            {
+                name: "CreatedAt",
+                column: "MANUFACTURER_CREATEDAT",
+                type: "TIMESTAMP",
             }
         ]
     };
@@ -138,6 +225,8 @@ export class ManufacturerRepository {
     }
 
     public create(entity: ManufacturerCreateEntity): number {
+        // @ts-ignore
+        (entity as ManufacturerEntity).Name = entity["FirstName"] + " " + entity["LastName"];
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
@@ -153,6 +242,8 @@ export class ManufacturerRepository {
     }
 
     public update(entity: ManufacturerUpdateEntity): void {
+        // @ts-ignore
+        (entity as ManufacturerEntity).Name = entity["FirstName"] + " " + entity["LastName"];
         const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({

@@ -1,4 +1,4 @@
-import { Entity, Table, Id, Generated, Column, Documentation } from '@aerokit/sdk/db'
+import { Entity, Table, Id, Generated, Column, Documentation, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy} from '@aerokit/sdk/db'
 
 @Entity('CustomerEntity')
 @Table('CODBEX_CUSTOMER')
@@ -19,7 +19,6 @@ export class CustomerEntity {
         name: 'CUSTOMER_FIRSTNAME',
         type: 'string',
         length: 50,
-        nullable: true,
     })
     public FirstName!: string;
 
@@ -28,7 +27,6 @@ export class CustomerEntity {
         name: 'CUSTOMER_LASTNAME',
         type: 'string',
         length: 50,
-        nullable: true,
     })
     public LastName!: string;
 
@@ -53,46 +51,41 @@ export class CustomerEntity {
     @Column({
         name: 'CUSTOMER_PHONE',
         type: 'string',
-        length: 20,
-        nullable: true,
+        length: 15,
     })
-    public Phone?: string;
+    public Phone!: string;
 
     @Documentation('Fax')
     @Column({
         name: 'CUSTOMER_FAX',
         type: 'string',
         length: 20,
-        nullable: true,
     })
-    public Fax?: string;
+    public Fax!: string;
 
     @Documentation('TIN')
     @Column({
         name: 'CUSTOMER_TIN',
         type: 'string',
-        length: 20,
-        nullable: true,
+        length: 15,
     })
-    public TIN?: string;
+    public TIN!: string;
 
     @Documentation('IBAN')
     @Column({
         name: 'CUSTOMER_IBAN',
         type: 'string',
-        length: 36,
-        nullable: true,
+        length: 34,
     })
-    public IBAN?: string;
+    public IBAN!: string;
 
     @Documentation('Identifier')
     @Column({
         name: 'CUSTOMER_IDENTIFIER',
         type: 'string',
         length: 36,
-        nullable: true,
     })
-    public Identifier?: string;
+    public Identifier!: string;
 
     @Documentation('CreatedAt')
     @Column({
@@ -100,6 +93,7 @@ export class CustomerEntity {
         type: 'timestamp',
         nullable: true,
     })
+    @CreatedAt()
     public CreatedAt?: Date;
 
 }

@@ -19,6 +19,40 @@
                 <bk-form-group label="{{ 'codbex-partners:codbex-partners-model.defaults.formGrpFilter' | t:{'name':'$t(codbex-partners:codbex-partners-model.t.SUPPLIER)'} }}" name="entityForm" transclude-classes="fd-container fd-form-layout-grid-container">
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idFirstName" colon="true">{{ 'codbex-partners:codbex-partners-model.t.SUPPLIER_FIRSTNAME' | t }}</bk-form-label>
+                        </div>
+                        <div class="fd-col fd-col-md--8">
+							<bk-form-input-message state="{{ forms.details['FirstName'].$valid ? '' : 'error' }}" text="{{'codbex-partners:codbex-partners-model.messages.error.incorrectInput' | t}}">
+								<bk-input id="idFirstName"
+	                                name="FirstName"
+	                                state="{{ forms.details['FirstName'].$valid ? '' : 'error' }}"
+	                                ng-model="entity.FirstName"
+									ng-maxlength="50.0"
+	                                type="text"
+	                                placeholder="{{ 'codbex-partners:codbex-partners-model.messages.inputEnter' | t:{'name':'$t(codbex-partners:codbex-partners-model.t.SUPPLIER_FIRSTNAME)'} }}">
+	                            </bk-input>
+							</bk-form-input-message>
+	                    </div>
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idLastName" colon="true">{{ 'codbex-partners:codbex-partners-model.t.SUPPLIER_LASTNAME' | t }}</bk-form-label>
+                        </div>
+                        <div class="fd-col fd-col-md--8">
+							<bk-form-input-message state="{{ forms.details['LastName'].$valid ? '' : 'error' }}" text="{{'codbex-partners:codbex-partners-model.messages.error.incorrectInput' | t}}">
+								<bk-input id="idLastName"
+	                                name="LastName"
+	                                state="{{ forms.details['LastName'].$valid ? '' : 'error' }}"
+	                                ng-model="entity.LastName"
+									ng-maxlength="50.0"
+	                                type="text"
+	                                placeholder="{{ 'codbex-partners:codbex-partners-model.messages.inputEnter' | t:{'name':'$t(codbex-partners:codbex-partners-model.t.SUPPLIER_LASTNAME)'} }}">
+	                            </bk-input>
+							</bk-form-input-message>
+	                    </div>
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
                         	<bk-form-label for="idName" colon="true">{{ 'codbex-partners:codbex-partners-model.t.SUPPLIER_NAME' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
@@ -34,51 +68,18 @@
 							</bk-form-input-message>
 	                    </div>
                     </bk-form-item>
-					<bk-form-item class="fd-row">
-						<div class="fd-col fd-col-md--2">
-							<bk-form-label for="idAddress" colon="true">{{ 'codbex-partners:codbex-partners-model.t.SUPPLIER_ADDRESS' | t }}</bk-form-label>
-						</div>
-						<div class="fd-col fd-col-md--8">
-							<bk-form-input-message state="{{ forms.details['Address'].$valid ? '' : 'error' }}" text="{{'codbex-partners:codbex-partners-model.messages.error.incorrectInput' | t}}">
-								<bk-textarea id="idAddress"
-									name="Address"
-									state="{{ forms.details['Address'].$valid ? '' : 'error' }}"
-									ng-model="entity.Address"
-									ng-maxlength="200.0"
-									placeholder="{{ 'codbex-partners:codbex-partners-model.messages.inputEnter' | t:{'name':'$t(codbex-partners:codbex-partners-model.t.SUPPLIER_ADDRESS)'} }}">
-								</bk-textarea>
-							</bk-form-input-message>
-						</div>
-					</bk-form-item>
-                    <bk-form-item class="fd-row">
-                    	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idPostalCode" colon="true">{{ 'codbex-partners:codbex-partners-model.t.SUPPLIER_POSTALCODE' | t }}</bk-form-label>
-                        </div>
-                        <div class="fd-col fd-col-md--8">
-							<bk-form-input-message state="{{ forms.details['PostalCode'].$valid ? '' : 'error' }}" text="{{'codbex-partners:codbex-partners-model.messages.error.incorrectInput' | t}}">
-								<bk-input id="idPostalCode"
-	                                name="PostalCode"
-	                                state="{{ forms.details['PostalCode'].$valid ? '' : 'error' }}"
-	                                ng-model="entity.PostalCode"
-									ng-maxlength="20.0"
-	                                type="text"
-	                                placeholder="{{ 'codbex-partners:codbex-partners-model.messages.inputEnter' | t:{'name':'$t(codbex-partners:codbex-partners-model.t.SUPPLIER_POSTALCODE)'} }}">
-	                            </bk-input>
-							</bk-form-input-message>
-	                    </div>
-                    </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
                         	<bk-form-label for="idEmail" colon="true">{{ 'codbex-partners:codbex-partners-model.t.SUPPLIER_EMAIL' | t }}</bk-form-label>
                         </div>
-                        <div class="fd-col fd-col-md--8">
+                        <div class="fd-col fd-col-md--4">
 							<bk-form-input-message state="{{ forms.details['Email'].$valid ? '' : 'error' }}" text="{{'codbex-partners:codbex-partners-model.messages.error.incorrectInput' | t}}">
 								<bk-input id="idEmail"
 	                                name="Email"
 	                                state="{{ forms.details['Email'].$valid ? '' : 'error' }}"
 	                                ng-model="entity.Email"
 									ng-maxlength="100.0"
-	                                type="text"
+	                                type="email"
 	                                placeholder="{{ 'codbex-partners:codbex-partners-model.messages.inputEnter' | t:{'name':'$t(codbex-partners:codbex-partners-model.t.SUPPLIER_EMAIL)'} }}">
 	                            </bk-input>
 							</bk-form-input-message>
@@ -88,14 +89,14 @@
                     	<div class="fd-col fd-col-md--2">
                         	<bk-form-label for="idPhone" colon="true">{{ 'codbex-partners:codbex-partners-model.t.SUPPLIER_PHONE' | t }}</bk-form-label>
                         </div>
-                        <div class="fd-col fd-col-md--8">
+                        <div class="fd-col fd-col-md--4">
 							<bk-form-input-message state="{{ forms.details['Phone'].$valid ? '' : 'error' }}" text="{{'codbex-partners:codbex-partners-model.messages.error.incorrectInput' | t}}">
 								<bk-input id="idPhone"
 	                                name="Phone"
 	                                state="{{ forms.details['Phone'].$valid ? '' : 'error' }}"
 	                                ng-model="entity.Phone"
-									ng-maxlength="20.0"
-	                                type="text"
+									ng-maxlength="15.0"
+	                                type="tel"
 	                                placeholder="{{ 'codbex-partners:codbex-partners-model.messages.inputEnter' | t:{'name':'$t(codbex-partners:codbex-partners-model.t.SUPPLIER_PHONE)'} }}">
 	                            </bk-input>
 							</bk-form-input-message>
@@ -120,36 +121,6 @@
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idCountry" colon="true">{{ 'codbex-partners:codbex-partners-model.t.SUPPLIER_COUNTRY' | t }}</bk-form-label>
-                        </div>
-                        <div class="fd-col fd-col-md--8">
-	                        <bk-combobox-input input-id="idCountry"
-	                            name="Country"
-	                            state="{{ forms.details['Country'].$valid ? '' : 'error' }}"
-	                            ng-model="entity.Country"
-	                            dropdown-items="optionsCountry"
-	                            placeholder="{{ 'codbex-partners:codbex-partners-model.messages.inputSearch' | t:{'name':'$t(codbex-partners:codbex-partners-model.t.SUPPLIER_COUNTRY)'} }}"
-								btn-aria-label="{{ 'codbex-partners:codbex-partners-model.aria.showHide' | t:{'name':'Country'} }}" list-aria-label="{{ 'codbex-partners:codbex-partners-model.aria.options' | t:{'name':'Country'} }}">
-	                        </bk-combobox-input>
-	                    </div>
-                    </bk-form-item>
-                    <bk-form-item class="fd-row">
-                    	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idCity" colon="true">{{ 'codbex-partners:codbex-partners-model.t.SUPPLIER_CITY' | t }}</bk-form-label>
-                        </div>
-                        <div class="fd-col fd-col-md--8">
-	                        <bk-combobox-input input-id="idCity"
-	                            name="City"
-	                            state="{{ forms.details['City'].$valid ? '' : 'error' }}"
-	                            ng-model="entity.City"
-	                            dropdown-items="optionsCity"
-	                            placeholder="{{ 'codbex-partners:codbex-partners-model.messages.inputSearch' | t:{'name':'$t(codbex-partners:codbex-partners-model.t.SUPPLIER_CITY)'} }}"
-								btn-aria-label="{{ 'codbex-partners:codbex-partners-model.aria.showHide' | t:{'name':'City'} }}" list-aria-label="{{ 'codbex-partners:codbex-partners-model.aria.options' | t:{'name':'City'} }}">
-	                        </bk-combobox-input>
-	                    </div>
-                    </bk-form-item>
-                    <bk-form-item class="fd-row">
-                    	<div class="fd-col fd-col-md--2">
                         	<bk-form-label for="idTIN" colon="true">{{ 'codbex-partners:codbex-partners-model.t.SUPPLIER_TIN' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
@@ -158,7 +129,7 @@
 	                                name="TIN"
 	                                state="{{ forms.details['TIN'].$valid ? '' : 'error' }}"
 	                                ng-model="entity.TIN"
-									ng-maxlength="20.0"
+									ng-maxlength="15.0"
 	                                type="text"
 	                                placeholder="{{ 'codbex-partners:codbex-partners-model.messages.inputEnter' | t:{'name':'$t(codbex-partners:codbex-partners-model.t.SUPPLIER_TIN)'} }}">
 	                            </bk-input>
@@ -175,9 +146,25 @@
 	                                name="IBAN"
 	                                state="{{ forms.details['IBAN'].$valid ? '' : 'error' }}"
 	                                ng-model="entity.IBAN"
-									ng-maxlength="36.0"
+									ng-maxlength="34.0"
 	                                type="text"
 	                                placeholder="{{ 'codbex-partners:codbex-partners-model.messages.inputEnter' | t:{'name':'$t(codbex-partners:codbex-partners-model.t.SUPPLIER_IBAN)'} }}">
+	                            </bk-input>
+							</bk-form-input-message>
+	                    </div>
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idCreatedAt" colon="true">{{ 'codbex-partners:codbex-partners-model.t.SUPPLIER_CREATEDAT' | t }}</bk-form-label>
+                        </div>
+                        <div class="fd-col fd-col-md--8">
+							<bk-form-input-message state="{{ forms.details['CreatedAt'].$valid ? '' : 'error' }}" text="{{'codbex-partners:codbex-partners-model.messages.error.incorrectInput' | t}}">
+								<bk-input id="idCreatedAt"
+	                                name="CreatedAt"
+	                                state="{{ forms.details['CreatedAt'].$valid ? '' : 'error' }}"
+	                                ng-model="entity.CreatedAt"
+	                                type="text"
+	                                placeholder="{{ 'codbex-partners:codbex-partners-model.messages.inputEnter' | t:{'name':'$t(codbex-partners:codbex-partners-model.t.SUPPLIER_CREATEDAT)'} }}">
 	                            </bk-input>
 							</bk-form-input-message>
 	                    </div>

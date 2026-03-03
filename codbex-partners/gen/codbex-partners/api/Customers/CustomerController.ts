@@ -185,17 +185,32 @@ class CustomerController {
         if (entity.Email?.length > 100) {
             throw new ValidationError(`The 'Email' exceeds the maximum length of [100] characters`);
         }
-        if (entity.Phone?.length > 20) {
-            throw new ValidationError(`The 'Phone' exceeds the maximum length of [20] characters`);
+        if (entity.Phone === null || entity.Phone === undefined) {
+            throw new ValidationError(`The 'Phone' property is required, provide a valid value`);
+        }
+        if (entity.Phone?.length > 15) {
+            throw new ValidationError(`The 'Phone' exceeds the maximum length of [15] characters`);
+        }
+        if (entity.Fax === null || entity.Fax === undefined) {
+            throw new ValidationError(`The 'Fax' property is required, provide a valid value`);
         }
         if (entity.Fax?.length > 20) {
             throw new ValidationError(`The 'Fax' exceeds the maximum length of [20] characters`);
         }
-        if (entity.TIN?.length > 20) {
-            throw new ValidationError(`The 'TIN' exceeds the maximum length of [20] characters`);
+        if (entity.TIN === null || entity.TIN === undefined) {
+            throw new ValidationError(`The 'TIN' property is required, provide a valid value`);
         }
-        if (entity.IBAN?.length > 36) {
-            throw new ValidationError(`The 'IBAN' exceeds the maximum length of [36] characters`);
+        if (entity.TIN?.length > 15) {
+            throw new ValidationError(`The 'TIN' exceeds the maximum length of [15] characters`);
+        }
+        if (entity.IBAN === null || entity.IBAN === undefined) {
+            throw new ValidationError(`The 'IBAN' property is required, provide a valid value`);
+        }
+        if (entity.IBAN?.length > 34) {
+            throw new ValidationError(`The 'IBAN' exceeds the maximum length of [34] characters`);
+        }
+        if (entity.Identifier === null || entity.Identifier === undefined) {
+            throw new ValidationError(`The 'Identifier' property is required, provide a valid value`);
         }
         if (entity.Identifier?.length > 36) {
             throw new ValidationError(`The 'Identifier' exceeds the maximum length of [36] characters`);
