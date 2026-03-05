@@ -156,30 +156,6 @@ class CustomerAddressController {
     }
 
     private validateEntity(entity: any): void {
-        if (entity.FirstName === null || entity.FirstName === undefined) {
-            throw new ValidationError(`The 'FirstName' property is required, provide a valid value`);
-        }
-        if (entity.FirstName?.length > 50) {
-            throw new ValidationError(`The 'FirstName' exceeds the maximum length of [50] characters`);
-        }
-        if (entity.LastName === null || entity.LastName === undefined) {
-            throw new ValidationError(`The 'LastName' property is required, provide a valid value`);
-        }
-        if (entity.LastName?.length > 50) {
-            throw new ValidationError(`The 'LastName' exceeds the maximum length of [50] characters`);
-        }
-        if (entity.Email === null || entity.Email === undefined) {
-            throw new ValidationError(`The 'Email' property is required, provide a valid value`);
-        }
-        if (entity.Email?.length > 100) {
-            throw new ValidationError(`The 'Email' exceeds the maximum length of [100] characters`);
-        }
-        if (entity.Phone === null || entity.Phone === undefined) {
-            throw new ValidationError(`The 'Phone' property is required, provide a valid value`);
-        }
-        if (entity.Phone?.length > 15) {
-            throw new ValidationError(`The 'Phone' exceeds the maximum length of [15] characters`);
-        }
         if (entity.Country === null || entity.Country === undefined) {
             throw new ValidationError(`The 'Country' property is required, provide a valid value`);
         }

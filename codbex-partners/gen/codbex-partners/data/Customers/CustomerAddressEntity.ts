@@ -22,38 +22,6 @@ export class CustomerAddressEntity {
     })
     public Customer?: number;
 
-    @Documentation('FirstName')
-    @Column({
-        name: 'CUSTOMERADDRESS_FIRSTNAME',
-        type: 'string',
-        length: 50,
-    })
-    public FirstName!: string;
-
-    @Documentation('LastName')
-    @Column({
-        name: 'CUSTOMERADDRESS_LASTNAME',
-        type: 'string',
-        length: 50,
-    })
-    public LastName!: string;
-
-    @Documentation('Email')
-    @Column({
-        name: 'CUSTOMERADDRESS_EMAIL',
-        type: 'string',
-        length: 100,
-    })
-    public Email!: string;
-
-    @Documentation('Phone')
-    @Column({
-        name: 'CUSTOMERADDRESS_PHONE',
-        type: 'string',
-        length: 15,
-    })
-    public Phone!: string;
-
     @Documentation('Country')
     @Column({
         name: 'CUSTOMERADDRESS_COUNTRY',

@@ -5,8 +5,9 @@ import { dao as daoApi } from "@aerokit/sdk/db";
 
 export interface SupplierEntity {
     readonly Id: number;
-    FirstName: string;
-    LastName: string;
+    FirstName?: string;
+    LastName?: string;
+    LegalEntityName?: string;
     Name?: string;
     Email: string;
     Phone: string;
@@ -17,8 +18,9 @@ export interface SupplierEntity {
 }
 
 export interface SupplierCreateEntity {
-    readonly FirstName: string;
-    readonly LastName: string;
+    readonly FirstName?: string;
+    readonly LastName?: string;
+    readonly LegalEntityName?: string;
     readonly Email: string;
     readonly Phone: string;
     readonly Fax: string;
@@ -37,6 +39,7 @@ export interface SupplierEntityOptions {
             Id?: number | number[];
             FirstName?: string | string[];
             LastName?: string | string[];
+            LegalEntityName?: string | string[];
             Name?: string | string[];
             Email?: string | string[];
             Phone?: string | string[];
@@ -49,6 +52,7 @@ export interface SupplierEntityOptions {
             Id?: number | number[];
             FirstName?: string | string[];
             LastName?: string | string[];
+            LegalEntityName?: string | string[];
             Name?: string | string[];
             Email?: string | string[];
             Phone?: string | string[];
@@ -61,6 +65,7 @@ export interface SupplierEntityOptions {
             Id?: number;
             FirstName?: string;
             LastName?: string;
+            LegalEntityName?: string;
             Name?: string;
             Email?: string;
             Phone?: string;
@@ -73,6 +78,7 @@ export interface SupplierEntityOptions {
             Id?: number;
             FirstName?: string;
             LastName?: string;
+            LegalEntityName?: string;
             Name?: string;
             Email?: string;
             Phone?: string;
@@ -85,6 +91,7 @@ export interface SupplierEntityOptions {
             Id?: number;
             FirstName?: string;
             LastName?: string;
+            LegalEntityName?: string;
             Name?: string;
             Email?: string;
             Phone?: string;
@@ -97,6 +104,7 @@ export interface SupplierEntityOptions {
             Id?: number;
             FirstName?: string;
             LastName?: string;
+            LegalEntityName?: string;
             Name?: string;
             Email?: string;
             Phone?: string;
@@ -109,6 +117,7 @@ export interface SupplierEntityOptions {
             Id?: number;
             FirstName?: string;
             LastName?: string;
+            LegalEntityName?: string;
             Name?: string;
             Email?: string;
             Phone?: string;
@@ -157,13 +166,16 @@ export class SupplierRepository {
                 name: "FirstName",
                 column: "SUPPLIER_FIRSTNAME",
                 type: "VARCHAR",
-                required: true
             },
             {
                 name: "LastName",
                 column: "SUPPLIER_LASTNAME",
                 type: "VARCHAR",
-                required: true
+            },
+            {
+                name: "LegalEntityName",
+                column: "SUPPLIER_LEGALENTITYNAME",
+                type: "VARCHAR",
             },
             {
                 name: "Name",
@@ -226,7 +238,7 @@ export class SupplierRepository {
 
     public create(entity: SupplierCreateEntity): number {
         // @ts-ignore
-        (entity as SupplierEntity).Name = entity["FirstName"] + " " + entity["LastName"];
+        (entity as SupplierEntity).Name = (entity.FirstName && entity.LastName) ? (entity.FirstName + " " + entity.LastName) : entity.LegalEntityName;
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
@@ -243,7 +255,7 @@ export class SupplierRepository {
 
     public update(entity: SupplierUpdateEntity): void {
         // @ts-ignore
-        (entity as SupplierEntity).Name = entity["FirstName"] + " " + entity["LastName"];
+        (entity as SupplierEntity).Name = (entity.FirstName && entity.LastName) ? (entity.FirstName + " " + entity.LastName) : entity.LegalEntityName;
         const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({

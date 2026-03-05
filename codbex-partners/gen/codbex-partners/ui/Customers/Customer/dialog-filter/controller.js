@@ -40,6 +40,10 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 			const condition = { propertyName: 'LastName', operator: 'LIKE', value: `%${entity.LastName}%` };
 			filter.$filter.conditions.push(condition);
 		}
+		if (entity.LegalEntityName) {
+			const condition = { propertyName: 'LegalEntityName', operator: 'LIKE', value: `%${entity.LegalEntityName}%` };
+			filter.$filter.conditions.push(condition);
+		}
 		if (entity.Name) {
 			const condition = { propertyName: 'Name', operator: 'LIKE', value: `%${entity.Name}%` };
 			filter.$filter.conditions.push(condition);

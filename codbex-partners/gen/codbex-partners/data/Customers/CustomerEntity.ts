@@ -19,22 +19,33 @@ export class CustomerEntity {
         name: 'CUSTOMER_FIRSTNAME',
         type: 'string',
         length: 50,
+        nullable: true,
     })
-    public FirstName!: string;
+    public FirstName?: string;
 
     @Documentation('LastName')
     @Column({
         name: 'CUSTOMER_LASTNAME',
         type: 'string',
         length: 50,
+        nullable: true,
     })
-    public LastName!: string;
+    public LastName?: string;
+
+    @Documentation('LegalEntityName')
+    @Column({
+        name: 'CUSTOMER_LEGALENTITYNAME',
+        type: 'string',
+        length: 255,
+        nullable: true,
+    })
+    public LegalEntityName?: string;
 
     @Documentation('Name')
     @Column({
         name: 'CUSTOMER_NAME',
         type: 'string',
-        length: 100,
+        length: 255,
         nullable: true,
     })
     public Name?: string;

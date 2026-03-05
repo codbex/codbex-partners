@@ -15,16 +15,24 @@
                     {
                         "type": "VARCHAR",
                         "length": 50,
+                        "nullable": true,
                         "name": "CUSTOMER_FIRSTNAME"
                     },
                     {
                         "type": "VARCHAR",
                         "length": 50,
+                        "nullable": true,
                         "name": "CUSTOMER_LASTNAME"
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 100,
+                        "length": 255,
+                        "nullable": true,
+                        "name": "CUSTOMER_LEGALENTITYNAME"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 255,
                         "nullable": true,
                         "name": "CUSTOMER_NAME"
                     },
@@ -83,16 +91,24 @@
                     {
                         "type": "VARCHAR",
                         "length": 50,
+                        "nullable": true,
                         "name": "SUPPLIER_FIRSTNAME"
                     },
                     {
                         "type": "VARCHAR",
                         "length": 50,
+                        "nullable": true,
                         "name": "SUPPLIER_LASTNAME"
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 100,
+                        "length": 255,
+                        "nullable": true,
+                        "name": "SUPPLIER_LEGALENTITYNAME"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 255,
                         "nullable": true,
                         "name": "SUPPLIER_NAME"
                     },
@@ -214,16 +230,24 @@
                     {
                         "type": "VARCHAR",
                         "length": 50,
+                        "nullable": true,
                         "name": "MANUFACTURER_FIRSTNAME"
                     },
                     {
                         "type": "VARCHAR",
                         "length": 50,
+                        "nullable": true,
                         "name": "MANUFACTURER_LASTNAME"
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 100,
+                        "length": 255,
+                        "nullable": true,
+                        "name": "MANUFACTURER_LEGALENTITYNAME"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 255,
                         "nullable": true,
                         "name": "MANUFACTURER_NAME"
                     },
@@ -316,27 +340,6 @@
                         "type": "INTEGER",
                         "nullable": true,
                         "name": "CUSTOMERADDRESS_CUSTOMER"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 50,
-                        "name": "CUSTOMERADDRESS_FIRSTNAME"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 50,
-                        "name": "CUSTOMERADDRESS_LASTNAME"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 100,
-                        "unique": true,
-                        "name": "CUSTOMERADDRESS_EMAIL"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 15,
-                        "name": "CUSTOMERADDRESS_PHONE"
                     },
                     {
                         "type": "INTEGER",

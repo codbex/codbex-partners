@@ -5,8 +5,9 @@ import { dao as daoApi } from "@aerokit/sdk/db";
 
 export interface CustomerEntity {
     readonly Id: number;
-    FirstName: string;
-    LastName: string;
+    FirstName?: string;
+    LastName?: string;
+    LegalEntityName?: string;
     Name?: string;
     Email: string;
     Phone: string;
@@ -18,8 +19,9 @@ export interface CustomerEntity {
 }
 
 export interface CustomerCreateEntity {
-    readonly FirstName: string;
-    readonly LastName: string;
+    readonly FirstName?: string;
+    readonly LastName?: string;
+    readonly LegalEntityName?: string;
     readonly Email: string;
     readonly Phone: string;
     readonly Fax: string;
@@ -39,6 +41,7 @@ export interface CustomerEntityOptions {
             Id?: number | number[];
             FirstName?: string | string[];
             LastName?: string | string[];
+            LegalEntityName?: string | string[];
             Name?: string | string[];
             Email?: string | string[];
             Phone?: string | string[];
@@ -52,6 +55,7 @@ export interface CustomerEntityOptions {
             Id?: number | number[];
             FirstName?: string | string[];
             LastName?: string | string[];
+            LegalEntityName?: string | string[];
             Name?: string | string[];
             Email?: string | string[];
             Phone?: string | string[];
@@ -65,6 +69,7 @@ export interface CustomerEntityOptions {
             Id?: number;
             FirstName?: string;
             LastName?: string;
+            LegalEntityName?: string;
             Name?: string;
             Email?: string;
             Phone?: string;
@@ -78,6 +83,7 @@ export interface CustomerEntityOptions {
             Id?: number;
             FirstName?: string;
             LastName?: string;
+            LegalEntityName?: string;
             Name?: string;
             Email?: string;
             Phone?: string;
@@ -91,6 +97,7 @@ export interface CustomerEntityOptions {
             Id?: number;
             FirstName?: string;
             LastName?: string;
+            LegalEntityName?: string;
             Name?: string;
             Email?: string;
             Phone?: string;
@@ -104,6 +111,7 @@ export interface CustomerEntityOptions {
             Id?: number;
             FirstName?: string;
             LastName?: string;
+            LegalEntityName?: string;
             Name?: string;
             Email?: string;
             Phone?: string;
@@ -117,6 +125,7 @@ export interface CustomerEntityOptions {
             Id?: number;
             FirstName?: string;
             LastName?: string;
+            LegalEntityName?: string;
             Name?: string;
             Email?: string;
             Phone?: string;
@@ -166,13 +175,16 @@ export class CustomerRepository {
                 name: "FirstName",
                 column: "CUSTOMER_FIRSTNAME",
                 type: "VARCHAR",
-                required: true
             },
             {
                 name: "LastName",
                 column: "CUSTOMER_LASTNAME",
                 type: "VARCHAR",
-                required: true
+            },
+            {
+                name: "LegalEntityName",
+                column: "CUSTOMER_LEGALENTITYNAME",
+                type: "VARCHAR",
             },
             {
                 name: "Name",
@@ -241,7 +253,7 @@ export class CustomerRepository {
 
     public create(entity: CustomerCreateEntity): number {
         // @ts-ignore
-        (entity as CustomerEntity).Name = entity["FirstName"] + " " + entity["LastName"];
+        (entity as CustomerEntity).Name = (entity.FirstName && entity.LastName) ? (entity.FirstName + " " + entity.LastName) : entity.LegalEntityName;
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
@@ -258,7 +270,7 @@ export class CustomerRepository {
 
     public update(entity: CustomerUpdateEntity): void {
         // @ts-ignore
-        (entity as CustomerEntity).Name = entity["FirstName"] + " " + entity["LastName"];
+        (entity as CustomerEntity).Name = (entity.FirstName && entity.LastName) ? (entity.FirstName + " " + entity.LastName) : entity.LegalEntityName;
         const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({

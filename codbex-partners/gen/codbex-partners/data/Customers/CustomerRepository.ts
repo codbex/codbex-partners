@@ -12,13 +12,13 @@ export class CustomerRepository extends Repository<CustomerEntity> {
     }
 
     public override create(entity: CustomerEntity): string | number {
-        entity.Name = entity["FirstName"] + " " + entity["LastName"];
+        entity.Name = (entity.FirstName && entity.LastName) ? (entity.FirstName + " " + entity.LastName) : entity.LegalEntityName;
         return super.create(entity);
     }
 
     public override upsert(entity: CustomerEntity): string | number {
-        entity.Name = entity["FirstName"] + " " + entity["LastName"];
-        entity.Name = entity["FirstName"] + " " + entity["LastName"];
+        entity.Name = (entity.FirstName && entity.LastName) ? (entity.FirstName + " " + entity.LastName) : entity.LegalEntityName;
+        entity.Name = (entity.FirstName && entity.LastName) ? (entity.FirstName + " " + entity.LastName) : entity.LegalEntityName;
         return super.upsert(entity);
     }
 

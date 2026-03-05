@@ -5,8 +5,9 @@ import { dao as daoApi } from "@aerokit/sdk/db";
 
 export interface ManufacturerEntity {
     readonly Id: number;
-    FirstName: string;
-    LastName: string;
+    FirstName?: string;
+    LastName?: string;
+    LegalEntityName?: string;
     Name?: string;
     Email: string;
     Phone: string;
@@ -17,8 +18,9 @@ export interface ManufacturerEntity {
 }
 
 export interface ManufacturerCreateEntity {
-    readonly FirstName: string;
-    readonly LastName: string;
+    readonly FirstName?: string;
+    readonly LastName?: string;
+    readonly LegalEntityName?: string;
     readonly Email: string;
     readonly Phone: string;
     readonly Fax: string;
@@ -37,6 +39,7 @@ export interface ManufacturerEntityOptions {
             Id?: number | number[];
             FirstName?: string | string[];
             LastName?: string | string[];
+            LegalEntityName?: string | string[];
             Name?: string | string[];
             Email?: string | string[];
             Phone?: string | string[];
@@ -49,6 +52,7 @@ export interface ManufacturerEntityOptions {
             Id?: number | number[];
             FirstName?: string | string[];
             LastName?: string | string[];
+            LegalEntityName?: string | string[];
             Name?: string | string[];
             Email?: string | string[];
             Phone?: string | string[];
@@ -61,6 +65,7 @@ export interface ManufacturerEntityOptions {
             Id?: number;
             FirstName?: string;
             LastName?: string;
+            LegalEntityName?: string;
             Name?: string;
             Email?: string;
             Phone?: string;
@@ -73,6 +78,7 @@ export interface ManufacturerEntityOptions {
             Id?: number;
             FirstName?: string;
             LastName?: string;
+            LegalEntityName?: string;
             Name?: string;
             Email?: string;
             Phone?: string;
@@ -85,6 +91,7 @@ export interface ManufacturerEntityOptions {
             Id?: number;
             FirstName?: string;
             LastName?: string;
+            LegalEntityName?: string;
             Name?: string;
             Email?: string;
             Phone?: string;
@@ -97,6 +104,7 @@ export interface ManufacturerEntityOptions {
             Id?: number;
             FirstName?: string;
             LastName?: string;
+            LegalEntityName?: string;
             Name?: string;
             Email?: string;
             Phone?: string;
@@ -109,6 +117,7 @@ export interface ManufacturerEntityOptions {
             Id?: number;
             FirstName?: string;
             LastName?: string;
+            LegalEntityName?: string;
             Name?: string;
             Email?: string;
             Phone?: string;
@@ -157,13 +166,16 @@ export class ManufacturerRepository {
                 name: "FirstName",
                 column: "MANUFACTURER_FIRSTNAME",
                 type: "VARCHAR",
-                required: true
             },
             {
                 name: "LastName",
                 column: "MANUFACTURER_LASTNAME",
                 type: "VARCHAR",
-                required: true
+            },
+            {
+                name: "LegalEntityName",
+                column: "MANUFACTURER_LEGALENTITYNAME",
+                type: "VARCHAR",
             },
             {
                 name: "Name",
@@ -226,7 +238,7 @@ export class ManufacturerRepository {
 
     public create(entity: ManufacturerCreateEntity): number {
         // @ts-ignore
-        (entity as ManufacturerEntity).Name = entity["FirstName"] + " " + entity["LastName"];
+        (entity as ManufacturerEntity).Name = (entity.FirstName && entity.LastName) ? (entity.FirstName + " " + entity.LastName) : entity.LegalEntityName;
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
@@ -243,7 +255,7 @@ export class ManufacturerRepository {
 
     public update(entity: ManufacturerUpdateEntity): void {
         // @ts-ignore
-        (entity as ManufacturerEntity).Name = entity["FirstName"] + " " + entity["LastName"];
+        (entity as ManufacturerEntity).Name = (entity.FirstName && entity.LastName) ? (entity.FirstName + " " + entity.LastName) : entity.LegalEntityName;
         const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({

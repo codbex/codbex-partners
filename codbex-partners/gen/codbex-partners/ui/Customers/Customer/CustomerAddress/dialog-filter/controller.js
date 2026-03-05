@@ -33,22 +33,6 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 			const condition = { propertyName: 'Customer', operator: 'EQ', value: entity.Customer };
 			filter.$filter.conditions.push(condition);
 		}
-		if (entity.FirstName) {
-			const condition = { propertyName: 'FirstName', operator: 'LIKE', value: `%${entity.FirstName}%` };
-			filter.$filter.conditions.push(condition);
-		}
-		if (entity.LastName) {
-			const condition = { propertyName: 'LastName', operator: 'LIKE', value: `%${entity.LastName}%` };
-			filter.$filter.conditions.push(condition);
-		}
-		if (entity.Email) {
-			const condition = { propertyName: 'Email', operator: 'LIKE', value: `%${entity.Email}%` };
-			filter.$filter.conditions.push(condition);
-		}
-		if (entity.Phone) {
-			const condition = { propertyName: 'Phone', operator: 'LIKE', value: `%${entity.Phone}%` };
-			filter.$filter.conditions.push(condition);
-		}
 		if (entity.Country !== undefined) {
 			const condition = { propertyName: 'Country', operator: 'EQ', value: entity.Country };
 			filter.$filter.conditions.push(condition);

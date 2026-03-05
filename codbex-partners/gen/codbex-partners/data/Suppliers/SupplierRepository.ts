@@ -12,13 +12,13 @@ export class SupplierRepository extends Repository<SupplierEntity> {
     }
 
     public override create(entity: SupplierEntity): string | number {
-        entity.Name = entity["FirstName"] + " " + entity["LastName"];
+        entity.Name = (entity.FirstName && entity.LastName) ? (entity.FirstName + " " + entity.LastName) : entity.LegalEntityName;
         return super.create(entity);
     }
 
     public override upsert(entity: SupplierEntity): string | number {
-        entity.Name = entity["FirstName"] + " " + entity["LastName"];
-        entity.Name = entity["FirstName"] + " " + entity["LastName"];
+        entity.Name = (entity.FirstName && entity.LastName) ? (entity.FirstName + " " + entity.LastName) : entity.LegalEntityName;
+        entity.Name = (entity.FirstName && entity.LastName) ? (entity.FirstName + " " + entity.LastName) : entity.LegalEntityName;
         return super.upsert(entity);
     }
 
