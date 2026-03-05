@@ -12,6 +12,10 @@ export interface CustomerEntity {
     Email: string;
     Phone: string;
     Fax: string;
+    Country: number;
+    City: number;
+    Address: string;
+    PostalCode: string;
     TIN: string;
     IBAN: string;
     Identifier: string;
@@ -25,6 +29,10 @@ export interface CustomerCreateEntity {
     readonly Email: string;
     readonly Phone: string;
     readonly Fax: string;
+    readonly Country: number;
+    readonly City: number;
+    readonly Address: string;
+    readonly PostalCode: string;
     readonly TIN: string;
     readonly IBAN: string;
     readonly Identifier: string;
@@ -46,6 +54,10 @@ export interface CustomerEntityOptions {
             Email?: string | string[];
             Phone?: string | string[];
             Fax?: string | string[];
+            Country?: number | number[];
+            City?: number | number[];
+            Address?: string | string[];
+            PostalCode?: string | string[];
             TIN?: string | string[];
             IBAN?: string | string[];
             Identifier?: string | string[];
@@ -60,6 +72,10 @@ export interface CustomerEntityOptions {
             Email?: string | string[];
             Phone?: string | string[];
             Fax?: string | string[];
+            Country?: number | number[];
+            City?: number | number[];
+            Address?: string | string[];
+            PostalCode?: string | string[];
             TIN?: string | string[];
             IBAN?: string | string[];
             Identifier?: string | string[];
@@ -74,6 +90,10 @@ export interface CustomerEntityOptions {
             Email?: string;
             Phone?: string;
             Fax?: string;
+            Country?: number;
+            City?: number;
+            Address?: string;
+            PostalCode?: string;
             TIN?: string;
             IBAN?: string;
             Identifier?: string;
@@ -88,6 +108,10 @@ export interface CustomerEntityOptions {
             Email?: string;
             Phone?: string;
             Fax?: string;
+            Country?: number;
+            City?: number;
+            Address?: string;
+            PostalCode?: string;
             TIN?: string;
             IBAN?: string;
             Identifier?: string;
@@ -102,6 +126,10 @@ export interface CustomerEntityOptions {
             Email?: string;
             Phone?: string;
             Fax?: string;
+            Country?: number;
+            City?: number;
+            Address?: string;
+            PostalCode?: string;
             TIN?: string;
             IBAN?: string;
             Identifier?: string;
@@ -116,6 +144,10 @@ export interface CustomerEntityOptions {
             Email?: string;
             Phone?: string;
             Fax?: string;
+            Country?: number;
+            City?: number;
+            Address?: string;
+            PostalCode?: string;
             TIN?: string;
             IBAN?: string;
             Identifier?: string;
@@ -130,6 +162,10 @@ export interface CustomerEntityOptions {
             Email?: string;
             Phone?: string;
             Fax?: string;
+            Country?: number;
+            City?: number;
+            Address?: string;
+            PostalCode?: string;
             TIN?: string;
             IBAN?: string;
             Identifier?: string;
@@ -206,6 +242,30 @@ export class CustomerRepository {
             {
                 name: "Fax",
                 column: "CUSTOMER_FAX",
+                type: "VARCHAR",
+                required: true
+            },
+            {
+                name: "Country",
+                column: "CUSTOMER_COUNTRY",
+                type: "INTEGER",
+                required: true
+            },
+            {
+                name: "City",
+                column: "CUSTOMER_CITY",
+                type: "INTEGER",
+                required: true
+            },
+            {
+                name: "Address",
+                column: "CUSTOMER_ADDRESS",
+                type: "VARCHAR",
+                required: true
+            },
+            {
+                name: "PostalCode",
+                column: "CUSTOMER_POSTALCODE",
                 type: "VARCHAR",
                 required: true
             },

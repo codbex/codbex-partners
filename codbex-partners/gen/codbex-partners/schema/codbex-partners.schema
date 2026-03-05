@@ -53,6 +53,24 @@
                         "name": "CUSTOMER_FAX"
                     },
                     {
+                        "type": "INTEGER",
+                        "name": "CUSTOMER_COUNTRY"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "name": "CUSTOMER_CITY"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 255,
+                        "name": "CUSTOMER_ADDRESS"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 10,
+                        "name": "CUSTOMER_POSTALCODE"
+                    },
+                    {
                         "type": "VARCHAR",
                         "length": 15,
                         "unique": true,
@@ -326,55 +344,6 @@
                 ]
             },
             {
-                "name": "CODBEX_CUSTOMERADDRESS",
-                "type": "TABLE",
-                "columns": [
-                    {
-                        "type": "INTEGER",
-                        "primaryKey": true,
-                        "identity": true,
-                        "nullable": true,
-                        "name": "CUSTOMERADDRESS_ID"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "nullable": true,
-                        "name": "CUSTOMERADDRESS_CUSTOMER"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "name": "CUSTOMERADDRESS_COUNTRY"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "name": "CUSTOMERADDRESS_CITY"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 500,
-                        "name": "CUSTOMERADDRESS_ADRESSLINE1"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 500,
-                        "name": "CUSTOMERADDRESS_ADDRESSLINE2"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 10,
-                        "name": "CUSTOMERADDRESS_POSTALCODE"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "name": "CUSTOMERADDRESS_CUSTOMERADDRESSTYPE"
-                    },
-                    {
-                        "type": "BOOLEAN",
-                        "name": "CUSTOMERADDRESS_ISACTIVE"
-                    }
-                ]
-            },
-            {
                 "name": "CODBEX_CUSTOMERADDRESSTYPE",
                 "type": "TABLE",
                 "columns": [
@@ -472,6 +441,24 @@
                 ]
             },
             {
+                "name": "Customer_Country",
+                "type": "foreignKey",
+                "table": "CODBEX_CUSTOMER",
+                "constraintName": "Customer_Country",
+                "columns": "CUSTOMER_COUNTRY",
+                "referencedTable": "CODBEX_COUNTRY",
+                "referencedColumns": "COUNTRY_ID"
+            },
+            {
+                "name": "Customer_City",
+                "type": "foreignKey",
+                "table": "CODBEX_CUSTOMER",
+                "constraintName": "Customer_City",
+                "columns": "CUSTOMER_CITY",
+                "referencedTable": "CODBEX_CITY",
+                "referencedColumns": "CITY_ID"
+            },
+            {
                 "name": "CustomerNote_Customer",
                 "type": "foreignKey",
                 "table": "CODBEX_CUSTOMERNOTE",
@@ -506,42 +493,6 @@
                 "columns": "CUSTOMERCONTACT_CUSTOMER",
                 "referencedTable": "CODBEX_CUSTOMER",
                 "referencedColumns": "CUSTOMER_ID"
-            },
-            {
-                "name": "CustomerAddress_Customer",
-                "type": "foreignKey",
-                "table": "CODBEX_CUSTOMERADDRESS",
-                "constraintName": "CustomerAddress_Customer",
-                "columns": "CUSTOMERADDRESS_CUSTOMER",
-                "referencedTable": "CODBEX_CUSTOMER",
-                "referencedColumns": "CUSTOMER_ID"
-            },
-            {
-                "name": "CustomerAddress_Country",
-                "type": "foreignKey",
-                "table": "CODBEX_CUSTOMERADDRESS",
-                "constraintName": "CustomerAddress_Country",
-                "columns": "CUSTOMERADDRESS_COUNTRY",
-                "referencedTable": "CODBEX_COUNTRY",
-                "referencedColumns": "COUNTRY_ID"
-            },
-            {
-                "name": "CustomerAddress_City",
-                "type": "foreignKey",
-                "table": "CODBEX_CUSTOMERADDRESS",
-                "constraintName": "CustomerAddress_City",
-                "columns": "CUSTOMERADDRESS_CITY",
-                "referencedTable": "CODBEX_CITY",
-                "referencedColumns": "CITY_ID"
-            },
-            {
-                "name": "CustomerAddress_CustomerAddressType",
-                "type": "foreignKey",
-                "table": "CODBEX_CUSTOMERADDRESS",
-                "constraintName": "CustomerAddress_CustomerAddressType",
-                "columns": "CUSTOMERADDRESS_CUSTOMERADDRESSTYPE",
-                "referencedTable": "CODBEX_CUSTOMERADDRESSTYPE",
-                "referencedColumns": "CUSTOMERADDRESSTYPE_ID"
             },
             {
                 "name": "SupplierContact_Supplier",

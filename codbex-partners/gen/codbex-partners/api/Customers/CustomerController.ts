@@ -194,6 +194,24 @@ class CustomerController {
         if (entity.Fax?.length > 20) {
             throw new ValidationError(`The 'Fax' exceeds the maximum length of [20] characters`);
         }
+        if (entity.Country === null || entity.Country === undefined) {
+            throw new ValidationError(`The 'Country' property is required, provide a valid value`);
+        }
+        if (entity.City === null || entity.City === undefined) {
+            throw new ValidationError(`The 'City' property is required, provide a valid value`);
+        }
+        if (entity.Address === null || entity.Address === undefined) {
+            throw new ValidationError(`The 'Address' property is required, provide a valid value`);
+        }
+        if (entity.Address?.length > 255) {
+            throw new ValidationError(`The 'Address' exceeds the maximum length of [255] characters`);
+        }
+        if (entity.PostalCode === null || entity.PostalCode === undefined) {
+            throw new ValidationError(`The 'PostalCode' property is required, provide a valid value`);
+        }
+        if (entity.PostalCode?.length > 10) {
+            throw new ValidationError(`The 'PostalCode' exceeds the maximum length of [10] characters`);
+        }
         if (entity.TIN === null || entity.TIN === undefined) {
             throw new ValidationError(`The 'TIN' property is required, provide a valid value`);
         }

@@ -74,6 +74,36 @@ export class CustomerEntity {
     })
     public Fax!: string;
 
+    @Documentation('Country')
+    @Column({
+        name: 'CUSTOMER_COUNTRY',
+        type: 'integer',
+    })
+    public Country!: number;
+
+    @Documentation('City')
+    @Column({
+        name: 'CUSTOMER_CITY',
+        type: 'integer',
+    })
+    public City!: number;
+
+    @Documentation('Address')
+    @Column({
+        name: 'CUSTOMER_ADDRESS',
+        type: 'string',
+        length: 255,
+    })
+    public Address!: string;
+
+    @Documentation('PostalCode')
+    @Column({
+        name: 'CUSTOMER_POSTALCODE',
+        type: 'string',
+        length: 10,
+    })
+    public PostalCode!: string;
+
     @Documentation('TIN')
     @Column({
         name: 'CUSTOMER_TIN',
