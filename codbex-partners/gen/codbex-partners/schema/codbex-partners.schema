@@ -344,25 +344,6 @@
                 ]
             },
             {
-                "name": "CODBEX_CUSTOMERADDRESSTYPE",
-                "type": "TABLE",
-                "columns": [
-                    {
-                        "type": "INTEGER",
-                        "primaryKey": true,
-                        "identity": true,
-                        "nullable": true,
-                        "name": "CUSTOMERADDRESSTYPE_ID"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 20,
-                        "nullable": true,
-                        "name": "CUSTOMERADDRESSTYPE_NAME"
-                    }
-                ]
-            },
-            {
                 "name": "CODBEX_SUPPLIERCONTACT",
                 "type": "TABLE",
                 "columns": [
