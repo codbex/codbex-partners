@@ -26,43 +26,66 @@
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 100,
+                        "length": 255,
+                        "nullable": true,
+                        "name": "CUSTOMER_LEGALENTITYNAME"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 255,
                         "nullable": true,
                         "name": "CUSTOMER_NAME"
                     },
                     {
                         "type": "VARCHAR",
                         "length": 100,
+                        "unique": true,
                         "name": "CUSTOMER_EMAIL"
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 20,
-                        "nullable": true,
+                        "length": 15,
                         "name": "CUSTOMER_PHONE"
                     },
                     {
                         "type": "VARCHAR",
                         "length": 20,
-                        "nullable": true,
                         "name": "CUSTOMER_FAX"
                     },
                     {
+                        "type": "INTEGER",
+                        "name": "CUSTOMER_COUNTRY"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "name": "CUSTOMER_CITY"
+                    },
+                    {
                         "type": "VARCHAR",
-                        "length": 20,
-                        "nullable": true,
+                        "length": 255,
+                        "name": "CUSTOMER_ADDRESS"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 10,
+                        "name": "CUSTOMER_POSTALCODE"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 15,
+                        "unique": true,
                         "name": "CUSTOMER_TIN"
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 36,
-                        "nullable": true,
+                        "length": 34,
+                        "unique": true,
                         "name": "CUSTOMER_IBAN"
                     },
                     {
                         "type": "VARCHAR",
                         "length": 36,
-                        "nullable": true,
+                        "unique": true,
                         "name": "CUSTOMER_IDENTIFIER"
                     },
                     {
@@ -85,56 +108,60 @@
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 100,
+                        "length": 50,
+                        "nullable": true,
+                        "name": "SUPPLIER_FIRSTNAME"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 50,
+                        "nullable": true,
+                        "name": "SUPPLIER_LASTNAME"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 255,
+                        "nullable": true,
+                        "name": "SUPPLIER_LEGALENTITYNAME"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 255,
+                        "nullable": true,
                         "name": "SUPPLIER_NAME"
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 200,
-                        "name": "SUPPLIER_ADDRESS"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 20,
-                        "nullable": true,
-                        "name": "SUPPLIER_POSTALCODE"
-                    },
-                    {
-                        "type": "VARCHAR",
                         "length": 100,
+                        "unique": true,
                         "name": "SUPPLIER_EMAIL"
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 20,
-                        "nullable": true,
+                        "length": 15,
                         "name": "SUPPLIER_PHONE"
                     },
                     {
                         "type": "VARCHAR",
                         "length": 20,
-                        "nullable": true,
                         "name": "SUPPLIER_FAX"
                     },
                     {
-                        "type": "INTEGER",
-                        "name": "SUPPLIER_COUNTRY"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "name": "SUPPLIER_CITY"
-                    },
-                    {
                         "type": "VARCHAR",
-                        "length": 20,
-                        "nullable": true,
+                        "length": 15,
+                        "unique": true,
                         "name": "SUPPLIER_TIN"
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 36,
-                        "nullable": true,
+                        "length": 34,
+                        "unique": true,
                         "name": "SUPPLIER_IBAN"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "nullable": true,
+                        "name": "SUPPLIER_CREATEDAT"
                     }
                 ]
             },
@@ -157,7 +184,6 @@
                     {
                         "type": "VARCHAR",
                         "length": 5000,
-                        "nullable": true,
                         "name": "CUSTOMERNOTE_NOTE"
                     }
                 ]
@@ -181,7 +207,6 @@
                     {
                         "type": "VARCHAR",
                         "length": 5000,
-                        "nullable": true,
                         "name": "SUPPLIERNOTE_NOTE"
                     }
                 ]
@@ -205,7 +230,6 @@
                     {
                         "type": "VARCHAR",
                         "length": 5000,
-                        "nullable": true,
                         "name": "MANUFACTURERNOTE_NOTE"
                     }
                 ]
@@ -223,16 +247,60 @@
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 200,
+                        "length": 50,
+                        "nullable": true,
+                        "name": "MANUFACTURER_FIRSTNAME"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 50,
+                        "nullable": true,
+                        "name": "MANUFACTURER_LASTNAME"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 255,
+                        "nullable": true,
+                        "name": "MANUFACTURER_LEGALENTITYNAME"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 255,
+                        "nullable": true,
                         "name": "MANUFACTURER_NAME"
                     },
                     {
-                        "type": "INTEGER",
-                        "name": "MANUFACTURER_COUNTRY"
+                        "type": "VARCHAR",
+                        "length": 100,
+                        "unique": true,
+                        "name": "MANUFACTURER_EMAIL"
                     },
                     {
-                        "type": "INTEGER",
-                        "name": "MANUFACTURER_CITY"
+                        "type": "VARCHAR",
+                        "length": 15,
+                        "name": "MANUFACTURER_PHONE"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "name": "MANUFACTURER_FAX"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 15,
+                        "unique": true,
+                        "name": "MANUFACTURER_TIN"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 34,
+                        "unique": true,
+                        "name": "MANUFACTURER_IBAN"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "nullable": true,
+                        "name": "MANUFACTURER_CREATEDAT"
                     }
                 ]
             },
@@ -255,31 +323,28 @@
                     {
                         "type": "VARCHAR",
                         "length": 255,
-                        "nullable": true,
                         "name": "CUSTOMERCONTACT_NAME"
                     },
                     {
                         "type": "VARCHAR",
                         "length": 255,
-                        "nullable": true,
                         "name": "CUSTOMERCONTACT_DESIGNATION"
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 255,
-                        "nullable": true,
+                        "length": 100,
+                        "unique": true,
                         "name": "CUSTOMERCONTACT_EMAIL"
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 255,
-                        "nullable": true,
+                        "length": 15,
                         "name": "CUSTOMERCONTACT_PHONE"
                     }
                 ]
             },
             {
-                "name": "CODBEX_CUSTOMERADDRESS",
+                "name": "CODBEX_SUPPLIERCONTACT",
                 "type": "TABLE",
                 "columns": [
                     {
@@ -287,79 +352,38 @@
                         "primaryKey": true,
                         "identity": true,
                         "nullable": true,
-                        "name": "CUSTOMERADDRESS_ID"
+                        "name": "SUPPLIERCONTACT_ID"
                     },
                     {
                         "type": "INTEGER",
                         "nullable": true,
-                        "name": "CUSTOMERADDRESS_CUSTOMER"
+                        "name": "SUPPLIERCONTACT_SUPPLIER"
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 50,
-                        "nullable": true,
-                        "name": "CUSTOMERADDRESS_FIRSTNAME"
+                        "length": 255,
+                        "name": "SUPPLIERCONTACT_NAME"
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 50,
-                        "nullable": true,
-                        "name": "CUSTOMERADDRESS_LASTNAME"
+                        "length": 255,
+                        "name": "SUPPLIERCONTACT_DESIGNATION"
                     },
                     {
                         "type": "VARCHAR",
                         "length": 100,
-                        "nullable": true,
-                        "name": "CUSTOMERADDRESS_EMAIL"
+                        "unique": true,
+                        "name": "SUPPLIERCONTACT_EMAIL"
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 20,
-                        "nullable": true,
-                        "name": "CUSTOMERADDRESS_PHONE"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "nullable": true,
-                        "name": "CUSTOMERADDRESS_COUNTRY"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "nullable": true,
-                        "name": "CUSTOMERADDRESS_CITY"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 500,
-                        "nullable": true,
-                        "name": "CUSTOMERADDRESS_ADRESSLINE1"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 500,
-                        "nullable": true,
-                        "name": "CUSTOMERADDRESS_ADDRESSLINE2"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 10,
-                        "nullable": true,
-                        "name": "CUSTOMERADDRESS_POSTALCODE"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "nullable": true,
-                        "name": "CUSTOMERADDRESS_CUSTOMERADDRESSTYPE"
-                    },
-                    {
-                        "type": "BOOLEAN",
-                        "nullable": true,
-                        "name": "CUSTOMERADDRESS_ISACTIVE"
+                        "length": 15,
+                        "name": "SUPPLIERCONTACT_PHONE"
                     }
                 ]
             },
             {
-                "name": "CODBEX_CUSTOMERADDRESSTYPE",
+                "name": "CODBEX_MANUFACTURERCONTACT",
                 "type": "TABLE",
                 "columns": [
                     {
@@ -367,31 +391,51 @@
                         "primaryKey": true,
                         "identity": true,
                         "nullable": true,
-                        "name": "CUSTOMERADDRESSTYPE_ID"
+                        "name": "MANUFACTURERCONTACT_ID"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "MANUFACTURERCONTACT_MANUFACTURER"
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 20,
-                        "nullable": true,
-                        "name": "CUSTOMERADDRESSTYPE_NAME"
+                        "length": 255,
+                        "name": "MANUFACTURERCONTACT_NAME"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 255,
+                        "name": "MANUFACTURERCONTACT_DESIGNATION"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 100,
+                        "unique": true,
+                        "name": "MANUFACTURERCONTACT_EMAIL"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 15,
+                        "name": "MANUFACTURERCONTACT_PHONE"
                     }
                 ]
             },
             {
-                "name": "Supplier_Country",
+                "name": "Customer_Country",
                 "type": "foreignKey",
-                "table": "CODBEX_SUPPLIER",
-                "constraintName": "Supplier_Country",
-                "columns": "SUPPLIER_COUNTRY",
+                "table": "CODBEX_CUSTOMER",
+                "constraintName": "Customer_Country",
+                "columns": "CUSTOMER_COUNTRY",
                 "referencedTable": "CODBEX_COUNTRY",
                 "referencedColumns": "COUNTRY_ID"
             },
             {
-                "name": "Supplier_City",
+                "name": "Customer_City",
                 "type": "foreignKey",
-                "table": "CODBEX_SUPPLIER",
-                "constraintName": "Supplier_City",
-                "columns": "SUPPLIER_CITY",
+                "table": "CODBEX_CUSTOMER",
+                "constraintName": "Customer_City",
+                "columns": "CUSTOMER_CITY",
                 "referencedTable": "CODBEX_CITY",
                 "referencedColumns": "CITY_ID"
             },
@@ -423,24 +467,6 @@
                 "referencedColumns": "MANUFACTURER_ID"
             },
             {
-                "name": "Manufacturer_Country",
-                "type": "foreignKey",
-                "table": "CODBEX_MANUFACTURER",
-                "constraintName": "Manufacturer_Country",
-                "columns": "MANUFACTURER_COUNTRY",
-                "referencedTable": "CODBEX_COUNTRY",
-                "referencedColumns": "COUNTRY_ID"
-            },
-            {
-                "name": "Manufacturer_City",
-                "type": "foreignKey",
-                "table": "CODBEX_MANUFACTURER",
-                "constraintName": "Manufacturer_City",
-                "columns": "MANUFACTURER_CITY",
-                "referencedTable": "CODBEX_CITY",
-                "referencedColumns": "CITY_ID"
-            },
-            {
                 "name": "CustomerContact_Customer",
                 "type": "foreignKey",
                 "table": "CODBEX_CUSTOMERCONTACT",
@@ -450,40 +476,22 @@
                 "referencedColumns": "CUSTOMER_ID"
             },
             {
-                "name": "CustomerAddress_Customer",
+                "name": "SupplierContact_Supplier",
                 "type": "foreignKey",
-                "table": "CODBEX_CUSTOMERADDRESS",
-                "constraintName": "CustomerAddress_Customer",
-                "columns": "CUSTOMERADDRESS_CUSTOMER",
-                "referencedTable": "CODBEX_CUSTOMER",
-                "referencedColumns": "CUSTOMER_ID"
+                "table": "CODBEX_SUPPLIERCONTACT",
+                "constraintName": "SupplierContact_Supplier",
+                "columns": "SUPPLIERCONTACT_SUPPLIER",
+                "referencedTable": "CODBEX_SUPPLIER",
+                "referencedColumns": "SUPPLIER_ID"
             },
             {
-                "name": "CustomerAddress_Country",
+                "name": "ManufacturerContact_Manufacturer",
                 "type": "foreignKey",
-                "table": "CODBEX_CUSTOMERADDRESS",
-                "constraintName": "CustomerAddress_Country",
-                "columns": "CUSTOMERADDRESS_COUNTRY",
-                "referencedTable": "CODBEX_COUNTRY",
-                "referencedColumns": "COUNTRY_ID"
-            },
-            {
-                "name": "CustomerAddress_City",
-                "type": "foreignKey",
-                "table": "CODBEX_CUSTOMERADDRESS",
-                "constraintName": "CustomerAddress_City",
-                "columns": "CUSTOMERADDRESS_CITY",
-                "referencedTable": "CODBEX_CITY",
-                "referencedColumns": "CITY_ID"
-            },
-            {
-                "name": "CustomerAddress_CustomerAddressType",
-                "type": "foreignKey",
-                "table": "CODBEX_CUSTOMERADDRESS",
-                "constraintName": "CustomerAddress_CustomerAddressType",
-                "columns": "CUSTOMERADDRESS_CUSTOMERADDRESSTYPE",
-                "referencedTable": "CODBEX_CUSTOMERADDRESSTYPE",
-                "referencedColumns": "CUSTOMERADDRESSTYPE_ID"
+                "table": "CODBEX_MANUFACTURERCONTACT",
+                "constraintName": "ManufacturerContact_Manufacturer",
+                "columns": "MANUFACTURERCONTACT_MANUFACTURER",
+                "referencedTable": "CODBEX_MANUFACTURER",
+                "referencedColumns": "MANUFACTURER_ID"
             }
         ]
     },

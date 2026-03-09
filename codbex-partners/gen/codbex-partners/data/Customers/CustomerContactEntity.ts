@@ -1,4 +1,4 @@
-import { Entity, Table, Id, Generated, Column, Documentation } from '@aerokit/sdk/db'
+import { Entity, Table, Id, Generated, Column, Documentation, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy} from '@aerokit/sdk/db'
 
 @Entity('CustomerContactEntity')
 @Table('CODBEX_CUSTOMERCONTACT')
@@ -27,36 +27,32 @@ export class CustomerContactEntity {
         name: 'CUSTOMERCONTACT_NAME',
         type: 'string',
         length: 255,
-        nullable: true,
     })
-    public Name?: string;
+    public Name!: string;
 
     @Documentation('Designation')
     @Column({
         name: 'CUSTOMERCONTACT_DESIGNATION',
         type: 'string',
         length: 255,
-        nullable: true,
     })
-    public Designation?: string;
+    public Designation!: string;
 
     @Documentation('Email')
     @Column({
         name: 'CUSTOMERCONTACT_EMAIL',
         type: 'string',
-        length: 255,
-        nullable: true,
+        length: 100,
     })
-    public Email?: string;
+    public Email!: string;
 
     @Documentation('Phone')
     @Column({
         name: 'CUSTOMERCONTACT_PHONE',
         type: 'string',
-        length: 255,
-        nullable: true,
+        length: 15,
     })
-    public Phone?: string;
+    public Phone!: string;
 
 }
 

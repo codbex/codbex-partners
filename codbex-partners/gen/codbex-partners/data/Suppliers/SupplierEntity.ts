@@ -1,4 +1,4 @@
-import { Entity, Table, Id, Generated, Column, Documentation } from '@aerokit/sdk/db'
+import { Entity, Table, Id, Generated, Column, Documentation, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy} from '@aerokit/sdk/db'
 
 @Entity('SupplierEntity')
 @Table('CODBEX_SUPPLIER')
@@ -14,30 +14,41 @@ export class SupplierEntity {
     })
     public Id?: number;
 
+    @Documentation('FirstName')
+    @Column({
+        name: 'SUPPLIER_FIRSTNAME',
+        type: 'string',
+        length: 50,
+        nullable: true,
+    })
+    public FirstName?: string;
+
+    @Documentation('LastName')
+    @Column({
+        name: 'SUPPLIER_LASTNAME',
+        type: 'string',
+        length: 50,
+        nullable: true,
+    })
+    public LastName?: string;
+
+    @Documentation('LegalEntityName')
+    @Column({
+        name: 'SUPPLIER_LEGALENTITYNAME',
+        type: 'string',
+        length: 255,
+        nullable: true,
+    })
+    public LegalEntityName?: string;
+
     @Documentation('Name')
     @Column({
         name: 'SUPPLIER_NAME',
         type: 'string',
-        length: 100,
-    })
-    public Name!: string;
-
-    @Documentation('Address')
-    @Column({
-        name: 'SUPPLIER_ADDRESS',
-        type: 'string',
-        length: 200,
-    })
-    public Address!: string;
-
-    @Documentation('PostalCode')
-    @Column({
-        name: 'SUPPLIER_POSTALCODE',
-        type: 'string',
-        length: 20,
+        length: 255,
         nullable: true,
     })
-    public PostalCode?: string;
+    public Name?: string;
 
     @Documentation('Email')
     @Column({
@@ -51,51 +62,42 @@ export class SupplierEntity {
     @Column({
         name: 'SUPPLIER_PHONE',
         type: 'string',
-        length: 20,
-        nullable: true,
+        length: 15,
     })
-    public Phone?: string;
+    public Phone!: string;
 
     @Documentation('Fax')
     @Column({
         name: 'SUPPLIER_FAX',
         type: 'string',
         length: 20,
-        nullable: true,
     })
-    public Fax?: string;
-
-    @Documentation('Country')
-    @Column({
-        name: 'SUPPLIER_COUNTRY',
-        type: 'integer',
-    })
-    public Country!: number;
-
-    @Documentation('City')
-    @Column({
-        name: 'SUPPLIER_CITY',
-        type: 'integer',
-    })
-    public City!: number;
+    public Fax!: string;
 
     @Documentation('TIN')
     @Column({
         name: 'SUPPLIER_TIN',
         type: 'string',
-        length: 20,
-        nullable: true,
+        length: 15,
     })
-    public TIN?: string;
+    public TIN!: string;
 
     @Documentation('IBAN')
     @Column({
         name: 'SUPPLIER_IBAN',
         type: 'string',
-        length: 36,
+        length: 34,
+    })
+    public IBAN!: string;
+
+    @Documentation('CreatedAt')
+    @Column({
+        name: 'SUPPLIER_CREATEDAT',
+        type: 'timestamp',
         nullable: true,
     })
-    public IBAN?: string;
+    @CreatedAt()
+    public CreatedAt?: Date;
 
 }
 

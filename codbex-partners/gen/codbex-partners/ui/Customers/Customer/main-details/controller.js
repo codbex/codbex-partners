@@ -50,6 +50,8 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 		Dialogs.addMessageListener({ topic: 'codbex-partners.Customers.Customer.clearDetails', handler: () => {
 			$scope.$evalAsync(() => {
 				$scope.entity = {};
+				$scope.optionsCountry = [];
+				$scope.optionsCity = [];
 				$scope.action = 'select';
 			});
 		}});
@@ -59,12 +61,16 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 					data.entity.CreatedAt = new Date(data.entity.CreatedAt);
 				}
 				$scope.entity = data.entity;
+				$scope.optionsCountry = data.optionsCountry;
+				$scope.optionsCity = data.optionsCity;
 				$scope.action = 'select';
 			});
 		}});
 		Dialogs.addMessageListener({ topic: 'codbex-partners.Customers.Customer.createEntity', handler: (data) => {
 			$scope.$evalAsync(() => {
 				$scope.entity = {};
+				$scope.optionsCountry = data.optionsCountry;
+				$scope.optionsCity = data.optionsCity;
 				$scope.action = 'create';
 			});
 		}});
@@ -74,10 +80,14 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 					data.entity.CreatedAt = new Date(data.entity.CreatedAt);
 				}
 				$scope.entity = data.entity;
+				$scope.optionsCountry = data.optionsCountry;
+				$scope.optionsCity = data.optionsCity;
 				$scope.action = 'update';
 			});
 		}});
 
+		$scope.serviceCountry = '/services/ts/codbex-countries/gen/codbex-countries/api/Settings/CountryController.ts';
+		$scope.serviceCity = '/services/ts/codbex-cities/gen/codbex-cities/api/Settings/CityController.ts';
 
 		//-----------------Events-------------------//
 
@@ -135,6 +145,26 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			});
 		};
 		
+		$scope.createCountry = () => {
+			Dialogs.showWindow({
+				id: 'Country-details',
+				params: {
+					action: 'create',
+					entity: {},
+				},
+				closeButton: false
+			});
+		};
+		$scope.createCity = () => {
+			Dialogs.showWindow({
+				id: 'City-details',
+				params: {
+					action: 'create',
+					entity: {},
+				},
+				closeButton: false
+			});
+		};
 
 		//-----------------Dialogs-------------------//
 
@@ -142,6 +172,40 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 
 		//----------------Dropdowns-----------------//
 
+		$scope.refreshCountry = () => {
+			$scope.optionsCountry = [];
+			$http.get('/services/ts/codbex-countries/gen/codbex-countries/api/Settings/CountryController.ts').then((response) => {
+				$scope.optionsCountry = response.data.map(e => ({
+					value: e.Id,
+					text: e.Name
+				}));
+			}, (error) => {
+				console.error(error);
+				const message = error.data ? error.data.message : '';
+				Dialogs.showAlert({
+					title: 'Country',
+					message: LocaleService.t('codbex-partners:codbex-partners-model.messages.error.unableToLoad', { message: message }),
+					type: AlertTypes.Error
+				});
+			});
+		};
+		$scope.refreshCity = () => {
+			$scope.optionsCity = [];
+			$http.get('/services/ts/codbex-cities/gen/codbex-cities/api/Settings/CityController.ts').then((response) => {
+				$scope.optionsCity = response.data.map(e => ({
+					value: e.Id,
+					text: e.Name
+				}));
+			}, (error) => {
+				console.error(error);
+				const message = error.data ? error.data.message : '';
+				Dialogs.showAlert({
+					title: 'City',
+					message: LocaleService.t('codbex-partners:codbex-partners-model.messages.error.unableToLoad', { message: message }),
+					type: AlertTypes.Error
+				});
+			});
+		};
 
 		//----------------Dropdowns-----------------//	
 	});

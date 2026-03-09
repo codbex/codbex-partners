@@ -6,18 +6,18 @@ import { dao as daoApi } from "@aerokit/sdk/db";
 export interface CustomerContactEntity {
     readonly Id: number;
     Customer?: number;
-    Name?: string;
-    Designation?: string;
-    Email?: string;
-    Phone?: string;
+    Name: string;
+    Designation: string;
+    Email: string;
+    Phone: string;
 }
 
 export interface CustomerContactCreateEntity {
     readonly Customer?: number;
-    readonly Name?: string;
-    readonly Designation?: string;
-    readonly Email?: string;
-    readonly Phone?: string;
+    readonly Name: string;
+    readonly Designation: string;
+    readonly Email: string;
+    readonly Phone: string;
 }
 
 export interface CustomerContactUpdateEntity extends CustomerContactCreateEntity {
@@ -127,21 +127,25 @@ export class CustomerContactRepository {
                 name: "Name",
                 column: "CUSTOMERCONTACT_NAME",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "Designation",
                 column: "CUSTOMERCONTACT_DESIGNATION",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "Email",
                 column: "CUSTOMERCONTACT_EMAIL",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "Phone",
                 column: "CUSTOMERCONTACT_PHONE",
                 type: "VARCHAR",
+                required: true
             }
         ]
     };

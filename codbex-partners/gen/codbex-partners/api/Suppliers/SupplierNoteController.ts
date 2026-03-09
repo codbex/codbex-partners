@@ -175,6 +175,9 @@ class SupplierNoteController {
     }
 
     private validateEntity(entity: any): void {
+        if (entity.Note === null || entity.Note === undefined) {
+            throw new ValidationError(`The 'Note' property is required, provide a valid value`);
+        }
         if (entity.Note?.length > 5000) {
             throw new ValidationError(`The 'Note' exceeds the maximum length of [5000] characters`);
         }

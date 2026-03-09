@@ -2,7 +2,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 	.config(['EntityServiceProvider', (EntityServiceProvider) => {
 		EntityServiceProvider.baseUrl = '/services/ts/codbex-partners/gen/codbex-partners/api/Customers/CustomerController.ts';
 	}])
-	.controller('PageController', ($scope, EntityService, Extensions, LocaleService, ButtonStates) => {
+	.controller('PageController', ($scope, $http, EntityService, Extensions, LocaleService, ButtonStates) => {
 		const Dialogs = new DialogHub();
 		let translated = {
 			yes: 'Yes',
@@ -136,6 +136,8 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			Dialogs.postMessage({ topic: 'codbex-partners.Customers.Customer.entitySelected', data: {
 				entity: entity,
 				selectedMainEntityId: entity.Id,
+				optionsCountry: $scope.optionsCountry,
+				optionsCity: $scope.optionsCity,
 			}});
 		};
 
@@ -143,13 +145,19 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			$scope.selectedEntity = null;
 			$scope.action = 'create';
 
-			Dialogs.triggerEvent('codbex-partners.Customers.Customer.createEntity');
+			Dialogs.postMessage({ topic: 'codbex-partners.Customers.Customer.createEntity', data: {
+				entity: {},
+				optionsCountry: $scope.optionsCountry,
+				optionsCity: $scope.optionsCity,
+			}});
 		};
 
 		$scope.updateEntity = () => {
 			$scope.action = 'update';
 			Dialogs.postMessage({ topic: 'codbex-partners.Customers.Customer.updateEntity', data: {
 				entity: $scope.selectedEntity,
+				optionsCountry: $scope.optionsCountry,
+				optionsCity: $scope.optionsCity,
 			}});
 		};
 
@@ -191,7 +199,62 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				id: 'Customer-filter',
 				params: {
 					entity: $scope.filterEntity,
+					optionsCountry: $scope.optionsCountry,
+					optionsCity: $scope.optionsCity,
 				},
 			});
 		};
+
+		//----------------Dropdowns-----------------//
+		$scope.optionsCountry = [];
+		$scope.optionsCity = [];
+
+
+		$http.get('/services/ts/codbex-countries/gen/codbex-countries/api/Settings/CountryController.ts').then((response) => {
+			$scope.optionsCountry = response.data.map(e => ({
+				value: e.Id,
+				text: e.Name
+			}));
+		}, (error) => {
+			console.error(error);
+			const message = error.data ? error.data.message : '';
+			Dialogs.showAlert({
+				title: 'Country',
+				message: LocaleService.t('codbex-partners:codbex-partners-model.messages.error.unableToLoad', { message: message }),
+				type: AlertTypes.Error
+			});
+		});
+
+		$http.get('/services/ts/codbex-cities/gen/codbex-cities/api/Settings/CityController.ts').then((response) => {
+			$scope.optionsCity = response.data.map(e => ({
+				value: e.Id,
+				text: e.Name
+			}));
+		}, (error) => {
+			console.error(error);
+			const message = error.data ? error.data.message : '';
+			Dialogs.showAlert({
+				title: 'City',
+				message: LocaleService.t('codbex-partners:codbex-partners-model.messages.error.unableToLoad', { message: message }),
+				type: AlertTypes.Error
+			});
+		});
+
+		$scope.optionsCountryValue = (optionKey) => {
+			for (let i = 0; i < $scope.optionsCountry.length; i++) {
+				if ($scope.optionsCountry[i].value === optionKey) {
+					return $scope.optionsCountry[i].text;
+				}
+			}
+			return null;
+		};
+		$scope.optionsCityValue = (optionKey) => {
+			for (let i = 0; i < $scope.optionsCity.length; i++) {
+				if ($scope.optionsCity[i].value === optionKey) {
+					return $scope.optionsCity[i].text;
+				}
+			}
+			return null;
+		};
+		//----------------Dropdowns-----------------//
 	});

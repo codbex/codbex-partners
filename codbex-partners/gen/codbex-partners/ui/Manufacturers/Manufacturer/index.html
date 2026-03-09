@@ -38,10 +38,17 @@
 						navigated="next.Id === selectedEntity.Id"
 						ng-click="action == 'select' ? selectEntity(next) : ''">
 						<bk-list-content
-							item-title="{{next.Name}}">
+							item-title="{{next.FirstName}}">
 							<bk-list-byline align="left">
-								{{optionsCountryValue(next.Country)}} |
-								{{optionsCityValue(next.City)}}
+								{{next.LastName}} |
+								{{next.LegalEntityName}} |
+								{{next.Name}} |
+								<bk-link href="mailto:{{next.Email}}">{{next.Email}}</bk-link> |
+								<bk-link href="tel:{{next.Phone}}">{{next.Phone}}</bk-link> |
+								{{next.Fax}} |
+								{{next.TIN}} |
+								{{next.IBAN}} |
+								{{next.CreatedAt}}
 							</bk-list-byline>
 						</bk-list-content>
 					</bk-list-link>

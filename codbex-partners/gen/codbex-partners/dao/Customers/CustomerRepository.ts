@@ -7,25 +7,36 @@ export interface CustomerEntity {
     readonly Id: number;
     FirstName?: string;
     LastName?: string;
+    LegalEntityName?: string;
     Name?: string;
     Email: string;
-    Phone?: string;
-    Fax?: string;
-    TIN?: string;
-    IBAN?: string;
-    Identifier?: string;
+    Phone: string;
+    Fax: string;
+    Country: number;
+    City: number;
+    Address: string;
+    PostalCode: string;
+    TIN: string;
+    IBAN: string;
+    Identifier: string;
     CreatedAt?: Date;
 }
 
 export interface CustomerCreateEntity {
     readonly FirstName?: string;
     readonly LastName?: string;
+    readonly LegalEntityName?: string;
     readonly Email: string;
-    readonly Phone?: string;
-    readonly Fax?: string;
-    readonly TIN?: string;
-    readonly IBAN?: string;
-    readonly Identifier?: string;
+    readonly Phone: string;
+    readonly Fax: string;
+    readonly Country: number;
+    readonly City: number;
+    readonly Address: string;
+    readonly PostalCode: string;
+    readonly TIN: string;
+    readonly IBAN: string;
+    readonly Identifier: string;
+    readonly CreatedAt?: Date;
 }
 
 export interface CustomerUpdateEntity extends CustomerCreateEntity {
@@ -38,10 +49,15 @@ export interface CustomerEntityOptions {
             Id?: number | number[];
             FirstName?: string | string[];
             LastName?: string | string[];
+            LegalEntityName?: string | string[];
             Name?: string | string[];
             Email?: string | string[];
             Phone?: string | string[];
             Fax?: string | string[];
+            Country?: number | number[];
+            City?: number | number[];
+            Address?: string | string[];
+            PostalCode?: string | string[];
             TIN?: string | string[];
             IBAN?: string | string[];
             Identifier?: string | string[];
@@ -51,10 +67,15 @@ export interface CustomerEntityOptions {
             Id?: number | number[];
             FirstName?: string | string[];
             LastName?: string | string[];
+            LegalEntityName?: string | string[];
             Name?: string | string[];
             Email?: string | string[];
             Phone?: string | string[];
             Fax?: string | string[];
+            Country?: number | number[];
+            City?: number | number[];
+            Address?: string | string[];
+            PostalCode?: string | string[];
             TIN?: string | string[];
             IBAN?: string | string[];
             Identifier?: string | string[];
@@ -64,10 +85,15 @@ export interface CustomerEntityOptions {
             Id?: number;
             FirstName?: string;
             LastName?: string;
+            LegalEntityName?: string;
             Name?: string;
             Email?: string;
             Phone?: string;
             Fax?: string;
+            Country?: number;
+            City?: number;
+            Address?: string;
+            PostalCode?: string;
             TIN?: string;
             IBAN?: string;
             Identifier?: string;
@@ -77,10 +103,15 @@ export interface CustomerEntityOptions {
             Id?: number;
             FirstName?: string;
             LastName?: string;
+            LegalEntityName?: string;
             Name?: string;
             Email?: string;
             Phone?: string;
             Fax?: string;
+            Country?: number;
+            City?: number;
+            Address?: string;
+            PostalCode?: string;
             TIN?: string;
             IBAN?: string;
             Identifier?: string;
@@ -90,10 +121,15 @@ export interface CustomerEntityOptions {
             Id?: number;
             FirstName?: string;
             LastName?: string;
+            LegalEntityName?: string;
             Name?: string;
             Email?: string;
             Phone?: string;
             Fax?: string;
+            Country?: number;
+            City?: number;
+            Address?: string;
+            PostalCode?: string;
             TIN?: string;
             IBAN?: string;
             Identifier?: string;
@@ -103,10 +139,15 @@ export interface CustomerEntityOptions {
             Id?: number;
             FirstName?: string;
             LastName?: string;
+            LegalEntityName?: string;
             Name?: string;
             Email?: string;
             Phone?: string;
             Fax?: string;
+            Country?: number;
+            City?: number;
+            Address?: string;
+            PostalCode?: string;
             TIN?: string;
             IBAN?: string;
             Identifier?: string;
@@ -116,10 +157,15 @@ export interface CustomerEntityOptions {
             Id?: number;
             FirstName?: string;
             LastName?: string;
+            LegalEntityName?: string;
             Name?: string;
             Email?: string;
             Phone?: string;
             Fax?: string;
+            Country?: number;
+            City?: number;
+            Address?: string;
+            PostalCode?: string;
             TIN?: string;
             IBAN?: string;
             Identifier?: string;
@@ -172,6 +218,11 @@ export class CustomerRepository {
                 type: "VARCHAR",
             },
             {
+                name: "LegalEntityName",
+                column: "CUSTOMER_LEGALENTITYNAME",
+                type: "VARCHAR",
+            },
+            {
                 name: "Name",
                 column: "CUSTOMER_NAME",
                 type: "VARCHAR",
@@ -186,26 +237,55 @@ export class CustomerRepository {
                 name: "Phone",
                 column: "CUSTOMER_PHONE",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "Fax",
                 column: "CUSTOMER_FAX",
                 type: "VARCHAR",
+                required: true
+            },
+            {
+                name: "Country",
+                column: "CUSTOMER_COUNTRY",
+                type: "INTEGER",
+                required: true
+            },
+            {
+                name: "City",
+                column: "CUSTOMER_CITY",
+                type: "INTEGER",
+                required: true
+            },
+            {
+                name: "Address",
+                column: "CUSTOMER_ADDRESS",
+                type: "VARCHAR",
+                required: true
+            },
+            {
+                name: "PostalCode",
+                column: "CUSTOMER_POSTALCODE",
+                type: "VARCHAR",
+                required: true
             },
             {
                 name: "TIN",
                 column: "CUSTOMER_TIN",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "IBAN",
                 column: "CUSTOMER_IBAN",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "Identifier",
                 column: "CUSTOMER_IDENTIFIER",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "CreatedAt",
@@ -233,9 +313,7 @@ export class CustomerRepository {
 
     public create(entity: CustomerCreateEntity): number {
         // @ts-ignore
-        (entity as CustomerEntity).Name = entity["FirstName"] + " " + entity["LastName"];
-        // @ts-ignore
-        (entity as CustomerEntity).CreatedAt = new Date().toISOString().slice(0, 19).replace('T', ' ');
+        (entity as CustomerEntity).Name = (entity.FirstName && entity.LastName) ? (entity.FirstName + " " + entity.LastName) : entity.LegalEntityName;
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
@@ -252,7 +330,7 @@ export class CustomerRepository {
 
     public update(entity: CustomerUpdateEntity): void {
         // @ts-ignore
-        (entity as CustomerEntity).Name = entity["FirstName"] + " " + entity["LastName"];
+        (entity as CustomerEntity).Name = (entity.FirstName && entity.LastName) ? (entity.FirstName + " " + entity.LastName) : entity.LegalEntityName;
         const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({

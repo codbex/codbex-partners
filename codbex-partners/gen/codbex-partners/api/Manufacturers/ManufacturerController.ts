@@ -164,17 +164,47 @@ class ManufacturerController {
     }
 
     private validateEntity(entity: any): void {
-        if (entity.Name === null || entity.Name === undefined) {
-            throw new ValidationError(`The 'Name' property is required, provide a valid value`);
+        if (entity.FirstName?.length > 50) {
+            throw new ValidationError(`The 'FirstName' exceeds the maximum length of [50] characters`);
         }
-        if (entity.Name?.length > 200) {
-            throw new ValidationError(`The 'Name' exceeds the maximum length of [200] characters`);
+        if (entity.LastName?.length > 50) {
+            throw new ValidationError(`The 'LastName' exceeds the maximum length of [50] characters`);
         }
-        if (entity.Country === null || entity.Country === undefined) {
-            throw new ValidationError(`The 'Country' property is required, provide a valid value`);
+        if (entity.LegalEntityName?.length > 255) {
+            throw new ValidationError(`The 'LegalEntityName' exceeds the maximum length of [255] characters`);
         }
-        if (entity.City === null || entity.City === undefined) {
-            throw new ValidationError(`The 'City' property is required, provide a valid value`);
+        if (entity.Name?.length > 255) {
+            throw new ValidationError(`The 'Name' exceeds the maximum length of [255] characters`);
+        }
+        if (entity.Email === null || entity.Email === undefined) {
+            throw new ValidationError(`The 'Email' property is required, provide a valid value`);
+        }
+        if (entity.Email?.length > 100) {
+            throw new ValidationError(`The 'Email' exceeds the maximum length of [100] characters`);
+        }
+        if (entity.Phone === null || entity.Phone === undefined) {
+            throw new ValidationError(`The 'Phone' property is required, provide a valid value`);
+        }
+        if (entity.Phone?.length > 15) {
+            throw new ValidationError(`The 'Phone' exceeds the maximum length of [15] characters`);
+        }
+        if (entity.Fax === null || entity.Fax === undefined) {
+            throw new ValidationError(`The 'Fax' property is required, provide a valid value`);
+        }
+        if (entity.Fax?.length > 20) {
+            throw new ValidationError(`The 'Fax' exceeds the maximum length of [20] characters`);
+        }
+        if (entity.TIN === null || entity.TIN === undefined) {
+            throw new ValidationError(`The 'TIN' property is required, provide a valid value`);
+        }
+        if (entity.TIN?.length > 15) {
+            throw new ValidationError(`The 'TIN' exceeds the maximum length of [15] characters`);
+        }
+        if (entity.IBAN === null || entity.IBAN === undefined) {
+            throw new ValidationError(`The 'IBAN' property is required, provide a valid value`);
+        }
+        if (entity.IBAN?.length > 34) {
+            throw new ValidationError(`The 'IBAN' exceeds the maximum length of [34] characters`);
         }
         for (const next of validationModules) {
             next.validate(entity);

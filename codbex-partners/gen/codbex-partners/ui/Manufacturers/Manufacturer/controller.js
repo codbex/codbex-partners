@@ -2,7 +2,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 	.config(['EntityServiceProvider', (EntityServiceProvider) => {
 		EntityServiceProvider.baseUrl = '/services/ts/codbex-partners/gen/codbex-partners/api/Manufacturers/ManufacturerController.ts';
 	}])
-	.controller('PageController', ($scope, $http, EntityService, Extensions, LocaleService, ButtonStates) => {
+	.controller('PageController', ($scope, EntityService, Extensions, LocaleService, ButtonStates) => {
 		const Dialogs = new DialogHub();
 		let translated = {
 			yes: 'Yes',
@@ -102,6 +102,12 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 						$scope.data = [];
 						$scope.dataReset = false;
 					}
+					response.data.forEach(e => {
+						if (e.CreatedAt) {
+							e.CreatedAt = new Date(e.CreatedAt);
+						}
+					});
+
 					$scope.data = $scope.data.concat(response.data);
 					$scope.dataPage++;
 				}, (error) => {
@@ -130,8 +136,6 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			Dialogs.postMessage({ topic: 'codbex-partners.Manufacturers.Manufacturer.entitySelected', data: {
 				entity: entity,
 				selectedMainEntityId: entity.Id,
-				optionsCountry: $scope.optionsCountry,
-				optionsCity: $scope.optionsCity,
 			}});
 		};
 
@@ -139,19 +143,13 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			$scope.selectedEntity = null;
 			$scope.action = 'create';
 
-			Dialogs.postMessage({ topic: 'codbex-partners.Manufacturers.Manufacturer.createEntity', data: {
-				entity: {},
-				optionsCountry: $scope.optionsCountry,
-				optionsCity: $scope.optionsCity,
-			}});
+			Dialogs.triggerEvent('codbex-partners.Manufacturers.Manufacturer.createEntity');
 		};
 
 		$scope.updateEntity = () => {
 			$scope.action = 'update';
 			Dialogs.postMessage({ topic: 'codbex-partners.Manufacturers.Manufacturer.updateEntity', data: {
 				entity: $scope.selectedEntity,
-				optionsCountry: $scope.optionsCountry,
-				optionsCity: $scope.optionsCity,
 			}});
 		};
 
@@ -193,62 +191,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				id: 'Manufacturer-filter',
 				params: {
 					entity: $scope.filterEntity,
-					optionsCountry: $scope.optionsCountry,
-					optionsCity: $scope.optionsCity,
 				},
 			});
 		};
-
-		//----------------Dropdowns-----------------//
-		$scope.optionsCountry = [];
-		$scope.optionsCity = [];
-
-
-		$http.get('/services/ts/codbex-countries/gen/codbex-countries/api/Settings/CountryController.ts').then((response) => {
-			$scope.optionsCountry = response.data.map(e => ({
-				value: e.Id,
-				text: e.Name
-			}));
-		}, (error) => {
-			console.error(error);
-			const message = error.data ? error.data.message : '';
-			Dialogs.showAlert({
-				title: 'Country',
-				message: LocaleService.t('codbex-partners:codbex-partners-model.messages.error.unableToLoad', { message: message }),
-				type: AlertTypes.Error
-			});
-		});
-
-		$http.get('/services/ts/codbex-cities/gen/codbex-cities/api/Settings/CityController.ts').then((response) => {
-			$scope.optionsCity = response.data.map(e => ({
-				value: e.Id,
-				text: e.Name
-			}));
-		}, (error) => {
-			console.error(error);
-			const message = error.data ? error.data.message : '';
-			Dialogs.showAlert({
-				title: 'City',
-				message: LocaleService.t('codbex-partners:codbex-partners-model.messages.error.unableToLoad', { message: message }),
-				type: AlertTypes.Error
-			});
-		});
-
-		$scope.optionsCountryValue = (optionKey) => {
-			for (let i = 0; i < $scope.optionsCountry.length; i++) {
-				if ($scope.optionsCountry[i].value === optionKey) {
-					return $scope.optionsCountry[i].text;
-				}
-			}
-			return null;
-		};
-		$scope.optionsCityValue = (optionKey) => {
-			for (let i = 0; i < $scope.optionsCity.length; i++) {
-				if ($scope.optionsCity[i].value === optionKey) {
-					return $scope.optionsCity[i].text;
-				}
-			}
-			return null;
-		};
-		//----------------Dropdowns-----------------//
 	});

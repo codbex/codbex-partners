@@ -1,4 +1,4 @@
-import { Entity, Table, Id, Generated, Column, Documentation } from '@aerokit/sdk/db'
+import { Entity, Table, Id, Generated, Column, Documentation, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy} from '@aerokit/sdk/db'
 
 @Entity('CustomerEntity')
 @Table('CODBEX_CUSTOMER')
@@ -21,7 +21,7 @@ export class CustomerEntity {
         length: 50,
         nullable: true,
     })
-    public FirstName!: string;
+    public FirstName?: string;
 
     @Documentation('LastName')
     @Column({
@@ -30,13 +30,22 @@ export class CustomerEntity {
         length: 50,
         nullable: true,
     })
-    public LastName!: string;
+    public LastName?: string;
+
+    @Documentation('LegalEntityName')
+    @Column({
+        name: 'CUSTOMER_LEGALENTITYNAME',
+        type: 'string',
+        length: 255,
+        nullable: true,
+    })
+    public LegalEntityName?: string;
 
     @Documentation('Name')
     @Column({
         name: 'CUSTOMER_NAME',
         type: 'string',
-        length: 100,
+        length: 255,
         nullable: true,
     })
     public Name?: string;
@@ -53,46 +62,71 @@ export class CustomerEntity {
     @Column({
         name: 'CUSTOMER_PHONE',
         type: 'string',
-        length: 20,
-        nullable: true,
+        length: 15,
     })
-    public Phone?: string;
+    public Phone!: string;
 
     @Documentation('Fax')
     @Column({
         name: 'CUSTOMER_FAX',
         type: 'string',
         length: 20,
-        nullable: true,
     })
-    public Fax?: string;
+    public Fax!: string;
+
+    @Documentation('Country')
+    @Column({
+        name: 'CUSTOMER_COUNTRY',
+        type: 'integer',
+    })
+    public Country!: number;
+
+    @Documentation('City')
+    @Column({
+        name: 'CUSTOMER_CITY',
+        type: 'integer',
+    })
+    public City!: number;
+
+    @Documentation('Address')
+    @Column({
+        name: 'CUSTOMER_ADDRESS',
+        type: 'string',
+        length: 255,
+    })
+    public Address!: string;
+
+    @Documentation('PostalCode')
+    @Column({
+        name: 'CUSTOMER_POSTALCODE',
+        type: 'string',
+        length: 10,
+    })
+    public PostalCode!: string;
 
     @Documentation('TIN')
     @Column({
         name: 'CUSTOMER_TIN',
         type: 'string',
-        length: 20,
-        nullable: true,
+        length: 15,
     })
-    public TIN?: string;
+    public TIN!: string;
 
     @Documentation('IBAN')
     @Column({
         name: 'CUSTOMER_IBAN',
         type: 'string',
-        length: 36,
-        nullable: true,
+        length: 34,
     })
-    public IBAN?: string;
+    public IBAN!: string;
 
     @Documentation('Identifier')
     @Column({
         name: 'CUSTOMER_IDENTIFIER',
         type: 'string',
         length: 36,
-        nullable: true,
     })
-    public Identifier?: string;
+    public Identifier!: string;
 
     @Documentation('CreatedAt')
     @Column({
@@ -100,6 +134,7 @@ export class CustomerEntity {
         type: 'timestamp',
         nullable: true,
     })
+    @CreatedAt()
     public CreatedAt?: Date;
 
 }
