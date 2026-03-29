@@ -44,7 +44,7 @@ class ManufacturerNoteController {
             this.checkPermissions('write');
             this.validateEntity(entity);
             entity.Id = this.repository.create(entity) as any;
-            response.setHeader('Content-Location', '/services/ts/codbex-partners/gen/codbex-partners/api/Manufacturers/ManufacturerNoteService.ts/' + entity.Id);
+            response.setHeader('Content-Location', '/services/ts/codbex-partners/gen/codbex-partners/api/Manufacturers/ManufacturerNoteController.ts/' + entity.Id);
             response.setStatus(response.CREATED);
             return entity;
         } catch (error: any) {
