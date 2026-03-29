@@ -55,7 +55,7 @@ class CustomerNoteController {
             this.checkPermissions('write');
             this.validateEntity(entity);
             entity.Id = this.repository.create(entity) as any;
-            response.setHeader('Content-Location', '/services/ts/codbex-partners/gen/codbex-partners/api/Customers/CustomerNoteService.ts/' + entity.Id);
+            response.setHeader('Content-Location', '/services/ts/codbex-partners/gen/codbex-partners/api/Customers/CustomerNoteController.ts/' + entity.Id);
             response.setStatus(response.CREATED);
             return entity;
         } catch (error: any) {

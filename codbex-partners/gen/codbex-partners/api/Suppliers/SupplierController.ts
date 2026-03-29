@@ -44,7 +44,7 @@ class SupplierController {
             this.checkPermissions('write');
             this.validateEntity(entity);
             entity.Id = this.repository.create(entity) as any;
-            response.setHeader('Content-Location', '/services/ts/codbex-partners/gen/codbex-partners/api/Suppliers/SupplierService.ts/' + entity.Id);
+            response.setHeader('Content-Location', '/services/ts/codbex-partners/gen/codbex-partners/api/Suppliers/SupplierController.ts/' + entity.Id);
             response.setStatus(response.CREATED);
             return entity;
         } catch (error: any) {
@@ -205,6 +205,9 @@ class SupplierController {
         }
         if (entity.IBAN?.length > 34) {
             throw new ValidationError(`The 'IBAN' exceeds the maximum length of [34] characters`);
+        }
+        if (!RegExp(/^[A-Z]{2}[0-9]{2}[A-Z0-9]{11,30}$/).test(entity.IBAN)) {
+            throw new ValidationError(`The value provided for the 'IBAN' property ('[${entity.IBAN}]') doesn't match the required pattern '^[A-Z]{2}[0-9]{2}[A-Z0-9]{11,30}$'`);
         }
         for (const next of validationModules) {
             next.validate(entity);
