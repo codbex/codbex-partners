@@ -120,6 +120,14 @@ export class CustomerEntity {
     })
     public IBAN!: string;
 
+    @Documentation('ResponsiblePerson')
+    @Column({
+        name: 'CUSTOMER_RESPONSIBLEPERSON',
+        type: 'integer',
+        nullable: true,
+    })
+    public ResponsiblePerson!: number;
+
     @Documentation('Identifier')
     @Column({
         name: 'CUSTOMER_IDENTIFIER',

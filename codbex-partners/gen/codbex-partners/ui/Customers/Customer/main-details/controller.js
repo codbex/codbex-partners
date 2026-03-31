@@ -52,6 +52,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				$scope.entity = {};
 				$scope.optionsCountry = [];
 				$scope.optionsCity = [];
+				$scope.optionsResponsiblePerson = [];
 				$scope.action = 'select';
 			});
 		}});
@@ -63,6 +64,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				$scope.entity = data.entity;
 				$scope.optionsCountry = data.optionsCountry;
 				$scope.optionsCity = data.optionsCity;
+				$scope.optionsResponsiblePerson = data.optionsResponsiblePerson;
 				$scope.action = 'select';
 			});
 		}});
@@ -71,6 +73,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				$scope.entity = {};
 				$scope.optionsCountry = data.optionsCountry;
 				$scope.optionsCity = data.optionsCity;
+				$scope.optionsResponsiblePerson = data.optionsResponsiblePerson;
 				$scope.action = 'create';
 			});
 		}});
@@ -82,12 +85,14 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				$scope.entity = data.entity;
 				$scope.optionsCountry = data.optionsCountry;
 				$scope.optionsCity = data.optionsCity;
+				$scope.optionsResponsiblePerson = data.optionsResponsiblePerson;
 				$scope.action = 'update';
 			});
 		}});
 
 		$scope.serviceCountry = '/services/ts/codbex-countries/gen/codbex-countries/api/Settings/CountryController.ts';
 		$scope.serviceCity = '/services/ts/codbex-cities/gen/codbex-cities/api/Settings/CityController.ts';
+		$scope.serviceResponsiblePerson = '/services/ts/codbex-employees/gen/codbex-employees/api/Employees/EmployeeController.ts';
 
 		//-----------------Events-------------------//
 
@@ -165,6 +170,16 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				closeButton: false
 			});
 		};
+		$scope.createResponsiblePerson = () => {
+			Dialogs.showWindow({
+				id: 'Employee-details',
+				params: {
+					action: 'create',
+					entity: {},
+				},
+				closeButton: false
+			});
+		};
 
 		//-----------------Dialogs-------------------//
 
@@ -201,6 +216,23 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				const message = error.data ? error.data.message : '';
 				Dialogs.showAlert({
 					title: 'City',
+					message: LocaleService.t('codbex-partners:codbex-partners-model.messages.error.unableToLoad', { message: message }),
+					type: AlertTypes.Error
+				});
+			});
+		};
+		$scope.refreshResponsiblePerson = () => {
+			$scope.optionsResponsiblePerson = [];
+			$http.get('/services/ts/codbex-employees/gen/codbex-employees/api/Employees/EmployeeController.ts').then((response) => {
+				$scope.optionsResponsiblePerson = response.data.map(e => ({
+					value: e.Id,
+					text: e.Name
+				}));
+			}, (error) => {
+				console.error(error);
+				const message = error.data ? error.data.message : '';
+				Dialogs.showAlert({
+					title: 'ResponsiblePerson',
 					message: LocaleService.t('codbex-partners:codbex-partners-model.messages.error.unableToLoad', { message: message }),
 					type: AlertTypes.Error
 				});

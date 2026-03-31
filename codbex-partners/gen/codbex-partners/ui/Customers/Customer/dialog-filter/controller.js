@@ -18,6 +18,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 		$scope.selectedMainEntityId = params.selectedMainEntityId;
 		$scope.optionsCountry = params.optionsCountry;
 		$scope.optionsCity = params.optionsCity;
+		$scope.optionsResponsiblePerson = params.optionsResponsiblePerson;
 	}
 
 	$scope.filter = () => {
@@ -84,6 +85,10 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 		}
 		if (entity.IBAN) {
 			const condition = { propertyName: 'IBAN', operator: 'LIKE', value: `%${entity.IBAN}%` };
+			filter.$filter.conditions.push(condition);
+		}
+		if (entity.ResponsiblePerson !== undefined) {
+			const condition = { propertyName: 'ResponsiblePerson', operator: 'EQ', value: entity.ResponsiblePerson };
 			filter.$filter.conditions.push(condition);
 		}
 		if (entity.Identifier) {
