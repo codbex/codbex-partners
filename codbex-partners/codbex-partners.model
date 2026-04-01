@@ -112,7 +112,7 @@
                         "auditType": "NONE",
                         "dataLength": "20",
                         "dataName": "CUSTOMER_FAX",
-                        "dataNullable": "false",
+                        "dataNullable": "true",
                         "dataType": "VARCHAR",
                         "description": "",
                         "name": "Fax",
@@ -228,7 +228,7 @@
                     {
                         "auditType": "NONE",
                         "dataName": "CUSTOMER_RESPONSIBLEPERSON",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataType": "INTEGER",
                         "description": "",
                         "isRequiredProperty": "true",

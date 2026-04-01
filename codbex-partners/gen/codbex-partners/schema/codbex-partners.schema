@@ -50,6 +50,7 @@
                     {
                         "type": "VARCHAR",
                         "length": 20,
+                        "nullable": true,
                         "name": "CUSTOMER_FAX"
                     },
                     {
@@ -84,7 +85,6 @@
                     },
                     {
                         "type": "INTEGER",
-                        "nullable": true,
                         "name": "CUSTOMER_RESPONSIBLEPERSON"
                     },
                     {
