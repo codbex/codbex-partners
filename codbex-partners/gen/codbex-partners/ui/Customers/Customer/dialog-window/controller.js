@@ -39,6 +39,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			$scope.selectedMainEntityId = params.selectedMainEntityId;
 			$scope.optionsCountry = params.optionsCountry;
 			$scope.optionsCity = params.optionsCity;
+			$scope.optionsResponsiblePerson = params.optionsResponsiblePerson;
 		}
 
 		$scope.create = () => {
@@ -114,6 +115,24 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			const message = error.data ? error.data.message : '';
 			Dialogs.showAlert({
 				title: 'City',
+				message: LocaleService.t('codbex-partners:codbex-partners-model.messages.error.unableToLoad', { message: message }),
+				type: AlertTypes.Error
+			});
+		});
+		$scope.serviceResponsiblePerson = '/services/ts/codbex-employees/gen/codbex-employees/api/Employees/EmployeeController.ts';
+		
+		$scope.optionsResponsiblePerson = [];
+		
+		$http.get('/services/ts/codbex-employees/gen/codbex-employees/api/Employees/EmployeeController.ts').then((response) => {
+			$scope.optionsResponsiblePerson = response.data.map(e => ({
+				value: e.Id,
+				text: e.Name
+			}));
+		}, (error) => {
+			console.error(error);
+			const message = error.data ? error.data.message : '';
+			Dialogs.showAlert({
+				title: 'ResponsiblePerson',
 				message: LocaleService.t('codbex-partners:codbex-partners-model.messages.error.unableToLoad', { message: message }),
 				type: AlertTypes.Error
 			});

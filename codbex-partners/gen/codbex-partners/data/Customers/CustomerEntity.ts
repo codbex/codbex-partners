@@ -71,8 +71,9 @@ export class CustomerEntity {
         name: 'CUSTOMER_FAX',
         type: 'string',
         length: 20,
+        nullable: true,
     })
-    public Fax!: string;
+    public Fax?: string;
 
     @Documentation('Country')
     @Column({
@@ -119,6 +120,13 @@ export class CustomerEntity {
         length: 34,
     })
     public IBAN!: string;
+
+    @Documentation('ResponsiblePerson')
+    @Column({
+        name: 'CUSTOMER_RESPONSIBLEPERSON',
+        type: 'integer',
+    })
+    public ResponsiblePerson!: number;
 
     @Documentation('Identifier')
     @Column({

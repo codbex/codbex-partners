@@ -50,6 +50,7 @@
                     {
                         "type": "VARCHAR",
                         "length": 20,
+                        "nullable": true,
                         "name": "CUSTOMER_FAX"
                     },
                     {
@@ -81,6 +82,10 @@
                         "length": 34,
                         "unique": true,
                         "name": "CUSTOMER_IBAN"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "name": "CUSTOMER_RESPONSIBLEPERSON"
                     },
                     {
                         "type": "VARCHAR",
@@ -438,6 +443,15 @@
                 "columns": "CUSTOMER_CITY",
                 "referencedTable": "CODBEX_CITY",
                 "referencedColumns": "CITY_ID"
+            },
+            {
+                "name": "Customer_Employee",
+                "type": "foreignKey",
+                "table": "CODBEX_CUSTOMER",
+                "constraintName": "Customer_Employee",
+                "columns": "CUSTOMER_RESPONSIBLEPERSON",
+                "referencedTable": "CODBEX_EMPLOYEE",
+                "referencedColumns": "EMPLOYEE_ID"
             },
             {
                 "name": "CustomerNote_Customer",

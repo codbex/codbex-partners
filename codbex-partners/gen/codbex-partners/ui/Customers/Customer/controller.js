@@ -138,6 +138,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				selectedMainEntityId: entity.Id,
 				optionsCountry: $scope.optionsCountry,
 				optionsCity: $scope.optionsCity,
+				optionsResponsiblePerson: $scope.optionsResponsiblePerson,
 			}});
 		};
 
@@ -149,6 +150,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				entity: {},
 				optionsCountry: $scope.optionsCountry,
 				optionsCity: $scope.optionsCity,
+				optionsResponsiblePerson: $scope.optionsResponsiblePerson,
 			}});
 		};
 
@@ -158,6 +160,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				entity: $scope.selectedEntity,
 				optionsCountry: $scope.optionsCountry,
 				optionsCity: $scope.optionsCity,
+				optionsResponsiblePerson: $scope.optionsResponsiblePerson,
 			}});
 		};
 
@@ -201,6 +204,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 					entity: $scope.filterEntity,
 					optionsCountry: $scope.optionsCountry,
 					optionsCity: $scope.optionsCity,
+					optionsResponsiblePerson: $scope.optionsResponsiblePerson,
 				},
 			});
 		};
@@ -208,6 +212,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 		//----------------Dropdowns-----------------//
 		$scope.optionsCountry = [];
 		$scope.optionsCity = [];
+		$scope.optionsResponsiblePerson = [];
 
 
 		$http.get('/services/ts/codbex-countries/gen/codbex-countries/api/Settings/CountryController.ts').then((response) => {
@@ -240,6 +245,21 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			});
 		});
 
+		$http.get('/services/ts/codbex-employees/gen/codbex-employees/api/Employees/EmployeeController.ts').then((response) => {
+			$scope.optionsResponsiblePerson = response.data.map(e => ({
+				value: e.Id,
+				text: e.Name
+			}));
+		}, (error) => {
+			console.error(error);
+			const message = error.data ? error.data.message : '';
+			Dialogs.showAlert({
+				title: 'ResponsiblePerson',
+				message: LocaleService.t('codbex-partners:codbex-partners-model.messages.error.unableToLoad', { message: message }),
+				type: AlertTypes.Error
+			});
+		});
+
 		$scope.optionsCountryValue = (optionKey) => {
 			for (let i = 0; i < $scope.optionsCountry.length; i++) {
 				if ($scope.optionsCountry[i].value === optionKey) {
@@ -252,6 +272,14 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			for (let i = 0; i < $scope.optionsCity.length; i++) {
 				if ($scope.optionsCity[i].value === optionKey) {
 					return $scope.optionsCity[i].text;
+				}
+			}
+			return null;
+		};
+		$scope.optionsResponsiblePersonValue = (optionKey) => {
+			for (let i = 0; i < $scope.optionsResponsiblePerson.length; i++) {
+				if ($scope.optionsResponsiblePerson[i].value === optionKey) {
+					return $scope.optionsResponsiblePerson[i].text;
 				}
 			}
 			return null;
