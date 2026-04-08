@@ -97,6 +97,23 @@
                         "type": "TIMESTAMP",
                         "nullable": true,
                         "name": "CUSTOMER_CREATEDAT"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "CUSTOMER_CREATEDBY"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "nullable": true,
+                        "name": "CUSTOMER_UPDATEDAT"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "CUSTOMER_UPDATEDBY"
                     }
                 ]
             },
@@ -167,6 +184,23 @@
                         "type": "TIMESTAMP",
                         "nullable": true,
                         "name": "SUPPLIER_CREATEDAT"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "SUPPLIER_CREATEDBY"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "nullable": true,
+                        "name": "SUPPLIER_UPDATEDAT"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "SUPPLIER_UPDATEDBY"
                     }
                 ]
             },
@@ -306,6 +340,23 @@
                         "type": "TIMESTAMP",
                         "nullable": true,
                         "name": "MANUFACTURER_CREATEDAT"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "MANUFACTURER_CREATEDBY"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "nullable": true,
+                        "name": "MANUFACTURER_UPDATEDAT"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "MANUFACTURER_UPDATEDBY"
                     }
                 ]
             },

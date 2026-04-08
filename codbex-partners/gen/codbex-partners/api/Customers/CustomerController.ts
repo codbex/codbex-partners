@@ -233,6 +233,12 @@ class CustomerController {
         if (entity.Identifier?.length > 36) {
             throw new ValidationError(`The 'Identifier' exceeds the maximum length of [36] characters`);
         }
+        if (entity.CreatedBy?.length > 20) {
+            throw new ValidationError(`The 'CreatedBy' exceeds the maximum length of [20] characters`);
+        }
+        if (entity.UpdatedBy?.length > 20) {
+            throw new ValidationError(`The 'UpdatedBy' exceeds the maximum length of [20] characters`);
+        }
         for (const next of validationModules) {
             next.validate(entity);
         }

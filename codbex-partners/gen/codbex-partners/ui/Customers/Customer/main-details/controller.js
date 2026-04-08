@@ -61,6 +61,9 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				if (data.entity.CreatedAt) {
 					data.entity.CreatedAt = new Date(data.entity.CreatedAt);
 				}
+				if (data.entity.UpdatedAt) {
+					data.entity.UpdatedAt = new Date(data.entity.UpdatedAt);
+				}
 				$scope.entity = data.entity;
 				$scope.optionsCountry = data.optionsCountry;
 				$scope.optionsCity = data.optionsCity;
@@ -81,6 +84,9 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			$scope.$evalAsync(() => {
 				if (data.entity.CreatedAt) {
 					data.entity.CreatedAt = new Date(data.entity.CreatedAt);
+				}
+				if (data.entity.UpdatedAt) {
+					data.entity.UpdatedAt = new Date(data.entity.UpdatedAt);
 				}
 				$scope.entity = data.entity;
 				$scope.optionsCountry = data.optionsCountry;
