@@ -30,6 +30,44 @@ export class CustomerNoteEntity {
     })
     public Note!: string;
 
+    @Documentation('CreatedAt')
+    @Column({
+        name: 'CUSTOMERNOTE_CREATEDAT',
+        type: 'timestamp',
+        nullable: true,
+    })
+    @CreatedAt()
+    public CreatedAt?: Date;
+
+    @Documentation('CreatedBy')
+    @Column({
+        name: 'CUSTOMERNOTE_CREATEDBY',
+        type: 'string',
+        length: 20,
+        nullable: true,
+    })
+    @CreatedBy()
+    public CreatedBy?: string;
+
+    @Documentation('UpdatedAt')
+    @Column({
+        name: 'CUSTOMERNOTE_UPDATEDAT',
+        type: 'timestamp',
+        nullable: true,
+    })
+    @UpdatedAt()
+    public UpdatedAt?: Date;
+
+    @Documentation('UpdatedBy')
+    @Column({
+        name: 'CUSTOMERNOTE_UPDATEDBY',
+        type: 'string',
+        length: 20,
+        nullable: true,
+    })
+    @UpdatedBy()
+    public UpdatedBy?: string;
+
 }
 
 (new CustomerNoteEntity());

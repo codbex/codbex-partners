@@ -29,6 +29,10 @@
 				<thead bk-table-header sticky="true">
 					<tr bk-table-row>
 						<th bk-table-header-cell>{{ 'codbex-partners:codbex-partners-model.t.SUPPLIERNOTE_NOTE' | t:'Note' }}</th>
+						<th bk-table-header-cell>{{ 'codbex-partners:codbex-partners-model.t.SUPPLIERNOTE_CREATEDAT' | t:'CreatedAt' }}</th>
+						<th bk-table-header-cell>{{ 'codbex-partners:codbex-partners-model.t.SUPPLIERNOTE_CREATEDBY' | t:'CreatedBy' }}</th>
+						<th bk-table-header-cell>{{ 'codbex-partners:codbex-partners-model.t.SUPPLIERNOTE_UPDATEDAT' | t:'UpdatedAt' }}</th>
+						<th bk-table-header-cell>{{ 'codbex-partners:codbex-partners-model.t.SUPPLIERNOTE_UPDATEDBY' | t:'UpdatedBy' }}</th>
 						<th bk-table-header-cell></th>
 					</tr>
 				</thead>
@@ -38,6 +42,10 @@
 					</tr>
 					<tr bk-table-row hoverable="true" ng-repeat="next in data track by $index" selected="next.Id === selectedEntity.Id" ng-click="selectEntity(next)">
 						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Note}}</td>
+						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.CreatedAt}}</td>
+						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.CreatedBy}}</td>
+						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.UpdatedAt}}</td>
+						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.UpdatedBy}}</td>
 						<td bk-table-cell fit-content="true">
 							<bk-popover>
 								<bk-popover-control>

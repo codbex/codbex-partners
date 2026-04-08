@@ -224,6 +224,28 @@
                         "type": "VARCHAR",
                         "length": 5000,
                         "name": "CUSTOMERNOTE_NOTE"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "nullable": true,
+                        "name": "CUSTOMERNOTE_CREATEDAT"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "CUSTOMERNOTE_CREATEDBY"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "nullable": true,
+                        "name": "CUSTOMERNOTE_UPDATEDAT"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "CUSTOMERNOTE_UPDATEDBY"
                     }
                 ]
             },
@@ -247,6 +269,28 @@
                         "type": "VARCHAR",
                         "length": 5000,
                         "name": "SUPPLIERNOTE_NOTE"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "nullable": true,
+                        "name": "SUPPLIERNOTE_CREATEDAT"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "SUPPLIERNOTE_CREATEDBY"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "nullable": true,
+                        "name": "SUPPLIERNOTE_UPDATEDAT"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "SUPPLIERNOTE_UPDATEDBY"
                     }
                 ]
             },
@@ -270,6 +314,28 @@
                         "type": "VARCHAR",
                         "length": 5000,
                         "name": "MANUFACTURERNOTE_NOTE"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "nullable": true,
+                        "name": "MANUFACTURERNOTE_CREATEDAT"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "MANUFACTURERNOTE_CREATEDBY"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "nullable": true,
+                        "name": "MANUFACTURERNOTE_UPDATEDAT"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "MANUFACTURERNOTE_UPDATEDBY"
                     }
                 ]
             },
