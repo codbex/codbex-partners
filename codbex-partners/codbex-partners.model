@@ -1353,6 +1353,35 @@
                         "widgetLength": "15",
                         "widgetSize": "",
                         "widgetType": "TEL"
+                    },
+                    {
+                        "auditType": "CREATED_AT",
+                        "dataName": "CUSTOMERCONTACT_CREATEDAT",
+                        "dataNullable": "true",
+                        "dataType": "TIMESTAMP",
+                        "description": "",
+                        "isReadOnlyProperty": "true",
+                        "name": "CreatedAt",
+                        "tooltip": "",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "auditType": "CREATED_BY",
+                        "dataLength": "20",
+                        "dataName": "CUSTOMERCONTACT_CREATEDBY",
+                        "dataNullable": "true",
+                        "dataType": "VARCHAR",
+                        "description": "",
+                        "isReadOnlyProperty": "true",
+                        "name": "CreatedBy",
+                        "tooltip": "",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
                     }
                 ],
                 "caption": "Manage entity CustomerContact",
@@ -1480,6 +1509,35 @@
                         "widgetLength": "15",
                         "widgetSize": "",
                         "widgetType": "TEL"
+                    },
+                    {
+                        "auditType": "CREATED_AT",
+                        "dataName": "SUPPLIERCONTACT_CREATEDAT",
+                        "dataNullable": "true",
+                        "dataType": "TIMESTAMP",
+                        "description": "",
+                        "isReadOnlyProperty": "true",
+                        "name": "CreatedAt",
+                        "tooltip": "",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "auditType": "CREATED_BY",
+                        "dataLength": "20",
+                        "dataName": "SUPPLIERCONTACT_CREATEDBY",
+                        "dataNullable": "true",
+                        "dataType": "VARCHAR",
+                        "description": "",
+                        "isReadOnlyProperty": "true",
+                        "name": "CreatedBy",
+                        "tooltip": "",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
                     }
                 ],
                 "caption": "Manage entity SupplierContact",
@@ -1603,6 +1661,35 @@
                         "widgetLength": "15",
                         "widgetSize": "",
                         "widgetType": "TEL"
+                    },
+                    {
+                        "auditType": "CREATED_AT",
+                        "dataName": "MANUFACTURERCONTACT_CREATEDAT",
+                        "dataNullable": "true",
+                        "dataType": "TIMESTAMP",
+                        "description": "",
+                        "isReadOnlyProperty": "true",
+                        "name": "CreatedAt",
+                        "tooltip": "",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "auditType": "CREATED_BY",
+                        "dataLength": "20",
+                        "dataName": "MANUFACTURERCONTACT_CREATEDBY",
+                        "dataNullable": "true",
+                        "dataType": "VARCHAR",
+                        "description": "",
+                        "isReadOnlyProperty": "true",
+                        "name": "CreatedBy",
+                        "tooltip": "",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
                     }
                 ],
                 "caption": "Manage entity ManufacturerContact",

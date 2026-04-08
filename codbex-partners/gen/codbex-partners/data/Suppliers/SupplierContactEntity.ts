@@ -54,6 +54,25 @@ export class SupplierContactEntity {
     })
     public Phone!: string;
 
+    @Documentation('CreatedAt')
+    @Column({
+        name: 'SUPPLIERCONTACT_CREATEDAT',
+        type: 'timestamp',
+        nullable: true,
+    })
+    @CreatedAt()
+    public CreatedAt?: Date;
+
+    @Documentation('CreatedBy')
+    @Column({
+        name: 'SUPPLIERCONTACT_CREATEDBY',
+        type: 'string',
+        length: 20,
+        nullable: true,
+    })
+    @CreatedBy()
+    public CreatedBy?: string;
+
 }
 
 (new SupplierContactEntity());
