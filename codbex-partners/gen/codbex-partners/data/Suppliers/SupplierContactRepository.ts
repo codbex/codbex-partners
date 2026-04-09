@@ -11,6 +11,22 @@ export class SupplierContactRepository extends Repository<SupplierContactEntity>
         super((SupplierContactEntity as EntityConstructor));
     }
 
+    public override findById(id: string | number, options?: Options): SupplierContactEntity | undefined {
+        const entity = super.findById(id, options);
+        if (entity) {
+            entity.CreatedAt = entity.CreatedAt ? new Date(entity.CreatedAt) : undefined;
+        }
+        return entity;
+    }
+
+    public override findAll(options?: Options): SupplierContactEntity[] {
+        const entities = super.findAll(options);
+        entities.forEach(entity => {
+            entity.CreatedAt = entity.CreatedAt ? new Date(entity.CreatedAt) : undefined;
+        });
+        return entities;
+    }
+
     protected override async triggerEvent(data: EntityEvent<SupplierContactEntity>): Promise<void> {
         const triggerExtensions = await Extensions.loadExtensionModules('codbex-partners-Suppliers-SupplierContact', ['trigger']);
         triggerExtensions.forEach(triggerExtension => {

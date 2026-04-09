@@ -11,6 +11,22 @@ export class ManufacturerContactRepository extends Repository<ManufacturerContac
         super((ManufacturerContactEntity as EntityConstructor));
     }
 
+    public override findById(id: string | number, options?: Options): ManufacturerContactEntity | undefined {
+        const entity = super.findById(id, options);
+        if (entity) {
+            entity.CreatedAt = entity.CreatedAt ? new Date(entity.CreatedAt) : undefined;
+        }
+        return entity;
+    }
+
+    public override findAll(options?: Options): ManufacturerContactEntity[] {
+        const entities = super.findAll(options);
+        entities.forEach(entity => {
+            entity.CreatedAt = entity.CreatedAt ? new Date(entity.CreatedAt) : undefined;
+        });
+        return entities;
+    }
+
     protected override async triggerEvent(data: EntityEvent<ManufacturerContactEntity>): Promise<void> {
         const triggerExtensions = await Extensions.loadExtensionModules('codbex-partners-Manufacturers-ManufacturerContact', ['trigger']);
         triggerExtensions.forEach(triggerExtension => {

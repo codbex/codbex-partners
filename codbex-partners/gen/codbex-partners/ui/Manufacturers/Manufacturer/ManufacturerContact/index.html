@@ -32,6 +32,8 @@
 						<th bk-table-header-cell>{{ 'codbex-partners:codbex-partners-model.t.MANUFACTURERCONTACT_DESIGNATION' | t:'Designation' }}</th>
 						<th bk-table-header-cell>{{ 'codbex-partners:codbex-partners-model.t.MANUFACTURERCONTACT_EMAIL' | t:'Email' }}</th>
 						<th bk-table-header-cell>{{ 'codbex-partners:codbex-partners-model.t.MANUFACTURERCONTACT_PHONE' | t:'Phone' }}</th>
+						<th bk-table-header-cell>{{ 'codbex-partners:codbex-partners-model.t.MANUFACTURERCONTACT_CREATEDAT' | t:'CreatedAt' }}</th>
+						<th bk-table-header-cell>{{ 'codbex-partners:codbex-partners-model.t.MANUFACTURERCONTACT_CREATEDBY' | t:'CreatedBy' }}</th>
 						<th bk-table-header-cell></th>
 					</tr>
 				</thead>
@@ -48,6 +50,8 @@
 						<td bk-table-cell>
 							<bk-link href="tel:{{next.Phone}}">{{next.Phone}}</bk-link>
 						</td>
+						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.CreatedAt}}</td>
+						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.CreatedBy}}</td>
 						<td bk-table-cell fit-content="true">
 							<bk-popover>
 								<bk-popover-control>

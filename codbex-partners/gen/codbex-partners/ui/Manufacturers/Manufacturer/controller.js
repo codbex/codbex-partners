@@ -106,6 +106,9 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 						if (e.CreatedAt) {
 							e.CreatedAt = new Date(e.CreatedAt);
 						}
+						if (e.UpdatedAt) {
+							e.UpdatedAt = new Date(e.UpdatedAt);
+						}
 					});
 
 					$scope.data = $scope.data.concat(response.data);

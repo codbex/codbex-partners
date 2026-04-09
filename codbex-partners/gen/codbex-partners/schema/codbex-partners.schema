@@ -97,6 +97,23 @@
                         "type": "TIMESTAMP",
                         "nullable": true,
                         "name": "CUSTOMER_CREATEDAT"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "CUSTOMER_CREATEDBY"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "nullable": true,
+                        "name": "CUSTOMER_UPDATEDAT"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "CUSTOMER_UPDATEDBY"
                     }
                 ]
             },
@@ -167,6 +184,23 @@
                         "type": "TIMESTAMP",
                         "nullable": true,
                         "name": "SUPPLIER_CREATEDAT"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "SUPPLIER_CREATEDBY"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "nullable": true,
+                        "name": "SUPPLIER_UPDATEDAT"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "SUPPLIER_UPDATEDBY"
                     }
                 ]
             },
@@ -190,6 +224,28 @@
                         "type": "VARCHAR",
                         "length": 5000,
                         "name": "CUSTOMERNOTE_NOTE"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "nullable": true,
+                        "name": "CUSTOMERNOTE_CREATEDAT"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "CUSTOMERNOTE_CREATEDBY"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "nullable": true,
+                        "name": "CUSTOMERNOTE_UPDATEDAT"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "CUSTOMERNOTE_UPDATEDBY"
                     }
                 ]
             },
@@ -213,6 +269,28 @@
                         "type": "VARCHAR",
                         "length": 5000,
                         "name": "SUPPLIERNOTE_NOTE"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "nullable": true,
+                        "name": "SUPPLIERNOTE_CREATEDAT"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "SUPPLIERNOTE_CREATEDBY"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "nullable": true,
+                        "name": "SUPPLIERNOTE_UPDATEDAT"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "SUPPLIERNOTE_UPDATEDBY"
                     }
                 ]
             },
@@ -236,6 +314,28 @@
                         "type": "VARCHAR",
                         "length": 5000,
                         "name": "MANUFACTURERNOTE_NOTE"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "nullable": true,
+                        "name": "MANUFACTURERNOTE_CREATEDAT"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "MANUFACTURERNOTE_CREATEDBY"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "nullable": true,
+                        "name": "MANUFACTURERNOTE_UPDATEDAT"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "MANUFACTURERNOTE_UPDATEDBY"
                     }
                 ]
             },
@@ -306,6 +406,23 @@
                         "type": "TIMESTAMP",
                         "nullable": true,
                         "name": "MANUFACTURER_CREATEDAT"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "MANUFACTURER_CREATEDBY"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "nullable": true,
+                        "name": "MANUFACTURER_UPDATEDAT"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "MANUFACTURER_UPDATEDBY"
                     }
                 ]
             },
@@ -345,6 +462,17 @@
                         "type": "VARCHAR",
                         "length": 15,
                         "name": "CUSTOMERCONTACT_PHONE"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "nullable": true,
+                        "name": "CUSTOMERCONTACT_CREATEDAT"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "CUSTOMERCONTACT_CREATEDBY"
                     }
                 ]
             },
@@ -384,6 +512,17 @@
                         "type": "VARCHAR",
                         "length": 15,
                         "name": "SUPPLIERCONTACT_PHONE"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "nullable": true,
+                        "name": "SUPPLIERCONTACT_CREATEDAT"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "SUPPLIERCONTACT_CREATEDBY"
                     }
                 ]
             },
@@ -423,6 +562,17 @@
                         "type": "VARCHAR",
                         "length": 15,
                         "name": "MANUFACTURERCONTACT_PHONE"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "nullable": true,
+                        "name": "MANUFACTURERCONTACT_CREATEDAT"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "MANUFACTURERCONTACT_CREATEDBY"
                     }
                 ]
             },

@@ -170,6 +170,12 @@ class ManufacturerNoteController {
         if (entity.Note?.length > 5000) {
             throw new ValidationError(`The 'Note' exceeds the maximum length of [5000] characters`);
         }
+        if (entity.CreatedBy?.length > 20) {
+            throw new ValidationError(`The 'CreatedBy' exceeds the maximum length of [20] characters`);
+        }
+        if (entity.UpdatedBy?.length > 20) {
+            throw new ValidationError(`The 'UpdatedBy' exceeds the maximum length of [20] characters`);
+        }
         for (const next of validationModules) {
             next.validate(entity);
         }

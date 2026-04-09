@@ -54,6 +54,25 @@ export class CustomerContactEntity {
     })
     public Phone!: string;
 
+    @Documentation('CreatedAt')
+    @Column({
+        name: 'CUSTOMERCONTACT_CREATEDAT',
+        type: 'timestamp',
+        nullable: true,
+    })
+    @CreatedAt()
+    public CreatedAt?: Date;
+
+    @Documentation('CreatedBy')
+    @Column({
+        name: 'CUSTOMERCONTACT_CREATEDBY',
+        type: 'string',
+        length: 20,
+        nullable: true,
+    })
+    @CreatedBy()
+    public CreatedBy?: string;
+
 }
 
 (new CustomerContactEntity());
