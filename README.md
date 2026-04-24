@@ -17,63 +17,63 @@
 | Field             | Type      | Details              | Description                         |
 | ----------------- | --------- | -------------------- | ----------------------------------- |
 | Id                | INTEGER   | PK, Identity         | Unique identifier for the customer. |
-| FirstName         | VARCHAR   | Length: 50           | Customer first name.                |
-| LastName          | VARCHAR   | Length: 50           | Customer last name.                 |
-| LegalEntityName   | VARCHAR   | Length: 255          | Legal entity name.                  |
-| Name              | VARCHAR   | Length: 255          | Display name.                       |
-| Email             | VARCHAR   | Length: 100, Unique  | Email address.                      |
-| Phone             | VARCHAR   | Length: 15           | Phone number.                       |
+| FirstName         | VARCHAR   | Length: 50, Nullable           | Customer first name.                |
+| LastName          | VARCHAR   | Length: 50, Nullable          | Customer last name.                 |
+| LegalEntityName   | VARCHAR   | Length: 255, Nullable          | Legal entity name.                  |
+| Name              | VARCHAR   | Calculated, Length: 255          | Display name.                       |
+| Email             | VARCHAR   | Length: 100, Unique, Not Null  | Email address.                      |
+| Phone             | VARCHAR   | Length: 15, Not Null           | Phone number.                       |
 | Fax               | VARCHAR   | Length: 20           | Fax number.                         |
-| Country           | INTEGER   | FK                   | Reference to country.               |
-| City              | INTEGER   | FK                   | Reference to city.                  |
-| Address           | VARCHAR   | Length: 255          | Address.                            |
-| PostalCode        | VARCHAR   | Length: 10           | Postal code.                        |
-| Tin               | VARCHAR   | Length: 15, Unique   | Tax identification number.          |
-| Iban              | VARCHAR   | Length: 34, Unique   | Bank account IBAN.                  |
-| ResponsiblePerson | INTEGER   | FK                   | Reference to employee.              |
-| Identifier        | VARCHAR   | Length: 36, Unique   | External identifier.                |
-| CreatedAt         | TIMESTAMP | Nullable             | Creation timestamp.                 |
-| CreatedBy         | VARCHAR   | Length: 20, Nullable | Creator.                            |
-| UpdatedAt         | TIMESTAMP | Nullable             | Last update timestamp.              |
-| UpdatedBy         | VARCHAR   | Length: 20, Nullable | Last updater.                       |
+| Country           | INTEGER   | FK, Not Null                   | Reference to country.               |
+| City              | INTEGER   | FK, Not Null                   | Reference to city.                  |
+| Address           | VARCHAR   | Length: 255, Not Null          | Address.                            |
+| PostalCode        | VARCHAR   | Length: 10, Not Null           | Postal code.                        |
+| TIN               | VARCHAR   | Length: 15, Unique, Not Null   | Tax identification number.          |
+| IBAN              | VARCHAR   | Length: 34, Unique, Not Null   | Bank account IBAN.                  |
+| ResponsiblePerson | INTEGER   | FK, Not Null                   | Reference to employee.              |
+| Identifier        | VARCHAR   | Length: 36, Unique, Not Null   | External identifier.                |
+| CreatedAt         | TIMESTAMP | Audit, Nullable             | Creation timestamp.                 |
+| CreatedBy         | VARCHAR   | Audit, Length: 20, Nullable | Creator.                            |
+| UpdatedAt         | TIMESTAMP | Audit, Nullable             | Last update timestamp.              |
+| UpdatedBy         | VARCHAR   | Audit, Length: 20, Nullable | Last updater.                       |
 
 ### Entity: `Supplier`
 
 | Field           | Type      | Details              | Description        |
 | --------------- | --------- | -------------------- | ------------------ |
 | Id              | INTEGER   | PK, Identity         | Unique identifier. |
-| FirstName       | VARCHAR   | Length: 50           | First name.        |
-| LastName        | VARCHAR   | Length: 50           | Last name.         |
-| LegalEntityName | VARCHAR   | Length: 255          | Legal entity name. |
-| Name            | VARCHAR   | Length: 255          | Display name.      |
-| Email           | VARCHAR   | Length: 100, Unique  | Email.             |
-| Phone           | VARCHAR   | Length: 15           | Phone.             |
-| Fax             | VARCHAR   | Length: 20           | Fax.               |
-| Tin             | VARCHAR   | Length: 15, Unique   | Tax ID.            |
-| Iban            | VARCHAR   | Length: 34, Unique   | IBAN.              |
-| CreatedAt       | TIMESTAMP | Nullable             | Created at.        |
-| CreatedBy       | VARCHAR   | Length: 20, Nullable | Created by.        |
-| UpdatedAt       | TIMESTAMP | Nullable             | Updated at.        |
-| UpdatedBy       | VARCHAR   | Length: 20, Nullable | Updated by.        |
+| FirstName       | VARCHAR   | Length: 50, Nullable            | First name.        |
+| LastName        | VARCHAR   | Length: 50, Nullable            | Last name.         |
+| LegalEntityName | VARCHAR   | Length: 255, Nullable           | Legal entity name. |
+| Name            | VARCHAR   | Calculated, Length: 255          | Display name.      |
+| Email           | VARCHAR   | Length: 100, Unique, Not Null  | Email.             |
+| Phone           | VARCHAR   | Length: 15, Not Null            | Phone.             |
+| Fax             | VARCHAR   | Length: 20, Not Null            | Fax.               |
+| TIN             | VARCHAR   | Length: 15, Unique, Not Null    | Tax ID.            |
+| IBAN            | VARCHAR   | Length: 34, Unique, Not Null    | IBAN.              |
+| CreatedAt       | TIMESTAMP | Audit, Nullable             | Created at.        |
+| CreatedBy       | VARCHAR   | Audit, Length: 20, Nullable | Created by.        |
+| UpdatedAt       | TIMESTAMP | Audit, Nullable             | Updated at.        |
+| UpdatedBy       | VARCHAR   | Audit, Length: 20, Nullable | Updated by.        |
 
 ### Entity `Manufacturer`
 
 | Field           | Type      | Details              | Description        |
 | --------------- | --------- | -------------------- | ------------------ |
 | Id              | INTEGER   | PK, Identity         | Unique identifier. |
-| FirstName       | VARCHAR   | Length: 50           | First name.        |
-| LastName        | VARCHAR   | Length: 50           | Last name.         |
-| LegalEntityName | VARCHAR   | Length: 255          | Legal entity name. |
-| Name            | VARCHAR   | Length: 255          | Display name.      |
-| Email           | VARCHAR   | Length: 100, Unique  | Email.             |
-| Phone           | VARCHAR   | Length: 15           | Phone.             |
-| Fax             | VARCHAR   | Length: 20           | Fax.               |
-| Tin             | VARCHAR   | Length: 15, Unique   | Tax ID.            |
-| Iban            | VARCHAR   | Length: 34, Unique   | IBAN.              |
-| CreatedAt       | TIMESTAMP | Nullable             | Created at.        |
-| CreatedBy       | VARCHAR   | Length: 20, Nullable | Created by.        |
-| UpdatedAt       | TIMESTAMP | Nullable             | Updated at.        |
-| UpdatedBy       | VARCHAR   | Length: 20, Nullable | Updated by.        |
+| FirstName       | VARCHAR   | Length: 50, Nullable            | First name.        |
+| LastName        | VARCHAR   | Length: 50, Nullable            | Last name.         |
+| LegalEntityName | VARCHAR   | Length: 255, Nullable           | Legal entity name. |
+| Name            | VARCHAR   | Calculated, Length: 255          | Display name.      |
+| Email           | VARCHAR   | Length: 100, Unique, Not Null  | Email.             |
+| Phone           | VARCHAR   | Length: 15, Not Null           | Phone.             |
+| Fax             | VARCHAR   | Length: 20, Not Null           | Fax.               |
+| TIN             | VARCHAR   | Length: 15, Unique, Not Null   | Tax ID.            |
+| IBAN            | VARCHAR   | Length: 34, Unique, Not Null   | IBAN.              |
+| CreatedAt       | TIMESTAMP | Audit, Nullable             | Created at.        |
+| CreatedBy       | VARCHAR   | Audit, Length: 20, Nullable | Created by.        |
+| UpdatedAt       | TIMESTAMP | Audit, Nullable             | Updated at.        |
+| UpdatedBy       | VARCHAR   | Audit, Length: 20, Nullable | Updated by.        |
 
 ### Entity `CustomerNote`
 
@@ -81,11 +81,11 @@
 | --------- | --------- | -------------------- | ---------------------- |
 | Id        | INTEGER   | PK, Identity         | Unique identifier.     |
 | Customer  | INTEGER   | FK                   | Reference to customer. |
-| Note      | VARCHAR   | Length: 5000         | Note content.          |
-| CreatedAt | TIMESTAMP | Nullable             | Created at.            |
-| CreatedBy | VARCHAR   | Length: 20, Nullable | Created by.            |
-| UpdatedAt | TIMESTAMP | Nullable             | Updated at.            |
-| UpdatedBy | VARCHAR   | Length: 20, Nullable | Updated by.            |
+| Note      | VARCHAR   | Length: 5000, Not Null         | Note content.          |
+| CreatedAt | TIMESTAMP | Audit, Nullable             | Created at.            |
+| CreatedBy | VARCHAR   | Audit, Length: 20, Nullable | Created by.            |
+| UpdatedAt | TIMESTAMP | Audit, Nullable             | Updated at.            |
+| UpdatedBy | VARCHAR   | Audit, Length: 20, Nullable | Updated by.            |
 
 ### Entity `SupplierNote`
 
@@ -93,11 +93,11 @@
 | --------- | --------- | -------------------- | ---------------------- |
 | Id        | INTEGER   | PK, Identity         | Unique identifier.     |
 | Supplier  | INTEGER   | FK                   | Reference to supplier. |
-| Note      | VARCHAR   | Length: 5000         | Note content.          |
-| CreatedAt | TIMESTAMP | Nullable             | Created at.            |
-| CreatedBy | VARCHAR   | Length: 20, Nullable | Created by.            |
-| UpdatedAt | TIMESTAMP | Nullable             | Updated at.            |
-| UpdatedBy | VARCHAR   | Length: 20, Nullable | Updated by.            |
+| Note      | VARCHAR   | Length: 5000, Not Null         | Note content.          |
+| CreatedAt | TIMESTAMP | Audit, Nullable             | Created at.            |
+| CreatedBy | VARCHAR   | Audit, Length: 20, Nullable | Created by.            |
+| UpdatedAt | TIMESTAMP | Audit, Nullable             | Updated at.            |
+| UpdatedBy | VARCHAR   | Audit, Length: 20, Nullable | Updated by.            |
 
 ### Entity `ManufacturerNote`
 
@@ -105,11 +105,11 @@
 | ------------ | --------- | -------------------- | -------------------------- |
 | Id           | INTEGER   | PK, Identity         | Unique identifier.         |
 | Manufacturer | INTEGER   | FK                   | Reference to manufacturer. |
-| Note         | VARCHAR   | Length: 5000         | Note content.              |
-| CreatedAt    | TIMESTAMP | Nullable             | Created at.                |
-| CreatedBy    | VARCHAR   | Length: 20, Nullable | Created by.                |
-| UpdatedAt    | TIMESTAMP | Nullable             | Updated at.                |
-| UpdatedBy    | VARCHAR   | Length: 20, Nullable | Updated by.                |
+| Note         | VARCHAR   | Length: 5000, Not Null         | Note content.              |
+| CreatedAt    | TIMESTAMP | Audit, Nullable             | Created at.                |
+| CreatedBy    | VARCHAR   | Audit, Length: 20, Nullable | Created by.                |
+| UpdatedAt    | TIMESTAMP | Audit, Nullable             | Updated at.                |
+| UpdatedBy    | VARCHAR   | Audit, Length: 20, Nullable | Updated by.                |
 
 ### Entity `CustomerContact`
 
@@ -117,12 +117,12 @@
 | ----------- | --------- | -------------------- | ---------------------- |
 | Id          | INTEGER   | PK, Identity         | Unique identifier.     |
 | Customer    | INTEGER   | FK                   | Reference to customer. |
-| Name        | VARCHAR   | Length: 255          | Contact name.          |
-| Designation | VARCHAR   | Length: 255          | Job title.             |
-| Email       | VARCHAR   | Length: 100, Unique  | Email.                 |
-| Phone       | VARCHAR   | Length: 15           | Phone.                 |
-| CreatedAt   | TIMESTAMP | Nullable             | Created at.            |
-| CreatedBy   | VARCHAR   | Length: 20, Nullable | Created by.            |
+| Name        | VARCHAR   | Length: 255, Not Null         | Contact name.          |
+| Designation | VARCHAR   | Length: 255, Not Null          | Job title.             |
+| Email       | VARCHAR   | Length: 100, Unique, Not Null  | Email.                 |
+| Phone       | VARCHAR   | Length: 15, Not Null           | Phone.                 |
+| CreatedAt   | TIMESTAMP | Audit, Nullable             | Created at.            |
+| CreatedBy   | VARCHAR   | Audit, Length: 20, Nullable | Created by.            |
 
 ### Entity `SupplierContact`
 
@@ -130,12 +130,12 @@
 | ----------- | --------- | -------------------- | ---------------------- |
 | Id          | INTEGER   | PK, Identity         | Unique identifier.     |
 | Supplier    | INTEGER   | FK                   | Reference to supplier. |
-| Name        | VARCHAR   | Length: 255          | Contact name.          |
-| Designation | VARCHAR   | Length: 255          | Job title.             |
-| Email       | VARCHAR   | Length: 100, Unique  | Email.                 |
-| Phone       | VARCHAR   | Length: 15           | Phone.                 |
-| CreatedAt   | TIMESTAMP | Nullable             | Created at.            |
-| CreatedBy   | VARCHAR   | Length: 20, Nullable | Created by.            |
+| Name        | VARCHAR   | Length: 255, Not Null          | Contact name.          |
+| Designation | VARCHAR   | Length: 255, Not Null          | Job title.             |
+| Email       | VARCHAR   | Length: 100, Unique, Not Null  | Email.                 |
+| Phone       | VARCHAR   | Length: 15, Not Null           | Phone.                 |
+| CreatedAt   | TIMESTAMP | Audit, Nullable             | Created at.            |
+| CreatedBy   | VARCHAR   | Audit, Length: 20, Nullable | Created by.            |
 
 ### Entity `ManufacturerContact`
 
@@ -143,12 +143,12 @@
 | ------------ | --------- | -------------------- | -------------------------- |
 | Id           | INTEGER   | PK, Identity         | Unique identifier.         |
 | Manufacturer | INTEGER   | FK                   | Reference to manufacturer. |
-| Name         | VARCHAR   | Length: 255          | Contact name.              |
-| Designation  | VARCHAR   | Length: 255          | Job title.                 |
-| Email        | VARCHAR   | Length: 100, Unique  | Email.                     |
-| Phone        | VARCHAR   | Length: 15           | Phone.                     |
-| CreatedAt    | TIMESTAMP | Nullable             | Created at.                |
-| CreatedBy    | VARCHAR   | Length: 20, Nullable | Created by.                |
+| Name         | VARCHAR   | Length: 255, Not Null          | Contact name.              |
+| Designation  | VARCHAR   | Length: 255, Not Null          | Job title.                 |
+| Email        | VARCHAR   | Length: 100, Unique, Not Null  | Email.                     |
+| Phone        | VARCHAR   | Length: 15, Not Null           | Phone.                     |
+| CreatedAt    | TIMESTAMP | Audit, Nullable             | Created at.                |
+| CreatedBy    | VARCHAR   | Audit, Length: 20, Nullable | Created by.                |
 
 ## 📦 Dependencies
 
