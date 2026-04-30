@@ -4,51 +4,13 @@
   "brandUrl": "https://www.codbex.com/",
   "title": "Partners Management Module",
   "description": "Managing Partners Data",
-  "fileName": "codbex-partners",
-  "genFolderName": "codbex-partners",
-  "dataSource": "DefaultDB",
-  "roles": [
-    {
-      "entityName": "Customer",
-      "roleRead": "codbex-partners.Customers.CustomerReadOnly",
-      "roleWrite": "codbex-partners.Customers.CustomerFullAccess"
-    },
-    {
-      "entityName": "Supplier",
-      "roleRead": "codbex-partners.Suppliers.SupplierReadOnly",
-      "roleWrite": "codbex-partners.Suppliers.SupplierFullAccess"
-    },
-    {
-      "entityName": "CustomerNote",
-      "roleRead": "codbex-partners.Customers.CustomerNoteReadOnly",
-      "roleWrite": "codbex-partners.Customers.CustomerNoteFullAccess"
-    },
-    {
-      "entityName": "SupplierNote",
-      "roleRead": "codbex-partners.Suppliers.SupplierNoteReadOnly",
-      "roleWrite": "codbex-partners.Suppliers.SupplierNoteFullAccess"
-    },
-    {
-      "entityName": "ManufacturerNote",
-      "roleRead": "codbex-partners.Manufacturers.ManufacturerNoteReadOnly",
-      "roleWrite": "codbex-partners.Manufacturers.ManufacturerNoteFullAccess"
-    },
-    {
-      "entityName": "Manufacturer",
-      "roleRead": "codbex-partners.Manufacturers.ManufacturerReadOnly",
-      "roleWrite": "codbex-partners.Manufacturers.ManufacturerFullAccess"
-    },
-    {
-      "entityName": "CustomerContact",
-      "roleRead": "codbex-partners.Customers.CustomerContactReadOnly",
-      "roleWrite": "codbex-partners.Customers.CustomerContactFullAccess"
-    }
-  ],
-  "tprefix": "codbex-partners-model",
   "projectName": "codbex-partners",
   "workspaceName": "workspace",
   "filePath": "codbex-partners.model",
   "templateId": "template-application-angular-v2/template/template.js",
+  "fileName": "codbex-partners",
+  "genFolderName": "codbex-partners",
+  "dataSource": "DefaultDB",
   "perspectives": {
     "Customers": {
       "views": [
@@ -175,6 +137,44 @@
       "role": ""
     }
   },
+  "roles": [
+    {
+      "entityName": "Customer",
+      "roleRead": "codbex-partners.Customers.CustomerReadOnly",
+      "roleWrite": "codbex-partners.Customers.CustomerFullAccess"
+    },
+    {
+      "entityName": "Supplier",
+      "roleRead": "codbex-partners.Suppliers.SupplierReadOnly",
+      "roleWrite": "codbex-partners.Suppliers.SupplierFullAccess"
+    },
+    {
+      "entityName": "CustomerNote",
+      "roleRead": "codbex-partners.Customers.CustomerNoteReadOnly",
+      "roleWrite": "codbex-partners.Customers.CustomerNoteFullAccess"
+    },
+    {
+      "entityName": "SupplierNote",
+      "roleRead": "codbex-partners.Suppliers.SupplierNoteReadOnly",
+      "roleWrite": "codbex-partners.Suppliers.SupplierNoteFullAccess"
+    },
+    {
+      "entityName": "ManufacturerNote",
+      "roleRead": "codbex-partners.Manufacturers.ManufacturerNoteReadOnly",
+      "roleWrite": "codbex-partners.Manufacturers.ManufacturerNoteFullAccess"
+    },
+    {
+      "entityName": "Manufacturer",
+      "roleRead": "codbex-partners.Manufacturers.ManufacturerReadOnly",
+      "roleWrite": "codbex-partners.Manufacturers.ManufacturerFullAccess"
+    },
+    {
+      "entityName": "CustomerContact",
+      "roleRead": "codbex-partners.Customers.CustomerContactReadOnly",
+      "roleWrite": "codbex-partners.Customers.CustomerContactFullAccess"
+    }
+  ],
+  "tprefix": "codbex-partners-model",
   "models": [
     {
       "properties": [
@@ -450,6 +450,10 @@
           "isRequiredProperty": true,
           "name": "City",
           "tooltip": "",
+          "widgetDependsOnEntity": "Country",
+          "widgetDependsOnFilterBy": "Country",
+          "widgetDependsOnProperty": "Country",
+          "widgetDependsOnValueFrom": "Id",
           "widgetDropDownKey": "Id",
           "widgetDropDownValue": "Name",
           "widgetIsMajor": true,
@@ -1061,6 +1065,10 @@
             "isRequiredProperty": true,
             "name": "City",
             "tooltip": "",
+            "widgetDependsOnEntity": "Country",
+            "widgetDependsOnFilterBy": "Country",
+            "widgetDependsOnProperty": "Country",
+            "widgetDependsOnValueFrom": "Id",
             "widgetDropDownKey": "Id",
             "widgetDropDownValue": "Name",
             "widgetIsMajor": true,
