@@ -34,6 +34,11 @@ export class CustomerRepository extends Repository<CustomerEntity> {
         return super.create(entity);
     }
 
+    public override update(entity: CustomerEntity): void {
+        entity.Name = (entity.FirstName && entity.LastName) ? (entity.FirstName + " " + entity.LastName) : entity.LegalEntityName;
+        super.update(entity);
+    }
+
     public override upsert(entity: CustomerEntity): string | number {
         entity.Name = (entity.FirstName && entity.LastName) ? (entity.FirstName + " " + entity.LastName) : entity.LegalEntityName;
         entity.Name = (entity.FirstName && entity.LastName) ? (entity.FirstName + " " + entity.LastName) : entity.LegalEntityName;

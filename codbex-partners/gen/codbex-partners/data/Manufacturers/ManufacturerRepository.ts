@@ -34,6 +34,11 @@ export class ManufacturerRepository extends Repository<ManufacturerEntity> {
         return super.create(entity);
     }
 
+    public override update(entity: ManufacturerEntity): void {
+        entity.Name = (entity.FirstName && entity.LastName) ? (entity.FirstName + " " + entity.LastName) : entity.LegalEntityName;
+        super.update(entity);
+    }
+
     public override upsert(entity: ManufacturerEntity): string | number {
         entity.Name = (entity.FirstName && entity.LastName) ? (entity.FirstName + " " + entity.LastName) : entity.LegalEntityName;
         entity.Name = (entity.FirstName && entity.LastName) ? (entity.FirstName + " " + entity.LastName) : entity.LegalEntityName;

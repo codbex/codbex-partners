@@ -3,7 +3,7 @@
   "brand": "codbex",
   "brandUrl": "https://www.codbex.com/",
   "title": "Partners Management Module",
-  "description": "Managing Partners Data",
+  "description": "Managing partners data",
   "projectName": "codbex-partners",
   "workspaceName": "workspace",
   "filePath": "codbex-partners.model",
