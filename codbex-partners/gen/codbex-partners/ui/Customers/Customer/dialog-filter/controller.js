@@ -28,9 +28,6 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 		const optionsCityMap = new Map();
 		params.optionsCity.forEach(e => optionsCityMap.set(e.value, e));
 		$scope.optionsCity = Array.from(optionsCityMap.values());
-		const optionsResponsiblePersonMap = new Map();
-		params.optionsResponsiblePerson.forEach(e => optionsResponsiblePersonMap.set(e.value, e));
-		$scope.optionsResponsiblePerson = Array.from(optionsResponsiblePersonMap.values());
 	}
 
 	$scope.filter = () => {
@@ -99,12 +96,8 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 			const condition = { propertyName: 'IBAN', operator: 'LIKE', value: `%${entity.IBAN}%` };
 			filter.$filter.conditions.push(condition);
 		}
-		if (entity.ResponsiblePerson !== undefined) {
-			const condition = { propertyName: 'ResponsiblePerson', operator: 'EQ', value: entity.ResponsiblePerson };
-			filter.$filter.conditions.push(condition);
-		}
-		if (entity.Identifier) {
-			const condition = { propertyName: 'Identifier', operator: 'LIKE', value: `%${entity.Identifier}%` };
+		if (entity.ResponsiblePerson) {
+			const condition = { propertyName: 'ResponsiblePerson', operator: 'LIKE', value: `%${entity.ResponsiblePerson}%` };
 			filter.$filter.conditions.push(condition);
 		}
 		if (entity.CreatedAtFrom) {
@@ -146,8 +139,6 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 		allValuesCountry.length = 0;
 		lastSearchValuesCity.clear();
 		allValuesCity.length = 0;
-		lastSearchValuesResponsiblePerson.clear();
-		allValuesResponsiblePerson.length = 0;
 	};
 
 	$scope.cancel = () => {
@@ -332,95 +323,6 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 					});
 				});
 				lastSearchValuesCity.add(event.originalEvent.target.value);
-			}
-		}
-	};
-
-	const lastSearchValuesResponsiblePerson = new Set();
-	const allValuesResponsiblePerson = [];
-	let loadMoreOptionsResponsiblePersonCounter = 0;
-	$scope.optionsResponsiblePersonLoading = false;
-	$scope.optionsResponsiblePersonHasMore = true;
-
-	$scope.loadMoreOptionsResponsiblePerson = () => {
-		const limit = 20;
-		$scope.optionsResponsiblePersonLoading = true;
-		$http.get(`/services/ts/codbex-employees/gen/codbex-employees/api/Employees/EmployeeController.ts?$limit=${limit}&$offset=${++loadMoreOptionsResponsiblePersonCounter * limit}`)
-		.then((response) => {
-			const optionValues = allValuesResponsiblePerson.map(e => e.value);
-			const resultValues = response.data.map(e => ({
-				value: e.Id,
-				text: e.Name
-			}));
-			const newValues = [];
-			resultValues.forEach(e => {
-				if (!optionValues.includes(e.value)) {
-					allValuesResponsiblePerson.push(e);
-					newValues.push(e);
-				}
-			});
-			newValues.forEach(e => {
-				if (!$scope.optionsResponsiblePerson.find(o => o.value === e.value)) {
-					$scope.optionsResponsiblePerson.push(e);
-				}
-			})
-			$scope.optionsResponsiblePersonHasMore = resultValues.length > 0;
-			$scope.optionsResponsiblePersonLoading = false;
-		}, (error) => {
-			$scope.optionsResponsiblePersonLoading = false;
-			console.error(error);
-			const message = error.data ? error.data.message : '';
-			Dialogs.showAlert({
-				title: 'ResponsiblePerson',
-				message: LocaleService.t('codbex-partners:codbex-partners-model.messages.error.unableToLoad', { message: message }),
-				type: AlertTypes.Error
-			});
-		});
-	};
-
-	$scope.onOptionsResponsiblePersonChange = (event) => {
-		if (allValuesResponsiblePerson.length === 0) {
-			allValuesResponsiblePerson.push(...$scope.optionsResponsiblePerson);
-		}
-		if (event.originalEvent.target.value === '') {
-			allValuesResponsiblePerson.sort((a, b) => a.text.localeCompare(b.text));
-			$scope.optionsResponsiblePerson = allValuesResponsiblePerson;
-			$scope.optionsResponsiblePersonHasMore = true;
-		} else if (isText(event.which)) {
-			$scope.optionsResponsiblePersonHasMore = false;
-			let cacheHit = false;
-			Array.from(lastSearchValuesResponsiblePerson).forEach(e => {
-				if (event.originalEvent.target.value.startsWith(e)) {
-					cacheHit = true;
-				}
-			})
-			if (!cacheHit) {
-				$http.post('/services/ts/codbex-employees/gen/codbex-employees/api/Employees/EmployeeController.ts/search', {
-					conditions: [
-						{ propertyName: 'Name', operator: 'LIKE', value: `${event.originalEvent.target.value}%` }
-					]
-				}).then((response) => {
-					const optionValues = allValuesResponsiblePerson.map(e => e.value);
-					const searchResult = response.data.map(e => ({
-						value: e.Id,
-						text: e.Name
-					}));
-					searchResult.forEach(e => {
-						if (!optionValues.includes(e.value)) {
-							allValuesResponsiblePerson.push(e);
-						}
-					});
-					$scope.optionsResponsiblePerson = allValuesResponsiblePerson.filter(e => e.text.toLowerCase().startsWith(event.originalEvent.target.value.toLowerCase()));
-				}, (error) => {
-					console.error(error);
-					const message = error.data ? error.data.message : '';
-					Dialogs.showAlert({
-						title: 'ResponsiblePerson',
-						message: LocaleService.t('codbex-partners:codbex-partners-model.messages.error.unableToLoad', { message: message }),
-						type: AlertTypes.Error
-					});
-				});
-				lastSearchValuesResponsiblePerson.add(event.originalEvent.target.value);
 			}
 		}
 	};
