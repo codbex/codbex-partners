@@ -148,29 +148,6 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 							});
 						}
 					}
-					if (optionsResponsiblePersonHasMore) {
-						const optionsResponsiblePersonSearchValues = Array.from(new Set(response.data.map(e => e.ResponsiblePerson)));
-						if (optionsResponsiblePersonSearchValues.length > 0) {
-							$http.post('/services/ts/codbex-employees/gen/codbex-employees/api/Employees/EmployeeController.ts/search', {
-								conditions: [
-									{ propertyName: 'Id', operator: 'IN', value: optionsResponsiblePersonSearchValues }
-								]
-							}).then((response) => {
-								$scope.optionsResponsiblePerson.push(...response.data.map(e => ({
-									value: e.Id,
-									text: e.Name
-								})));
-							}, (error) => {
-								console.error(error);
-								const message = error.data ? error.data.message : '';
-								Dialogs.showAlert({
-									title: 'ResponsiblePerson',
-									message: LocaleService.t('codbex-partners:codbex-partners-model.messages.error.unableToLoad', { message: message }),
-									type: AlertTypes.Error
-								});
-							});
-						}
-					}
 					response.data.forEach(e => {
 						if (e.CreatedAt) {
 							e.CreatedAt = new Date(e.CreatedAt);
@@ -210,7 +187,6 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				selectedMainEntityId: entity.Id,
 				optionsCountry: $scope.optionsCountry,
 				optionsCity: $scope.optionsCity,
-				optionsResponsiblePerson: $scope.optionsResponsiblePerson,
 			}});
 		};
 
@@ -222,7 +198,6 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				entity: {},
 				optionsCountry: $scope.optionsCountry,
 				optionsCity: $scope.optionsCity,
-				optionsResponsiblePerson: $scope.optionsResponsiblePerson,
 			}});
 		};
 
@@ -232,7 +207,6 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				entity: $scope.selectedEntity,
 				optionsCountry: $scope.optionsCountry,
 				optionsCity: $scope.optionsCity,
-				optionsResponsiblePerson: $scope.optionsResponsiblePerson,
 			}});
 		};
 
@@ -276,7 +250,6 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 					entity: $scope.filterEntity,
 					optionsCountry: $scope.optionsCountry,
 					optionsCity: $scope.optionsCity,
-					optionsResponsiblePerson: $scope.optionsResponsiblePerson,
 				},
 			});
 		};
@@ -284,7 +257,6 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 		//----------------Dropdowns-----------------//
 		$scope.optionsCountry = [];
 		$scope.optionsCity = [];
-		$scope.optionsResponsiblePerson = [];
 
 		let optionsCountryHasMore = true;
 
@@ -342,34 +314,6 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				type: AlertTypes.Error
 			});
 		});
-		let optionsResponsiblePersonHasMore = true;
-
-		$http.get('/services/ts/codbex-employees/gen/codbex-employees/api/Employees/EmployeeController.ts/count').then((response) => {
-			const optionsResponsiblePersonCount = response.data.count;
-			$http.get('/services/ts/codbex-employees/gen/codbex-employees/api/Employees/EmployeeController.ts').then((response) => {
-				$scope.optionsResponsiblePerson = response.data.map(e => ({
-					value: e.Id,
-					text: e.Name
-				}));
-				optionsResponsiblePersonHasMore = optionsResponsiblePersonCount > $scope.optionsResponsiblePerson.length;
-			}, (error) => {
-				console.error(error);
-				const message = error.data ? error.data.message : '';
-				Dialogs.showAlert({
-					title: 'ResponsiblePerson',
-					message: LocaleService.t('codbex-partners:codbex-partners-model.messages.error.unableToLoad', { message: message }),
-					type: AlertTypes.Error
-				});
-			});
-		}, (error) => {
-			console.error(error);
-			const message = error.data ? error.data.message : '';
-			Dialogs.showAlert({
-				title: 'ResponsiblePerson',
-				message: LocaleService.t('codbex-partners:codbex-partners-model.messages.error.unableToLoad', { message: message }),
-				type: AlertTypes.Error
-			});
-		});
 
 		$scope.optionsCountryValue = (optionKey) => {
 			for (let i = 0; i < $scope.optionsCountry.length; i++) {
@@ -383,14 +327,6 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			for (let i = 0; i < $scope.optionsCity.length; i++) {
 				if ($scope.optionsCity[i].value === optionKey) {
 					return $scope.optionsCity[i].text;
-				}
-			}
-			return null;
-		};
-		$scope.optionsResponsiblePersonValue = (optionKey) => {
-			for (let i = 0; i < $scope.optionsResponsiblePerson.length; i++) {
-				if ($scope.optionsResponsiblePerson[i].value === optionKey) {
-					return $scope.optionsResponsiblePerson[i].text;
 				}
 			}
 			return null;

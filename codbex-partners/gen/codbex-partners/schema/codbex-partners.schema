@@ -84,14 +84,10 @@
                         "name": "CUSTOMER_IBAN"
                     },
                     {
-                        "type": "INTEGER",
-                        "name": "CUSTOMER_RESPONSIBLEPERSON"
-                    },
-                    {
                         "type": "VARCHAR",
-                        "length": 36,
-                        "unique": true,
-                        "name": "CUSTOMER_IDENTIFIER"
+                        "length": 150,
+                        "nullable": true,
+                        "name": "CUSTOMER_RESPONSIBLEPERSON"
                     },
                     {
                         "type": "TIMESTAMP",
@@ -593,15 +589,6 @@
                 "columns": "CUSTOMER_CITY",
                 "referencedTable": "CODBEX_CITY",
                 "referencedColumns": "CITY_ID"
-            },
-            {
-                "name": "Customer_Employee",
-                "type": "foreignKey",
-                "table": "CODBEX_CUSTOMER",
-                "constraintName": "Customer_Employee",
-                "columns": "CUSTOMER_RESPONSIBLEPERSON",
-                "referencedTable": "CODBEX_EMPLOYEE",
-                "referencedColumns": "EMPLOYEE_ID"
             },
             {
                 "name": "CustomerNote_Customer",

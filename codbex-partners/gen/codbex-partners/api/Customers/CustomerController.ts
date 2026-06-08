@@ -224,14 +224,8 @@ class CustomerController {
         if (!RegExp(/^[A-Z]{2}[0-9]{2}[A-Z0-9]{11,30}$/).test(entity.IBAN)) {
             throw new ValidationError(`The value provided for the 'IBAN' property ('[${entity.IBAN}]') doesn't match the required pattern '^[A-Z]{2}[0-9]{2}[A-Z0-9]{11,30}$'`);
         }
-        if (entity.ResponsiblePerson === null || entity.ResponsiblePerson === undefined) {
-            throw new ValidationError(`The 'ResponsiblePerson' property is required, provide a valid value`);
-        }
-        if (entity.Identifier === null || entity.Identifier === undefined) {
-            throw new ValidationError(`The 'Identifier' property is required, provide a valid value`);
-        }
-        if (entity.Identifier?.length > 36) {
-            throw new ValidationError(`The 'Identifier' exceeds the maximum length of [36] characters`);
+        if (entity.ResponsiblePerson?.length > 150) {
+            throw new ValidationError(`The 'ResponsiblePerson' exceeds the maximum length of [150] characters`);
         }
         if (entity.CreatedBy?.length > 20) {
             throw new ValidationError(`The 'CreatedBy' exceeds the maximum length of [20] characters`);

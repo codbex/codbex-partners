@@ -124,17 +124,11 @@ export class CustomerEntity {
     @Documentation('ResponsiblePerson')
     @Column({
         name: 'CUSTOMER_RESPONSIBLEPERSON',
-        type: 'integer',
-    })
-    public ResponsiblePerson!: number;
-
-    @Documentation('Identifier')
-    @Column({
-        name: 'CUSTOMER_IDENTIFIER',
         type: 'string',
-        length: 36,
+        length: 150,
+        nullable: true,
     })
-    public Identifier!: string;
+    public ResponsiblePerson?: string;
 
     @Documentation('CreatedAt')
     @Column({
