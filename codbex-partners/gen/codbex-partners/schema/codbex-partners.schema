@@ -48,18 +48,18 @@
                         "name": "CUSTOMER_PHONE"
                     },
                     {
-                        "type": "VARCHAR",
-                        "length": 20,
-                        "nullable": true,
-                        "name": "CUSTOMER_FAX"
-                    },
-                    {
                         "type": "INTEGER",
                         "name": "CUSTOMER_COUNTRY"
                     },
                     {
                         "type": "INTEGER",
                         "name": "CUSTOMER_CITY"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "CUSTOMER_FAX"
                     },
                     {
                         "type": "VARCHAR",
