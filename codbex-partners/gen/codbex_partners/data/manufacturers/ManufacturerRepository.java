@@ -12,13 +12,13 @@ public class ManufacturerRepository extends JavaRepository<ManufacturerEntity> {
 
     @Override
     public ManufacturerEntity save(ManufacturerEntity entity) {
-        entity.Name = (entity.FirstName && entity.LastName) ? (entity.FirstName + " " + entity.LastName) : entity.LegalEntityName;
+        entity.Name = (entity.FirstName != null && !entity.FirstName.trim().isEmpty() && entity.LastName != null && !entity.LastName.trim().isEmpty()) ? (entity.FirstName + " " + entity.LastName) : entity.LegalEntityName;
         return super.save(entity);
     }
 
     @Override
     public ManufacturerEntity update(ManufacturerEntity entity) {
-        entity.Name = (entity.FirstName && entity.LastName) ? (entity.FirstName + " " + entity.LastName) : entity.LegalEntityName;
+        entity.Name = (entity.FirstName != null && !entity.FirstName.trim().isEmpty() && entity.LastName != null && !entity.LastName.trim().isEmpty()) ? (entity.FirstName + " " + entity.LastName) : entity.LegalEntityName;
         return super.update(entity);
     }
 }

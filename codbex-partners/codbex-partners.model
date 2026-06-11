@@ -62,8 +62,8 @@
                     },
                     {
                         "auditType": "NONE",
-                        "calculatedPropertyExpressionCreate": "(entity.FirstName && entity.LastName) ? (entity.FirstName + \" \" + entity.LastName) : entity.LegalEntityName",
-                        "calculatedPropertyExpressionUpdate": "(entity.FirstName && entity.LastName) ? (entity.FirstName + \" \" + entity.LastName) : entity.LegalEntityName",
+                        "calculatedPropertyExpressionCreate": "(entity.FirstName != null && !entity.FirstName.trim().isEmpty() && entity.LastName != null && !entity.LastName.trim().isEmpty()) ? (entity.FirstName + \" \" + entity.LastName) : entity.LegalEntityName",
+                        "calculatedPropertyExpressionUpdate": "(entity.FirstName != null && !entity.FirstName.trim().isEmpty() && entity.LastName != null && !entity.LastName.trim().isEmpty()) ? (entity.FirstName + \" \" + entity.LastName) : entity.LegalEntityName",
                         "dataLength": "255",
                         "dataName": "CUSTOMER_NAME",
                         "dataNullable": "true",
@@ -386,8 +386,8 @@
                     },
                     {
                         "auditType": "NONE",
-                        "calculatedPropertyExpressionCreate": "(entity.FirstName && entity.LastName) ? (entity.FirstName + \" \" + entity.LastName) : entity.LegalEntityName",
-                        "calculatedPropertyExpressionUpdate": "(entity.FirstName && entity.LastName) ? (entity.FirstName + \" \" + entity.LastName) : entity.LegalEntityName",
+                        "calculatedPropertyExpressionCreate": "(entity.FirstName != null && !entity.FirstName.trim().isEmpty() && entity.LastName != null && !entity.LastName.trim().isEmpty()) ? (entity.FirstName + \" \" + entity.LastName) : entity.LegalEntityName",
+                        "calculatedPropertyExpressionUpdate": "(entity.FirstName != null && !entity.FirstName.trim().isEmpty() && entity.LastName != null && !entity.LastName.trim().isEmpty()) ? (entity.FirstName + \" \" + entity.LastName) : entity.LegalEntityName",
                         "dataLength": "255",
                         "dataName": "SUPPLIER_NAME",
                         "dataNullable": "true",
@@ -1037,8 +1037,8 @@
                     },
                     {
                         "auditType": "NONE",
-                        "calculatedPropertyExpressionCreate": "(entity.FirstName && entity.LastName) ? (entity.FirstName + \" \" + entity.LastName) : entity.LegalEntityName",
-                        "calculatedPropertyExpressionUpdate": "(entity.FirstName && entity.LastName) ? (entity.FirstName + \" \" + entity.LastName) : entity.LegalEntityName",
+                        "calculatedPropertyExpressionCreate": "(entity.FirstName != null && !entity.FirstName.trim().isEmpty() && entity.LastName != null && !entity.LastName.trim().isEmpty()) ? (entity.FirstName + \" \" + entity.LastName) : entity.LegalEntityName",
+                        "calculatedPropertyExpressionUpdate": "(entity.FirstName != null && !entity.FirstName.trim().isEmpty() && entity.LastName != null && !entity.LastName.trim().isEmpty()) ? (entity.FirstName + \" \" + entity.LastName) : entity.LegalEntityName",
                         "dataLength": "255",
                         "dataName": "MANUFACTURER_NAME",
                         "dataNullable": "true",
