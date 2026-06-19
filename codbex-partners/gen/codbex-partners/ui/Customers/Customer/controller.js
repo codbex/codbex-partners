@@ -1,6 +1,6 @@
 angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntityService'])
 	.config(['EntityServiceProvider', (EntityServiceProvider) => {
-		EntityServiceProvider.baseUrl = '/services/ts/codbex-partners/gen/codbex-partners/api/Customers/CustomerController.ts';
+		EntityServiceProvider.baseUrl = '/services/java/codbex-partners/gen/codbex_partners/api/customers/CustomerController';
 	}])
 	.controller('PageController', ($scope, $http, EntityService, Extensions, LocaleService, ButtonStates) => {
 		const Dialogs = new DialogHub();
@@ -105,7 +105,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 					if (optionsCountryHasMore) {
 						const optionsCountrySearchValues = Array.from(new Set(response.data.map(e => e.Country)));
 						if (optionsCountrySearchValues.length > 0) {
-							$http.post('/services/ts/codbex-countries/gen/codbex-countries/api/Settings/CountryController.ts/search', {
+							$http.post('/services/java/codbex-countries/gen/codbex_countries/api/settings/CountryController/search', {
 								conditions: [
 									{ propertyName: 'Id', operator: 'IN', value: optionsCountrySearchValues }
 								]
@@ -128,7 +128,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 					if (optionsCityHasMore) {
 						const optionsCitySearchValues = Array.from(new Set(response.data.map(e => e.City)));
 						if (optionsCitySearchValues.length > 0) {
-							$http.post('/services/ts/codbex-cities/gen/codbex-cities/api/Settings/CityController.ts/search', {
+							$http.post('/services/java/codbex-cities/gen/codbex_cities/api/settings/CityController/search', {
 								conditions: [
 									{ propertyName: 'Id', operator: 'IN', value: optionsCitySearchValues }
 								]
@@ -260,9 +260,9 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 
 		let optionsCountryHasMore = true;
 
-		$http.get('/services/ts/codbex-countries/gen/codbex-countries/api/Settings/CountryController.ts/count').then((response) => {
+		$http.get('/services/java/codbex-countries/gen/codbex_countries/api/settings/CountryController/count').then((response) => {
 			const optionsCountryCount = response.data.count;
-			$http.get('/services/ts/codbex-countries/gen/codbex-countries/api/Settings/CountryController.ts').then((response) => {
+			$http.get('/services/java/codbex-countries/gen/codbex_countries/api/settings/CountryController').then((response) => {
 				$scope.optionsCountry = response.data.map(e => ({
 					value: e.Id,
 					text: e.Name
@@ -288,9 +288,9 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 		});
 		let optionsCityHasMore = true;
 
-		$http.get('/services/ts/codbex-cities/gen/codbex-cities/api/Settings/CityController.ts/count').then((response) => {
+		$http.get('/services/java/codbex-cities/gen/codbex_cities/api/settings/CityController/count').then((response) => {
 			const optionsCityCount = response.data.count;
-			$http.get('/services/ts/codbex-cities/gen/codbex-cities/api/Settings/CityController.ts').then((response) => {
+			$http.get('/services/java/codbex-cities/gen/codbex_cities/api/settings/CityController').then((response) => {
 				$scope.optionsCity = response.data.map(e => ({
 					value: e.Id,
 					text: e.Name
