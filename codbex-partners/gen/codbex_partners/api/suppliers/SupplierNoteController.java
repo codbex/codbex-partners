@@ -5,7 +5,6 @@ import gen.codbex_partners.data.suppliers.SupplierNoteRepository;
 
 import org.eclipse.dirigible.components.api.security.UserFacade;
 import org.eclipse.dirigible.sdk.platform.Documentation;
-import org.eclipse.dirigible.sdk.component.Inject;
 import org.eclipse.dirigible.sdk.http.Body;
 import org.eclipse.dirigible.sdk.http.Controller;
 import org.eclipse.dirigible.sdk.http.Delete;
@@ -30,8 +29,11 @@ public class SupplierNoteController {
 
     private static final Set<String> FILTER_FIELDS = Set.of("Id", "Supplier", "Note", "CreatedAt", "CreatedBy", "UpdatedAt", "UpdatedBy");
 
-    @Inject
-    private SupplierNoteRepository repository;
+    private final SupplierNoteRepository repository;
+
+    public SupplierNoteController(SupplierNoteRepository repository) {
+        this.repository = repository;
+    }
 
     @Get
     @Documentation("List SupplierNote")

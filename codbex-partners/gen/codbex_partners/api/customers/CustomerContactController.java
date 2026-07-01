@@ -5,7 +5,6 @@ import gen.codbex_partners.data.customers.CustomerContactRepository;
 
 import org.eclipse.dirigible.components.api.security.UserFacade;
 import org.eclipse.dirigible.sdk.platform.Documentation;
-import org.eclipse.dirigible.sdk.component.Inject;
 import org.eclipse.dirigible.sdk.http.Body;
 import org.eclipse.dirigible.sdk.http.Controller;
 import org.eclipse.dirigible.sdk.http.Delete;
@@ -30,8 +29,11 @@ public class CustomerContactController {
 
     private static final Set<String> FILTER_FIELDS = Set.of("Id", "Customer", "Name", "Designation", "Email", "Phone", "CreatedAt", "CreatedBy");
 
-    @Inject
-    private CustomerContactRepository repository;
+    private final CustomerContactRepository repository;
+
+    public CustomerContactController(CustomerContactRepository repository) {
+        this.repository = repository;
+    }
 
     @Get
     @Documentation("List CustomerContact")

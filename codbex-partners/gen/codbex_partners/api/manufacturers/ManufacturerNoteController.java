@@ -5,7 +5,6 @@ import gen.codbex_partners.data.manufacturers.ManufacturerNoteRepository;
 
 import org.eclipse.dirigible.components.api.security.UserFacade;
 import org.eclipse.dirigible.sdk.platform.Documentation;
-import org.eclipse.dirigible.sdk.component.Inject;
 import org.eclipse.dirigible.sdk.http.Body;
 import org.eclipse.dirigible.sdk.http.Controller;
 import org.eclipse.dirigible.sdk.http.Delete;
@@ -30,8 +29,11 @@ public class ManufacturerNoteController {
 
     private static final Set<String> FILTER_FIELDS = Set.of("Id", "Manufacturer", "Note", "CreatedAt", "CreatedBy", "UpdatedAt", "UpdatedBy");
 
-    @Inject
-    private ManufacturerNoteRepository repository;
+    private final ManufacturerNoteRepository repository;
+
+    public ManufacturerNoteController(ManufacturerNoteRepository repository) {
+        this.repository = repository;
+    }
 
     @Get
     @Documentation("List ManufacturerNote")

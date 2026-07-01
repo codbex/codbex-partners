@@ -5,7 +5,6 @@ import gen.codbex_partners.data.manufacturers.ManufacturerContactRepository;
 
 import org.eclipse.dirigible.components.api.security.UserFacade;
 import org.eclipse.dirigible.sdk.platform.Documentation;
-import org.eclipse.dirigible.sdk.component.Inject;
 import org.eclipse.dirigible.sdk.http.Body;
 import org.eclipse.dirigible.sdk.http.Controller;
 import org.eclipse.dirigible.sdk.http.Delete;
@@ -30,8 +29,11 @@ public class ManufacturerContactController {
 
     private static final Set<String> FILTER_FIELDS = Set.of("Id", "Manufacturer", "Name", "Designation", "Email", "Phone", "CreatedAt", "CreatedBy");
 
-    @Inject
-    private ManufacturerContactRepository repository;
+    private final ManufacturerContactRepository repository;
+
+    public ManufacturerContactController(ManufacturerContactRepository repository) {
+        this.repository = repository;
+    }
 
     @Get
     @Documentation("List ManufacturerContact")

@@ -5,7 +5,6 @@ import gen.codbex_partners.data.customers.CustomerNoteRepository;
 
 import org.eclipse.dirigible.components.api.security.UserFacade;
 import org.eclipse.dirigible.sdk.platform.Documentation;
-import org.eclipse.dirigible.sdk.component.Inject;
 import org.eclipse.dirigible.sdk.http.Body;
 import org.eclipse.dirigible.sdk.http.Controller;
 import org.eclipse.dirigible.sdk.http.Delete;
@@ -30,8 +29,11 @@ public class CustomerNoteController {
 
     private static final Set<String> FILTER_FIELDS = Set.of("Id", "Customer", "Note", "CreatedAt", "CreatedBy", "UpdatedAt", "UpdatedBy");
 
-    @Inject
-    private CustomerNoteRepository repository;
+    private final CustomerNoteRepository repository;
+
+    public CustomerNoteController(CustomerNoteRepository repository) {
+        this.repository = repository;
+    }
 
     @Get
     @Documentation("List CustomerNote")

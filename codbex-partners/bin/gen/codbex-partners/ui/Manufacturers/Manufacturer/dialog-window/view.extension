@@ -1,0 +1,6 @@
+{
+    "module": "codbex-partners/gen/codbex-partners/ui/Manufacturers/Manufacturer/dialog-window/view.js",
+    "extensionPoint": "application-windows",
+    "description": "codbex-partners - Application Dialog Window",
+    "role": "codbex-partners.Manufacturers.ManufacturerReadOnly,codbex-partners.Manufacturers.ManufacturerFullAccess"
+}

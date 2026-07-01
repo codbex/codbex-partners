@@ -1,9 +1,9 @@
 {
   "tablePrefix": "CODBEX_",
   "brand": "codbex",
-  "brandUrl": "https://www.codbex.com/",
-  "title": "Partners Management Module",
-  "description": "Managing Partners Data",
+  "brandUrl": "https://www.codbex.com",
+  "title": "Partners Management System",
+  "description": "Managing partners data",
   "projectName": "codbex-partners",
   "workspaceName": "workspace",
   "filePath": "codbex-partners.model",
@@ -193,6 +193,7 @@
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "dataTypeJavaClass": "Integer",
+          "isNumberType": true,
           "inputRule": ""
         },
         {
@@ -408,6 +409,7 @@
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "dataTypeJavaClass": "Integer",
+          "isNumberType": true,
           "inputRule": ""
         },
         {
@@ -441,6 +443,7 @@
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "dataTypeJavaClass": "Integer",
+          "isNumberType": true,
           "inputRule": ""
         },
         {
@@ -1001,6 +1004,7 @@
             "dataTypeJava": "int",
             "dataTypeTypescript": "number",
             "dataTypeJavaClass": "Integer",
+            "isNumberType": true,
             "inputRule": ""
           },
           {
@@ -1034,6 +1038,7 @@
             "dataTypeJava": "int",
             "dataTypeTypescript": "number",
             "dataTypeJavaClass": "Integer",
+            "isNumberType": true,
             "inputRule": ""
           },
           {
@@ -1366,6 +1371,7 @@
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "dataTypeJavaClass": "Integer",
+          "isNumberType": true,
           "inputRule": ""
         },
         {
@@ -2213,6 +2219,7 @@
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "dataTypeJavaClass": "Integer",
+          "isNumberType": true,
           "inputRule": ""
         },
         {
@@ -2246,6 +2253,7 @@
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "dataTypeJavaClass": "Integer",
+          "isNumberType": true,
           "inputRule": ""
         },
         {
@@ -2459,6 +2467,7 @@
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "dataTypeJavaClass": "Integer",
+          "isNumberType": true,
           "inputRule": ""
         },
         {
@@ -2492,6 +2501,7 @@
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "dataTypeJavaClass": "Integer",
+          "isNumberType": true,
           "inputRule": ""
         },
         {
@@ -2705,6 +2715,7 @@
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "dataTypeJavaClass": "Integer",
+          "isNumberType": true,
           "inputRule": ""
         },
         {
@@ -2738,6 +2749,7 @@
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "dataTypeJavaClass": "Integer",
+          "isNumberType": true,
           "inputRule": ""
         },
         {
@@ -2951,6 +2963,7 @@
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "dataTypeJavaClass": "Integer",
+          "isNumberType": true,
           "inputRule": ""
         },
         {
@@ -3798,6 +3811,7 @@
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "dataTypeJavaClass": "Integer",
+          "isNumberType": true,
           "inputRule": ""
         },
         {
@@ -3833,6 +3847,7 @@
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "dataTypeJavaClass": "Integer",
+          "isNumberType": true,
           "inputRule": ""
         },
         {
@@ -4080,6 +4095,7 @@
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "dataTypeJavaClass": "Integer",
+          "isNumberType": true,
           "inputRule": ""
         },
         {
@@ -4113,6 +4129,7 @@
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "dataTypeJavaClass": "Integer",
+          "isNumberType": true,
           "inputRule": ""
         },
         {
@@ -4356,6 +4373,7 @@
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "dataTypeJavaClass": "Integer",
+          "isNumberType": true,
           "inputRule": ""
         },
         {
@@ -4389,6 +4407,7 @@
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "dataTypeJavaClass": "Integer",
+          "isNumberType": true,
           "inputRule": ""
         },
         {
@@ -4632,6 +4651,7 @@
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "dataTypeJavaClass": "Integer",
+          "isNumberType": true,
           "inputRule": ""
         },
         {
@@ -4816,6 +4836,7 @@
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "dataTypeJavaClass": "Integer",
+          "isNumberType": true,
           "inputRule": ""
         },
         {
@@ -4878,6 +4899,7 @@
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "dataTypeJavaClass": "Integer",
+          "isNumberType": true,
           "inputRule": ""
         }
       ],

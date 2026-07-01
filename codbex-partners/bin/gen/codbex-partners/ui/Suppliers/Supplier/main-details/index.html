@@ -1,0 +1,314 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="page" ng-controller="PageController">
+
+    <head>
+		<meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" sizes="any" href="data:;base64,iVBORw0KGgo=">
+        <title config-title></title>
+        <script type="text/javascript" src="view.js"></script>
+        <meta name="platform-links" category="ng-view">
+		<script type="text/javascript" src="/services/web/dashboard/services/entity.js"></script>
+        <script type="text/javascript" src="controller.js"></script>
+    </head>
+
+    <body class="bk-vbox">
+        <bk-scrollbar class="bk-full-height">
+            <bk-fieldset class="fd-padding-begin-end--sm" ng-form="forms.details">
+                <bk-form-group label="{{formHeaders[action]}}" name="entityForm" transclude-classes="fd-container fd-form-layout-grid-container">
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idFirstName" ng-required="false" colon="true">{{ 'codbex-partners:codbex-partners-model.t.SUPPLIER_FIRSTNAME' | t }}</bk-form-label>
+                        </div>
+                        <div class="fd-col  fd-col-md--8 ">
+							<bk-form-input-message
+								state="{{ forms.details['FirstName'].$valid ? '' : 'error' }}"
+								text="{{ 'codbex-partners:codbex-partners-model.messages.error.lengthMax' | t:{'max':'50.0'} }}">
+								<bk-input id="idFirstName"
+	                                name="FirstName"
+	                                state="{{ forms.details['FirstName'].$valid ? '' : 'error' }}"
+									ng-required="false"
+	                                ng-model="entity.FirstName"
+	                                ng-readonly="action === 'select'"
+									ng-maxlength="50.0"
+	                                type="text"
+	                                placeholder="{{ 'codbex-partners:codbex-partners-model.messages.inputEnter' | t:{'name':'$t(codbex-partners:codbex-partners-model.t.SUPPLIER_FIRSTNAME)'} }}">
+	                            </bk-input>
+							</bk-form-input-message>
+	                    </div>
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idLastName" ng-required="false" colon="true">{{ 'codbex-partners:codbex-partners-model.t.SUPPLIER_LASTNAME' | t }}</bk-form-label>
+                        </div>
+                        <div class="fd-col  fd-col-md--8 ">
+							<bk-form-input-message
+								state="{{ forms.details['LastName'].$valid ? '' : 'error' }}"
+								text="{{ 'codbex-partners:codbex-partners-model.messages.error.lengthMax' | t:{'max':'50.0'} }}">
+								<bk-input id="idLastName"
+	                                name="LastName"
+	                                state="{{ forms.details['LastName'].$valid ? '' : 'error' }}"
+									ng-required="false"
+	                                ng-model="entity.LastName"
+	                                ng-readonly="action === 'select'"
+									ng-maxlength="50.0"
+	                                type="text"
+	                                placeholder="{{ 'codbex-partners:codbex-partners-model.messages.inputEnter' | t:{'name':'$t(codbex-partners:codbex-partners-model.t.SUPPLIER_LASTNAME)'} }}">
+	                            </bk-input>
+							</bk-form-input-message>
+	                    </div>
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idLegalEntityName" ng-required="false" colon="true">{{ 'codbex-partners:codbex-partners-model.t.SUPPLIER_LEGALENTITYNAME' | t }}</bk-form-label>
+                        </div>
+                        <div class="fd-col  fd-col-md--8 ">
+							<bk-form-input-message
+								state="{{ forms.details['LegalEntityName'].$valid ? '' : 'error' }}"
+								text="{{ 'codbex-partners:codbex-partners-model.messages.error.lengthMax' | t:{'max':'255.0'} }}">
+								<bk-input id="idLegalEntityName"
+	                                name="LegalEntityName"
+	                                state="{{ forms.details['LegalEntityName'].$valid ? '' : 'error' }}"
+									ng-required="false"
+	                                ng-model="entity.LegalEntityName"
+	                                ng-readonly="action === 'select'"
+									ng-maxlength="255.0"
+	                                type="text"
+	                                placeholder="{{ 'codbex-partners:codbex-partners-model.messages.inputEnter' | t:{'name':'$t(codbex-partners:codbex-partners-model.t.SUPPLIER_LEGALENTITYNAME)'} }}">
+	                            </bk-input>
+							</bk-form-input-message>
+	                    </div>
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idName" ng-required="false" colon="true">{{ 'codbex-partners:codbex-partners-model.t.SUPPLIER_NAME' | t }}</bk-form-label>
+                        </div>
+                        <div class="fd-col  fd-col-md--8 ">
+								<bk-input id="idName"
+	                                name="Name"
+	                                ng-model="entity.Name"
+	                                ng-readonly="true"
+	                                type="text"
+	                                placeholder="{{ 'codbex-partners:codbex-partners-model.messages.inputEnter' | t:{'name':'$t(codbex-partners:codbex-partners-model.t.SUPPLIER_NAME)'} }}">
+	                            </bk-input>
+	                    </div>
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idEmail" ng-required="true" colon="true">{{ 'codbex-partners:codbex-partners-model.t.SUPPLIER_EMAIL' | t }}</bk-form-label>
+                        </div>
+						<div ng-show="action === 'select'" style="margin: 4px 0px; padding: 0px 10px" class="fd-col fd-col-md--fd-col-md--4 fd-col--6">
+							<bk-link href="mailto:{{entity.Email}}">{{entity.Email}}</bk-link>
+						</div>
+                        <div ng-show="action !== 'select'" class="fd-col fd-col-md--fd-col-md--4 fd-col--6">
+							<bk-form-input-message
+								state="{{ forms.details['Email'].$valid ? '' : 'error' }}"
+								text="{{ 'codbex-partners:codbex-partners-model.messages.error.lengthMax' | t:{'max':'100.0'} }}">
+								<bk-input id="idEmail"
+	                                name="Email"
+	                                state="{{ forms.details['Email'].$valid ? '' : 'error' }}"
+									ng-required="true"
+	                                ng-model="entity.Email"
+	                                ng-readonly="action === 'select'"
+									ng-maxlength="100.0"
+	                                type="email"
+	                                placeholder="{{ 'codbex-partners:codbex-partners-model.messages.inputEnter' | t:{'name':'$t(codbex-partners:codbex-partners-model.t.SUPPLIER_EMAIL)'} }}">
+	                            </bk-input>
+							</bk-form-input-message>
+	                    </div>
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idPhone" ng-required="true" colon="true">{{ 'codbex-partners:codbex-partners-model.t.SUPPLIER_PHONE' | t }}</bk-form-label>
+                        </div>
+						<div ng-show="action === 'select'" style="margin: 4px 0px; padding: 0px 10px" class="fd-col fd-col-md--fd-col-md--2 fd-col--3">
+							<bk-link href="tel:{{entity.Phone}}">{{entity.Phone}}</bk-link>
+						</div>
+                        <div ng-show="action !== 'select'" class="fd-col fd-col-md--fd-col-md--2 fd-col--3">
+							<bk-form-input-message state="{{ forms.details['Phone'].$valid ? '' : 'error' }}" text="{{ 'codbex-partners:codbex-partners-model.messages.error.pattern' | t:{'rule':'^[0-9]{0,14}$'} }}">
+								<bk-input id="idPhone"
+	                                name="Phone"
+	                                state="{{ forms.details['Phone'].$valid ? '' : 'error' }}"
+									ng-required="true"
+	                                ng-model="entity.Phone"
+	                                ng-readonly="action === 'select'"
+									ng-maxlength="15.0"
+	                                input-rules="{ patterns:['^[0-9]{0,14}$'] }"
+	                                type="tel"
+	                                placeholder="{{ 'codbex-partners:codbex-partners-model.messages.inputEnter' | t:{'name':'$t(codbex-partners:codbex-partners-model.t.SUPPLIER_PHONE)'} }}">
+	                            </bk-input>
+							</bk-form-input-message>
+	                    </div>
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idFax" ng-required="true" colon="true">{{ 'codbex-partners:codbex-partners-model.t.SUPPLIER_FAX' | t }}</bk-form-label>
+                        </div>
+                        <div class="fd-col fd-col-md--fd-col-md--2 fd-col--3">
+							<bk-form-input-message
+								state="{{ forms.details['Fax'].$valid ? '' : 'error' }}"
+								text="{{ 'codbex-partners:codbex-partners-model.messages.error.lengthMax' | t:{'max':'20.0'} }}">
+								<bk-input id="idFax"
+	                                name="Fax"
+	                                state="{{ forms.details['Fax'].$valid ? '' : 'error' }}"
+									ng-required="true"
+	                                ng-model="entity.Fax"
+	                                ng-readonly="action === 'select'"
+									ng-maxlength="20.0"
+	                                type="text"
+	                                placeholder="{{ 'codbex-partners:codbex-partners-model.messages.inputEnter' | t:{'name':'$t(codbex-partners:codbex-partners-model.t.SUPPLIER_FAX)'} }}">
+	                            </bk-input>
+							</bk-form-input-message>
+	                    </div>
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idTIN" ng-required="true" colon="true">{{ 'codbex-partners:codbex-partners-model.t.SUPPLIER_TIN' | t }}</bk-form-label>
+                        </div>
+                        <div class="fd-col fd-col-md--fd-col-md--4 fd-col--6">
+							<bk-form-input-message
+								state="{{ forms.details['TIN'].$valid ? '' : 'error' }}"
+								text="{{ 'codbex-partners:codbex-partners-model.messages.error.lengthMax' | t:{'max':'15.0'} }}">
+								<bk-input id="idTIN"
+	                                name="TIN"
+	                                state="{{ forms.details['TIN'].$valid ? '' : 'error' }}"
+									ng-required="true"
+	                                ng-model="entity.TIN"
+	                                ng-readonly="action === 'select'"
+									ng-maxlength="15.0"
+	                                type="text"
+	                                placeholder="{{ 'codbex-partners:codbex-partners-model.messages.inputEnter' | t:{'name':'$t(codbex-partners:codbex-partners-model.t.SUPPLIER_TIN)'} }}">
+	                            </bk-input>
+							</bk-form-input-message>
+	                    </div>
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idIBAN" ng-required="true" colon="true">{{ 'codbex-partners:codbex-partners-model.t.SUPPLIER_IBAN' | t }}</bk-form-label>
+                        </div>
+                        <div class="fd-col fd-col-md--fd-col-md--4 fd-col--6">
+							<bk-form-input-message
+								state="{{ forms.details['IBAN'].$valid ? '' : 'error' }}"
+								text="{{ 'codbex-partners:codbex-partners-model.messages.error.pattern' | t:{'rule':'^[A-Z]{2}[0-9]{2}[A-Z0-9]{11,30}$'} }}">
+								<bk-input id="idIBAN"
+	                                name="IBAN"
+	                                state="{{ forms.details['IBAN'].$valid ? '' : 'error' }}"
+									ng-required="true"
+	                                ng-model="entity.IBAN"
+	                                ng-readonly="action === 'select'"
+									ng-maxlength="34.0"
+									input-rules="{ patterns: ['^[A-Z]{2}[0-9]{2}[A-Z0-9]{11,30}$'] }"
+	                                type="text"
+	                                placeholder="{{ 'codbex-partners:codbex-partners-model.messages.inputEnter' | t:{'name':'$t(codbex-partners:codbex-partners-model.t.SUPPLIER_IBAN)'} }}">
+	                            </bk-input>
+							</bk-form-input-message>
+	                    </div>
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idCreatedAt" ng-required="false" colon="true">{{ 'codbex-partners:codbex-partners-model.t.SUPPLIER_CREATEDAT' | t }}</bk-form-label>
+                        </div>
+                        <div class="fd-col  fd-col-md--8 ">
+							<bk-form-input-message
+								state="{{ forms.details['CreatedAt'].$valid ? '' : 'error' }}"
+								text="{{ 'codbex-partners:codbex-partners-model.messages.error.incorrectInput' | t }}">
+								<bk-input id="idCreatedAt"
+	                                name="CreatedAt"
+	                                state="{{ forms.details['CreatedAt'].$valid ? '' : 'error' }}"
+									ng-required="false"
+	                                ng-model="entity.CreatedAt"
+	                                ng-readonly="true"
+	                                type="text"
+	                                placeholder="{{ 'codbex-partners:codbex-partners-model.messages.inputEnter' | t:{'name':'$t(codbex-partners:codbex-partners-model.t.SUPPLIER_CREATEDAT)'} }}">
+	                            </bk-input>
+							</bk-form-input-message>
+	                    </div>
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idCreatedBy" ng-required="false" colon="true">{{ 'codbex-partners:codbex-partners-model.t.SUPPLIER_CREATEDBY' | t }}</bk-form-label>
+                        </div>
+                        <div class="fd-col  fd-col-md--8 ">
+							<bk-form-input-message
+								state="{{ forms.details['CreatedBy'].$valid ? '' : 'error' }}"
+								text="{{ 'codbex-partners:codbex-partners-model.messages.error.lengthMax' | t:{'max':'20.0'} }}">
+								<bk-input id="idCreatedBy"
+	                                name="CreatedBy"
+	                                state="{{ forms.details['CreatedBy'].$valid ? '' : 'error' }}"
+									ng-required="false"
+	                                ng-model="entity.CreatedBy"
+	                                ng-readonly="true"
+									ng-maxlength="20.0"
+	                                type="text"
+	                                placeholder="{{ 'codbex-partners:codbex-partners-model.messages.inputEnter' | t:{'name':'$t(codbex-partners:codbex-partners-model.t.SUPPLIER_CREATEDBY)'} }}">
+	                            </bk-input>
+							</bk-form-input-message>
+	                    </div>
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idUpdatedAt" ng-required="false" colon="true">{{ 'codbex-partners:codbex-partners-model.t.SUPPLIER_UPDATEDAT' | t }}</bk-form-label>
+                        </div>
+                        <div class="fd-col  fd-col-md--8 ">
+							<bk-form-input-message
+								state="{{ forms.details['UpdatedAt'].$valid ? '' : 'error' }}"
+								text="{{ 'codbex-partners:codbex-partners-model.messages.error.incorrectInput' | t }}">
+								<bk-input id="idUpdatedAt"
+	                                name="UpdatedAt"
+	                                state="{{ forms.details['UpdatedAt'].$valid ? '' : 'error' }}"
+									ng-required="false"
+	                                ng-model="entity.UpdatedAt"
+	                                ng-readonly="true"
+	                                type="text"
+	                                placeholder="{{ 'codbex-partners:codbex-partners-model.messages.inputEnter' | t:{'name':'$t(codbex-partners:codbex-partners-model.t.SUPPLIER_UPDATEDAT)'} }}">
+	                            </bk-input>
+							</bk-form-input-message>
+	                    </div>
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idUpdatedBy" ng-required="false" colon="true">{{ 'codbex-partners:codbex-partners-model.t.SUPPLIER_UPDATEDBY' | t }}</bk-form-label>
+                        </div>
+                        <div class="fd-col  fd-col-md--8 ">
+							<bk-form-input-message
+								state="{{ forms.details['UpdatedBy'].$valid ? '' : 'error' }}"
+								text="{{ 'codbex-partners:codbex-partners-model.messages.error.lengthMax' | t:{'max':'20.0'} }}">
+								<bk-input id="idUpdatedBy"
+	                                name="UpdatedBy"
+	                                state="{{ forms.details['UpdatedBy'].$valid ? '' : 'error' }}"
+									ng-required="false"
+	                                ng-model="entity.UpdatedBy"
+	                                ng-readonly="true"
+									ng-maxlength="20.0"
+	                                type="text"
+	                                placeholder="{{ 'codbex-partners:codbex-partners-model.messages.inputEnter' | t:{'name':'$t(codbex-partners:codbex-partners-model.t.SUPPLIER_UPDATEDBY)'} }}">
+	                            </bk-input>
+							</bk-form-input-message>
+	                    </div>
+                    </bk-form-item>
+                </bk-form-group>
+            </bk-fieldset>
+        </bk-scrollbar>
+
+		<bk-bar bar-design="footer" compact="true" ng-show="action !== 'select'">
+			<bk-bar-right>
+				<bk-bar-element>
+					<bk-button ng-if="action === 'create'" label="{{'codbex-partners:codbex-partners-model.defaults.create' | t}}" state="emphasized" ng-click="create()" ng-disabled="!forms.details.$valid"></bk-button>
+					<bk-button ng-if="action !== 'create'" label="{{'codbex-partners:codbex-partners-model.defaults.update' | t}}" state="emphasized" ng-click="update()" ng-disabled="!forms.details.$valid"></bk-button>
+				</bk-bar-element>
+				<bk-bar-element>
+					<bk-button label="{{ 'codbex-partners:codbex-partners-model.defaults.cancel' | t }}" ng-click="cancel()"></bk-button>
+				</bk-bar-element>
+			</bk-bar-right>
+		</bk-bar>
+		<bk-bar bar-design="footer" compact="true" ng-show="action === 'select' && entityActions.length && entity.Id">
+			<bk-bar-right>
+				<bk-bar-element ng-repeat="action in entityActions track by $index">
+					<bk-button label="{{action.translation.key | t:action.translation.options:action.label}}" ng-click="triggerEntityAction(action)"></bk-button>
+				</bk-bar-element>
+			</bk-bar-right>
+		</bk-bar>
+		<theme></theme>
+    </body>
+
+</html>
